@@ -1,0 +1,43 @@
+//
+//  KDY-PrefixHeader.pch
+//  kuaidiyuan
+//
+//  Created by lidachao on 16/6/10.
+//  Copyright © 2016年 lidachao. All rights reserved.
+//
+
+#ifndef KDY_PrefixHeader_pch
+#define KDY_PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import <UIKit/UIKit.h>
+#import "AppDelegate.h"
+//配置相关
+#import "EnumDefine.h"
+#import "ConfigDefine.h"
+#import "CommonUtils.h"
+#import "BlockDefine.h"
+//用户相关
+#import "UserAccountManager.h"
+//网络相关
+#import "NetworkConfigue.h"
+#import "HttpCommonModel.h"
+#import "HttpClient.h"
+#import "HttpServer.h"
+
+//工具相关
+#import "UIFactory.h"
+#import "ResLoader.h"
+#import "NotificationDefine.h"
+#import "NSDictionary+SafeExpectations.h"
+#import "UserDefaultsDataDeal.h"
+
+//第三方相关
+#import <SDWebImage/UIImageView+WebCache.h>
+#import <AFNetworking/AFNetworking.h>
+#import "MBProgressHUD.h"
+#import "MJRefresh.h"
+
+#endif /* KDY_PrefixHeader_pch */
