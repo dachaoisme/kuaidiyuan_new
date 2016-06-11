@@ -50,13 +50,20 @@
     float height = 48;
     float smallSpace = 15;
     float smallHeight = 36;
-    //大的背景图
-    UIImageView * backgroundImageView = [UIFactory imageView:self.view.frame viewMode:UIViewContentModeScaleToFill image:@"login_bg.jpg"];
-    [self.view addSubview:backgroundImageView];
+    
+    
+    //创建
+    
     //logo
     UIImage * logoImage = [UIImage imageNamed:@"login_logo"];
     UIImageView * logoImageView = [UIFactory imageView:CGRectMake(leftSpace, topSpace, logoImage.size.width, logoImage.size.height) viewMode:UIViewContentModeScaleToFill image:@"login_logo"];
     [self.view addSubview:logoImageView];
+    
+    
+    UILabel *showTextLabel = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2 - 100, NAV_TOP_HEIGHT + 20, SCREEN_WIDTH, 50)];
+    showTextLabel.text = @"学院派快递员";
+    showTextLabel.font = [UIFont systemFontOfSize:20];
+    [self.view addSubview:showTextLabel];
     
     float boardHeight = 0.5;
     
@@ -109,46 +116,13 @@
     passwordTextField.rightView = forgetPasswordBtn;
     
     
-    personalAccountBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [personalAccountBtn setBackgroundColor:[CommonUtils colorWithHex:@"ffffff"]];
-    personalAccountBtn.selected = YES;
-    personalAccountBtn.tag = 10001;
-    personalAccountBtn.layer.cornerRadius = 3.0;
-    [personalAccountBtn setTitleColor:[CommonUtils colorWithHex:@"999999"] forState:UIControlStateNormal];
-    [personalAccountBtn setImage: [UIImage imageNamed:@"login_type_check"] forState:UIControlStateSelected];
-    
-    [personalAccountBtn setTitleColor:[CommonUtils colorWithHex:@"00beaf"] forState:UIControlStateSelected];
-    [personalAccountBtn setFrame:CGRectMake(leftSpace, CGRectGetMaxY(textFieldbackgroundView.frame)+smallSpace, (SCREEN_WIDTH-smallSpace-2*leftSpace)/2, smallHeight)];
-    [personalAccountBtn setImageEdgeInsets:UIEdgeInsetsMake(smallHeight - 39/2, (SCREEN_WIDTH-smallSpace-2*leftSpace)/2 - 39/2, 0, 0)];
-    
-    [personalAccountBtn addTarget:self action:@selector(selectedLoginMethodWithBtn:) forControlEvents:UIControlEventTouchUpInside];
-    [personalAccountBtn setTitle:@"个人账号" forState:UIControlStateNormal];
-    personalAccountBtn.titleLabel.font = [UIFont systemFontOfSize:14];
-    [self.view addSubview:personalAccountBtn];
-    
-    teacherAccountBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [teacherAccountBtn setBackgroundColor:[CommonUtils colorWithHex:@"ffffff"]];
-    teacherAccountBtn.tag = 10002;
-    teacherAccountBtn.layer.cornerRadius = 3.0;
-    [teacherAccountBtn setTitleColor:[CommonUtils colorWithHex:@"999999"] forState:UIControlStateNormal];
-    [teacherAccountBtn setTitleColor:[CommonUtils colorWithHex:@"00beaf"] forState:UIControlStateSelected];
-    
-    [teacherAccountBtn setImage: [UIImage imageNamed:@"login_type_check"] forState:UIControlStateSelected];
-    [teacherAccountBtn setImageEdgeInsets:UIEdgeInsetsMake(smallHeight - 39/2, (SCREEN_WIDTH-smallSpace-2*leftSpace)/2 - 39/2, 0, 0)];
-    
-    [teacherAccountBtn setFrame:CGRectMake(CGRectGetMaxX(personalAccountBtn.frame)+smallSpace, CGRectGetMaxY(textFieldbackgroundView.frame)+smallSpace, CGRectGetWidth(personalAccountBtn.frame), smallHeight)];
-    [teacherAccountBtn addTarget:self action:@selector(selectedLoginMethodWithBtn:) forControlEvents:UIControlEventTouchUpInside];
-    [teacherAccountBtn setTitle:@"导师账号" forState:UIControlStateNormal];
-    teacherAccountBtn.titleLabel.font = [UIFont systemFontOfSize:14];
-    [self.view addSubview:teacherAccountBtn];
-    
     //登陆按钮
     loginBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [loginBtn setBackgroundColor:[CommonUtils colorWithHex:@"00beaf"]];
     loginBtn.tag = 10002;
     loginBtn.layer.cornerRadius = 5.0;
     [loginBtn setTitleColor:[CommonUtils colorWithHex:@"ffffff"] forState:UIControlStateNormal];
-    [loginBtn setFrame:CGRectMake(leftSpace, CGRectGetMaxY(personalAccountBtn.frame)+smallSpace, width, height)];
+    [loginBtn setFrame:CGRectMake(leftSpace, CGRectGetMaxY(textFieldbackgroundView.frame)+smallSpace, width, height)];
     [loginBtn addTarget:self action:@selector(loginAccount:) forControlEvents:UIControlEventTouchUpInside];
     [loginBtn setTitle:@"登陆" forState:UIControlStateNormal];
     loginBtn.layer.masksToBounds = YES;
@@ -158,14 +132,14 @@
     
     //注册按钮
     registerBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [registerBtn setBackgroundColor:[CommonUtils colorWithHex:@"ffffff"]];
+    [registerBtn setBackgroundColor:[CommonUtils colorWithHex:@"00beaf"]];
     registerBtn.tag = 10002;
     registerBtn.layer.cornerRadius = 5.0;
     registerBtn.layer.masksToBounds = YES;
-    [registerBtn setTitleColor:[CommonUtils colorWithHex:@"00beaf"] forState:UIControlStateNormal];
+    [registerBtn setTitleColor:[CommonUtils colorWithHex:@"ffffff"] forState:UIControlStateNormal];
     [registerBtn setFrame:CGRectMake(leftSpace, CGRectGetMaxY(loginBtn.frame)+smallSpace, width, height)];
     [registerBtn addTarget:self action:@selector(registerAccount:) forControlEvents:UIControlEventTouchUpInside];
-    [registerBtn setTitle:@"注册" forState:UIControlStateNormal];
+    [registerBtn setTitle:@"申请成为快递员" forState:UIControlStateNormal];
     registerBtn.titleLabel.font = [UIFont systemFontOfSize:16];
     [self.view addSubview:registerBtn];
     
