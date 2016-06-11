@@ -36,6 +36,8 @@
     [self creatRightNavWithImageName:@"nav_icon_msg"];
    
 }
+
+
 #pragma mark - 我的
 -(void)leftItemActionWithBtn:(UIButton *)sender
 {

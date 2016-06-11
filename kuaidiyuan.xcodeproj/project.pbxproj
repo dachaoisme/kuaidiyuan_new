@@ -59,7 +59,6 @@
 		58F80AF11D0AEF870099DCCD /* HttpModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F80AEB1D0AEF870099DCCD /* HttpModel.m */; };
 		58F80AF21D0AEF870099DCCD /* HttpServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F80AED1D0AEF870099DCCD /* HttpServer.m */; };
 		58F80B181D0AEFA60099DCCD /* IndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F80AFC1D0AEFA60099DCCD /* IndexViewController.m */; };
-		58F80B191D0AEFA60099DCCD /* IndexBannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F80AFF1D0AEFA60099DCCD /* IndexBannerModel.m */; };
 		58F80B2C1D0AEFC30099DCCD /* CommonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F80B2B1D0AEFC30099DCCD /* CommonTableViewCell.m */; };
 		58F80B2F1D0AEFCC0099DCCD /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F80B2E1D0AEFCC0099DCCD /* BaseViewController.m */; };
 		58F80B321D0AEFDA0099DCCD /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 58F80B301D0AEFDA0099DCCD /* 1.jpg */; };
@@ -87,6 +86,8 @@
 		58F80C301D0BB8A70099DCCD /* Default-414w-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58F80C2C1D0BB8A70099DCCD /* Default-414w-736h@3x.png */; };
 		58F80C311D0BB8A70099DCCD /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58F80C2D1D0BB8A70099DCCD /* Default-568h@2x.png */; };
 		58F80C321D0BB8A70099DCCD /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58F80C2E1D0BB8A70099DCCD /* Default@2x.png */; };
+		58F80C381D0C41630099DCCD /* AccountUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F80C371D0C41620099DCCD /* AccountUserModel.m */; };
+		58F80C3B1D0C42BE0099DCCD /* IndexModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F80C3A1D0C42BE0099DCCD /* IndexModel.m */; };
 		C91B084442DAEAF82911F64E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 047CF6A5687BBAC66C616E8D /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -217,8 +218,6 @@
 		58F80AEE1D0AEF870099DCCD /* NetworkConfigue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkConfigue.h; sourceTree = "<group>"; };
 		58F80AFB1D0AEFA60099DCCD /* IndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexViewController.h; sourceTree = "<group>"; };
 		58F80AFC1D0AEFA60099DCCD /* IndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndexViewController.m; sourceTree = "<group>"; };
-		58F80AFE1D0AEFA60099DCCD /* IndexBannerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexBannerModel.h; sourceTree = "<group>"; };
-		58F80AFF1D0AEFA60099DCCD /* IndexBannerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndexBannerModel.m; sourceTree = "<group>"; };
 		58F80B251D0AEFB70099DCCD /* BlockDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockDefine.h; sourceTree = "<group>"; };
 		58F80B261D0AEFB70099DCCD /* ConfigDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigDefine.h; sourceTree = "<group>"; };
 		58F80B271D0AEFB70099DCCD /* EnumDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnumDefine.h; sourceTree = "<group>"; };
@@ -273,6 +272,10 @@
 		58F80C2C1D0BB8A70099DCCD /* Default-414w-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-414w-736h@3x.png"; sourceTree = "<group>"; };
 		58F80C2D1D0BB8A70099DCCD /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		58F80C2E1D0BB8A70099DCCD /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		58F80C361D0C41620099DCCD /* AccountUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountUserModel.h; sourceTree = "<group>"; };
+		58F80C371D0C41620099DCCD /* AccountUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountUserModel.m; sourceTree = "<group>"; };
+		58F80C391D0C42BE0099DCCD /* IndexModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexModel.h; sourceTree = "<group>"; };
+		58F80C3A1D0C42BE0099DCCD /* IndexModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndexModel.m; sourceTree = "<group>"; };
 		9C96E5C62419308E5F1AC4CB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		C8439E64CB2817B8FC072CBF /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -629,8 +632,8 @@
 		58F80AFD1D0AEFA60099DCCD /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				58F80AFE1D0AEFA60099DCCD /* IndexBannerModel.h */,
-				58F80AFF1D0AEFA60099DCCD /* IndexBannerModel.m */,
+				58F80C391D0C42BE0099DCCD /* IndexModel.h */,
+				58F80C3A1D0C42BE0099DCCD /* IndexModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -769,6 +772,8 @@
 			children = (
 				58F80C0D1D0BB4A60099DCCD /* CollegeModel.h */,
 				58F80C0E1D0BB4A60099DCCD /* CollegeModel.m */,
+				58F80C361D0C41620099DCCD /* AccountUserModel.h */,
+				58F80C371D0C41620099DCCD /* AccountUserModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1022,9 +1027,11 @@
 				58F80ABF1D0AEF5D0099DCCD /* IQToolbar.m in Sources */,
 				58F80AB81D0AEF5D0099DCCD /* IQUIWindow+Hierarchy.m in Sources */,
 				58F80A5E1D0AEF3D0099DCCD /* BaseTabBarView.m in Sources */,
+				58F80C381D0C41630099DCCD /* AccountUserModel.m in Sources */,
 				58F80AEF1D0AEF870099DCCD /* HttpClient.m in Sources */,
 				58F80AC81D0AEF5D0099DCCD /* MJRefreshConst.m in Sources */,
 				58F80B2F1D0AEFCC0099DCCD /* BaseViewController.m in Sources */,
+				58F80C3B1D0C42BE0099DCCD /* IndexModel.m in Sources */,
 				58F80C201D0BB4A60099DCCD /* LoginViewController.m in Sources */,
 				58F80AC71D0AEF5D0099DCCD /* MJRefreshComponent.m in Sources */,
 				58F80C1E1D0BB4A60099DCCD /* ForgetPasswordOfSetNewPasswordViewController.m in Sources */,
@@ -1069,7 +1076,6 @@
 				58F80C241D0BB4A60099DCCD /* AddTeacherInfoTableViewCell.m in Sources */,
 				58F80AD11D0AEF5D0099DCCD /* UIView+MJExtension.m in Sources */,
 				58F80C221D0BB4A60099DCCD /* SelectedSchollViewController.m in Sources */,
-				58F80B191D0AEFA60099DCCD /* IndexBannerModel.m in Sources */,
 				58F80C211D0BB4A60099DCCD /* RegisterViewController.m in Sources */,
 				58F80AE21D0AEF690099DCCD /* UIFactory.m in Sources */,
 				58F80AC91D0AEF5D0099DCCD /* MJRefreshFooter.m in Sources */,

@@ -1,21 +1,19 @@
 //
-//  IndexBannerModel.m
-//  xueyuanpai
+//  IndexModel.m
+//  kuaidiyuan
 //
-//  Created by lidachao on 16/5/10.
+//  Created by lidachao on 16/6/11.
 //  Copyright © 2016年 lidachao. All rights reserved.
 //
 
-#import "IndexBannerModel.h"
+#import "IndexModel.h"
 
-
-@implementation IndexBannerModel
-
+@implementation IndexModel
 -(id)initWithDic:(NSDictionary *)dic
 {
     self = [super init];
     if (self) {
-   
+        
         
     }
     
@@ -24,3 +22,4 @@
 }
 
 @end
+
