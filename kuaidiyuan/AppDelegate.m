@@ -30,7 +30,7 @@
 -(void)setRootViewController
 {
     
-    if ([UserAccountManager sharedInstance].isLogin == NO) {
+    if ([UserAccountManager sharedInstance].isLogin == YES) {
         IndexViewController * loginVC = [[IndexViewController alloc]init];
         UINavigationController * navigationVC = [[UINavigationController alloc]initWithRootViewController:loginVC];
         //navigationVC.navigationBar.barTintColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:1.0];

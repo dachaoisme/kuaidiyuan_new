@@ -10,6 +10,9 @@
 #import "RegisterViewController.h"
 #import "RegisterRoleView.h"
 #import "ForgetPasswordViewController.h"
+
+#import "RegisterViewController.h"
+
 @interface LoginViewController ()<RegisterRoleViewDelegate>
 {
     UITextField *phoneTextField;
@@ -248,28 +251,12 @@
 #pragma mark - 注册
 -(void)registerAccount:(UIButton *)sender
 {
-    [CommonUtils showToastWithStr:@"注册"];
     
+    //注册按钮的响应方法
+    RegisterViewController *registerVC = [[RegisterViewController alloc] init];
     
-    if (registerRoleAlertView) {
-        registerRoleAlertView = nil;
-    }
-    registerRoleAlertView = [[RegisterRoleView alloc]initWithFrame:CGRectMake(35, self.view.center.y-75, SCREEN_WIDTH-35*2, 150) withSuperView:self.view];
-    registerRoleAlertView.delegate = self;
-    registerRoleAlertView.clipsToBounds = YES;
-    registerRoleAlertView.layer.cornerRadius = 10.0;
-    registerRoleAlertView.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:registerRoleAlertView];
-    
-}
--(void)registerRoleWithType:(RegisterRoleType)registerRoleType
-{
-    
-    RegisterViewController * registerVC = [[RegisterViewController alloc]init];
-    registerVC.registerRoleType = registerRoleType;
     [self.navigationController pushViewController:registerVC animated:YES];
-    [registerRoleAlertView removeFromSuperview];
-    registerRoleAlertView = nil;
+    
 }
 #pragma mark - 随便看看
 -(void)justToLook:(UIButton *)sender
