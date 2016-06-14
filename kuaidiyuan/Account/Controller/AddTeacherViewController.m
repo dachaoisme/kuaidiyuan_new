@@ -145,11 +145,11 @@
         NSMutableDictionary * imageDic = [NSMutableDictionary dictionary];
         NSData * imageData = UIImagePNGRepresentation(selectedImage);
         [imageDic setObject:imageData forKey:@"Users[file]"];
-        [[HttpClient sharedInstance]uploadImageWithParams:dic withUploadDic:imageDic withSuccessBlock:^(HttpResponseCodeModel *model) {
-            avatarImageUploaded = [dic objectForKey:@"picUrl"];
-        } withFaileBlock:^(NSError *error) {
-            
-        }];
+//        [[HttpClient sharedInstance]uploadImageWithParams:dic withUploadDic:imageDic withSuccessBlock:^(HttpResponseCodeModel *model) {
+//            avatarImageUploaded = [dic objectForKey:@"picUrl"];
+//        } withFaileBlock:^(NSError *error) {
+//            
+//        }];
         
     };
     [[UIApplication sharedApplication].delegate.window addSubview:selectedImageView];
@@ -335,17 +335,17 @@
         [dic setObject:avatarImageUploaded forKey:@"icon"];
     }
     
-    [[HttpClient sharedInstance]updateTeacherInfoWithParams:dic withSuccessBlock:^(HttpResponseCodeModel *model) {
-        //更新导师资料
-        if (model.responseCode == ResponseCodeSuccess) {
-            [CommonUtils showToastWithStr:@"提交审核成功"];
-            [self.navigationController popToRootViewControllerAnimated:YES];
-        }else{
-            [CommonUtils showToastWithStr:model.responseMsg];
-        }
-    } withFaileBlock:^(NSError *error) {
-        
-    }];
+//    [[HttpClient sharedInstance]updateTeacherInfoWithParams:dic withSuccessBlock:^(HttpResponseCodeModel *model) {
+//        //更新导师资料
+//        if (model.responseCode == ResponseCodeSuccess) {
+//            [CommonUtils showToastWithStr:@"提交审核成功"];
+//            [self.navigationController popToRootViewControllerAnimated:YES];
+//        }else{
+//            [CommonUtils showToastWithStr:model.responseMsg];
+//        }
+//    } withFaileBlock:^(NSError *error) {
+//        
+//    }];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
