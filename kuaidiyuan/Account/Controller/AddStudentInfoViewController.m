@@ -140,11 +140,11 @@
         NSMutableDictionary * imageDic = [NSMutableDictionary dictionary];
         NSData * imageData = UIImagePNGRepresentation(selectedImage);
         [imageDic setObject:imageData forKey:@"Users[file]"];
-        [[HttpClient sharedInstance]uploadImageWithParams:dic withUploadDic:imageDic withSuccessBlock:^(HttpResponseCodeModel *model) {
-            avatarImageUploaded = [dic objectForKey:@"picUrl"];
-        } withFaileBlock:^(NSError *error) {
-            
-        }];
+//        [[HttpClient sharedInstance]uploadImageWithParams:dic withUploadDic:imageDic withSuccessBlock:^(HttpResponseCodeModel *model) {
+//            avatarImageUploaded = [dic objectForKey:@"picUrl"];
+//        } withFaileBlock:^(NSError *error) {
+//            
+//        }];
         
     };
     [[UIApplication sharedApplication].delegate.window addSubview:selectedImageView];
@@ -217,15 +217,15 @@
     [dic setObject:[[sexBtn titleForState:UIControlStateNormal] isEqualToString:@"男"]?@"1":@"0" forKey:@"sex"];
     [dic setObject:avatarImageUploaded?avatarImageUploaded:@"" forKey:@"icon"];
     
-    [[HttpClient sharedInstance]updateStudentInfoWithParams:nil withSuccessBlock:^(HttpResponseCodeModel *model) {
-        if (model.responseCode == ResponseCodeSuccess) {
-            [CommonUtils showToastWithStr:@"用户资料更新成功"];
-        }else{
-            [CommonUtils showToastWithStr:@"用户资料更新失败"];
-        }
-    } withFaileBlock:^(NSError *error) {
-        
-    }];
+//    [[HttpClient sharedInstance]updateStudentInfoWithParams:nil withSuccessBlock:^(HttpResponseCodeModel *model) {
+//        if (model.responseCode == ResponseCodeSuccess) {
+//            [CommonUtils showToastWithStr:@"用户资料更新成功"];
+//        }else{
+//            [CommonUtils showToastWithStr:@"用户资料更新失败"];
+//        }
+//    } withFaileBlock:^(NSError *error) {
+//        
+//    }];
     
 }
 #pragma mark - 稍后完善

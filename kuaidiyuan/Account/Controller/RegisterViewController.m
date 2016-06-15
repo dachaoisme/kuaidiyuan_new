@@ -137,20 +137,20 @@
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     [params setObject:phoneNum forKey:@"mobile"];
-    [[HttpClient sharedInstance]registerOfSendMessageWithParams:params withSuccessBlock:^(HttpResponseCodeModel *model) {
-
-        if (model.responseCode == ResponseCodeSuccess) {
-            [CommonUtils showToastWithStr:@"发送成功"];
-            //请求成功了，才改变发送按钮的倒计时
-            [self startTimer];
-        }else{
-            [CommonUtils showToastWithStr:model.responseMsg];
-        }
-        
-    } withFaileBlock:^(NSError *error) {
-        
-        
-    }];
+//    [[HttpClient sharedInstance]registerOfSendMessageWithParams:params withSuccessBlock:^(HttpResponseCodeModel *model) {
+//
+//        if (model.responseCode == ResponseCodeSuccess) {
+//            [CommonUtils showToastWithStr:@"发送成功"];
+//            //请求成功了，才改变发送按钮的倒计时
+//            [self startTimer];
+//        }else{
+//            [CommonUtils showToastWithStr:model.responseMsg];
+//        }
+//        
+//    } withFaileBlock:^(NSError *error) {
+//        
+//        
+//    }];
     
     
 }
@@ -191,34 +191,34 @@
     [params setObject:inputPasswordTextField.text forKey:@"passwd"];
     [params setObject:checkingMessageTextField.text forKey:@"captcha"];
     
-    [[HttpClient sharedInstance]registerAndSubmitWithParams:params withSuccessBlock:^(HttpResponseCodeModel *responseModel, NSDictionary *listDic) {
-        if (responseModel.responseCode == ResponseCodeSuccess) {
-            NSString * userId = [listDic objectForKey:@"user_id"];
-            
-            if (self.registerRoleType == RegisterRoleOfStudent) {
-    
-                //学生->跳转到设置用户资料界面，直接登录成功
-                AddStudentInfoViewController * studentInfoVC = [[AddStudentInfoViewController alloc]init];
-                studentInfoVC.userId = userId;
-                [self.navigationController pushViewController:studentInfoVC animated:YES];
-                //保存学生的用户信息
-                [[UserAccountManager sharedInstance]loginWithUserPhoneNum:phoneTextField.text andPassWord:inputPasswordTextField.text];
-                
-            }else{
-                //教师->跳转到设置教师的用户资料界面，设置成功以后，返回登录页，因为需要审核
-                AddTeacherViewController * teacherInfoVC = [[AddTeacherViewController alloc]init];
-                teacherInfoVC.userId = userId;
-                [self.navigationController pushViewController:teacherInfoVC animated:YES];
-            }
-            
-            
-            
-        }else{
-            [CommonUtils showToastWithStr:responseModel.responseMsg];
-        }
-    } withFaileBlock:^(NSError *error) {
-        
-    }];
+//    [[HttpClient sharedInstance]registerAndSubmitWithParams:params withSuccessBlock:^(HttpResponseCodeModel *responseModel, NSDictionary *listDic) {
+//        if (responseModel.responseCode == ResponseCodeSuccess) {
+//            NSString * userId = [listDic objectForKey:@"user_id"];
+//            
+//            if (self.registerRoleType == RegisterRoleOfStudent) {
+//    
+//                //学生->跳转到设置用户资料界面，直接登录成功
+//                AddStudentInfoViewController * studentInfoVC = [[AddStudentInfoViewController alloc]init];
+//                studentInfoVC.userId = userId;
+//                [self.navigationController pushViewController:studentInfoVC animated:YES];
+//                //保存学生的用户信息
+//                [[UserAccountManager sharedInstance]loginWithUserPhoneNum:phoneTextField.text andPassWord:inputPasswordTextField.text];
+//                
+//            }else{
+//                //教师->跳转到设置教师的用户资料界面，设置成功以后，返回登录页，因为需要审核
+//                AddTeacherViewController * teacherInfoVC = [[AddTeacherViewController alloc]init];
+//                teacherInfoVC.userId = userId;
+//                [self.navigationController pushViewController:teacherInfoVC animated:YES];
+//            }
+//            
+//            
+//            
+//        }else{
+//            [CommonUtils showToastWithStr:responseModel.responseMsg];
+//        }
+//    } withFaileBlock:^(NSError *error) {
+//        
+//    }];
 }
 
 #pragma mark - 倒计时相关

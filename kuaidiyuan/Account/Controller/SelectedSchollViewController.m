@@ -94,16 +94,16 @@
     [dic setObject:searchText forKey:@"name"];
     [dic setObject:[NSString stringWithFormat:@"%d",pageCount] forKey:@"size"];
     [dic setObject:[NSString stringWithFormat:@"%d",page] forKey:@"page"];
-    [[HttpClient sharedInstance]searchCollegeWithParams:dic withSuccessBlock:^(HttpResponseCodeModel *responseModel, HttpResponsePageModel *pageModel, NSDictionary *ListDic) {
-        NSArray * dicArr = [ListDic objectForKey:@"lists"];
-        for (NSDictionary * dic in dicArr) {
-            CollegeModel *collegeModel = [[CollegeModel alloc] initWithDic:dic];
-            [dataArr addObject:collegeModel];
-        }
-        [self.tableView reloadData];
-    } withFaileBlock:^(NSError *error) {
-        
-    }];
+//    [[HttpClient sharedInstance]searchCollegeWithParams:dic withSuccessBlock:^(HttpResponseCodeModel *responseModel, HttpResponsePageModel *pageModel, NSDictionary *ListDic) {
+//        NSArray * dicArr = [ListDic objectForKey:@"lists"];
+//        for (NSDictionary * dic in dicArr) {
+//            CollegeModel *collegeModel = [[CollegeModel alloc] initWithDic:dic];
+//            [dataArr addObject:collegeModel];
+//        }
+//        [self.tableView reloadData];
+//    } withFaileBlock:^(NSError *error) {
+//        
+//    }];
  
 }
 
