@@ -11,10 +11,10 @@
 @protocol RegisterTwoTableViewCellDelegate <NSObject>
 
 ///获取身份证正面
-- (void)getIdCardFont;
+- (void)getIdCardFontWithBtn:(UIButton*)sender;
 
 ///获取身份证反面
-- (void)getIdCardBack;
+- (void)getIdCardBackWithBtn:(UIButton*)sender;
 
 
 @end

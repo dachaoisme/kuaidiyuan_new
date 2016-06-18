@@ -28,42 +28,11 @@
  "skillful": "",//擅长辅导领域
  "tutorbackground": "" //导师背景
  */
-///用户ID 唯一标示
-@property (nonatomic, strong) NSString *userId;
-///用户积分
-@property (nonatomic, strong) NSString *userUsablePoints;
-///用户钱包
-@property (nonatomic, strong) NSString *userUsableMoney;
-///用户角色
-@property (nonatomic, assign) UserInfoRole userRole;
-///用户头像
-@property (nonatomic, strong) NSString *userIcon;
-///用户昵称
-@property (nonatomic, strong) NSString *userNickname;
-///用户手机号
-@property (nonatomic, strong) NSString *userMobile;
-///用户大学序号
-@property (nonatomic, strong) NSString *userCollegeId;
-///用户大学名称
-@property (nonatomic, strong) NSString *userCollegeName;
-///用户性别
-@property (nonatomic, assign) UserInfoSex userSex;
-///用户真实姓名
-@property (nonatomic, strong) NSString *userRealName;
-///用户身份证
-@property (nonatomic, strong) NSString *userIdCard;
-///用户工作单位
-@property (nonatomic, strong) NSString *userCompany;
-///用户职务
-@property (nonatomic, strong) NSString *userJob;
-///用户联系电话
-@property (nonatomic, strong) NSString *userTelphone;
-///用户邮箱
-@property (nonatomic, strong) NSString *userEmail;
-///用户技能
-@property (nonatomic, strong) NSString *userSkillful;
-///用户导师北京
-@property (nonatomic, strong) NSString *userTutorbackground;
+
+///快递员id
+@property (nonatomic, strong) NSString *userCourierId;
+///学院派
+@property (nonatomic, strong) NSString *userXueYuanPaiId;
 ///是否是登陆状态
 @property (nonatomic, assign) BOOL isLogin;
 

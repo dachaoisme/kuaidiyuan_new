@@ -18,10 +18,22 @@
 
 
 #pragma mark - 用户相关
-///申请成为快递员
-#define METHOD_APPLY_COURIER            @"v1/courier/apply?"
-///登陆
-#define METHOD_APPLY_LOGIN              @"v1/courier/signin?"
+///发送验证码
+#define METHOD_OF_SEND_MESSAGE           @"v1/user/sendmessage?"
+///登录
+#define METHOD_OF_LOGIN                  @"v1/courier/signin?"
+///注册
+#define METHOD_OF_REGISTER               @"v1/courier/reg/?"
+///用户头像上传
+#define METHOD_OF_UPLOAD                 @"v1/user/upload/"
+///上传身份证等多张图片
+#define METHOD_OF_IMAGES_UPLOAD          @"v1/fleamarket/imageupload/"
+///完善资料
+#define METHOD_OF_INFO_PERFECT           @"v1/courier/updateuserinfo/"
+///根据关键字查询学校
+#define METHOD_OF_COLLEGE_SEARCH         @"v1/college/search?"
+
+
 
 #pragma mark - 送快递相关
 ///送快递记录

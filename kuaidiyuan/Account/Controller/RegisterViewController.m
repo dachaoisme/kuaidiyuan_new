@@ -7,10 +7,6 @@
 //
 
 #import "RegisterViewController.h"
-#import "AddStudentInfoViewController.h"
-#import "AddTeacherViewController.h"
-
-
 #import "RegisterDetailViewController.h"
 @interface RegisterViewController ()<UITextFieldDelegate>
 {
@@ -140,20 +136,20 @@
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     [params setObject:phoneNum forKey:@"mobile"];
-//    [[HttpClient sharedInstance]registerOfSendMessageWithParams:params withSuccessBlock:^(HttpResponseCodeModel *model) {
-//
-//        if (model.responseCode == ResponseCodeSuccess) {
-//            [CommonUtils showToastWithStr:@"发送成功"];
-//            //请求成功了，才改变发送按钮的倒计时
-//            [self startTimer];
-//        }else{
-//            [CommonUtils showToastWithStr:model.responseMsg];
-//        }
-//        
-//    } withFaileBlock:^(NSError *error) {
-//        
-//        
-//    }];
+    [[HttpClient sharedInstance]registerOfSendMessageWithParams:params withSuccessBlock:^(HttpResponseCodeModel *model) {
+
+        if (model.responseCode == ResponseCodeSuccess) {
+            [CommonUtils showToastWithStr:@"发送成功"];
+            //请求成功了，才改变发送按钮的倒计时
+            [self startTimer];
+        }else{
+            [CommonUtils showToastWithStr:model.responseMsg];
+        }
+        
+    } withFaileBlock:^(NSError *error) {
+        
+        
+    }];
     
     
 }
@@ -161,9 +157,39 @@
 {
         
     
-    //跳转
-    RegisterDetailViewController *registerDetailVC = [[RegisterDetailViewController alloc] init];
-    [self.navigationController pushViewController:registerDetailVC animated:YES];
+////    //跳转
+//    RegisterDetailViewController *registerDetailVC = [[RegisterDetailViewController alloc] init];
+//    [self.navigationController pushViewController:registerDetailVC animated:YES];
+//    
+    if (phoneTextField.text.length<=0) {
+        [CommonUtils showToastWithStr:@"请输入有效手机号"];
+        return;
+    }
+    if (inputPasswordTextField.text.length<=0) {
+        [CommonUtils showToastWithStr:@"请输入密码"];
+        return;
+    }
+    if (checkingMessageTextField.text.length<=0) {
+        [CommonUtils showToastWithStr:@"请输入验证码"];
+        return;
+    }
+    NSMutableDictionary * params = [NSMutableDictionary dictionary];
+    [params setObject:phoneTextField.text forKey:@"telphone"];
+    [params setObject:inputPasswordTextField.text forKey:@"passwd"];
+    [params setObject:checkingMessageTextField.text forKey:@"captcha"];
+    
+    [[HttpClient sharedInstance]registerAndSubmitWithParams:params withSuccessBlock:^(HttpResponseCodeModel *responseModel, NSDictionary *listDic) {
+        if (responseModel.responseCode == ResponseCodeSuccess) {
+            [[UserAccountManager sharedInstance]loginWithUserPhoneNum:phoneTextField.text andPassWord:inputPasswordTextField.text];
+            RegisterDetailViewController *registerDetailVC = [[RegisterDetailViewController alloc] init];
+            [self.navigationController pushViewController:registerDetailVC animated:YES];
+            
+        }else{
+            [CommonUtils showToastWithStr:responseModel.responseMsg];
+        }
+    } withFaileBlock:^(NSError *error) {
+        
+    }];
     
 }
 
