@@ -1,27 +1,29 @@
 //
-//  CampusCourierHomePageViewController.m
+//  CourierMessageViewController.m
 //  kuaidiyuan
 //
 //  Created by 王园园 on 16/6/18.
 //  Copyright © 2016年 lidachao. All rights reserved.
 //
 
-#import "CampusCourierHomePageViewController.h"
+#import "CourierMessageViewController.h"
 
-
-
-@interface CampusCourierHomePageViewController ()
+@interface CourierMessageViewController ()
 
 @end
 
-@implementation CampusCourierHomePageViewController
+@implementation CourierMessageViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    //校内快递员
+    self.title = @"取件消息";
+    
+    [self createLeftBackNavBtn];
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

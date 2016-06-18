@@ -11,6 +11,11 @@
 #import "CourierHomePageOneTableViewCell.h"
 #import "CourierHomePageTwoTableViewCell.h"
 
+#import "CampusCourierHomePageTableViewCell.h"
+
+#import "DeliveryRecordViewController.h"
+
+
 @interface CourierHomePageViewController ()<UITableViewDataSource,UITableViewDelegate,CourierHomePageTwoTableViewCellDelegate>
 
 @property (nonatomic,strong)UITableView *tableView;
@@ -22,7 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    //校外快递员界面
+    //校内快递员界面
     
     self.title = @"学院派快递员";
     
@@ -39,7 +44,7 @@
 - (void)createFootView{
     
     UIButton *informGetCourierBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [informGetCourierBtn setTitle:@"通知去快递" forState:UIControlStateNormal];
+    [informGetCourierBtn setTitle:@"通知取快递" forState:UIControlStateNormal];
     [informGetCourierBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     informGetCourierBtn.layer.cornerRadius = 6;
     informGetCourierBtn.layer.masksToBounds = YES;
@@ -49,7 +54,7 @@
     
     
     UIButton *scanConfirmDelayBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [scanConfirmDelayBtn setTitle:@"通知去快递" forState:UIControlStateNormal];
+    [scanConfirmDelayBtn setTitle:@"扫一扫确认送达" forState:UIControlStateNormal];
     scanConfirmDelayBtn.layer.cornerRadius = 6;
     scanConfirmDelayBtn.layer.masksToBounds = YES;
     [scanConfirmDelayBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -72,6 +77,9 @@
     [tableView registerNib:[UINib nibWithNibName:@"CourierHomePageOneTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"oneCell"];
     [tableView registerNib:[UINib nibWithNibName:@"CourierHomePageTwoTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"twoCell"];
     
+
+     [tableView registerNib:[UINib nibWithNibName:@"CampusCourierHomePageTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"threeCell"];
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -80,7 +88,7 @@
         return 1;
     }else{
         
-        return 4;
+        return 2;
     }
     
     
@@ -88,7 +96,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     
-    return 2;
+    return 3;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -99,25 +107,39 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if (indexPath.section == 0) {
+        
+        CampusCourierHomePageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"threeCell" forIndexPath:indexPath];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+
+        return cell;
+
+    }else if(indexPath.section == 1){
+        
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        
-        cell.textLabel.text = @"全部送快递记录";
         cell.textLabel.font = [UIFont systemFontOfSize:14];
-        
-        
-        
+
+        if (indexPath.row == 0) {
+            cell.textLabel.text = @"全部送快递记录";
+
+        }else{
+            cell.textLabel.text = @"取件消息";
+
+        }
         return cell;
 
+        
+        
     }else{
         
         if (indexPath.row == 0) {
             
             CourierHomePageOneTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"oneCell" forIndexPath:indexPath];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
-
+            
             
             return cell;
             
@@ -126,13 +148,13 @@
             CourierHomePageTwoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"twoCell" forIndexPath:indexPath];
             cell.delegate = self;
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
-
+            
             
             return cell;
             
             
         }
-        
+
     }
     
     
@@ -140,10 +162,23 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    if (indexPath.section == 1  && indexPath.row > 0) {
+    if (indexPath.section == 2  && indexPath.row > 0) {
         return 120;
     }else{
         return 49;
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (indexPath.section == 1) {
+        if (indexPath.row == 0) {
+            //送快递记录
+            DeliveryRecordViewController *recordVC = [[DeliveryRecordViewController alloc] init];
+            [self.navigationController pushViewController:recordVC animated:YES];
+        }else{
+            //取件消息记录
+        }
     }
 }
 

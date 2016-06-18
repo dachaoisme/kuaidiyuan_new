@@ -136,6 +136,17 @@
 		DD48B8591D13CD4100E012E4 /* CourierHomePageOneTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD48B8571D13CD4100E012E4 /* CourierHomePageOneTableViewCell.xib */; };
 		DD48B85D1D13D24B00E012E4 /* CourierHomePageTwoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD48B85B1D13D24B00E012E4 /* CourierHomePageTwoTableViewCell.m */; };
 		DD48B85E1D13D24B00E012E4 /* CourierHomePageTwoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD48B85C1D13D24B00E012E4 /* CourierHomePageTwoTableViewCell.xib */; };
+		DD56C57A1D14CD580019BF28 /* CampusCourierHomePageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD56C5781D14CD580019BF28 /* CampusCourierHomePageTableViewCell.m */; };
+		DD56C57B1D14CD580019BF28 /* CampusCourierHomePageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD56C5791D14CD580019BF28 /* CampusCourierHomePageTableViewCell.xib */; };
+		DD56C57E1D14D24D0019BF28 /* DeliveryRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD56C57D1D14D24D0019BF28 /* DeliveryRecordViewController.m */; };
+		DD56C5811D14D3950019BF28 /* DeliveryRecordHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD56C5801D14D3950019BF28 /* DeliveryRecordHeaderView.m */; };
+		DD56C5841D14D7EE0019BF28 /* UndeliveredCourierViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD56C5831D14D7EE0019BF28 /* UndeliveredCourierViewController.m */; };
+		DD56C5871D14D9970019BF28 /* DeliveredCourierViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD56C5861D14D9970019BF28 /* DeliveredCourierViewController.m */; };
+		DD56C58B1D14D9DD0019BF28 /* DeliveredCourierTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD56C5891D14D9DD0019BF28 /* DeliveredCourierTableViewCell.m */; };
+		DD56C58C1D14D9DD0019BF28 /* DeliveredCourierTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD56C58A1D14D9DD0019BF28 /* DeliveredCourierTableViewCell.xib */; };
+		DD56C58F1D14F4540019BF28 /* CourierMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD56C58E1D14F4540019BF28 /* CourierMessageViewController.m */; };
+		DD56D6D71D14FDAD0019BF28 /* SendCourierRecordTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD56D6D51D14FDAD0019BF28 /* SendCourierRecordTableViewCell.m */; };
+		DD56D6D81D14FDAD0019BF28 /* SendCourierRecordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD56D6D61D14FDAD0019BF28 /* SendCourierRecordTableViewCell.xib */; };
 		DDB759B21D14CB1900C79DE3 /* CampusCourierHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB759B11D14CB1900C79DE3 /* CampusCourierHomePageViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -375,6 +386,25 @@
 		DD48B85A1D13D24B00E012E4 /* CourierHomePageTwoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourierHomePageTwoTableViewCell.h; sourceTree = "<group>"; };
 		DD48B85B1D13D24B00E012E4 /* CourierHomePageTwoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourierHomePageTwoTableViewCell.m; sourceTree = "<group>"; };
 		DD48B85C1D13D24B00E012E4 /* CourierHomePageTwoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CourierHomePageTwoTableViewCell.xib; sourceTree = "<group>"; };
+		DD56C5771D14CD580019BF28 /* CampusCourierHomePageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CampusCourierHomePageTableViewCell.h; sourceTree = "<group>"; };
+		DD56C5781D14CD580019BF28 /* CampusCourierHomePageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CampusCourierHomePageTableViewCell.m; sourceTree = "<group>"; };
+		DD56C5791D14CD580019BF28 /* CampusCourierHomePageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CampusCourierHomePageTableViewCell.xib; sourceTree = "<group>"; };
+		DD56C57C1D14D24D0019BF28 /* DeliveryRecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeliveryRecordViewController.h; sourceTree = "<group>"; };
+		DD56C57D1D14D24D0019BF28 /* DeliveryRecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeliveryRecordViewController.m; sourceTree = "<group>"; };
+		DD56C57F1D14D3950019BF28 /* DeliveryRecordHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeliveryRecordHeaderView.h; sourceTree = "<group>"; };
+		DD56C5801D14D3950019BF28 /* DeliveryRecordHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeliveryRecordHeaderView.m; sourceTree = "<group>"; };
+		DD56C5821D14D7EE0019BF28 /* UndeliveredCourierViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UndeliveredCourierViewController.h; sourceTree = "<group>"; };
+		DD56C5831D14D7EE0019BF28 /* UndeliveredCourierViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UndeliveredCourierViewController.m; sourceTree = "<group>"; };
+		DD56C5851D14D9970019BF28 /* DeliveredCourierViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeliveredCourierViewController.h; sourceTree = "<group>"; };
+		DD56C5861D14D9970019BF28 /* DeliveredCourierViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeliveredCourierViewController.m; sourceTree = "<group>"; };
+		DD56C5881D14D9DD0019BF28 /* DeliveredCourierTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeliveredCourierTableViewCell.h; sourceTree = "<group>"; };
+		DD56C5891D14D9DD0019BF28 /* DeliveredCourierTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeliveredCourierTableViewCell.m; sourceTree = "<group>"; };
+		DD56C58A1D14D9DD0019BF28 /* DeliveredCourierTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeliveredCourierTableViewCell.xib; sourceTree = "<group>"; };
+		DD56C58D1D14F4540019BF28 /* CourierMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourierMessageViewController.h; sourceTree = "<group>"; };
+		DD56C58E1D14F4540019BF28 /* CourierMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourierMessageViewController.m; sourceTree = "<group>"; };
+		DD56D6D41D14FDAD0019BF28 /* SendCourierRecordTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendCourierRecordTableViewCell.h; sourceTree = "<group>"; };
+		DD56D6D51D14FDAD0019BF28 /* SendCourierRecordTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendCourierRecordTableViewCell.m; sourceTree = "<group>"; };
+		DD56D6D61D14FDAD0019BF28 /* SendCourierRecordTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SendCourierRecordTableViewCell.xib; sourceTree = "<group>"; };
 		DDB759B01D14CB1900C79DE3 /* CampusCourierHomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CampusCourierHomePageViewController.h; sourceTree = "<group>"; };
 		DDB759B11D14CB1900C79DE3 /* CampusCourierHomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CampusCourierHomePageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -991,6 +1021,14 @@
 				DD48B8531D13AD0800E012E4 /* CourierHomePageViewController.m */,
 				DDB759B01D14CB1900C79DE3 /* CampusCourierHomePageViewController.h */,
 				DDB759B11D14CB1900C79DE3 /* CampusCourierHomePageViewController.m */,
+				DD56C57C1D14D24D0019BF28 /* DeliveryRecordViewController.h */,
+				DD56C57D1D14D24D0019BF28 /* DeliveryRecordViewController.m */,
+				DD56C5821D14D7EE0019BF28 /* UndeliveredCourierViewController.h */,
+				DD56C5831D14D7EE0019BF28 /* UndeliveredCourierViewController.m */,
+				DD56C5851D14D9970019BF28 /* DeliveredCourierViewController.h */,
+				DD56C5861D14D9970019BF28 /* DeliveredCourierViewController.m */,
+				DD56C58D1D14F4540019BF28 /* CourierMessageViewController.h */,
+				DD56C58E1D14F4540019BF28 /* CourierMessageViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1004,6 +1042,15 @@
 				DD48B85A1D13D24B00E012E4 /* CourierHomePageTwoTableViewCell.h */,
 				DD48B85B1D13D24B00E012E4 /* CourierHomePageTwoTableViewCell.m */,
 				DD48B85C1D13D24B00E012E4 /* CourierHomePageTwoTableViewCell.xib */,
+				DD56C5771D14CD580019BF28 /* CampusCourierHomePageTableViewCell.h */,
+				DD56C5781D14CD580019BF28 /* CampusCourierHomePageTableViewCell.m */,
+				DD56C5791D14CD580019BF28 /* CampusCourierHomePageTableViewCell.xib */,
+				DD56C57F1D14D3950019BF28 /* DeliveryRecordHeaderView.h */,
+				DD56C5801D14D3950019BF28 /* DeliveryRecordHeaderView.m */,
+				DD56C5881D14D9DD0019BF28 /* DeliveredCourierTableViewCell.h */,
+				DD56C5891D14D9DD0019BF28 /* DeliveredCourierTableViewCell.m */,
+				DD56C58A1D14D9DD0019BF28 /* DeliveredCourierTableViewCell.xib */,
+				DD56D6D31D14FD720019BF28 /* CourierMessageCell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1013,6 +1060,16 @@
 			children = (
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		DD56D6D31D14FD720019BF28 /* CourierMessageCell */ = {
+			isa = PBXGroup;
+			children = (
+				DD56D6D41D14FDAD0019BF28 /* SendCourierRecordTableViewCell.h */,
+				DD56D6D51D14FDAD0019BF28 /* SendCourierRecordTableViewCell.m */,
+				DD56D6D61D14FDAD0019BF28 /* SendCourierRecordTableViewCell.xib */,
+			);
+			path = CourierMessageCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1125,6 +1182,7 @@
 				DD48B7CA1D1385FC00E012E4 /* switch_on@3x.png in Resources */,
 				58F80B331D0AEFDA0099DCCD /* 2.jpg in Resources */,
 				58F80C2F1D0BB8A70099DCCD /* Default-375w-667h@2x.png in Resources */,
+				DD56D6D81D14FDAD0019BF28 /* SendCourierRecordTableViewCell.xib in Resources */,
 				58F80C321D0BB8A70099DCCD /* Default@2x.png in Resources */,
 				58F80C311D0BB8A70099DCCD /* Default-568h@2x.png in Resources */,
 				58F80AC41D0AEF5D0099DCCD /* LTPickerView.xib in Resources */,
@@ -1163,6 +1221,8 @@
 				DD48B7C91D1385FC00E012E4 /* switch_on@2x.png in Resources */,
 				DD48B7B81D1385FC00E012E4 /* kuaidiyuan_pacage_empty@3x.png in Resources */,
 				DD48B7AA1D1385FC00E012E4 /* kuaidiyuan_btn_phone_press@3x.png in Resources */,
+				DD56C57B1D14CD580019BF28 /* CampusCourierHomePageTableViewCell.xib in Resources */,
+				DD56C58C1D14D9DD0019BF28 /* DeliveredCourierTableViewCell.xib in Resources */,
 				DD48B7BE1D1385FC00E012E4 /* loading_white@3x.png in Resources */,
 				DD48B7C01D1385FC00E012E4 /* login_logo@3x.png in Resources */,
 				DD48B7C71D1385FC00E012E4 /* switch_off@2x.png in Resources */,
@@ -1248,6 +1308,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD56D6D71D14FDAD0019BF28 /* SendCourierRecordTableViewCell.m in Sources */,
 				58F80AD41D0AEF5D0099DCCD /* UIView+Toast.m in Sources */,
 				58F80C1D1D0BB4A60099DCCD /* AddTeacherViewController.m in Sources */,
 				58F80ABD1D0AEF5D0099DCCD /* IQPreviousNextView.m in Sources */,
@@ -1259,6 +1320,7 @@
 				58F80AE01D0AEF690099DCCD /* CommonUtils.m in Sources */,
 				58F80A281D0AEC160099DCCD /* AppDelegate.m in Sources */,
 				58F80AB41D0AEF5D0099DCCD /* IQUIScrollView+Additions.m in Sources */,
+				DD56C57A1D14CD580019BF28 /* CampusCourierHomePageTableViewCell.m in Sources */,
 				58F80ABF1D0AEF5D0099DCCD /* IQToolbar.m in Sources */,
 				DD48B85D1D13D24B00E012E4 /* CourierHomePageTwoTableViewCell.m in Sources */,
 				58F80AB81D0AEF5D0099DCCD /* IQUIWindow+Hierarchy.m in Sources */,
@@ -1270,8 +1332,10 @@
 				58F80AC71D0AEF5D0099DCCD /* MJRefreshComponent.m in Sources */,
 				58F80C1E1D0BB4A60099DCCD /* ForgetPasswordOfSetNewPasswordViewController.m in Sources */,
 				DD48B7771D117BC600E012E4 /* ApplyCourierTableViewCell.m in Sources */,
+				DD56C5871D14D9970019BF28 /* DeliveredCourierViewController.m in Sources */,
 				DD48B77E1D117CDE00E012E4 /* ApplyCourierViewController.m in Sources */,
 				58F80BEE1D0BB24C0099DCCD /* ExpressCenterViewController.m in Sources */,
+				DD56C58B1D14D9DD0019BF28 /* DeliveredCourierTableViewCell.m in Sources */,
 				58F80AD01D0AEF5D0099DCCD /* UIScrollView+MJRefresh.m in Sources */,
 				58F80C231D0BB4A60099DCCD /* CollegeModel.m in Sources */,
 				58F80ABA1D0AEF5D0099DCCD /* IQKeyboardReturnKeyHandler.m in Sources */,
@@ -1290,12 +1354,14 @@
 				58F80AE31D0AEF690099DCCD /* UITextView+TopView.m in Sources */,
 				58F80B2C1D0AEFC30099DCCD /* CommonTableViewCell.m in Sources */,
 				58F80AC51D0AEF5D0099DCCD /* MBProgressHUD.m in Sources */,
+				DD56C5811D14D3950019BF28 /* DeliveryRecordHeaderView.m in Sources */,
 				DD48B7DF1D139EA200E012E4 /* RegisterOneTableViewCell.m in Sources */,
 				58F80AB61D0AEF5D0099DCCD /* IQUIView+Hierarchy.m in Sources */,
 				DD48B8541D13AD0800E012E4 /* CourierHomePageViewController.m in Sources */,
 				DD48B7E31D13A30200E012E4 /* RegisterTwoTableViewCell.m in Sources */,
 				58F80AF21D0AEF870099DCCD /* HttpServer.m in Sources */,
 				58F80AD21D0AEF5D0099DCCD /* NSDictionary+SafeExpectations.m in Sources */,
+				DD56C58F1D14F4540019BF28 /* CourierMessageViewController.m in Sources */,
 				58F80AC21D0AEF5D0099DCCD /* LDCPullDownMenuView.m in Sources */,
 				58F80A251D0AEC160099DCCD /* main.m in Sources */,
 				58F80AC31D0AEF5D0099DCCD /* LTPickerView.m in Sources */,
@@ -1304,6 +1370,7 @@
 				58F80ACD1D0AEF5D0099DCCD /* MJRefreshLegendFooter.m in Sources */,
 				58F80BF11D0BB24C0099DCCD /* ExpressCenterModel.m in Sources */,
 				58F80ABB1D0AEF5D0099DCCD /* IQTextView.m in Sources */,
+				DD56C57E1D14D24D0019BF28 /* DeliveryRecordViewController.m in Sources */,
 				58F80AF11D0AEF870099DCCD /* HttpModel.m in Sources */,
 				58F80AD31D0AEF5D0099DCCD /* JKPlaceholderTextView.m in Sources */,
 				58F80ACB1D0AEF5D0099DCCD /* MJRefreshGifHeader.m in Sources */,
@@ -1317,6 +1384,7 @@
 				58F80AE21D0AEF690099DCCD /* UIFactory.m in Sources */,
 				58F80AC91D0AEF5D0099DCCD /* MJRefreshFooter.m in Sources */,
 				58F80C271D0BB4A60099DCCD /* SelectedImageView.m in Sources */,
+				DD56C5841D14D7EE0019BF28 /* UndeliveredCourierViewController.m in Sources */,
 				58F80BAC1D0BB23A0099DCCD /* BusinessCenterModel.m in Sources */,
 				58F80B381D0BB1490099DCCD /* UserAccountManager.m in Sources */,
 				DDB759B21D14CB1900C79DE3 /* CampusCourierHomePageViewController.m in Sources */,
