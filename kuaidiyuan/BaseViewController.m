@@ -7,7 +7,6 @@
 //
 
 #import "BaseViewController.h"
-#import "BaseTabBarViewController.h"
 @interface BaseViewController ()
 
 @end
@@ -21,6 +20,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+
     // Do any additional setup after loading the view.
     /*
     self.view.backgroundColor = LLColorBg;
@@ -86,22 +87,6 @@
 #pragma mark --orientations
 -(float)setNaveBarHeight{
     return 64.0f;
-}
-
-- (void)theTabBarHidden:(BOOL)hidden {
-    
-    if (hidden) {
-        UITabBarController *tabBar = self.tabBarController;
-        BaseTabBarViewController *vc = (BaseTabBarViewController *)tabBar;
-        [vc tabBarHiddenToBottom:NO];
-            
-    } else {
-        UITabBarController *tabBar = self.tabBarController;
-        BaseTabBarViewController *vc = (BaseTabBarViewController *)tabBar;
-        [vc tabBarShow];
-            
-        
-    }
 }
 
 #pragma mark - 新添加

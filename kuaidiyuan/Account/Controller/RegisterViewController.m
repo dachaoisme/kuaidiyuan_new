@@ -9,6 +9,9 @@
 #import "RegisterViewController.h"
 #import "AddStudentInfoViewController.h"
 #import "AddTeacherViewController.h"
+
+
+#import "RegisterDetailViewController.h"
 @interface RegisterViewController ()<UITextFieldDelegate>
 {
     UITextField *phoneTextField;
@@ -26,7 +29,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setTitle:@"注册学院派"];
+    [self setTitle:@"校外快递员注册"];
     [self createLeftBackNavBtn];
     self.view.backgroundColor = [CommonUtils colorWithHex:@"f5f5f5"];
     
@@ -122,7 +125,7 @@
     [submitAndRegisterBtn setTitleColor:[CommonUtils colorWithHex:@"ffffff"] forState:UIControlStateNormal];
     [submitAndRegisterBtn setFrame:CGRectMake(topSpace, CGRectGetMaxY(backGroundView.frame)+topSpace, width-2*topSpace, height)];
     [submitAndRegisterBtn addTarget:self action:@selector(submitAndRegister:) forControlEvents:UIControlEventTouchUpInside];
-    [submitAndRegisterBtn setTitle:@"提交并注册" forState:UIControlStateNormal];
+    [submitAndRegisterBtn setTitle:@"下一步" forState:UIControlStateNormal];
     submitAndRegisterBtn.titleLabel.font = [UIFont systemFontOfSize:16];
     [self.view addSubview:submitAndRegisterBtn];
 }
@@ -156,69 +159,12 @@
 }
 -(void)submitAndRegister:(UIButton *)sender
 {
-//    if (self.registerRoleType == RegisterRoleOfStudent) {
-//        
-//        //学生->跳转到设置用户资料界面，直接登录成功
-//        AddStudentInfoViewController * studentInfoVC = [[AddStudentInfoViewController alloc]init];
-//        [self.navigationController pushViewController:studentInfoVC animated:YES];
-//        //保存学生的用户信息
-//    }else{
-//        //教师->跳转到设置教师的用户资料界面，设置成功以后，返回登录页，因为需要审核
-//        AddTeacherViewController * teacherInfoVC = [[AddTeacherViewController alloc]init];
-//        [self.navigationController pushViewController:teacherInfoVC animated:YES];
-//    }
+        
     
+    //跳转
+    RegisterDetailViewController *registerDetailVC = [[RegisterDetailViewController alloc] init];
+    [self.navigationController pushViewController:registerDetailVC animated:YES];
     
-    [CommonUtils showToastWithStr:@"提交并注册"];
-    
-    /*
-     
-     参数:
-     mobile string    必需    手机号
-     role   string    必需    角色      1学生 2导师
-     passwd string   必需     密码
-     captcha sting    必需    验证码
-     返回结果:
-     
-     */
-    
-    //如果是学生，则注册成功，则返回登录页面
-    //如果是导师，则注册成功后，跳转到设置资料页面？
-    
-    NSMutableDictionary * params = [NSMutableDictionary dictionary];
-    [params setObject:phoneTextField.text forKey:@"mobile"];
-    [params setObject:self.registerRoleType==RegisterRoleOfStudent?@"1":@"2" forKey:@"role"];
-    [params setObject:inputPasswordTextField.text forKey:@"passwd"];
-    [params setObject:checkingMessageTextField.text forKey:@"captcha"];
-    
-//    [[HttpClient sharedInstance]registerAndSubmitWithParams:params withSuccessBlock:^(HttpResponseCodeModel *responseModel, NSDictionary *listDic) {
-//        if (responseModel.responseCode == ResponseCodeSuccess) {
-//            NSString * userId = [listDic objectForKey:@"user_id"];
-//            
-//            if (self.registerRoleType == RegisterRoleOfStudent) {
-//    
-//                //学生->跳转到设置用户资料界面，直接登录成功
-//                AddStudentInfoViewController * studentInfoVC = [[AddStudentInfoViewController alloc]init];
-//                studentInfoVC.userId = userId;
-//                [self.navigationController pushViewController:studentInfoVC animated:YES];
-//                //保存学生的用户信息
-//                [[UserAccountManager sharedInstance]loginWithUserPhoneNum:phoneTextField.text andPassWord:inputPasswordTextField.text];
-//                
-//            }else{
-//                //教师->跳转到设置教师的用户资料界面，设置成功以后，返回登录页，因为需要审核
-//                AddTeacherViewController * teacherInfoVC = [[AddTeacherViewController alloc]init];
-//                teacherInfoVC.userId = userId;
-//                [self.navigationController pushViewController:teacherInfoVC animated:YES];
-//            }
-//            
-//            
-//            
-//        }else{
-//            [CommonUtils showToastWithStr:responseModel.responseMsg];
-//        }
-//    } withFaileBlock:^(NSError *error) {
-//        
-//    }];
 }
 
 #pragma mark - 倒计时相关

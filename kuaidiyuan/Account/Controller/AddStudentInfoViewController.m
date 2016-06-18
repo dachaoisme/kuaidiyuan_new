@@ -9,7 +9,6 @@
 #import "AddStudentInfoViewController.h"
 #import "SelectedSexView.h"
 #import "SelectedImageView.h"
-#import "SelectedSchollViewController.h"
 #import "CollegeModel.h"
 @interface AddStudentInfoViewController ()
 {
@@ -166,12 +165,6 @@
 #pragma mark - 选择学校
 -(void)selectedSchool:(UIButton *)sender
 {
-    SelectedSchollViewController * schollVC = [[SelectedSchollViewController alloc]init];
-    schollVC.callBackBlock = ^(CollegeModel *collegeModel) {
-        [schoolBtn setTitle:collegeModel.collegeName forState:UIControlStateNormal];
-        theCollegeModel = collegeModel;
-    };
-    [self.navigationController pushViewController:schollVC animated:YES];
 }
 #pragma mark - 提交
 -(void)submit:(UIButton *)sender

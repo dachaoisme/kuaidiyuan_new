@@ -8,12 +8,14 @@
 
 #import "LoginViewController.h"
 #import "RegisterViewController.h"
-#import "RegisterRoleView.h"
 #import "ForgetPasswordViewController.h"
 
-#import "RegisterViewController.h"
 
-@interface LoginViewController ()<RegisterRoleViewDelegate>
+#import "ApplyCourierViewController.h"
+
+#import "CourierHomePageViewController.h"
+
+@interface LoginViewController ()
 {
     UITextField *phoneTextField;
     UITextField *passwordTextField;
@@ -22,51 +24,35 @@
     UIButton    *loginBtn;
     UIButton    *registerBtn;
     UIButton    *justToLook;
-    RegisterRoleView * registerRoleAlertView;
 }
 @end
 
 @implementation LoginViewController
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self setContentView];
 }
--(void)viewWillAppear:(BOOL)animated
-{
-    self.navigationController.navigationBarHidden = YES;
-    [self theTabBarHidden:YES];
-}
 
--(void)viewWillDisappear:(BOOL)animated
-{
-    self.navigationController.navigationBarHidden = NO;
-}
 -(void)setContentView
 {
     float topSpace = 96;
     float leftSpace = 39;
-    float rightSpace = 35;
     float width = SCREEN_WIDTH - 35*2;
     float height = 48;
     float smallSpace = 15;
-    float smallHeight = 36;
     
     
-    //创建
+    //创建大背景视图
+    //大的背景图
+    UIImageView * backgroundImageView = [UIFactory imageView:self.view.frame viewMode:UIViewContentModeScaleToFill image:@"kuaidiyuan_login_bg@2x.jpg"];
+    [self.view addSubview:backgroundImageView];
     
     //logo
     UIImage * logoImage = [UIImage imageNamed:@"login_logo"];
     UIImageView * logoImageView = [UIFactory imageView:CGRectMake(leftSpace, topSpace, logoImage.size.width, logoImage.size.height) viewMode:UIViewContentModeScaleToFill image:@"login_logo"];
     [self.view addSubview:logoImageView];
-    
-    
-    UILabel *showTextLabel = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2 - 100, NAV_TOP_HEIGHT + 20, SCREEN_WIDTH, 50)];
-    showTextLabel.text = @"学院派快递员";
-    showTextLabel.font = [UIFont systemFontOfSize:20];
-    [self.view addSubview:showTextLabel];
     
     float boardHeight = 0.5;
     
@@ -135,25 +121,27 @@
     
     //注册按钮
     registerBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [registerBtn setBackgroundColor:[CommonUtils colorWithHex:@"00beaf"]];
+    [registerBtn setBackgroundColor:[CommonUtils colorWithHex:@"ffffff"]];
     registerBtn.tag = 10002;
     registerBtn.layer.cornerRadius = 5.0;
     registerBtn.layer.masksToBounds = YES;
-    [registerBtn setTitleColor:[CommonUtils colorWithHex:@"ffffff"] forState:UIControlStateNormal];
-    [registerBtn setFrame:CGRectMake(leftSpace, CGRectGetMaxY(loginBtn.frame)+smallSpace, width, height)];
+    [registerBtn setTitleColor:[CommonUtils colorWithHex:@"00beaf"] forState:UIControlStateNormal];
+    [registerBtn setFrame:CGRectMake(leftSpace, SCREEN_HEIGHT - 120, width, height)];
     [registerBtn addTarget:self action:@selector(registerAccount:) forControlEvents:UIControlEventTouchUpInside];
-    [registerBtn setTitle:@"申请成为快递员" forState:UIControlStateNormal];
+    [registerBtn setTitle:@"校外快递员注册" forState:UIControlStateNormal];
     registerBtn.titleLabel.font = [UIFont systemFontOfSize:16];
     [self.view addSubview:registerBtn];
     
-    justToLook = [UIButton buttonWithType:UIButtonTypeCustom];
-    [justToLook setContentHorizontalAlignment:UIControlContentHorizontalAlignmentRight];
-    [justToLook setTitleColor:[CommonUtils colorWithHex:@"ffffff"] forState:UIControlStateNormal];
-    [justToLook setFrame:CGRectMake(SCREEN_WIDTH-rightSpace-100, SCREEN_HEIGHT - 50, 100, height)];
-    [justToLook addTarget:self action:@selector(justToLook:) forControlEvents:UIControlEventTouchUpInside];
-    [justToLook setTitle:@"随便逛逛 >" forState:UIControlStateNormal];
-    justToLook.titleLabel.font = [UIFont systemFontOfSize:14];
-    [self.view addSubview:justToLook];
+    //提示语的label
+    UILabel *alertLabel = [[UILabel alloc] initWithFrame:CGRectMake(leftSpace + 10, CGRectGetMaxY(registerBtn.frame), width, height)];
+    alertLabel.text = @"校内快递员请用学院派账号登陆，校外快递员请先注册";
+    alertLabel.textColor = [CommonUtils colorWithHex:@"ffffff"];
+    alertLabel.numberOfLines = 0;
+    alertLabel.textAlignment = NSTextAlignmentCenter;
+    alertLabel.font = [UIFont systemFontOfSize:14];
+    [self.view addSubview:alertLabel];
+    
+    
     
 }
 
@@ -214,6 +202,7 @@
 #pragma mark - 登陆
 -(void)loginAccount:(UIButton *)sender
 {
+    
     NSString * phoneNum = phoneTextField.text;
     if (!(phoneNum.length==11 && [CommonUtils checkPhoneNumIsAvailableWithPhoneNumString:phoneNum])) {
         [CommonUtils showToastWithStr:@"请输入有效手机号"];
@@ -229,6 +218,8 @@
   role     string    必需    角色 1学生 2导师
   
   */
+
+    
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     [dic setObject:phoneTextField.text forKey:@"mobile"];
     [dic setObject:passwordTextField.text forKey:@"passwd"];
@@ -248,21 +239,16 @@
     }];
     
 }
-#pragma mark - 注册
+#pragma mark - 申请成为快递员
 -(void)registerAccount:(UIButton *)sender
 {
     
-    //注册按钮的响应方法
     RegisterViewController *registerVC = [[RegisterViewController alloc] init];
-    
     [self.navigationController pushViewController:registerVC animated:YES];
     
-}
-#pragma mark - 随便看看
--(void)justToLook:(UIButton *)sender
-{
-    [CommonUtils showToastWithStr:@"随便看看"];
-    [self.navigationController popViewControllerAnimated:YES];
+//    //跳转快递员界面
+//    ApplyCourierViewController *applyCourierVC = [[ApplyCourierViewController alloc] init];
+//    [self.navigationController pushViewController:applyCourierVC animated:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
