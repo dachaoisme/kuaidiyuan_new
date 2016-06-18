@@ -18,7 +18,7 @@
 -(float)setNaveBarHeight;
 -(UIView*)createContentView;
 
-- (void)theTabBarHidden:(BOOL)hidden;   // 隐藏或显示 tabBar
+//- (void)theTabBarHidden:(BOOL)hidden;   // 隐藏或显示 tabBar
 
 ///左侧返回按钮
 - (void)createLeftBackNavBtn;

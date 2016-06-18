@@ -16,6 +16,8 @@
 #import "DeliveryRecordViewController.h"
 #import "CourierMessageViewController.h"
 
+#import "QRScanViewController.h"
+
 
 @interface CourierHomePageViewController ()<UITableViewDataSource,UITableViewDelegate,CourierHomePageTwoTableViewCellDelegate>
 
@@ -47,6 +49,7 @@
     UIButton *informGetCourierBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [informGetCourierBtn setTitle:@"通知取快递" forState:UIControlStateNormal];
     [informGetCourierBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [informGetCourierBtn addTarget:self action:@selector(informGetCourierAction) forControlEvents:UIControlEventTouchUpInside];
     informGetCourierBtn.layer.cornerRadius = 6;
     informGetCourierBtn.layer.masksToBounds = YES;
     informGetCourierBtn.frame = CGRectMake(15, SCREEN_HEIGHT - 60, (SCREEN_WIDTH - 40)/2, 50);
@@ -59,9 +62,24 @@
     scanConfirmDelayBtn.layer.cornerRadius = 6;
     scanConfirmDelayBtn.layer.masksToBounds = YES;
     [scanConfirmDelayBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [scanConfirmDelayBtn addTarget:self action:@selector(scanConfirmDelayAction) forControlEvents:UIControlEventTouchUpInside];
+
     scanConfirmDelayBtn.frame = CGRectMake(CGRectGetMaxX(informGetCourierBtn.frame) + 10, SCREEN_HEIGHT - 60, (SCREEN_WIDTH - 40)/2, 50);
     scanConfirmDelayBtn.backgroundColor = [CommonUtils colorWithHex:@"00beaf"];
     [self.view addSubview:scanConfirmDelayBtn];
+}
+
+#pragma mark - 通知去快递
+- (void)informGetCourierAction{
+    
+}
+
+#pragma mark - 扫一扫确认送达
+- (void)scanConfirmDelayAction{
+    
+    QRScanViewController *scanVC = [[QRScanViewController alloc] init];
+    [self.navigationController pushViewController:scanVC animated:YES];
+    
 }
 
 - (void)createTableView{
