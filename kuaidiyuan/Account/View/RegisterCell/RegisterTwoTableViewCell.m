@@ -36,8 +36,8 @@
     UIButton *positiveButton = [UIButton buttonWithType:UIButtonTypeCustom];
     positiveButton.frame = CGRectMake(15, CGRectGetMaxY(aleartLabel.frame)+10, 140, 92);
     [positiveButton setBackgroundImage:[UIImage imageNamed:@"kuaidiyuan_idcard_front_upload"] forState:UIControlStateNormal];
-    
-    [positiveButton addTarget:self action:@selector(frontAction) forControlEvents:UIControlEventTouchUpInside];
+    positiveButton.tag = selectedImageTypeOfIdCardFront;
+    [positiveButton addTarget:self action:@selector(frontActionWithBtn:) forControlEvents:UIControlEventTouchUpInside];
     
     [self.contentView addSubview:positiveButton];
     
@@ -46,7 +46,8 @@
     UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
     backButton.frame = CGRectMake(CGRectGetMaxX(positiveButton.frame) + 10, CGRectGetMaxY(aleartLabel.frame)+10, 140, 92);
     [backButton setBackgroundImage:[UIImage imageNamed:@"kuaidiyuan_idcard_back_upload"] forState:UIControlStateNormal];
-    [backButton addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
+    backButton.tag = selectedImageTypeOfIdCardBack;
+    [backButton addTarget:self action:@selector(backActionWithBtn:) forControlEvents:UIControlEventTouchUpInside];
 
     [self.contentView addSubview:backButton];
 
@@ -57,19 +58,19 @@
 }
 
 #pragma mark - 获取照片的正面
-- (void)frontAction{
+- (void)frontActionWithBtn:(UIButton*)sender;{
     
-    if ([_delegate respondsToSelector:@selector(getIdCardFont)]) {
-        [_delegate getIdCardFont];
+    if ([_delegate respondsToSelector:@selector(getIdCardFontWithBtn:)]) {
+        [_delegate getIdCardFontWithBtn:sender];
     }
     
 }
 
 #pragma mark - 获取照片反面
-- (void)backAction{
+- (void)backActionWithBtn:(UIButton*)sender;{
     
-    if ([_delegate respondsToSelector:@selector(getIdCardBack)]) {
-        [_delegate getIdCardBack];
+    if ([_delegate respondsToSelector:@selector(getIdCardBackWithBtn:)]) {
+        [_delegate getIdCardBackWithBtn:sender];
     }
     
 }

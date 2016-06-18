@@ -12,8 +12,14 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    self.contentTextField.delegate = self;
 }
-
+-(void)textFieldDidEndEditing:(UITextField *)textField
+{
+    if ([self.delegate respondsToSelector:@selector(inputContentWithTextField:)]) {
+        [self.delegate inputContentWithTextField:textField];
+    }
+}
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 

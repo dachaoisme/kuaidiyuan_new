@@ -231,16 +231,14 @@
 
     
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
-    [dic setObject:phoneTextField.text forKey:@"mobile"];
+    [dic setObject:phoneTextField.text forKey:@"telphone"];
     [dic setObject:passwordTextField.text forKey:@"passwd"];
-    [dic setObject:personalAccountBtn.selected?@"1":@"2" forKey:@"role"];
     [[HttpClient sharedInstance]loginWithParams:dic withSuccessBlock:^(HttpResponseCodeModel *model) {
         if (model.responseCode == ResponseCodeSuccess) {
             [CommonUtils showToastWithStr:@"登陆成功"];
-            //NSString * userid = [model.responseCommonDic objectForKey:@"user_id"];
-            //NSString * points = [model.responseCommonDic objectForKey:@"points"];
             [[UserAccountManager sharedInstance]saveUserAccountWithUserInfoDic:model.responseCommonDic];
-            [self.navigationController popToRootViewControllerAnimated:YES];
+            AppDelegate * appDelegate=(AppDelegate*)[UIApplication sharedApplication].delegate;
+            [appDelegate setRootViewController];
         }else{
             [CommonUtils showToastWithStr:model.responseMsg];
         }

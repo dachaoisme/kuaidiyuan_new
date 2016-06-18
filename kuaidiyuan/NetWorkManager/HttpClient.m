@@ -23,25 +23,108 @@
 }
 
 #pragma mark - 用户相关
-///申请成为快递员
-- (void)applyToCourierWithParams:(NSDictionary *)params withSuccessBlock:(XYPBaseBlock)successBlock withFaileBlock:(XYPHttpErrorBlock)failBlock
+///注册发送验证码
+- (void)registerOfSendMessageWithParams:(NSDictionary *)params withSuccessBlock:(XYPBaseBlock)successBlock withFaileBlock:(XYPHttpErrorBlock)failBlock
 {
-    [[HttpServer sharedInstance]getWithMethod:METHOD_APPLY_COURIER withParams:params withSuccess:^(HttpResponseCodeModel *model) {
+    [[HttpServer sharedInstance]getWithMethod:METHOD_OF_SEND_MESSAGE withParams:params withSuccess:^(HttpResponseCodeModel *model) {
         successBlock(model);
     } withFailBlock:^(NSError *error) {
         failBlock(error);
     }];
 }
 
+///申请成为快递员
+//- (void)applyToCourierWithParams:(NSDictionary *)params withSuccessBlock:(XYPBaseBlock)successBlock withFaileBlock:(XYPHttpErrorBlock)failBlock
+//{
+//    [[HttpServer sharedInstance]getWithMethod:METHOD_APPLY_COURIER withParams:params withSuccess:^(HttpResponseCodeModel *model) {
+//        successBlock(model);
+//    } withFailBlock:^(NSError *error) {
+//        failBlock(error);
+//    }];
+//}
+///注册
+- (void)registerAndSubmitWithParams:(NSDictionary *)params withSuccessBlock:(XYPNoneListBlock)successBlock withFaileBlock:(XYPHttpErrorBlock)failBlock
+{
+    [[HttpServer sharedInstance]getWithMethod:METHOD_OF_REGISTER withParams:params withSuccess:^(HttpResponseCodeModel *model) {
+        NSDictionary * listDic = model.responseCommonDic;
+        successBlock(model,listDic);
+    } withFailBlock:^(NSError *error) {
+        failBlock(error);
+    }];
+}
 ///登陆
 - (void)loginWithParams:(NSDictionary *)params withSuccessBlock:(XYPBaseBlock)successBlock withFaileBlock:(XYPHttpErrorBlock)failBlock
 {
-    [[HttpServer sharedInstance]getWithMethod:METHOD_APPLY_LOGIN withParams:params withSuccess:^(HttpResponseCodeModel *model) {
+    [[HttpServer sharedInstance]getWithMethod:METHOD_OF_LOGIN withParams:params withSuccess:^(HttpResponseCodeModel *model) {
         successBlock(model);
     } withFailBlock:^(NSError *error) {
         failBlock(error);
     }];
 }
+///用户头像上传
+- (void)uploadImageWithParams:(NSDictionary *)params withUploadDic:(NSDictionary *)uploadDic withSuccessBlock:(XYPBaseBlock)successBlock withFaileBlock:(XYPHttpErrorBlock)failBlock
+{
+    [[HttpServer sharedInstance]postWithMethod:METHOD_OF_UPLOAD withParams:params withUploadDic:uploadDic withSuccess:^(HttpResponseCodeModel *model) {
+        
+        successBlock(model);
+        
+    } withFailBlock:^(NSError *error) {
+        
+        failBlock(error);
+        
+    }];
+    
+}
+
+
+///上传身份证 等多张图片
+- (void)uploadImagesWithParams:(NSDictionary *)params withUploadDic:(NSDictionary *)uploadDic withSuccessBlock:(XYPBaseBlock)successBlock withFaileBlock:(XYPHttpErrorBlock)failBlock
+{
+    [[HttpServer sharedInstance]postWithMethod:METHOD_OF_IMAGES_UPLOAD withParams:params withUploadDic:uploadDic withSuccess:^(HttpResponseCodeModel *model) {
+        
+        successBlock(model);
+        
+    } withFailBlock:^(NSError *error) {
+        
+        failBlock(error);
+        
+    }];
+    
+}
+///完善个人资料
+- (void)perfectUserInfoWithParams:(NSDictionary *)params withSuccessBlock:(XYPBaseBlock)successBlock withFaileBlock:(XYPHttpErrorBlock)failBlock
+{
+    [[HttpServer sharedInstance]getWithMethod:METHOD_OF_INFO_PERFECT withParams:params withSuccess:^(HttpResponseCodeModel *model) {
+        successBlock(model);
+    } withFailBlock:^(NSError *error) {
+        failBlock(error);
+    }];
+    
+}
+
+///搜索学校
+- (void)searchCollegeWithParams:(NSDictionary *)params withSuccessBlock:(XYPCommonListBlock)successBlock withFaileBlock:(XYPHttpErrorBlock)failBlock
+{
+    [[HttpServer sharedInstance]getWithMethod:METHOD_OF_COLLEGE_SEARCH withParams:params withSuccess:^(HttpResponseCodeModel *model) {
+        //Pages
+        HttpResponsePageModel * pageModel = [[HttpResponsePageModel alloc]initWithDic:model.responseCommonDic];
+        NSDictionary * listDic = model.responseCommonDic;
+        successBlock(model,pageModel,listDic);
+    } withFailBlock:^(NSError *error) {
+        failBlock(error);
+    }];
+}
+
+
+
+
+
+
+
+
+
+
+
 ///送快递记录接口
 - (void)expressHistoryWithParams:(NSDictionary *)params withSuccessBlock:(XYPCommonListBlock)successBlock withFaileBlock:(XYPHttpErrorBlock)failBlock
 {

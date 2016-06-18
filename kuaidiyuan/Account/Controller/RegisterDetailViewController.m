@@ -9,9 +9,33 @@
 #import "RegisterDetailViewController.h"
 #import "RegisterOneTableViewCell.h"
 #import "RegisterTwoTableViewCell.h"
-
-@interface RegisterDetailViewController ()<UITableViewDataSource,UITableViewDelegate,RegisterTwoTableViewCellDelegate>
-
+#import "SelectedImageView.h"
+#import "SelectedSchollViewController.h"
+#import "CollegeModel.h"
+#import "SelectedCourierCompanyViewController.h"
+@interface RegisterDetailViewController ()<UITableViewDataSource,UITableViewDelegate,RegisterTwoTableViewCellDelegate,RegisterOneTableViewCellDelegate>
+{
+    SelectedImageView * selectedImageView;
+    ///头像
+    NSString * avatarImageUploaded;
+    ///身份证正反面
+    NSString * selectedIdCardFrontImageUrl;
+    NSString * selectedIdCardBackImageUrl;
+    UIImage * selectedIdCardFrontImage;
+    UIImage * selectedIdCardBackImage;
+    ///用逗号隔开的身份证正反面
+    NSString * uploadIdCardImageStr;
+    ///姓名
+    NSString * realName;
+    ///身份证号
+    NSString * IdCard;
+    ///大学
+    NSString * collegeName;
+    NSString * collegeId;
+    ///快递公司
+    NSString * courierCompanyName;
+    NSString * courierCompanyId;
+}
 
 @property (nonatomic,strong)UITableView *tableView;
 
@@ -29,7 +53,6 @@
     
     self.title = @"校外快递员注册";
     [self createLeftBackNavBtn];
-    
     
     
     
@@ -83,12 +106,6 @@
     
 }
 
-#pragma mark - 完成注册按钮响应方法
-- (void)complementationAction{
-    
-    [CommonUtils showToastWithStr:@"完成注册"];
-}
-
 #pragma mark - 设置修改头像视图
 -(void)setContentView
 {
@@ -106,25 +123,15 @@
     [_headImageSelectedBtn setImage:[UIImage imageNamed:@"avatar_change"] forState:UIControlStateNormal];
     [_headImageSelectedBtn setContentVerticalAlignment:UIControlContentVerticalAlignmentBottom];
     [_headImageSelectedBtn setFrame:CGRectMake((SCREEN_WIDTH-headImageWidth)/2, space, headImageWidth,headImageheight)];
-    
+    _headImageSelectedBtn.tag = selectedImageTypeOfAvatarImage;
     _headImageSelectedBtn.layer.cornerRadius = 30;
     _headImageSelectedBtn.layer.masksToBounds = YES;
-    
-    
     [_headImageSelectedBtn addTarget:self action:@selector(selectedImageFromPhotoAlbum:) forControlEvents:UIControlEventTouchUpInside];
     
     [backGroundView addSubview:_headImageSelectedBtn];
     self.tableView.tableHeaderView = backGroundView;
     
 }
-
-#pragma mark - 选择头像
--(void)selectedImageFromPhotoAlbum:(UIButton *)sender
-{
-    [CommonUtils showToastWithStr:@"选择头像"];
-}
-
-
 
 #pragma mark - tableView代理方法
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -143,7 +150,19 @@
     
     return 2;
 }
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    
+    return 10;
+}
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (indexPath.section == 1) {
+        return 160;
+    }else{
+        return 45;
+    }
+}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     
@@ -154,8 +173,8 @@
                 
                 RegisterOneTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"oneCell" forIndexPath:indexPath];
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
-
-                
+                cell.contentTextField.tag=10001;
+                cell.delegate=self;
                 return cell;
                 
             }
@@ -165,7 +184,8 @@
                 
                 RegisterOneTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"oneCell" forIndexPath:indexPath];
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
-                
+                cell.contentTextField.tag=10002;
+                cell.delegate=self;
                 cell.contentTextField.placeholder = @"身份证号";
                 return cell;
 
@@ -225,38 +245,178 @@
     
     if (indexPath.section == 0 && indexPath.row == 2) {
         [CommonUtils showToastWithStr:@"选择快递公司"];
+        [self selectedCourierCompany];
     }else if (indexPath.section == 0 && indexPath.row == 3) {
         [CommonUtils showToastWithStr:@"选择配送学校"];
+        [self selectedSchool];
     }
 
 }
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    
-    return 10;
+#pragma mark - 选择快递公司
+-(void)selectedCourierCompany
+{
+    SelectedCourierCompanyViewController * schollVC = [[SelectedCourierCompanyViewController alloc]init];
+    schollVC.callBackBlock = ^(NSString *theCourierCompanyName,NSString *theCourierCompanyId) {
+        courierCompanyName = theCourierCompanyName;
+        courierCompanyId   = theCourierCompanyId;
+    };
+    [self.navigationController pushViewController:schollVC animated:YES];
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    if (indexPath.section == 1) {
-        return 160;
-    }else{
-        return 45;
+#pragma mark - 选择学校
+-(void)selectedSchool
+{
+    SelectedSchollViewController * schollVC = [[SelectedSchollViewController alloc]init];
+    schollVC.callBackBlock = ^(CollegeModel *collegeModel) {
+        collegeName = collegeModel.collegeName;
+        collegeId = collegeModel.collegeID;
+    };
+    [self.navigationController pushViewController:schollVC animated:YES];
+}
+#pragma mark - 输入的姓名和身份证
+-(void)inputContentWithTextField:(UITextField *)textField
+{
+    if (textField.tag==10001) {
+        ///姓名
+        realName = textField.text;
+    }else if (textField.tag==10002){
+        ///身份证号码
+        IdCard = textField.text;
     }
 }
-
-
 #pragma mark - 身份证正反面的响应方法
-- (void)getIdCardBack{
+- (void)getIdCardBackWithBtn:(UIButton *)sender{
     
     [CommonUtils showToastWithStr:@"获取身份证反面"];
+    [self selectedImageFromPhotoAlbum:sender];
 }
 
-- (void)getIdCardFont{
+- (void)getIdCardFontWithBtn:(UIButton *)sender{
     [CommonUtils showToastWithStr:@"获取身份证正面"];
+    [self selectedImageFromPhotoAlbum:sender];
 }
-
-
+#pragma mark - 选择图片
+-(void)selectedImageFromPhotoAlbum:(UIButton *)sender
+{
+    [CommonUtils showToastWithStr:@"选择头像"];
+    float height = 200;
+    
+    selectedImageView = [[SelectedImageView alloc]initWithFrame:CGRectMake(0, SCREEN_HEIGHT-height, SCREEN_WIDTH, height) withSuperController:self];
+    weakSelf(wSelf)
+    selectedImageView.callBackBlock = ^(UIImage * selectedImage){
+        
+        if (sender.tag == selectedImageTypeOfIdCardFront) {
+            //身份证正面
+            [sender setImage:selectedImage forState:UIControlStateNormal];
+            selectedIdCardFrontImage = selectedImage;
+        }else if (sender.tag == selectedImageTypeOfIdCardBack){
+            //身份证背面
+            [sender setImage:selectedImage forState:UIControlStateNormal];
+            selectedIdCardBackImage = selectedImage;
+        }else if (sender.tag==selectedImageTypeOfAvatarImage){
+            //头像
+            [wSelf.headImageSelectedBtn setBackgroundImage:selectedImage forState:UIControlStateNormal];
+            [wSelf.headImageSelectedBtn setImage:[UIImage imageNamed:@"avatar_change"] forState:UIControlStateNormal];
+            //需要把图片上传到服务器
+            NSMutableDictionary * dic = [NSMutableDictionary dictionary];
+            NSMutableDictionary * imageDic = [NSMutableDictionary dictionary];
+            NSData * imageData = UIImagePNGRepresentation(selectedImage);
+            [imageDic setObject:imageData forKey:@"Users[file]"];
+            [[HttpClient sharedInstance]uploadImageWithParams:dic withUploadDic:imageDic withSuccessBlock:^(HttpResponseCodeModel *model) {
+                avatarImageUploaded = [dic objectForKey:@"picUrl"];
+            } withFaileBlock:^(NSError *error) {
+                
+            }];
+        }else{
+            
+        }
+    };
+    [[UIApplication sharedApplication].delegate.window addSubview:selectedImageView];
+}
+#pragma mark - 完成注册按钮响应方法
+- (void)complementationAction{
+    
+    [CommonUtils showToastWithStr:@"完成注册：上传身份证"];
+    NSMutableArray * selectedImageArray = [NSMutableArray arrayWithObjects:selectedIdCardFrontImage,selectedIdCardBackImage, nil];
+     NSMutableDictionary * imageDic = [NSMutableDictionary dictionary];
+     for (int i = 0; i<selectedImageArray.count; i++) {
+     UIImage *img = [selectedImageArray objectAtIndex:i];
+     ///上传图片,压缩图片，不能过大
+     UIImage * scaleImg = [CommonUtils imageByScalingAndCroppingForSize:CGSizeMake(300, 300) withImage:img];
+     NSData * imageData = UIImagePNGRepresentation(scaleImg);
+     NSString * key = [NSString stringWithFormat:@"UploadForm[file][%d]",i];
+     [imageDic setObject:imageData forKey:key];
+     }
+     
+     [[HttpClient sharedInstance]uploadImagesWithParams:imageDic withUploadDic:imageDic withSuccessBlock:^(HttpResponseCodeModel *model) {
+     
+         if (model.responseCode==ResponseCodeSuccess) {
+             NSArray  *imageArr =(NSArray *)model.responseCommonDic;
+             uploadIdCardImageStr = [imageArr componentsJoinedByString:@","];
+#warning mark - 头像上传接口有问题，先使用这个
+             avatarImageUploaded = [imageArr firstObject];
+             [self submit];
+         }else{
+             [CommonUtils showToastWithStr:model.responseMsg];
+         }
+     } withFaileBlock:^(NSError *error) {
+         NSLog(@"%@",error);
+     }];
+    
+}
+///提交
+-(void)submit
+{
+    /*
+     ///快递公司
+     NSString * courierCompanyName;
+     NSString * courierCompanyId;
+     
+     */
+//    if (avatarImageUploaded.length<=0) {
+//        [CommonUtils showToastWithStr:@"请选择头像"];
+//        return;
+//    }
+    if (uploadIdCardImageStr.length<=0) {
+        [CommonUtils showToastWithStr:@"请选择身份证图片"];
+        return;
+    }
+    if (realName.length<=0) {
+        [CommonUtils showToastWithStr:@"请填写姓名"];
+        return;
+    }
+    if (IdCard.length<=0) {
+        [CommonUtils showToastWithStr:@"请填写身份证号"];
+        return;
+    }
+    if (collegeId.length<=0) {
+        [CommonUtils showToastWithStr:@"请选择配送大学"];
+        return;
+    }
+//    if (courierCompanyId.length<=0) {
+//        [CommonUtils showToastWithStr:@"请选择配送公司"];
+//        return;
+//    }
+    NSMutableDictionary * dic = [NSMutableDictionary dictionary];
+    [dic setValue:[UserAccountManager sharedInstance].userCourierId forKey:@"id"];
+    [dic setValue:avatarImageUploaded forKey:@"icon"];
+    [dic setValue:realName forKey:@"realname"];
+    [dic setValue:IdCard forKey:@"IDcard"];
+    [dic setValue:collegeId forKey:@"college_id"];
+    [dic setValue:courierCompanyId forKey:@"expresscompany"];
+    [dic setValue:uploadIdCardImageStr forKey:@"IDCardPhoto"];
+    
+    [[HttpClient sharedInstance]perfectUserInfoWithParams:dic withSuccessBlock:^(HttpResponseCodeModel *model) {
+        if (model.responseCode==ResponseCodeSuccess) {
+            AppDelegate * appDelegate=(AppDelegate*)[UIApplication sharedApplication].delegate;
+            [appDelegate setRootViewController];
+        }else{
+            [CommonUtils showToastWithStr:model.responseMsg];
+        }
+    } withFaileBlock:^(NSError *error) {
+        
+    }];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

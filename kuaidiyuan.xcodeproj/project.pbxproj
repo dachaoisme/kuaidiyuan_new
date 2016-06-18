@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		58BFC0361D152B1C0021BF73 /* SelectedSchollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58BFC0351D152B1C0021BF73 /* SelectedSchollViewController.m */; };
+		58BFC0391D152D600021BF73 /* SelectedCourierCompanyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58BFC0381D152D600021BF73 /* SelectedCourierCompanyViewController.m */; };
 		58F80A251D0AEC160099DCCD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F80A241D0AEC160099DCCD /* main.m */; };
 		58F80A281D0AEC160099DCCD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F80A271D0AEC160099DCCD /* AppDelegate.m */; };
 		58F80A301D0AEC160099DCCD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58F80A2F1D0AEC160099DCCD /* Assets.xcassets */; };
@@ -61,8 +63,6 @@
 		58F80B321D0AEFDA0099DCCD /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 58F80B301D0AEFDA0099DCCD /* 1.jpg */; };
 		58F80B331D0AEFDA0099DCCD /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 58F80B311D0AEFDA0099DCCD /* 2.jpg */; };
 		58F80B381D0BB1490099DCCD /* UserAccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F80B371D0BB1490099DCCD /* UserAccountManager.m */; };
-		58F80C1C1D0BB4A60099DCCD /* AddStudentInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F80BFF1D0BB4A60099DCCD /* AddStudentInfoViewController.m */; };
-		58F80C1D1D0BB4A60099DCCD /* AddTeacherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F80C011D0BB4A60099DCCD /* AddTeacherViewController.m */; };
 		58F80C1E1D0BB4A60099DCCD /* ForgetPasswordOfSetNewPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F80C031D0BB4A60099DCCD /* ForgetPasswordOfSetNewPasswordViewController.m */; };
 		58F80C1F1D0BB4A60099DCCD /* ForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F80C051D0BB4A60099DCCD /* ForgetPasswordViewController.m */; };
 		58F80C201D0BB4A60099DCCD /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F80C071D0BB4A60099DCCD /* LoginViewController.m */; };
@@ -185,6 +185,10 @@
 
 /* Begin PBXFileReference section */
 		047CF6A5687BBAC66C616E8D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		58BFC0341D152B1C0021BF73 /* SelectedSchollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectedSchollViewController.h; path = ../View/SelectedSchollViewController.h; sourceTree = "<group>"; };
+		58BFC0351D152B1C0021BF73 /* SelectedSchollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectedSchollViewController.m; path = ../View/SelectedSchollViewController.m; sourceTree = "<group>"; };
+		58BFC0371D152D600021BF73 /* SelectedCourierCompanyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedCourierCompanyViewController.h; sourceTree = "<group>"; };
+		58BFC0381D152D600021BF73 /* SelectedCourierCompanyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedCourierCompanyViewController.m; sourceTree = "<group>"; };
 		58F80A201D0AEC160099DCCD /* kuaidiyuan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kuaidiyuan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58F80A241D0AEC160099DCCD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		58F80A261D0AEC160099DCCD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -301,10 +305,6 @@
 		58F80B341D0AF0600099DCCD /* KDY-PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KDY-PrefixHeader.pch"; sourceTree = "<group>"; };
 		58F80B361D0BB1490099DCCD /* UserAccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserAccountManager.h; sourceTree = "<group>"; };
 		58F80B371D0BB1490099DCCD /* UserAccountManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserAccountManager.m; sourceTree = "<group>"; };
-		58F80BFE1D0BB4A60099DCCD /* AddStudentInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddStudentInfoViewController.h; sourceTree = "<group>"; };
-		58F80BFF1D0BB4A60099DCCD /* AddStudentInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddStudentInfoViewController.m; sourceTree = "<group>"; };
-		58F80C001D0BB4A60099DCCD /* AddTeacherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTeacherViewController.h; sourceTree = "<group>"; };
-		58F80C011D0BB4A60099DCCD /* AddTeacherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTeacherViewController.m; sourceTree = "<group>"; };
 		58F80C021D0BB4A60099DCCD /* ForgetPasswordOfSetNewPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPasswordOfSetNewPasswordViewController.h; sourceTree = "<group>"; };
 		58F80C031D0BB4A60099DCCD /* ForgetPasswordOfSetNewPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPasswordOfSetNewPasswordViewController.m; sourceTree = "<group>"; };
 		58F80C041D0BB4A60099DCCD /* ForgetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPasswordViewController.h; sourceTree = "<group>"; };
@@ -828,10 +828,6 @@
 		58F80BFD1D0BB4A60099DCCD /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				58F80BFE1D0BB4A60099DCCD /* AddStudentInfoViewController.h */,
-				58F80BFF1D0BB4A60099DCCD /* AddStudentInfoViewController.m */,
-				58F80C001D0BB4A60099DCCD /* AddTeacherViewController.h */,
-				58F80C011D0BB4A60099DCCD /* AddTeacherViewController.m */,
 				58F80C021D0BB4A60099DCCD /* ForgetPasswordOfSetNewPasswordViewController.h */,
 				58F80C031D0BB4A60099DCCD /* ForgetPasswordOfSetNewPasswordViewController.m */,
 				58F80C041D0BB4A60099DCCD /* ForgetPasswordViewController.h */,
@@ -842,6 +838,10 @@
 				58F80C091D0BB4A60099DCCD /* RegisterViewController.m */,
 				DD48B7CD1D138ED300E012E4 /* RegisterDetailViewController.h */,
 				DD48B7CE1D138ED300E012E4 /* RegisterDetailViewController.m */,
+				58BFC0371D152D600021BF73 /* SelectedCourierCompanyViewController.h */,
+				58BFC0381D152D600021BF73 /* SelectedCourierCompanyViewController.m */,
+				58BFC0341D152B1C0021BF73 /* SelectedSchollViewController.h */,
+				58BFC0351D152B1C0021BF73 /* SelectedSchollViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1388,10 +1388,10 @@
 			files = (
 				DD56D6D71D14FDAD0019BF28 /* SendCourierRecordTableViewCell.m in Sources */,
 				58F80AD41D0AEF5D0099DCCD /* UIView+Toast.m in Sources */,
-				58F80C1D1D0BB4A60099DCCD /* AddTeacherViewController.m in Sources */,
 				58F80ABD1D0AEF5D0099DCCD /* IQPreviousNextView.m in Sources */,
 				58F80AB91D0AEF5D0099DCCD /* IQKeyboardManager.m in Sources */,
 				58F80AB31D0AEF5D0099DCCD /* IQNSArray+Sort.m in Sources */,
+				58BFC0391D152D600021BF73 /* SelectedCourierCompanyViewController.m in Sources */,
 				58F80ACC1D0AEF5D0099DCCD /* MJRefreshHeader.m in Sources */,
 				58F80AE41D0AEF690099DCCD /* UserDefaultsDataDeal.m in Sources */,
 				58F80AE01D0AEF690099DCCD /* CommonUtils.m in Sources */,
@@ -1419,7 +1419,6 @@
 				58F80A5D1D0AEF3D0099DCCD /* BaseNavView.m in Sources */,
 				58F80AB71D0AEF5D0099DCCD /* IQUIViewController+Additions.m in Sources */,
 				58F80C281D0BB4A60099DCCD /* SelectedPickView.m in Sources */,
-				58F80C1C1D0BB4A60099DCCD /* AddStudentInfoViewController.m in Sources */,
 				58F80ABE1D0AEF5D0099DCCD /* IQTitleBarButtonItem.m in Sources */,
 				58F80ACE1D0AEF5D0099DCCD /* MJRefreshLegendHeader.m in Sources */,
 				58F80C251D0BB4A60099DCCD /* AddTeacherInfoTypeTwoTableViewCell.m in Sources */,
@@ -1437,6 +1436,7 @@
 				DD48B8541D13AD0800E012E4 /* CourierHomePageViewController.m in Sources */,
 				DD48B7E31D13A30200E012E4 /* RegisterTwoTableViewCell.m in Sources */,
 				58F80AF21D0AEF870099DCCD /* HttpServer.m in Sources */,
+				58BFC0361D152B1C0021BF73 /* SelectedSchollViewController.m in Sources */,
 				58F80AD21D0AEF5D0099DCCD /* NSDictionary+SafeExpectations.m in Sources */,
 				DD56C58F1D14F4540019BF28 /* CourierMessageViewController.m in Sources */,
 				58F80AC21D0AEF5D0099DCCD /* LDCPullDownMenuView.m in Sources */,

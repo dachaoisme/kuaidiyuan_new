@@ -151,4 +151,18 @@ typedef NS_ENUM(NSInteger, UserInfoSex){
     UserInfoSexWoman         =0,
     
 };
+
+
+#pragma mark - 快递员相关
+typedef NS_ENUM(NSInteger, selectedImageType){
+    
+    ///身份证正面
+    selectedImageTypeOfIdCardFront        =10001,
+    ///身份证背面
+    selectedImageTypeOfIdCardBack         =10002,
+    ///选择头像
+    selectedImageTypeOfAvatarImage         =10003,
+    
+};
+
 #endif /* EnumDefine_h */

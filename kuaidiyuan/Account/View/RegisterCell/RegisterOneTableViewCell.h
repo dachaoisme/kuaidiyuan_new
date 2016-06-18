@@ -8,11 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RegisterOneTableViewCell : UITableViewCell
+@protocol RegisterOneTableViewCellDelegate <NSObject>
+
+///获取身份证正面
+- (void)inputContentWithTextField:(UITextField *)textField;
+
+@end
+
+@interface RegisterOneTableViewCell : UITableViewCell<UITextFieldDelegate>
 
 ///输入内容的textField
 @property (weak, nonatomic) IBOutlet UITextField *contentTextField;
 
-
+@property (nonatomic,assign)id<RegisterOneTableViewCellDelegate>delegate;
 
 @end
