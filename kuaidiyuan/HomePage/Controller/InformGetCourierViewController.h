@@ -1,5 +1,5 @@
 //
-//  QRScanViewController.h
+//  InformGetCourierViewController.h
 //  kuaidiyuan
 //
 //  Created by 王园园 on 16/6/18.
@@ -12,7 +12,8 @@
 #import <AVFoundation/AVFoundation.h>
 #import "ZBarSDK.h"
 
-@interface QRScanViewController : BaseViewController<ZBarReaderViewDelegate,UIImagePickerControllerDelegate>
+
+@interface InformGetCourierViewController : BaseViewController<ZBarReaderViewDelegate,UIImagePickerControllerDelegate>
 {
     ZBarCameraSimulator *cameraSim;
     UIButton *btnOpenLight;
@@ -25,9 +26,13 @@
     BOOL isOn;
 }
 
-///摄像头显示
+
+///展示摄像图的
 @property (weak, nonatomic) IBOutlet ZBarReaderView *camerView;
+
 
 @property (assign, nonatomic) int mark;
 @property (nonatomic, strong) UIImageView * line;
+
+
 @end

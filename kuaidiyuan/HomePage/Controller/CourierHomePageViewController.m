@@ -17,6 +17,9 @@
 #import "CourierMessageViewController.h"
 
 #import "QRScanViewController.h"
+#import "InformGetCourierViewController.h"
+
+#import "SettingViewController.h"
 
 
 @interface CourierHomePageViewController ()<UITableViewDataSource,UITableViewDelegate,CourierHomePageTwoTableViewCellDelegate>
@@ -71,6 +74,9 @@
 
 #pragma mark - 通知去快递
 - (void)informGetCourierAction{
+    
+    InformGetCourierViewController *informVC = [[InformGetCourierViewController alloc] init];
+    [self.navigationController pushViewController:informVC animated:YES];
     
 }
 
@@ -219,6 +225,13 @@
 
 - (void)call{
     [CommonUtils showToastWithStr:@"打电话"];
+}
+
+#pragma mark - 设置界面
+- (void)leftItemActionWithBtn:(UIButton *)sender{
+    
+    SettingViewController *settingVC = [[SettingViewController alloc] init];
+    [self.navigationController pushViewController:settingVC animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -147,6 +147,14 @@
 		DD4F14E51D1579AA0082B90F /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DD4F14E41D1579AA0082B90F /* libiconv.tbd */; };
 		DD4F14EE1D157D8B0082B90F /* QRScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4F14EC1D157D8B0082B90F /* QRScanViewController.m */; };
 		DD4F14EF1D157D8B0082B90F /* QRScanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD4F14ED1D157D8B0082B90F /* QRScanViewController.xib */; };
+		DD4F14F21D15819D0082B90F /* scan480.png in Resources */ = {isa = PBXBuildFile; fileRef = DD4F14F01D15819D0082B90F /* scan480.png */; };
+		DD4F14F31D15819D0082B90F /* scan.png in Resources */ = {isa = PBXBuildFile; fileRef = DD4F14F11D15819D0082B90F /* scan.png */; };
+		DD4F14F71D1591760082B90F /* InformGetCourierViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4F14F51D1591760082B90F /* InformGetCourierViewController.m */; };
+		DD4F14F81D1591760082B90F /* InformGetCourierViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD4F14F61D1591760082B90F /* InformGetCourierViewController.xib */; };
+		DD4F14FB1D159BD10082B90F /* SendMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4F14FA1D159BD10082B90F /* SendMessageViewController.m */; };
+		DD4F15021D15A4B90082B90F /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4F15011D15A4B90082B90F /* SettingViewController.m */; };
+		DD4F15061D15A58E0082B90F /* SettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4F15041D15A58E0082B90F /* SettingTableViewCell.m */; };
+		DD4F15071D15A58E0082B90F /* SettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD4F15051D15A58E0082B90F /* SettingTableViewCell.xib */; };
 		DD56C57A1D14CD580019BF28 /* CampusCourierHomePageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD56C5781D14CD580019BF28 /* CampusCourierHomePageTableViewCell.m */; };
 		DD56C57B1D14CD580019BF28 /* CampusCourierHomePageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD56C5791D14CD580019BF28 /* CampusCourierHomePageTableViewCell.xib */; };
 		DD56C57E1D14D24D0019BF28 /* DeliveryRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD56C57D1D14D24D0019BF28 /* DeliveryRecordViewController.m */; };
@@ -430,6 +438,18 @@
 		DD4F14EB1D157D8B0082B90F /* QRScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRScanViewController.h; sourceTree = "<group>"; };
 		DD4F14EC1D157D8B0082B90F /* QRScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRScanViewController.m; sourceTree = "<group>"; };
 		DD4F14ED1D157D8B0082B90F /* QRScanViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QRScanViewController.xib; sourceTree = "<group>"; };
+		DD4F14F01D15819D0082B90F /* scan480.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scan480.png; sourceTree = "<group>"; };
+		DD4F14F11D15819D0082B90F /* scan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scan.png; sourceTree = "<group>"; };
+		DD4F14F41D1591760082B90F /* InformGetCourierViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InformGetCourierViewController.h; sourceTree = "<group>"; };
+		DD4F14F51D1591760082B90F /* InformGetCourierViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InformGetCourierViewController.m; sourceTree = "<group>"; };
+		DD4F14F61D1591760082B90F /* InformGetCourierViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InformGetCourierViewController.xib; sourceTree = "<group>"; };
+		DD4F14F91D159BD10082B90F /* SendMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendMessageViewController.h; sourceTree = "<group>"; };
+		DD4F14FA1D159BD10082B90F /* SendMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendMessageViewController.m; sourceTree = "<group>"; };
+		DD4F15001D15A4B90082B90F /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		DD4F15011D15A4B90082B90F /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		DD4F15031D15A58E0082B90F /* SettingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingTableViewCell.h; sourceTree = "<group>"; };
+		DD4F15041D15A58E0082B90F /* SettingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingTableViewCell.m; sourceTree = "<group>"; };
+		DD4F15051D15A58E0082B90F /* SettingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingTableViewCell.xib; sourceTree = "<group>"; };
 		DD56C5771D14CD580019BF28 /* CampusCourierHomePageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CampusCourierHomePageTableViewCell.h; sourceTree = "<group>"; };
 		DD56C5781D14CD580019BF28 /* CampusCourierHomePageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CampusCourierHomePageTableViewCell.m; sourceTree = "<group>"; };
 		DD56C5791D14CD580019BF28 /* CampusCourierHomePageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CampusCourierHomePageTableViewCell.xib; sourceTree = "<group>"; };
@@ -521,6 +541,7 @@
 				58F80B301D0AEFDA0099DCCD /* 1.jpg */,
 				58F80B311D0AEFDA0099DCCD /* 2.jpg */,
 				DD56D6E11D150BDC0019BF28 /* placeHoder.png */,
+				DD4F14FC1D15A45A0082B90F /* SettingPage */,
 				DD48B7821D11859800E012E4 /* HomePage */,
 				DD48B76D1D11796100E012E4 /* ApplyCourier */,
 				58F80BFC1D0BB4A60099DCCD /* Account */,
@@ -878,6 +899,8 @@
 		58F80C2A1D0BB8940099DCCD /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				DD4F14F01D15819D0082B90F /* scan480.png */,
+				DD4F14F11D15819D0082B90F /* scan.png */,
 				DD48B7D01D13949B00E012E4 /* avatar@2x.png */,
 				DD48B7D11D13949B00E012E4 /* avatar@3x.png */,
 				DD48B7D21D13949B00E012E4 /* avatar_change@2x.png */,
@@ -1032,6 +1055,11 @@
 				DD4F14EB1D157D8B0082B90F /* QRScanViewController.h */,
 				DD4F14EC1D157D8B0082B90F /* QRScanViewController.m */,
 				DD4F14ED1D157D8B0082B90F /* QRScanViewController.xib */,
+				DD4F14F41D1591760082B90F /* InformGetCourierViewController.h */,
+				DD4F14F51D1591760082B90F /* InformGetCourierViewController.m */,
+				DD4F14F61D1591760082B90F /* InformGetCourierViewController.xib */,
+				DD4F14F91D159BD10082B90F /* SendMessageViewController.h */,
+				DD4F14FA1D159BD10082B90F /* SendMessageViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1127,6 +1155,42 @@
 				DD4F14D61D1575D30082B90F /* zbar-samples.png */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		DD4F14FC1D15A45A0082B90F /* SettingPage */ = {
+			isa = PBXGroup;
+			children = (
+				DD4F14FF1D15A4A60082B90F /* Model */,
+				DD4F14FE1D15A4930082B90F /* View */,
+				DD4F14FD1D15A47F0082B90F /* Controller */,
+			);
+			path = SettingPage;
+			sourceTree = "<group>";
+		};
+		DD4F14FD1D15A47F0082B90F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DD4F15001D15A4B90082B90F /* SettingViewController.h */,
+				DD4F15011D15A4B90082B90F /* SettingViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DD4F14FE1D15A4930082B90F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DD4F15031D15A58E0082B90F /* SettingTableViewCell.h */,
+				DD4F15041D15A58E0082B90F /* SettingTableViewCell.m */,
+				DD4F15051D15A58E0082B90F /* SettingTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DD4F14FF1D15A4A60082B90F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		DD56D6D31D14FD720019BF28 /* CourierMessageCell */ = {
@@ -1279,6 +1343,7 @@
 				DD56D6DD1D150B8D0019BF28 /* hire_btn_contact@2x.png in Resources */,
 				DD48B7C61D1385FC00E012E4 /* success_no_score@3x.png in Resources */,
 				DD48B7B51D1385FC00E012E4 /* kuaidiyuan_not_sent@2x.png in Resources */,
+				DD4F14F21D15819D0082B90F /* scan480.png in Resources */,
 				DD48B7CC1D13893D00E012E4 /* kuaidiyuan_login_bg@2x.jpg in Resources */,
 				DD48B7BB1D1385FC00E012E4 /* kuaidiyuan_scanner@2x.png in Resources */,
 				DD48B7C21D1385FC00E012E4 /* nav_icon_back@3x.png in Resources */,
@@ -1295,6 +1360,7 @@
 				DD48B7AC1D1385FC00E012E4 /* kuaidiyuan_couch_mark@3x.png in Resources */,
 				DD48B7C91D1385FC00E012E4 /* switch_on@2x.png in Resources */,
 				DD48B7B81D1385FC00E012E4 /* kuaidiyuan_pacage_empty@3x.png in Resources */,
+				DD4F15071D15A58E0082B90F /* SettingTableViewCell.xib in Resources */,
 				DD4F14D81D1575D30082B90F /* zbar-back.png in Resources */,
 				DD48B7AA1D1385FC00E012E4 /* kuaidiyuan_btn_phone_press@3x.png in Resources */,
 				DD56C57B1D14CD580019BF28 /* CampusCourierHomePageTableViewCell.xib in Resources */,
@@ -1309,8 +1375,10 @@
 				DD56D6E21D150BDC0019BF28 /* placeHoder.png in Resources */,
 				58F80A301D0AEC160099DCCD /* Assets.xcassets in Resources */,
 				DD48B7B01D1385FC00E012E4 /* kuaidiyuan_icon_warning@3x.png in Resources */,
+				DD4F14F81D1591760082B90F /* InformGetCourierViewController.xib in Resources */,
 				DD56D6DE1D150B8D0019BF28 /* hire_btn_contact@3x.png in Resources */,
 				DD48B7B61D1385FC00E012E4 /* kuaidiyuan_not_sent@3x.png in Resources */,
+				DD4F14F31D15819D0082B90F /* scan.png in Resources */,
 				DD48B7C11D1385FC00E012E4 /* nav_icon_back@2x.png in Resources */,
 				58F80B321D0AEFDA0099DCCD /* 1.jpg in Resources */,
 				DD48B85E1D13D24B00E012E4 /* CourierHomePageTwoTableViewCell.xib in Resources */,
@@ -1421,11 +1489,13 @@
 				58F80C281D0BB4A60099DCCD /* SelectedPickView.m in Sources */,
 				58F80ABE1D0AEF5D0099DCCD /* IQTitleBarButtonItem.m in Sources */,
 				58F80ACE1D0AEF5D0099DCCD /* MJRefreshLegendHeader.m in Sources */,
+				DD4F15061D15A58E0082B90F /* SettingTableViewCell.m in Sources */,
 				58F80C251D0BB4A60099DCCD /* AddTeacherInfoTypeTwoTableViewCell.m in Sources */,
 				58F80AB51D0AEF5D0099DCCD /* IQUITextFieldView+Additions.m in Sources */,
 				DD48B7CF1D138ED300E012E4 /* RegisterDetailViewController.m in Sources */,
 				58F80AF01D0AEF870099DCCD /* HttpCommonModel.m in Sources */,
 				58F80ABC1D0AEF5D0099DCCD /* IQBarButtonItem.m in Sources */,
+				DD4F14FB1D159BD10082B90F /* SendMessageViewController.m in Sources */,
 				58F80C1F1D0BB4A60099DCCD /* ForgetPasswordViewController.m in Sources */,
 				58F80AE31D0AEF690099DCCD /* UITextView+TopView.m in Sources */,
 				58F80B2C1D0AEFC30099DCCD /* CommonTableViewCell.m in Sources */,
@@ -1436,6 +1506,7 @@
 				DD48B8541D13AD0800E012E4 /* CourierHomePageViewController.m in Sources */,
 				DD48B7E31D13A30200E012E4 /* RegisterTwoTableViewCell.m in Sources */,
 				58F80AF21D0AEF870099DCCD /* HttpServer.m in Sources */,
+				DD4F14F71D1591760082B90F /* InformGetCourierViewController.m in Sources */,
 				58BFC0361D152B1C0021BF73 /* SelectedSchollViewController.m in Sources */,
 				58F80AD21D0AEF5D0099DCCD /* NSDictionary+SafeExpectations.m in Sources */,
 				DD56C58F1D14F4540019BF28 /* CourierMessageViewController.m in Sources */,
@@ -1463,6 +1534,7 @@
 				DD56C5841D14D7EE0019BF28 /* UndeliveredCourierViewController.m in Sources */,
 				58F80B381D0BB1490099DCCD /* UserAccountManager.m in Sources */,
 				DDB759B21D14CB1900C79DE3 /* CampusCourierHomePageViewController.m in Sources */,
+				DD4F15021D15A4B90082B90F /* SettingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
