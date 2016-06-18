@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		58B6F8CC1D159F9000241490 /* CourierModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 58B6F8CB1D159F9000241490 /* CourierModel.m */; };
 		58BFC0361D152B1C0021BF73 /* SelectedSchollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58BFC0351D152B1C0021BF73 /* SelectedSchollViewController.m */; };
 		58BFC0391D152D600021BF73 /* SelectedCourierCompanyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58BFC0381D152D600021BF73 /* SelectedCourierCompanyViewController.m */; };
 		58F80A251D0AEC160099DCCD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F80A241D0AEC160099DCCD /* main.m */; };
@@ -193,6 +194,8 @@
 
 /* Begin PBXFileReference section */
 		047CF6A5687BBAC66C616E8D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		58B6F8CA1D159F9000241490 /* CourierModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourierModel.h; sourceTree = "<group>"; };
+		58B6F8CB1D159F9000241490 /* CourierModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourierModel.m; sourceTree = "<group>"; };
 		58BFC0341D152B1C0021BF73 /* SelectedSchollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectedSchollViewController.h; path = ../View/SelectedSchollViewController.h; sourceTree = "<group>"; };
 		58BFC0351D152B1C0021BF73 /* SelectedSchollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectedSchollViewController.m; path = ../View/SelectedSchollViewController.m; sourceTree = "<group>"; };
 		58BFC0371D152D600021BF73 /* SelectedCourierCompanyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedCourierCompanyViewController.h; sourceTree = "<group>"; };
@@ -513,6 +516,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		58B6F8C91D159F7800241490 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				58B6F8CA1D159F9000241490 /* CourierModel.h */,
+				58B6F8CB1D159F9000241490 /* CourierModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		58F80A171D0AEC160099DCCD = {
 			isa = PBXGroup;
 			children = (
@@ -1018,7 +1030,7 @@
 		DD48B7821D11859800E012E4 /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
-				DD48B8511D13ACB100E012E4 /* Model */,
+				58B6F8C91D159F7800241490 /* Model */,
 				DD48B8501D13ACA300E012E4 /* View */,
 				DD48B84F1D13AC9300E012E4 /* Controller */,
 			);
@@ -1084,13 +1096,6 @@
 				DD56D6D31D14FD720019BF28 /* CourierMessageCell */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		DD48B8511D13ACB100E012E4 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		DD4F14B91D1575D30082B90F /* ZBarSDK */ = {
@@ -1469,6 +1474,7 @@
 				58F80ABF1D0AEF5D0099DCCD /* IQToolbar.m in Sources */,
 				DD48B85D1D13D24B00E012E4 /* CourierHomePageTwoTableViewCell.m in Sources */,
 				58F80AB81D0AEF5D0099DCCD /* IQUIWindow+Hierarchy.m in Sources */,
+				58B6F8CC1D159F9000241490 /* CourierModel.m in Sources */,
 				DD4F14EE1D157D8B0082B90F /* QRScanViewController.m in Sources */,
 				58F80C381D0C41630099DCCD /* AccountUserModel.m in Sources */,
 				58F80AEF1D0AEF870099DCCD /* HttpClient.m in Sources */,
