@@ -27,9 +27,9 @@
 ///用户头像上传
 #define METHOD_OF_UPLOAD                 @"v1/user/upload/"
 ///上传身份证等多张图片
-#define METHOD_OF_IMAGES_UPLOAD          @"v1/fleamarket/imageupload/"
+#define METHOD_OF_IMAGES_UPLOAD          @"v1/fleamarket/imageupload?"
 ///完善资料
-#define METHOD_OF_INFO_PERFECT           @"v1/courier/updateuserinfo/"
+#define METHOD_OF_INFO_PERFECT           @"v1/courier/updateuserinfo?"
 ///根据关键字查询学校
 #define METHOD_OF_COLLEGE_SEARCH         @"v1/college/search?"
 

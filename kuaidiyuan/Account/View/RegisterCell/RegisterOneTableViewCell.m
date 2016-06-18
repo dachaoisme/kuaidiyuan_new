@@ -12,6 +12,7 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    self.contentTextField.delegate = self;
 }
 -(void)textFieldDidEndEditing:(UITextField *)textField
 {

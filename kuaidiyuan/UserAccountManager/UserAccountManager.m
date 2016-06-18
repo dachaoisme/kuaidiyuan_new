@@ -44,8 +44,11 @@
     NSString * userInfoKey = @"userInfo";
     NSDictionary * userInfoDic = [[NSUserDefaults standardUserDefaults] objectForKey:userInfoKey];
     
-    self.userXueYuanPaiId           = [userInfoDic stringForKey:@"user_id"];
-    self.userCourierId = [userInfoDic stringForKey:@"id"];
+    self.userXueYuanPaiId   = [userInfoDic stringForKey:@"user_id"];
+    self.userCourierId      = [userInfoDic stringForKey:@"id"];
+    self.userIcon           = [userInfoDic stringForKey:@"icon"];
+    self.userRealName       = [userInfoDic stringForKey:@"realname"];
+    self.userTelephoneNum   = [userInfoDic stringForKey:@"telphone"];
     
     if (self.userCourierId && self.userCourierId.length>0) {
         self.isLogin = YES;
@@ -64,7 +67,7 @@
 -(void)loginWithUserPhoneNum:(NSString *)phoneNum andPassWord:(NSString *)passWord
 {
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
-    [dic setObject:phoneNum forKey:@"mobile"];
+    [dic setObject:phoneNum forKey:@"telphone"];
     [dic setObject:passWord forKey:@"passwd"];
     [[HttpClient sharedInstance]loginWithParams:dic withSuccessBlock:^(HttpResponseCodeModel *model) {
         if (model.responseCode == ResponseCodeSuccess) {

@@ -353,6 +353,8 @@
          if (model.responseCode==ResponseCodeSuccess) {
              NSArray  *imageArr =(NSArray *)model.responseCommonDic;
              uploadIdCardImageStr = [imageArr componentsJoinedByString:@","];
+#warning mark - 头像上传接口有问题，先使用这个
+             avatarImageUploaded = [imageArr firstObject];
              [self submit];
          }else{
              [CommonUtils showToastWithStr:model.responseMsg];

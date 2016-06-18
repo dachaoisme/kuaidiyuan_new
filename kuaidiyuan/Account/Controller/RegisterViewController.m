@@ -135,7 +135,8 @@
     }
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    [params setObject:phoneNum forKey:@"mobile"];
+    [params setValue:phoneNum forKey:@"mobile"];
+    //[params setObject:phoneNum forKey:@"mobile"];
     [[HttpClient sharedInstance]registerOfSendMessageWithParams:params withSuccessBlock:^(HttpResponseCodeModel *model) {
 
         if (model.responseCode == ResponseCodeSuccess) {
