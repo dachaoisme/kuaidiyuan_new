@@ -61,10 +61,6 @@
 		58F80B321D0AEFDA0099DCCD /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 58F80B301D0AEFDA0099DCCD /* 1.jpg */; };
 		58F80B331D0AEFDA0099DCCD /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 58F80B311D0AEFDA0099DCCD /* 2.jpg */; };
 		58F80B381D0BB1490099DCCD /* UserAccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F80B371D0BB1490099DCCD /* UserAccountManager.m */; };
-		58F80B9F1D0BB23A0099DCCD /* BusinessCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F80B431D0BB23A0099DCCD /* BusinessCenterViewController.m */; };
-		58F80BAC1D0BB23A0099DCCD /* BusinessCenterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F80B5E1D0BB23A0099DCCD /* BusinessCenterModel.m */; };
-		58F80BEE1D0BB24C0099DCCD /* ExpressCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F80BD51D0BB24C0099DCCD /* ExpressCenterViewController.m */; };
-		58F80BF11D0BB24C0099DCCD /* ExpressCenterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F80BDC1D0BB24C0099DCCD /* ExpressCenterModel.m */; };
 		58F80C1C1D0BB4A60099DCCD /* AddStudentInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F80BFF1D0BB4A60099DCCD /* AddStudentInfoViewController.m */; };
 		58F80C1D1D0BB4A60099DCCD /* AddTeacherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F80C011D0BB4A60099DCCD /* AddTeacherViewController.m */; };
 		58F80C1E1D0BB4A60099DCCD /* ForgetPasswordOfSetNewPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F80C031D0BB4A60099DCCD /* ForgetPasswordOfSetNewPasswordViewController.m */; };
@@ -285,14 +281,6 @@
 		58F80B341D0AF0600099DCCD /* KDY-PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KDY-PrefixHeader.pch"; sourceTree = "<group>"; };
 		58F80B361D0BB1490099DCCD /* UserAccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserAccountManager.h; sourceTree = "<group>"; };
 		58F80B371D0BB1490099DCCD /* UserAccountManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserAccountManager.m; sourceTree = "<group>"; };
-		58F80B421D0BB23A0099DCCD /* BusinessCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusinessCenterViewController.h; sourceTree = "<group>"; };
-		58F80B431D0BB23A0099DCCD /* BusinessCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessCenterViewController.m; sourceTree = "<group>"; };
-		58F80B5D1D0BB23A0099DCCD /* BusinessCenterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusinessCenterModel.h; sourceTree = "<group>"; };
-		58F80B5E1D0BB23A0099DCCD /* BusinessCenterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessCenterModel.m; sourceTree = "<group>"; };
-		58F80BD41D0BB24C0099DCCD /* ExpressCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpressCenterViewController.h; sourceTree = "<group>"; };
-		58F80BD51D0BB24C0099DCCD /* ExpressCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpressCenterViewController.m; sourceTree = "<group>"; };
-		58F80BDB1D0BB24C0099DCCD /* ExpressCenterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpressCenterModel.h; sourceTree = "<group>"; };
-		58F80BDC1D0BB24C0099DCCD /* ExpressCenterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpressCenterModel.m; sourceTree = "<group>"; };
 		58F80BFE1D0BB4A60099DCCD /* AddStudentInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddStudentInfoViewController.h; sourceTree = "<group>"; };
 		58F80BFF1D0BB4A60099DCCD /* AddStudentInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddStudentInfoViewController.m; sourceTree = "<group>"; };
 		58F80C001D0BB4A60099DCCD /* AddTeacherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTeacherViewController.h; sourceTree = "<group>"; };
@@ -475,8 +463,6 @@
 				58F80B2E1D0AEFCC0099DCCD /* BaseViewController.m */,
 				58F80B2A1D0AEFC30099DCCD /* CommonTableViewCell.h */,
 				58F80B2B1D0AEFC30099DCCD /* CommonTableViewCell.m */,
-				58F80B391D0BB23A0099DCCD /* BusinessCenter */,
-				58F80BD01D0BB24C0099DCCD /* ExpressCenter */,
 				58F80AD51D0AEF690099DCCD /* Utils */,
 				58F80A601D0AEF5D0099DCCD /* ThirdPart */,
 				58F80C2A1D0BB8940099DCCD /* Resource */,
@@ -755,76 +741,6 @@
 				58F80B371D0BB1490099DCCD /* UserAccountManager.m */,
 			);
 			path = UserAccountManager;
-			sourceTree = "<group>";
-		};
-		58F80B391D0BB23A0099DCCD /* BusinessCenter */ = {
-			isa = PBXGroup;
-			children = (
-				58F80B3A1D0BB23A0099DCCD /* Controller */,
-				58F80B5C1D0BB23A0099DCCD /* Model */,
-				58F80B5F1D0BB23A0099DCCD /* View */,
-			);
-			path = BusinessCenter;
-			sourceTree = "<group>";
-		};
-		58F80B3A1D0BB23A0099DCCD /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				58F80B421D0BB23A0099DCCD /* BusinessCenterViewController.h */,
-				58F80B431D0BB23A0099DCCD /* BusinessCenterViewController.m */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		58F80B5C1D0BB23A0099DCCD /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				58F80B5D1D0BB23A0099DCCD /* BusinessCenterModel.h */,
-				58F80B5E1D0BB23A0099DCCD /* BusinessCenterModel.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		58F80B5F1D0BB23A0099DCCD /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		58F80BD01D0BB24C0099DCCD /* ExpressCenter */ = {
-			isa = PBXGroup;
-			children = (
-				58F80BD11D0BB24C0099DCCD /* Controller */,
-				58F80BDA1D0BB24C0099DCCD /* Model */,
-				58F80BDD1D0BB24C0099DCCD /* View */,
-			);
-			path = ExpressCenter;
-			sourceTree = "<group>";
-		};
-		58F80BD11D0BB24C0099DCCD /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				58F80BD41D0BB24C0099DCCD /* ExpressCenterViewController.h */,
-				58F80BD51D0BB24C0099DCCD /* ExpressCenterViewController.m */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		58F80BDA1D0BB24C0099DCCD /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				58F80BDB1D0BB24C0099DCCD /* ExpressCenterModel.h */,
-				58F80BDC1D0BB24C0099DCCD /* ExpressCenterModel.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		58F80BDD1D0BB24C0099DCCD /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		58F80BFC1D0BB4A60099DCCD /* Account */ = {
@@ -1312,7 +1228,6 @@
 				58F80AD41D0AEF5D0099DCCD /* UIView+Toast.m in Sources */,
 				58F80C1D1D0BB4A60099DCCD /* AddTeacherViewController.m in Sources */,
 				58F80ABD1D0AEF5D0099DCCD /* IQPreviousNextView.m in Sources */,
-				58F80B9F1D0BB23A0099DCCD /* BusinessCenterViewController.m in Sources */,
 				58F80AB91D0AEF5D0099DCCD /* IQKeyboardManager.m in Sources */,
 				58F80AB31D0AEF5D0099DCCD /* IQNSArray+Sort.m in Sources */,
 				58F80ACC1D0AEF5D0099DCCD /* MJRefreshHeader.m in Sources */,
@@ -1334,7 +1249,6 @@
 				DD48B7771D117BC600E012E4 /* ApplyCourierTableViewCell.m in Sources */,
 				DD56C5871D14D9970019BF28 /* DeliveredCourierViewController.m in Sources */,
 				DD48B77E1D117CDE00E012E4 /* ApplyCourierViewController.m in Sources */,
-				58F80BEE1D0BB24C0099DCCD /* ExpressCenterViewController.m in Sources */,
 				DD56C58B1D14D9DD0019BF28 /* DeliveredCourierTableViewCell.m in Sources */,
 				58F80AD01D0AEF5D0099DCCD /* UIScrollView+MJRefresh.m in Sources */,
 				58F80C231D0BB4A60099DCCD /* CollegeModel.m in Sources */,
@@ -1368,7 +1282,6 @@
 				58F80AC01D0AEF5D0099DCCD /* IQUIView+IQKeyboardToolbar.m in Sources */,
 				58F80C291D0BB4A60099DCCD /* SelectedSexView.m in Sources */,
 				58F80ACD1D0AEF5D0099DCCD /* MJRefreshLegendFooter.m in Sources */,
-				58F80BF11D0BB24C0099DCCD /* ExpressCenterModel.m in Sources */,
 				58F80ABB1D0AEF5D0099DCCD /* IQTextView.m in Sources */,
 				DD56C57E1D14D24D0019BF28 /* DeliveryRecordViewController.m in Sources */,
 				58F80AF11D0AEF870099DCCD /* HttpModel.m in Sources */,
@@ -1385,7 +1298,6 @@
 				58F80AC91D0AEF5D0099DCCD /* MJRefreshFooter.m in Sources */,
 				58F80C271D0BB4A60099DCCD /* SelectedImageView.m in Sources */,
 				DD56C5841D14D7EE0019BF28 /* UndeliveredCourierViewController.m in Sources */,
-				58F80BAC1D0BB23A0099DCCD /* BusinessCenterModel.m in Sources */,
 				58F80B381D0BB1490099DCCD /* UserAccountManager.m in Sources */,
 				DDB759B21D14CB1900C79DE3 /* CampusCourierHomePageViewController.m in Sources */,
 			);
