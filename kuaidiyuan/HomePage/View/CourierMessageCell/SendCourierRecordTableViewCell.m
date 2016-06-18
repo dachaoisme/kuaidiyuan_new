@@ -12,6 +12,13 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    
+    
+    _cancleButton.layer.cornerRadius = 6;
+    _cancleButton.layer.masksToBounds = YES;
+    _cancleButton.backgroundColor = [CommonUtils colorWithHex:@"00beaf"];
+    [_cancleButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+
 }
 
 //- (void)bindModel:(ExpressCenterExpressInfoModel *)model{
