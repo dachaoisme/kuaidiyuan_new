@@ -32,6 +32,14 @@
 #define METHOD_OF_INFO_PERFECT           @"v1/courier/updateuserinfo?"
 ///根据关键字查询学校
 #define METHOD_OF_COLLEGE_SEARCH         @"v1/college/search?"
+///发快递取件消息接口(未完成取件)
+#define METHOD_INCOMPLETE_COURIER_LIST        @"v1/courier/incomplete?"
+
+
+
+
+
+
 
 
 
@@ -40,8 +48,7 @@
 #define METHOD_SEND_EXPRESS_HISTORY              @"v1/courier/expressrecord?"
 ///设置快递员上下班接口
 #define METHOD_CONFIGURE_WORK                    @"v1/courier/working?"
-///发快递取件消息接口
-#define METHOD_CONFIGURE_SEND_MESSAGE            @"v1/courier/messages?"
+
 ///短信模板列表接口
 #define METHOD_CONFIGURE_TEMPLATES_LIST          @"v1/templates/list?"
 ///添加短信模板接口

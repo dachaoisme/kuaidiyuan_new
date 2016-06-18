@@ -116,7 +116,18 @@
 }
 
 
-
+///发快件取件消息接口
+- (void)incompleteCourierWithParams:(NSDictionary *)params withSuccessBlock:(XYPCommonListBlock)successBlock withFaileBlock:(XYPHttpErrorBlock)failBlock
+{
+    [[HttpServer sharedInstance]getWithMethod:METHOD_INCOMPLETE_COURIER_LIST withParams:params withSuccess:^(HttpResponseCodeModel *model) {
+        //Pages
+        HttpResponsePageModel * pageModel = [[HttpResponsePageModel alloc]initWithDic:model.responseCommonDic];
+        NSDictionary * listDic = model.responseCommonDic;
+        successBlock(model,pageModel,listDic);
+    } withFailBlock:^(NSError *error) {
+        failBlock(error);
+    }];
+}
 
 
 
@@ -146,18 +157,7 @@
         failBlock(error);
     }];
 }
-///发快件取件消息接口
-- (void)expressMessageWithParams:(NSDictionary *)params withSuccessBlock:(XYPCommonListBlock)successBlock withFaileBlock:(XYPHttpErrorBlock)failBlock
-{
-    [[HttpServer sharedInstance]getWithMethod:METHOD_CONFIGURE_SEND_MESSAGE withParams:params withSuccess:^(HttpResponseCodeModel *model) {
-        //Pages
-        HttpResponsePageModel * pageModel = [[HttpResponsePageModel alloc]initWithDic:model.responseCommonDic];
-        NSDictionary * listDic = model.responseCommonDic;
-        successBlock(model,pageModel,listDic);
-    } withFailBlock:^(NSError *error) {
-        failBlock(error);
-    }];
-}
+
 
 ///短信模板列表接口
 - (void)messageTemplatesListWithParams:(NSDictionary *)params withSuccessBlock:(XYPCommonListBlock)successBlock withFaileBlock:(XYPHttpErrorBlock)failBlock

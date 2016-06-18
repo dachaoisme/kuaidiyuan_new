@@ -115,6 +115,25 @@
     }
 }
 
+#pragma mark - 送快递记录
+//-(void)expressHistory
+//{
+//    NSMutableArray *expressHistoryArr = [NSMutableArray array];
+//    NSMutableDictionary * dic = [NSMutableDictionary dictionary];
+//    [[HttpClient sharedInstance]expressHistoryWithParams:dic withSuccessBlock:^(HttpResponseCodeModel *responseModel, HttpResponsePageModel *pageModel, NSDictionary *ListDic) {
+//        if (responseModel.responseCode==ResponseCodeSuccess) {
+//            NSArray * dicArr = [ListDic objectForKey:@"lists"];
+//            for (NSDictionary * dic in dicArr) {
+//                ExpressInfoModel *expressInfoModel = [[ExpressInfoModel alloc] initWithDic:dic];
+//                [expressHistoryArr addObject:expressInfoModel];
+//            }
+//        }else{
+//            [CommonUtils showToastWithStr:responseModel.responseMsg];
+//        }
+//    } withFaileBlock:^(NSError *error) {
+//        
+//    }];
+//}
 
 
 

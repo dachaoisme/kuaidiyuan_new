@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "CourierModel.h"
 @protocol SendCourierRecordTableViewCellDelegate <NSObject>
 
 //店电话
@@ -46,6 +46,6 @@
 @property (nonatomic,assign)id<SendCourierRecordTableViewCellDelegate>delegate;
 
 
-//- (void)bindModel:(ExpressCenterExpressInfoModel *)model;
+- (void)bindModel:(CourierIncompleteMessageModel *)model;
 
 @end

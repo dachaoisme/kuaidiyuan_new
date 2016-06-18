@@ -7,7 +7,7 @@
 //
 
 #import "BaseViewController.h"
-
+#import "CourierModel.h"
 @interface CourierMessageViewController : BaseViewController
 
 @end

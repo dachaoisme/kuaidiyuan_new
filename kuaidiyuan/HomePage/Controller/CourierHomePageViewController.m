@@ -220,6 +220,30 @@
 - (void)call{
     [CommonUtils showToastWithStr:@"打电话"];
 }
+#pragma mark - 设置快递员上下班
+-(void)configureCouriserWorkTime
+{
+    /*
+     courier_id      int         必需      快递员序号
+     working         int         必需      设置上下班 1上班 0下班
+     */
+    NSMutableDictionary * dic = [NSMutableDictionary dictionary];
+    [dic setValue:[UserAccountManager sharedInstance].userCourierId forKey:@"courier_id"];
+    [dic setValue:@"1" forKey:@"working"];
+    
+    [[HttpClient sharedInstance]configureWorkTimeWithParams:dic withSuccessBlock:^(HttpResponseCodeModel *model) {
+        if (model.responseCode==ResponseCodeSuccess) {
+            ///设置成功
+            [CommonUtils showToastWithStr:@"设置成功"];
+        }else{
+            ///设置失败失败
+            [CommonUtils showToastWithStr:model.responseMsg];
+        }
+    } withFaileBlock:^(NSError *error) {
+        [CommonUtils showToastWithStr:@"请检查您的网络"];
+    }];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

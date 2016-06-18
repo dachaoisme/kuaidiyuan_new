@@ -20,6 +20,30 @@
     [_cancleButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
 
 }
+/*
+ ///头像
+ @property (weak, nonatomic) IBOutlet UIImageView *headImageView;
+ ///姓名
+ @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+ ///详情
+ @property (weak, nonatomic) IBOutlet UILabel *contentLabel;
+ ///时间
+ @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+ ///取件地址
+ @property (weak, nonatomic) IBOutlet UILabel *takeAdress;
+ ///取件时间
+ @property (weak, nonatomic) IBOutlet UILabel *takeTime;
+ ///取件状态
+ @property (weak, nonatomic) IBOutlet UILabel *takeStatues;
+ 
+ ///取消取件按钮显示
+ @property (weak, nonatomic) IBOutlet UIButton *cancleButton;
+ */
+- (void)bindModel:(CourierIncompleteMessageModel *)model{
+    self.nameLabel.text = [NSString stringWithFormat:@"单号：%@",model.courierMessageExpressNum];
+    self.timeLabel.text = model.courierMessageCreateTime;
+    
+}
 
 //- (void)bindModel:(ExpressCenterExpressInfoModel *)model{
 //    
