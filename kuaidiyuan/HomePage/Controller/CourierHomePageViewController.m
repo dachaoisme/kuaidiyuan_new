@@ -14,6 +14,7 @@
 #import "CampusCourierHomePageTableViewCell.h"
 
 #import "DeliveryRecordViewController.h"
+#import "CourierMessageViewController.h"
 
 
 @interface CourierHomePageViewController ()<UITableViewDataSource,UITableViewDelegate,CourierHomePageTwoTableViewCellDelegate>
@@ -178,6 +179,9 @@
             [self.navigationController pushViewController:recordVC animated:YES];
         }else{
             //取件消息记录
+            CourierMessageViewController *messageVC = [[CourierMessageViewController alloc] init];
+            [self.navigationController pushViewController:messageVC animated:YES];
+            
         }
     }
 }
