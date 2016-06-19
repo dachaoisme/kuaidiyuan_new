@@ -11,7 +11,6 @@
 #import "CourierHomePageOneTableViewCell.h"
 #import "CourierHomePageTwoTableViewCell.h"
 
-#import "CampusCourierHomePageTableViewCell.h"
 
 #import "DeliveryRecordViewController.h"
 #import "CourierMessageViewController.h"
@@ -43,8 +42,93 @@
     [self createTableView];
     
     
+    
     [self createFootView];
+    
+    
+    //根据判断是否隐藏headerView
+    [self createHeaderView];
+
+    //校内快递员不隐藏
+    
+    //校外快递员隐藏
 }
+
+
+#pragma mark - 创建区分校内快递员还是校外快递员的headerView
+- (void)createHeaderView{
+    
+    UIView *backGroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 49*2+10)];
+    backGroundView.backgroundColor = [UIColor whiteColor];
+    self.tableView.tableHeaderView = backGroundView;
+    
+    
+    //第一行View:上班接单中
+    UIView *lineOneView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 49)];
+    [backGroundView addSubview:lineOneView];
+    
+    
+    UILabel *workingLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 13, 70, 20)];
+    workingLabel.font = [UIFont systemFontOfSize:14];
+    workingLabel.text = @"上班接单中";
+    [lineOneView addSubview:workingLabel];
+    
+    
+    UILabel *alertLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(workingLabel.frame) + 5, CGRectGetMinY(workingLabel.frame), 160, 20)];
+    alertLabel.font = [UIFont systemFontOfSize:14];
+    alertLabel.textColor = [UIColor lightGrayColor];
+    alertLabel.text = @"(打开开关获得取件订单)";
+    [lineOneView addSubview:alertLabel];
+    
+    
+    UISwitch *isOpenSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 60, CGRectGetMinY(workingLabel.frame) - 5, 50, CGRectGetHeight(alertLabel.frame))];
+    [isOpenSwitch addTarget:self action:@selector(getSwitchValue:) forControlEvents:UIControlEventValueChanged];
+    [lineOneView addSubview:isOpenSwitch];
+    
+    
+    
+    //空格view
+    UIView *grayView = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(lineOneView.frame), SCREEN_WIDTH, 10)];
+    grayView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    [backGroundView addSubview:grayView];
+    
+    
+    
+    //第二行view
+    UIView *lineTwoView = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(grayView.frame), SCREEN_WIDTH, 49)];
+    [backGroundView addSubview:lineTwoView];
+    
+    
+    UILabel *messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 13, 70, 20)];
+    messageLabel.font = [UIFont systemFontOfSize:14];
+    messageLabel.text = @"取件消息";
+    [lineTwoView addSubview:messageLabel];
+
+
+    //右侧箭头
+    UIImageView *arrowImageView = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 25, 15, 10, 17)];
+    arrowImageView.image = [UIImage imageNamed:@"arrow"];
+    [lineTwoView addSubview:arrowImageView];
+    
+    
+    UITapGestureRecognizer *tapMessageAction = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(messageList)];
+    [lineTwoView addGestureRecognizer:tapMessageAction];
+    
+    
+}
+
+#pragma mark - 开关打开的响应时间
+- (void)getSwitchValue:(UISwitch *)sender{
+    
+    if (sender.isOn) {
+        [CommonUtils showToastWithStr:@"开"];
+    }else{
+        
+        [CommonUtils showToastWithStr:@"关"];
+    }
+    
+}
+
 
 #pragma mark - 创建底层浮层
 - (void)createFootView{
@@ -102,9 +186,6 @@
     [tableView registerNib:[UINib nibWithNibName:@"CourierHomePageOneTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"oneCell"];
     [tableView registerNib:[UINib nibWithNibName:@"CourierHomePageTwoTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"twoCell"];
     
-
-     [tableView registerNib:[UINib nibWithNibName:@"CampusCourierHomePageTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"threeCell"];
-    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -121,39 +202,35 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     
-    return 3;
+    return 2;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     
-    return 10;
+    if (section == 0) {
+        return 0;
+    }else{
+        return 10;
+
+    }
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    if (indexPath.section == 0) {
-        
-        CampusCourierHomePageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"threeCell" forIndexPath:indexPath];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        
-
-        return cell;
-
-    }else if(indexPath.section == 1){
+     if(indexPath.section == 0){
         
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+         
+         
+         UIImageView *arrowImageView = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 30, 15, 10, 17)];
+         arrowImageView.image = [UIImage imageNamed:@"arrow"];
+        cell.accessoryView = arrowImageView;
         cell.textLabel.font = [UIFont systemFontOfSize:14];
 
-        if (indexPath.row == 0) {
-            cell.textLabel.text = @"全部送快递记录";
+        cell.textLabel.text = @"全部送快递记录";
 
-        }else{
-            cell.textLabel.text = @"取件消息";
-
-        }
         return cell;
 
         
@@ -187,7 +264,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    if (indexPath.section == 2  && indexPath.row > 0) {
+    if (indexPath.section == 1  && indexPath.row > 0) {
         return 120;
     }else{
         return 49;
@@ -196,18 +273,19 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    if (indexPath.section == 1) {
-        if (indexPath.row == 0) {
-            //送快递记录
-            DeliveryRecordViewController *recordVC = [[DeliveryRecordViewController alloc] init];
-            [self.navigationController pushViewController:recordVC animated:YES];
-        }else{
-            //取件消息记录
-            CourierMessageViewController *messageVC = [[CourierMessageViewController alloc] init];
-            [self.navigationController pushViewController:messageVC animated:YES];
-            
-        }
+    if (indexPath.section == 0 && indexPath.row == 0) {
+        //送快递记录
+        DeliveryRecordViewController *recordVC = [[DeliveryRecordViewController alloc] init];
+        [self.navigationController pushViewController:recordVC animated:YES];
     }
+}
+
+#pragma mark - 查看取件消息列表
+
+- (void)messageList{
+    //取件消息记录
+    CourierMessageViewController *messageVC = [[CourierMessageViewController alloc] init];
+    [self.navigationController pushViewController:messageVC animated:YES];
 }
 
 
