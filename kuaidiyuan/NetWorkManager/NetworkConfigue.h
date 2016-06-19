@@ -34,7 +34,8 @@
 #define METHOD_OF_COLLEGE_SEARCH         @"v1/college/search?"
 ///发快递取件消息接口(未完成取件)
 #define METHOD_INCOMPLETE_COURIER_LIST        @"v1/courier/incomplete?"
-
+///送快递记录
+#define METHOD_SEND_COURIER_HISTORY              @"v1/courier/expressrecord?"
 
 
 
@@ -44,8 +45,7 @@
 
 
 #pragma mark - 送快递相关
-///送快递记录
-#define METHOD_SEND_EXPRESS_HISTORY              @"v1/courier/expressrecord?"
+
 ///设置快递员上下班接口
 #define METHOD_CONFIGURE_WORK                    @"v1/courier/working?"
 

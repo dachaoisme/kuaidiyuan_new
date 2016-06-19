@@ -129,25 +129,29 @@
     }];
 }
 
-
-
-
-
-
-
-
 ///送快递记录接口
 - (void)expressHistoryWithParams:(NSDictionary *)params withSuccessBlock:(XYPCommonListBlock)successBlock withFaileBlock:(XYPHttpErrorBlock)failBlock
 {
-    [[HttpServer sharedInstance]getWithMethod:METHOD_SEND_EXPRESS_HISTORY withParams:params withSuccess:^(HttpResponseCodeModel *model) {
+    [[HttpServer sharedInstance]getWithMethod:METHOD_SEND_COURIER_HISTORY withParams:params withSuccess:^(HttpResponseCodeModel *model) {
         //Pages
-        HttpResponsePageModel * pageModel = [[HttpResponsePageModel alloc]initWithDic:model.responseCommonDic];
+        HttpResponsePageModel * pageModel = nil;
+        if (model.responseCode == ResponseCodeSuccess) {
+            pageModel = [[HttpResponsePageModel alloc]initWithDic:model.responseCommonDic];
+        }
         NSDictionary * listDic = model.responseCommonDic;
         successBlock(model,pageModel,listDic);
     } withFailBlock:^(NSError *error) {
         failBlock(error);
     }];
 }
+
+
+
+
+
+
+
+
 ///设置快递员是都上下班接口
 - (void)configureWorkTimeWithParams:(NSDictionary *)params withSuccessBlock:(XYPBaseBlock)successBlock withFaileBlock:(XYPHttpErrorBlock)failBlock
 {

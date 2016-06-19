@@ -17,18 +17,20 @@
 ///快递信息model
 @interface CourierInfoModel : NSObject
 /*
- "id": 1,
- "express_type": 1,      //快递类型 具体数字含义 需求未定
- "express_no": "323232", //快递单号
- "status": 1,            //状态:0 未送达 1 已送达
- "create_at": "2016-06-09 17:16:15"
  
+ "id": 1,
+ "telphone": "13718360864",//手机号码
+ "company": "韵达快递",//快递公司
+ "express_no": "323232",//快递单号
+ "status": 0, //状态 1已送达 0 未送达
+ "create_at": "2016-06-09 17:16:15"
  */
-@property(nonatomic,strong)NSString *expressId;
-@property(nonatomic,strong)NSString *expressType;
-@property(nonatomic,strong)NSString *expressNum;
-@property(nonatomic,strong)NSString *expressStrtus;
-@property(nonatomic,strong)NSString *expressCreateTime;
+@property(nonatomic,strong)NSString *courierInfoId;
+@property(nonatomic,strong)NSString *courierInfoTelephone;
+@property(nonatomic,strong)NSString *courierInfoCompany;
+@property(nonatomic,strong)NSString *courierInfoNum;
+@property(nonatomic,strong)NSString *courierInfoStatus;
+@property(nonatomic,strong)NSString *courierCreateTime;
 -(id)initWithDic:(NSDictionary *)dic;
 @end
 
