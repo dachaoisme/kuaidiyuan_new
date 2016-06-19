@@ -87,34 +87,42 @@
     if (indexPath.row == 0) {
         //工作统计
         
+        if ([UserAccountManager sharedInstance].userCourierRoleType == CourierRoleTypeOfSchool) {
+
+            //校内快递员
+            InSchoolCourierJobListViewController *inSchoolVC = [[InSchoolCourierJobListViewController alloc] init];
+            [self.navigationController pushViewController:inSchoolVC animated:YES];
+            
+
+            
+        }else{
+            
+            //校外快递员
+            OutsideSchoolJobListViewController *outsideSchoolVC = [[OutsideSchoolJobListViewController alloc] init];
+            
+            [self.navigationController pushViewController:outsideSchoolVC animated:YES];
+        }
+
         
-#warning 需要进行校内还是校外快递员的判断
-        
-        //校内快递员
-//        InSchoolCourierJobListViewController *inSchoolVC = [[InSchoolCourierJobListViewController alloc] init];
-//        [self.navigationController pushViewController:inSchoolVC animated:YES];
         
         
-        
-        //校外快递员
-        OutsideSchoolJobListViewController *outsideSchoolVC = [[OutsideSchoolJobListViewController alloc] init];
-        
-        [self.navigationController pushViewController:outsideSchoolVC animated:YES];
+
         
     }else if (indexPath.row == 1){
         //我的认证信息
         
 #warning 需要进行判断跳转是校内快递员还是校外快递员
         
-        //校内快递员
-//        ApplyCourierViewController *applyCourierVC = [[ApplyCourierViewController alloc] init];
-//        [self.navigationController pushViewController:applyCourierVC animated:YES];
-        
-        
-        
-        //校外快递员
-        OutsideSchoolCourierViewController *outsideSchoolVC = [[OutsideSchoolCourierViewController alloc] init];
-        [self.navigationController pushViewController:outsideSchoolVC animated:YES];
+      if ([UserAccountManager sharedInstance].userCourierRoleType == CourierRoleTypeOfSchool) {
+          
+          //校内快递员
+          ApplyCourierViewController *applyCourierVC = [[ApplyCourierViewController alloc] init];
+          [self.navigationController pushViewController:applyCourierVC animated:YES];
+      }else{
+          //校外快递员
+          OutsideSchoolCourierViewController *outsideSchoolVC = [[OutsideSchoolCourierViewController alloc] init];
+          [self.navigationController pushViewController:outsideSchoolVC animated:YES];
+      }
         
     }else{
         //跳转修改手机号绑定

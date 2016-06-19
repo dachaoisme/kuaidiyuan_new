@@ -46,12 +46,24 @@
     [self createFootView];
     
     
-    //根据判断是否隐藏headerView
-    [self createHeaderView];
-
-    //校内快递员不隐藏
     
-    //校外快递员隐藏
+    //校内快递员不隐藏
+    if ([UserAccountManager sharedInstance].userCourierRoleType == CourierRoleTypeOfSchool) {
+        
+        //根据判断是否隐藏headerView
+        [self createHeaderView];
+
+        
+        self.tableView.tableHeaderView.hidden = NO;
+
+        
+    }else{
+        
+        //校外快递员隐藏
+        self.tableView.tableHeaderView.hidden = YES;
+    }
+    
+    
 }
 
 
