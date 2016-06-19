@@ -166,8 +166,8 @@
 		DD4F151D1D165F4D0082B90F /* InSchoolCourierJobListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4F151C1D165F4D0082B90F /* InSchoolCourierJobListViewController.m */; };
 		DD4F15251D1670230082B90F /* InSchoolTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4F15241D1670230082B90F /* InSchoolTableViewCell.m */; };
 		DD4F15281D16723D0082B90F /* OutsideSchoolJobListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4F15271D16723D0082B90F /* OutsideSchoolJobListViewController.m */; };
-		DD56C57A1D14CD580019BF28 /* CampusCourierHomePageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD56C5781D14CD580019BF28 /* CampusCourierHomePageTableViewCell.m */; };
-		DD56C57B1D14CD580019BF28 /* CampusCourierHomePageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD56C5791D14CD580019BF28 /* CampusCourierHomePageTableViewCell.xib */; };
+		DD4F153B1D1684CB0082B90F /* arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD4F15391D1684CB0082B90F /* arrow@2x.png */; };
+		DD4F153C1D1684CB0082B90F /* arrow@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD4F153A1D1684CB0082B90F /* arrow@3x.png */; };
 		DD56C57E1D14D24D0019BF28 /* DeliveryRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD56C57D1D14D24D0019BF28 /* DeliveryRecordViewController.m */; };
 		DD56C5811D14D3950019BF28 /* DeliveryRecordHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD56C5801D14D3950019BF28 /* DeliveryRecordHeaderView.m */; };
 		DD56C5841D14D7EE0019BF28 /* UndeliveredCourierViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD56C5831D14D7EE0019BF28 /* UndeliveredCourierViewController.m */; };
@@ -182,7 +182,6 @@
 		DD56D6DF1D150B8D0019BF28 /* hire_btn_contact_press@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD56D6DB1D150B8D0019BF28 /* hire_btn_contact_press@2x.png */; };
 		DD56D6E01D150B8D0019BF28 /* hire_btn_contact_press@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD56D6DC1D150B8D0019BF28 /* hire_btn_contact_press@3x.png */; };
 		DD56D6E21D150BDC0019BF28 /* placeHoder.png in Resources */ = {isa = PBXBuildFile; fileRef = DD56D6E11D150BDC0019BF28 /* placeHoder.png */; };
-		DDB759B21D14CB1900C79DE3 /* CampusCourierHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB759B11D14CB1900C79DE3 /* CampusCourierHomePageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -481,9 +480,8 @@
 		DD4F15241D1670230082B90F /* InSchoolTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InSchoolTableViewCell.m; sourceTree = "<group>"; };
 		DD4F15261D16723D0082B90F /* OutsideSchoolJobListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutsideSchoolJobListViewController.h; sourceTree = "<group>"; };
 		DD4F15271D16723D0082B90F /* OutsideSchoolJobListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OutsideSchoolJobListViewController.m; sourceTree = "<group>"; };
-		DD56C5771D14CD580019BF28 /* CampusCourierHomePageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CampusCourierHomePageTableViewCell.h; sourceTree = "<group>"; };
-		DD56C5781D14CD580019BF28 /* CampusCourierHomePageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CampusCourierHomePageTableViewCell.m; sourceTree = "<group>"; };
-		DD56C5791D14CD580019BF28 /* CampusCourierHomePageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CampusCourierHomePageTableViewCell.xib; sourceTree = "<group>"; };
+		DD4F15391D1684CB0082B90F /* arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow@2x.png"; sourceTree = "<group>"; };
+		DD4F153A1D1684CB0082B90F /* arrow@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow@3x.png"; sourceTree = "<group>"; };
 		DD56C57C1D14D24D0019BF28 /* DeliveryRecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeliveryRecordViewController.h; sourceTree = "<group>"; };
 		DD56C57D1D14D24D0019BF28 /* DeliveryRecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeliveryRecordViewController.m; sourceTree = "<group>"; };
 		DD56C57F1D14D3950019BF28 /* DeliveryRecordHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeliveryRecordHeaderView.h; sourceTree = "<group>"; };
@@ -505,8 +503,6 @@
 		DD56D6DB1D150B8D0019BF28 /* hire_btn_contact_press@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hire_btn_contact_press@2x.png"; sourceTree = "<group>"; };
 		DD56D6DC1D150B8D0019BF28 /* hire_btn_contact_press@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hire_btn_contact_press@3x.png"; sourceTree = "<group>"; };
 		DD56D6E11D150BDC0019BF28 /* placeHoder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeHoder.png; sourceTree = "<group>"; };
-		DDB759B01D14CB1900C79DE3 /* CampusCourierHomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CampusCourierHomePageViewController.h; sourceTree = "<group>"; };
-		DDB759B11D14CB1900C79DE3 /* CampusCourierHomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CampusCourierHomePageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -939,6 +935,8 @@
 		58F80C2A1D0BB8940099DCCD /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				DD4F15391D1684CB0082B90F /* arrow@2x.png */,
+				DD4F153A1D1684CB0082B90F /* arrow@3x.png */,
 				DD4F14F01D15819D0082B90F /* scan480.png */,
 				DD4F14F11D15819D0082B90F /* scan.png */,
 				DD48B7D01D13949B00E012E4 /* avatar@2x.png */,
@@ -1090,8 +1088,6 @@
 			children = (
 				DD48B8521D13AD0800E012E4 /* CourierHomePageViewController.h */,
 				DD48B8531D13AD0800E012E4 /* CourierHomePageViewController.m */,
-				DDB759B01D14CB1900C79DE3 /* CampusCourierHomePageViewController.h */,
-				DDB759B11D14CB1900C79DE3 /* CampusCourierHomePageViewController.m */,
 				DD56C57C1D14D24D0019BF28 /* DeliveryRecordViewController.h */,
 				DD56C57D1D14D24D0019BF28 /* DeliveryRecordViewController.m */,
 				DD56C5821D14D7EE0019BF28 /* UndeliveredCourierViewController.h */,
@@ -1121,9 +1117,6 @@
 				DD48B85A1D13D24B00E012E4 /* CourierHomePageTwoTableViewCell.h */,
 				DD48B85B1D13D24B00E012E4 /* CourierHomePageTwoTableViewCell.m */,
 				DD48B85C1D13D24B00E012E4 /* CourierHomePageTwoTableViewCell.xib */,
-				DD56C5771D14CD580019BF28 /* CampusCourierHomePageTableViewCell.h */,
-				DD56C5781D14CD580019BF28 /* CampusCourierHomePageTableViewCell.m */,
-				DD56C5791D14CD580019BF28 /* CampusCourierHomePageTableViewCell.xib */,
 				DD56C57F1D14D3950019BF28 /* DeliveryRecordHeaderView.h */,
 				DD56C5801D14D3950019BF28 /* DeliveryRecordHeaderView.m */,
 				DD56C5881D14D9DD0019BF28 /* DeliveredCourierTableViewCell.h */,
@@ -1372,6 +1365,7 @@
 				58F80C311D0BB8A70099DCCD /* Default-568h@2x.png in Resources */,
 				DD4F14DB1D1575D30082B90F /* zbar-samples.png in Resources */,
 				58F80AC41D0AEF5D0099DCCD /* LTPickerView.xib in Resources */,
+				DD4F153B1D1684CB0082B90F /* arrow@2x.png in Resources */,
 				DD48B7C81D1385FC00E012E4 /* switch_off@3x.png in Resources */,
 				DD48B7AE1D1385FC00E012E4 /* kuaidiyuan_icon_place@3x.png in Resources */,
 				DD4F14D91D1575D30082B90F /* zbar-help.html in Resources */,
@@ -1393,6 +1387,7 @@
 				DD48B7BA1D1385FC00E012E4 /* kuaidiyuan_scan_view@3x.png in Resources */,
 				DD56D6DD1D150B8D0019BF28 /* hire_btn_contact@2x.png in Resources */,
 				DD4F15141D1651D60082B90F /* OutsideSchooleTableViewCell.xib in Resources */,
+				DD4F153C1D1684CB0082B90F /* arrow@3x.png in Resources */,
 				DD48B7C61D1385FC00E012E4 /* success_no_score@3x.png in Resources */,
 				DD48B7B51D1385FC00E012E4 /* kuaidiyuan_not_sent@2x.png in Resources */,
 				DD4F14F21D15819D0082B90F /* scan480.png in Resources */,
@@ -1415,7 +1410,6 @@
 				DD4F15071D15A58E0082B90F /* SettingTableViewCell.xib in Resources */,
 				DD4F14D81D1575D30082B90F /* zbar-back.png in Resources */,
 				DD48B7AA1D1385FC00E012E4 /* kuaidiyuan_btn_phone_press@3x.png in Resources */,
-				DD56C57B1D14CD580019BF28 /* CampusCourierHomePageTableViewCell.xib in Resources */,
 				DD56C58C1D14D9DD0019BF28 /* DeliveredCourierTableViewCell.xib in Resources */,
 				DD4F150C1D164CD90082B90F /* ApplyCourierTwoTableViewCell.xib in Resources */,
 				DD48B7BE1D1385FC00E012E4 /* loading_white@3x.png in Resources */,
@@ -1518,7 +1512,6 @@
 				58F80AE01D0AEF690099DCCD /* CommonUtils.m in Sources */,
 				58F80A281D0AEC160099DCCD /* AppDelegate.m in Sources */,
 				58F80AB41D0AEF5D0099DCCD /* IQUIScrollView+Additions.m in Sources */,
-				DD56C57A1D14CD580019BF28 /* CampusCourierHomePageTableViewCell.m in Sources */,
 				58F80ABF1D0AEF5D0099DCCD /* IQToolbar.m in Sources */,
 				DD48B85D1D13D24B00E012E4 /* CourierHomePageTwoTableViewCell.m in Sources */,
 				DD4F15131D1651D60082B90F /* OutsideSchooleTableViewCell.m in Sources */,
@@ -1595,7 +1588,6 @@
 				58F80C271D0BB4A60099DCCD /* SelectedImageView.m in Sources */,
 				DD56C5841D14D7EE0019BF28 /* UndeliveredCourierViewController.m in Sources */,
 				58F80B381D0BB1490099DCCD /* UserAccountManager.m in Sources */,
-				DDB759B21D14CB1900C79DE3 /* CampusCourierHomePageViewController.m in Sources */,
 				DD4F15021D15A4B90082B90F /* SettingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
