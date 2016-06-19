@@ -22,7 +22,12 @@
 
 
 @interface CourierHomePageViewController ()<UITableViewDataSource,UITableViewDelegate,CourierHomePageTwoTableViewCellDelegate>
-
+{
+    NSInteger pageNum;
+    NSInteger pageSize;
+    NSMutableArray * courierInfoModelArr;
+    NSInteger workingSwitchValue;
+}
 @property (nonatomic,strong)UITableView *tableView;
 
 @end
@@ -35,16 +40,14 @@
     //校内快递员界面
     
     self.title = @"学院派快递员";
-    
+    courierInfoModelArr = [NSMutableArray array];
     [self creatLeftNavWithImageName:@"nav_icon_settings"];
-    
-    
+    pageNum = 0;
+    pageSize = 10;
+    workingSwitchValue = 1;
     [self createTableView];
-    
-    
-    
     [self createFootView];
-    
+    [self requestData];
     
     
     //校内快递员不隐藏
@@ -134,11 +137,12 @@
     
     if (sender.isOn) {
         [CommonUtils showToastWithStr:@"开"];
+        workingSwitchValue = 1;
     }else{
-        
+        workingSwitchValue = 0;
         [CommonUtils showToastWithStr:@"关"];
     }
-    
+    [self configureCouriserWorkTime];
 }
 
 
@@ -198,25 +202,24 @@
     [tableView registerNib:[UINib nibWithNibName:@"CourierHomePageOneTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"oneCell"];
     [tableView registerNib:[UINib nibWithNibName:@"CourierHomePageTwoTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"twoCell"];
     
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    
-    if (section == 0) {
-        return 1;
-    }else{
-        
-        return 2;
-    }
-    
-    
+    [tableView addLegendFooterWithRefreshingTarget:self refreshingAction:@selector(requestMoreData)];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     
     return 2;
 }
-
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    
+    if (section == 0) {
+        return 1;
+    }else{
+        
+        return courierInfoModelArr.count+1;
+    }
+    
+    
+}
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     
     if (section == 0) {
@@ -262,7 +265,11 @@
             CourierHomePageTwoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"twoCell" forIndexPath:indexPath];
             cell.delegate = self;
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            
+
+            CourierInfoModel  *model = [courierInfoModelArr objectAtIndex:indexPath.row-1];
+            cell.phoneLabel.text = model.courierInfoTelephone;
+            cell.timeLabel.text = model.courierCreateTime;
+            cell.titleLabel.text = [NSString stringWithFormat:@"%@ 订单号：%@",model.courierInfoCompany,model.courierInfoNum];
             
             return cell;
             
@@ -291,6 +298,47 @@
         [self.navigationController pushViewController:recordVC animated:YES];
     }
 }
+-(void)requestData
+{
+    NSMutableDictionary * dic = [NSMutableDictionary dictionary];
+    /*
+     courier_id      int     必需      快递员序号
+     status          int     非必需     状态 1已送达 0未送达
+     page            int     非必需     第几页
+     size            int     非必需     每页多少条
+     
+     */
+    [dic setValue:[UserAccountManager sharedInstance].userCourierId forKey:@"courier_id"];
+    [dic setValue:@"0" forKey:@"status"];
+    [dic setValue:[NSString stringWithFormat:@"%d",(long)pageNum] forKey:@"page"];
+    [dic setValue:[NSString stringWithFormat:@"%d",pageSize] forKey:@"size"];
+    [[HttpClient sharedInstance]expressHistoryWithParams:dic withSuccessBlock:^(HttpResponseCodeModel *responseModel, HttpResponsePageModel *pageModel, NSDictionary *ListDic) {
+        [self.tableView.footer endRefreshing];
+        if (responseModel.responseCode==ResponseCodeSuccess) {
+            NSArray * dicArr = [responseModel.responseCommonDic objectForKey:@"lists"];
+            for (NSDictionary * dic in dicArr) {
+                CourierInfoModel *expressInfoModel = [[CourierInfoModel alloc] initWithDic:dic];
+                [courierInfoModelArr addObject:expressInfoModel];
+            }
+            ///处理上拉加载更多逻辑
+            if (pageNum>=[pageModel.responsePageTotalCount integerValue]) {
+                //说明是最后一张
+                self.tableView.footer.state= MJRefreshFooterStateNoMoreData;
+            }
+            [self.tableView reloadData];
+        }else{
+            [CommonUtils showToastWithStr:responseModel.responseMsg];
+        }
+    } withFaileBlock:^(NSError *error) {
+        [self.tableView.footer endRefreshing];
+    }];
+}
+-(void)requestMoreData
+{
+    pageNum = pageNum+1;
+    [self requestData];
+}
+
 
 #pragma mark - 查看取件消息列表
 
@@ -302,19 +350,45 @@
 
 
 #pragma mark - cell中的三个按钮的响应方法
-- (void)confirmDelivery{
+- (void)confirmDeliveryWithIndex:(NSInteger)index{
     
     [CommonUtils showToastWithStr:@"确认送达"];
-    
+    [self sureCourierArriveWithIndex:index];
 }
-
-- (void)resendMessage{
-    
+///确认送达
+-(void)sureCourierArriveWithIndex:(NSInteger)index
+{
+    CourierInfoModel *model = [courierInfoModelArr objectAtIndex:index-1];
+    NSMutableDictionary * dic = [NSMutableDictionary dictionary];
+    [dic setObject:model.courierInfoNum forKey:@"express_no"];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [[HttpClient sharedInstance]courierArrivedWithParams:dic withSuccessBlock:^(HttpResponseCodeModel *model) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        if (model.responseCode ==ResponseCodeSuccess) {
+            [CommonUtils showToastWithStr:@"已确认送达"];
+            [self.navigationController popViewControllerAnimated:YES];
+        }else{
+            [CommonUtils showToastWithStr:model.responseMsg];
+        }
+    } withFaileBlock:^(NSError *error) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+    }];
+}
+#pragma mark - 冲发短信 还未实现
+- (void)resendMessageWithIndex:(NSInteger)index
+{
+    CourierInfoModel *model = [courierInfoModelArr objectAtIndex:index-1];
     [CommonUtils showToastWithStr:@"重发短信"];
 }
 
-- (void)call{
+- (void)callWithIndex:(NSInteger)index
+{
+    CourierInfoModel *model = [courierInfoModelArr objectAtIndex:index-1];
     [CommonUtils showToastWithStr:@"打电话"];
+    if (model.courierInfoTelephone.length>0) {
+        [CommonUtils callServiceWithTelephoneNum:model.courierInfoTelephone];
+    }
+    
 }
 #pragma mark - 设置快递员上下班
 -(void)configureCouriserWorkTime
@@ -325,18 +399,18 @@
      */
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     [dic setValue:[UserAccountManager sharedInstance].userCourierId forKey:@"courier_id"];
-    [dic setValue:@"1" forKey:@"working"];
+    [dic setValue:[NSString stringWithFormat:@"%d",workingSwitchValue] forKey:@"working"];
     
     [[HttpClient sharedInstance]configureWorkTimeWithParams:dic withSuccessBlock:^(HttpResponseCodeModel *model) {
         if (model.responseCode==ResponseCodeSuccess) {
             ///设置成功
-            [CommonUtils showToastWithStr:@"设置成功"];
+            //[CommonUtils showToastWithStr:@"设置成功"];
         }else{
             ///设置失败失败
             [CommonUtils showToastWithStr:model.responseMsg];
         }
     } withFaileBlock:^(NSError *error) {
-        [CommonUtils showToastWithStr:@"请检查您的网络"];
+        
     }];
 }
 

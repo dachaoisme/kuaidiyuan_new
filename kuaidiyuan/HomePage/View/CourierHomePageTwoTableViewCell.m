@@ -32,8 +32,8 @@
 #pragma mark - 确认送达按钮
 - (IBAction)makeSureDelayAction:(id)sender {
     
-    if ([_delegate respondsToSelector:@selector(confirmDelivery)]) {
-        [_delegate confirmDelivery];
+    if ([_delegate respondsToSelector:@selector(confirmDeliveryWithIndex:)]) {
+        [_delegate confirmDeliveryWithIndex:self.tag];
     }
 }
 
@@ -41,16 +41,16 @@
 #pragma mark - 从发短信按钮
 - (IBAction)resendMessageAction:(id)sender {
     
-    if ([_delegate respondsToSelector:@selector(resendMessage)]) {
-        [_delegate resendMessage];
+    if ([_delegate respondsToSelector:@selector(resendMessageWithIndex:)]) {
+        [_delegate resendMessageWithIndex:self.tag];
     }
 }
 
 #pragma mark - 打电话
 - (IBAction)callAction:(id)sender {
     
-    if ([_delegate respondsToSelector:@selector(call)]) {
-        [_delegate call];
+    if ([_delegate respondsToSelector:@selector(callWithIndex:)]) {
+        [_delegate callWithIndex:self.tag];
     }
 }
 

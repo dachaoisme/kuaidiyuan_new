@@ -33,15 +33,7 @@
     }];
 }
 
-///申请成为快递员
-//- (void)applyToCourierWithParams:(NSDictionary *)params withSuccessBlock:(XYPBaseBlock)successBlock withFaileBlock:(XYPHttpErrorBlock)failBlock
-//{
-//    [[HttpServer sharedInstance]getWithMethod:METHOD_APPLY_COURIER withParams:params withSuccess:^(HttpResponseCodeModel *model) {
-//        successBlock(model);
-//    } withFailBlock:^(NSError *error) {
-//        failBlock(error);
-//    }];
-//}
+
 ///注册
 - (void)registerAndSubmitWithParams:(NSDictionary *)params withSuccessBlock:(XYPNoneListBlock)successBlock withFaileBlock:(XYPHttpErrorBlock)failBlock
 {
@@ -144,15 +136,7 @@
         failBlock(error);
     }];
 }
-
-
-
-
-
-
-
-
-///设置快递员是都上下班接口
+///设置快递员是上下班接口
 - (void)configureWorkTimeWithParams:(NSDictionary *)params withSuccessBlock:(XYPBaseBlock)successBlock withFaileBlock:(XYPHttpErrorBlock)failBlock
 {
     [[HttpServer sharedInstance]getWithMethod:METHOD_CONFIGURE_WORK withParams:params withSuccess:^(HttpResponseCodeModel *model) {
@@ -161,6 +145,23 @@
         failBlock(error);
     }];
 }
+
+///设置快递已经送达接口
+- (void)courierArrivedWithParams:(NSDictionary *)params withSuccessBlock:(XYPBaseBlock)successBlock withFaileBlock:(XYPHttpErrorBlock)failBlock
+{
+    [[HttpServer sharedInstance]getWithMethod:METHOD_OF_COURIER_ARRIVE withParams:params withSuccess:^(HttpResponseCodeModel *model) {
+        successBlock(model);
+    } withFailBlock:^(NSError *error) {
+        failBlock(error);
+    }];
+}
+
+
+
+
+
+
+
 
 
 ///短信模板列表接口

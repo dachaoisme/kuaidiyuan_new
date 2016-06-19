@@ -82,10 +82,11 @@
 {
 
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
-    [dic setValue:[NSString stringWithFormat:@"%ld",pageNum] forKey:@"page"];
-    [dic setValue:[NSString stringWithFormat:@"%ld",pageSize] forKey:@"size"];
+    [dic setValue:[NSString stringWithFormat:@"%d",pageNum] forKey:@"page"];
+    [dic setValue:[NSString stringWithFormat:@"%d",pageSize] forKey:@"size"];
     [dic setValue:[UserAccountManager sharedInstance].userCourierId forKey:@"courier_id"];
     [[HttpClient sharedInstance]incompleteCourierWithParams:dic withSuccessBlock:^(HttpResponseCodeModel *responseModel, HttpResponsePageModel *pageModel, NSDictionary *ListDic) {
+        [self.tableView.footer endRefreshing];
         if (responseModel.responseCode == ResponseCodeSuccess) {
             ///请求成功
             for (NSDictionary *dic in [responseModel.responseCommonDic objectForKey:@"lists"]) {
@@ -103,7 +104,7 @@
         }
         [self.tableView reloadData];
     } withFaileBlock:^(NSError *error) {
-        
+        [self.tableView.footer endRefreshing];
     }];
 }
 

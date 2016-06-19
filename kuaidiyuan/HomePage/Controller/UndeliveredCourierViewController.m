@@ -82,9 +82,10 @@
      */
     [dic setValue:[UserAccountManager sharedInstance].userCourierId forKey:@"courier_id"];
     [dic setValue:@"0" forKey:@"status"];
-    [dic setValue:[NSString stringWithFormat:@"%ld",pageNum] forKey:@"page"];
-    [dic setValue:[NSString stringWithFormat:@"%ld",pageSize] forKey:@"size"];
+    [dic setValue:[NSString stringWithFormat:@"%d",pageNum] forKey:@"page"];
+    [dic setValue:[NSString stringWithFormat:@"%d",pageSize] forKey:@"size"];
     [[HttpClient sharedInstance]expressHistoryWithParams:dic withSuccessBlock:^(HttpResponseCodeModel *responseModel, HttpResponsePageModel *pageModel, NSDictionary *ListDic) {
+        [self.tableView.footer endRefreshing];
         if (responseModel.responseCode==ResponseCodeSuccess) {
             NSArray * dicArr = [responseModel.responseCommonDic objectForKey:@"lists"];
             for (NSDictionary * dic in dicArr) {
@@ -101,7 +102,7 @@
             [CommonUtils showToastWithStr:responseModel.responseMsg];
         }
     } withFaileBlock:^(NSError *error) {
-        
+        [self.tableView.footer endRefreshing];
     }];
 }
 -(void)requestMoreData
@@ -110,23 +111,46 @@
     [self requestData];
 }
 #pragma mark - cell中的三个按钮的响应方法
-- (void)confirmDelivery{
+- (void)confirmDeliveryWithIndex:(NSInteger)index{
     
     [CommonUtils showToastWithStr:@"确认送达"];
-    
+    [self sureCourierArriveWithIndex:index];
 }
-
-- (void)resendMessage{
-    
+#pragma mark - 未实现重发短信功能
+- (void)resendMessageWithIndex:(NSInteger)index
+{
+    CourierInfoModel *model = [courierInfoModelArr objectAtIndex:index-1];
     [CommonUtils showToastWithStr:@"重发短信"];
 }
 
-- (void)call{
+- (void)callWithIndex:(NSInteger)index
+{
+    CourierInfoModel *model = [courierInfoModelArr objectAtIndex:index-1];
     [CommonUtils showToastWithStr:@"打电话"];
+    if (model.courierInfoTelephone.length>0) {
+        [CommonUtils callServiceWithTelephoneNum:model.courierInfoTelephone];
+    }
 }
 
-
-
+///确认送达
+-(void)sureCourierArriveWithIndex:(NSInteger)index
+{
+    CourierInfoModel *model = [courierInfoModelArr objectAtIndex:index-1];
+    NSMutableDictionary * dic = [NSMutableDictionary dictionary];
+    [dic setObject:model.courierInfoNum forKey:@"express_no"];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [[HttpClient sharedInstance]courierArrivedWithParams:dic withSuccessBlock:^(HttpResponseCodeModel *model) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        if (model.responseCode ==ResponseCodeSuccess) {
+            [CommonUtils showToastWithStr:@"已确认送达"];
+            [self.navigationController popViewControllerAnimated:YES];
+        }else{
+            [CommonUtils showToastWithStr:model.responseMsg];
+        }
+    } withFaileBlock:^(NSError *error) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+    }];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

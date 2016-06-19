@@ -494,7 +494,7 @@
 
 +(void)showToastWithStr:(NSString *)toastStr
 {
-    [[UIApplication sharedApplication].keyWindow makeToast:toastStr duration:2.0 position:CSToastPositionCenter];
+    [[UIApplication sharedApplication].keyWindow makeToast:toastStr duration:1.0 position:CSToastPositionCenter];
 }
 
 +(void)showToastWithStr:(NSString *)toastStr WithTime:(NSTimeInterval )duration
