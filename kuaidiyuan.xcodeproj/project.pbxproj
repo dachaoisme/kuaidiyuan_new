@@ -1726,7 +1726,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ipiao.bus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "84e3f3a0-3421-4613-b3ff-78713c2c31ff";
+				PROVISIONING_PROFILE = "cde15ac7-b2ed-4ea4-9e41-fcda767163e4";
 			};
 			name = Debug;
 		};
@@ -1750,7 +1750,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ipiao.bus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "30d6dadb-087a-4abd-a7d1-74579889b56c";
+				PROVISIONING_PROFILE = "439bd43b-8ccd-4dc7-8abf-509ac713f00a";
 			};
 			name = Release;
 		};

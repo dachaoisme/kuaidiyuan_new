@@ -10,11 +10,11 @@
 
 @protocol CourierHomePageTwoTableViewCellDelegate <NSObject>
 
-- (void)confirmDelivery;
+- (void)confirmDeliveryWithIndex:(NSInteger)index;
 
-- (void)resendMessage;
+- (void)resendMessageWithIndex:(NSInteger)index;
 
-- (void)call;
+- (void)callWithIndex:(NSInteger)index;
 
 @end
 

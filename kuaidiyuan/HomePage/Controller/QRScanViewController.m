@@ -108,7 +108,7 @@
     {
         
         codeMessage = symbol.data;
-        
+        [self sureCourierArrive];
         break;
     }
     if(!symbol)
@@ -116,6 +116,27 @@
         UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"系统未发现二维码,请您继续扫描" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
         [alert show];
     }
+}
+///确认送达
+-(void)sureCourierArrive
+{
+    [self.camerView stop];
+    NSMutableDictionary * dic = [NSMutableDictionary dictionary];
+    [dic setObject:codeMessage forKey:@"express_no"];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [[HttpClient sharedInstance]courierArrivedWithParams:dic withSuccessBlock:^(HttpResponseCodeModel *model) {
+        [self.camerView start];
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        if (model.responseCode ==ResponseCodeSuccess) {
+            [CommonUtils showToastWithStr:@"已确认送达"];
+            [self.navigationController popViewControllerAnimated:YES];
+        }else{
+            [CommonUtils showToastWithStr:model.responseMsg];
+        }
+    } withFaileBlock:^(NSError *error) {
+        [self.camerView start];
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+    }];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
