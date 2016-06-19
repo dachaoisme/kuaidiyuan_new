@@ -56,6 +56,11 @@
         self.isLogin = NO;
     }
 
+    if (self.userXueYuanPaiId && self.userXueYuanPaiId.length>0) {
+        self.userCourierRoleType = CourierRoleTypeOfSchool;
+    }else{
+        self.userCourierRoleType = CourierRoleTypeUnScholl;
+    }
 }
 
 -(void)exitLogin

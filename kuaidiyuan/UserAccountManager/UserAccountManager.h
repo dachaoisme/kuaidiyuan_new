@@ -22,7 +22,8 @@
 @property (nonatomic, strong) NSString *userTelephoneNum;
 ///是否是登陆状态
 @property (nonatomic, assign) BOOL isLogin;
-
+///是校内快递员还是校外快递员
+@property (nonatomic, assign) CourierRoleType userCourierRoleType;
 + (instancetype)sharedInstance;
 
 /**

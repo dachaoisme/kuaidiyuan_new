@@ -165,4 +165,14 @@ typedef NS_ENUM(NSInteger, selectedImageType){
     
 };
 
+///是校内快递员还是校外快递员
+typedef NS_ENUM(NSInteger, CourierRoleType){
+    
+    ///校内快递员
+    CourierRoleTypeOfSchool         =10001,
+    ///校外快递员
+    CourierRoleTypeUnScholl         =10002,
+
+};
+
 #endif /* EnumDefine_h */
