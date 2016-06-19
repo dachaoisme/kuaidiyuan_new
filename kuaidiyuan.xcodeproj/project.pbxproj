@@ -156,6 +156,16 @@
 		DD4F15021D15A4B90082B90F /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4F15011D15A4B90082B90F /* SettingViewController.m */; };
 		DD4F15061D15A58E0082B90F /* SettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4F15041D15A58E0082B90F /* SettingTableViewCell.m */; };
 		DD4F15071D15A58E0082B90F /* SettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD4F15051D15A58E0082B90F /* SettingTableViewCell.xib */; };
+		DD4F150B1D164CD90082B90F /* ApplyCourierTwoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4F15091D164CD90082B90F /* ApplyCourierTwoTableViewCell.m */; };
+		DD4F150C1D164CD90082B90F /* ApplyCourierTwoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD4F150A1D164CD90082B90F /* ApplyCourierTwoTableViewCell.xib */; };
+		DD4F150F1D1650A40082B90F /* OutsideSchoolCourierViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4F150E1D1650A40082B90F /* OutsideSchoolCourierViewController.m */; };
+		DD4F15131D1651D60082B90F /* OutsideSchooleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4F15111D1651D60082B90F /* OutsideSchooleTableViewCell.m */; };
+		DD4F15141D1651D60082B90F /* OutsideSchooleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD4F15121D1651D60082B90F /* OutsideSchooleTableViewCell.xib */; };
+		DD4F15171D1657F40082B90F /* BindPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4F15161D1657F40082B90F /* BindPhoneViewController.m */; };
+		DD4F151A1D165BC00082B90F /* BindPhoneLastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4F15191D165BC00082B90F /* BindPhoneLastViewController.m */; };
+		DD4F151D1D165F4D0082B90F /* InSchoolCourierJobListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4F151C1D165F4D0082B90F /* InSchoolCourierJobListViewController.m */; };
+		DD4F15251D1670230082B90F /* InSchoolTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4F15241D1670230082B90F /* InSchoolTableViewCell.m */; };
+		DD4F15281D16723D0082B90F /* OutsideSchoolJobListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4F15271D16723D0082B90F /* OutsideSchoolJobListViewController.m */; };
 		DD56C57A1D14CD580019BF28 /* CampusCourierHomePageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD56C5781D14CD580019BF28 /* CampusCourierHomePageTableViewCell.m */; };
 		DD56C57B1D14CD580019BF28 /* CampusCourierHomePageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD56C5791D14CD580019BF28 /* CampusCourierHomePageTableViewCell.xib */; };
 		DD56C57E1D14D24D0019BF28 /* DeliveryRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD56C57D1D14D24D0019BF28 /* DeliveryRecordViewController.m */; };
@@ -453,6 +463,24 @@
 		DD4F15031D15A58E0082B90F /* SettingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingTableViewCell.h; sourceTree = "<group>"; };
 		DD4F15041D15A58E0082B90F /* SettingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingTableViewCell.m; sourceTree = "<group>"; };
 		DD4F15051D15A58E0082B90F /* SettingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingTableViewCell.xib; sourceTree = "<group>"; };
+		DD4F15081D164CD90082B90F /* ApplyCourierTwoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplyCourierTwoTableViewCell.h; sourceTree = "<group>"; };
+		DD4F15091D164CD90082B90F /* ApplyCourierTwoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplyCourierTwoTableViewCell.m; sourceTree = "<group>"; };
+		DD4F150A1D164CD90082B90F /* ApplyCourierTwoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ApplyCourierTwoTableViewCell.xib; sourceTree = "<group>"; };
+		DD4F150D1D1650A40082B90F /* OutsideSchoolCourierViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutsideSchoolCourierViewController.h; sourceTree = "<group>"; };
+		DD4F150E1D1650A40082B90F /* OutsideSchoolCourierViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OutsideSchoolCourierViewController.m; sourceTree = "<group>"; };
+		DD4F15101D1651D60082B90F /* OutsideSchooleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutsideSchooleTableViewCell.h; sourceTree = "<group>"; };
+		DD4F15111D1651D60082B90F /* OutsideSchooleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OutsideSchooleTableViewCell.m; sourceTree = "<group>"; };
+		DD4F15121D1651D60082B90F /* OutsideSchooleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OutsideSchooleTableViewCell.xib; sourceTree = "<group>"; };
+		DD4F15151D1657F40082B90F /* BindPhoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BindPhoneViewController.h; sourceTree = "<group>"; };
+		DD4F15161D1657F40082B90F /* BindPhoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BindPhoneViewController.m; sourceTree = "<group>"; };
+		DD4F15181D165BC00082B90F /* BindPhoneLastViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BindPhoneLastViewController.h; sourceTree = "<group>"; };
+		DD4F15191D165BC00082B90F /* BindPhoneLastViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BindPhoneLastViewController.m; sourceTree = "<group>"; };
+		DD4F151B1D165F4D0082B90F /* InSchoolCourierJobListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InSchoolCourierJobListViewController.h; sourceTree = "<group>"; };
+		DD4F151C1D165F4D0082B90F /* InSchoolCourierJobListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InSchoolCourierJobListViewController.m; sourceTree = "<group>"; };
+		DD4F15231D1670230082B90F /* InSchoolTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InSchoolTableViewCell.h; sourceTree = "<group>"; };
+		DD4F15241D1670230082B90F /* InSchoolTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InSchoolTableViewCell.m; sourceTree = "<group>"; };
+		DD4F15261D16723D0082B90F /* OutsideSchoolJobListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutsideSchoolJobListViewController.h; sourceTree = "<group>"; };
+		DD4F15271D16723D0082B90F /* OutsideSchoolJobListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OutsideSchoolJobListViewController.m; sourceTree = "<group>"; };
 		DD56C5771D14CD580019BF28 /* CampusCourierHomePageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CampusCourierHomePageTableViewCell.h; sourceTree = "<group>"; };
 		DD56C5781D14CD580019BF28 /* CampusCourierHomePageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CampusCourierHomePageTableViewCell.m; sourceTree = "<group>"; };
 		DD56C5791D14CD580019BF28 /* CampusCourierHomePageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CampusCourierHomePageTableViewCell.xib; sourceTree = "<group>"; };
@@ -1006,6 +1034,8 @@
 			children = (
 				DD48B77C1D117CDE00E012E4 /* ApplyCourierViewController.h */,
 				DD48B77D1D117CDE00E012E4 /* ApplyCourierViewController.m */,
+				DD4F150D1D1650A40082B90F /* OutsideSchoolCourierViewController.h */,
+				DD4F150E1D1650A40082B90F /* OutsideSchoolCourierViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1016,6 +1046,12 @@
 				DD48B7741D117BC600E012E4 /* ApplyCourierTableViewCell.h */,
 				DD48B7751D117BC600E012E4 /* ApplyCourierTableViewCell.m */,
 				DD48B7761D117BC600E012E4 /* ApplyCourierTableViewCell.xib */,
+				DD4F15081D164CD90082B90F /* ApplyCourierTwoTableViewCell.h */,
+				DD4F15091D164CD90082B90F /* ApplyCourierTwoTableViewCell.m */,
+				DD4F150A1D164CD90082B90F /* ApplyCourierTwoTableViewCell.xib */,
+				DD4F15101D1651D60082B90F /* OutsideSchooleTableViewCell.h */,
+				DD4F15111D1651D60082B90F /* OutsideSchooleTableViewCell.m */,
+				DD4F15121D1651D60082B90F /* OutsideSchooleTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1177,6 +1213,14 @@
 			children = (
 				DD4F15001D15A4B90082B90F /* SettingViewController.h */,
 				DD4F15011D15A4B90082B90F /* SettingViewController.m */,
+				DD4F15151D1657F40082B90F /* BindPhoneViewController.h */,
+				DD4F15161D1657F40082B90F /* BindPhoneViewController.m */,
+				DD4F15181D165BC00082B90F /* BindPhoneLastViewController.h */,
+				DD4F15191D165BC00082B90F /* BindPhoneLastViewController.m */,
+				DD4F151B1D165F4D0082B90F /* InSchoolCourierJobListViewController.h */,
+				DD4F151C1D165F4D0082B90F /* InSchoolCourierJobListViewController.m */,
+				DD4F15261D16723D0082B90F /* OutsideSchoolJobListViewController.h */,
+				DD4F15271D16723D0082B90F /* OutsideSchoolJobListViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1187,6 +1231,8 @@
 				DD4F15031D15A58E0082B90F /* SettingTableViewCell.h */,
 				DD4F15041D15A58E0082B90F /* SettingTableViewCell.m */,
 				DD4F15051D15A58E0082B90F /* SettingTableViewCell.xib */,
+				DD4F15231D1670230082B90F /* InSchoolTableViewCell.h */,
+				DD4F15241D1670230082B90F /* InSchoolTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1346,6 +1392,7 @@
 				DD48B7AF1D1385FC00E012E4 /* kuaidiyuan_icon_warning@2x.png in Resources */,
 				DD48B7BA1D1385FC00E012E4 /* kuaidiyuan_scan_view@3x.png in Resources */,
 				DD56D6DD1D150B8D0019BF28 /* hire_btn_contact@2x.png in Resources */,
+				DD4F15141D1651D60082B90F /* OutsideSchooleTableViewCell.xib in Resources */,
 				DD48B7C61D1385FC00E012E4 /* success_no_score@3x.png in Resources */,
 				DD48B7B51D1385FC00E012E4 /* kuaidiyuan_not_sent@2x.png in Resources */,
 				DD4F14F21D15819D0082B90F /* scan480.png in Resources */,
@@ -1370,6 +1417,7 @@
 				DD48B7AA1D1385FC00E012E4 /* kuaidiyuan_btn_phone_press@3x.png in Resources */,
 				DD56C57B1D14CD580019BF28 /* CampusCourierHomePageTableViewCell.xib in Resources */,
 				DD56C58C1D14D9DD0019BF28 /* DeliveredCourierTableViewCell.xib in Resources */,
+				DD4F150C1D164CD90082B90F /* ApplyCourierTwoTableViewCell.xib in Resources */,
 				DD48B7BE1D1385FC00E012E4 /* loading_white@3x.png in Resources */,
 				DD48B7C01D1385FC00E012E4 /* login_logo@3x.png in Resources */,
 				DD48B7C71D1385FC00E012E4 /* switch_off@2x.png in Resources */,
@@ -1473,13 +1521,16 @@
 				DD56C57A1D14CD580019BF28 /* CampusCourierHomePageTableViewCell.m in Sources */,
 				58F80ABF1D0AEF5D0099DCCD /* IQToolbar.m in Sources */,
 				DD48B85D1D13D24B00E012E4 /* CourierHomePageTwoTableViewCell.m in Sources */,
+				DD4F15131D1651D60082B90F /* OutsideSchooleTableViewCell.m in Sources */,
 				58F80AB81D0AEF5D0099DCCD /* IQUIWindow+Hierarchy.m in Sources */,
 				58B6F8CC1D159F9000241490 /* CourierModel.m in Sources */,
 				DD4F14EE1D157D8B0082B90F /* QRScanViewController.m in Sources */,
 				58F80C381D0C41630099DCCD /* AccountUserModel.m in Sources */,
+				DD4F150B1D164CD90082B90F /* ApplyCourierTwoTableViewCell.m in Sources */,
 				58F80AEF1D0AEF870099DCCD /* HttpClient.m in Sources */,
 				58F80AC81D0AEF5D0099DCCD /* MJRefreshConst.m in Sources */,
 				58F80B2F1D0AEFCC0099DCCD /* BaseViewController.m in Sources */,
+				DD4F151D1D165F4D0082B90F /* InSchoolCourierJobListViewController.m in Sources */,
 				58F80C201D0BB4A60099DCCD /* LoginViewController.m in Sources */,
 				58F80AC71D0AEF5D0099DCCD /* MJRefreshComponent.m in Sources */,
 				58F80C1E1D0BB4A60099DCCD /* ForgetPasswordOfSetNewPasswordViewController.m in Sources */,
@@ -1494,6 +1545,7 @@
 				58F80AB71D0AEF5D0099DCCD /* IQUIViewController+Additions.m in Sources */,
 				58F80C281D0BB4A60099DCCD /* SelectedPickView.m in Sources */,
 				58F80ABE1D0AEF5D0099DCCD /* IQTitleBarButtonItem.m in Sources */,
+				DD4F15251D1670230082B90F /* InSchoolTableViewCell.m in Sources */,
 				58F80ACE1D0AEF5D0099DCCD /* MJRefreshLegendHeader.m in Sources */,
 				DD4F15061D15A58E0082B90F /* SettingTableViewCell.m in Sources */,
 				58F80C251D0BB4A60099DCCD /* AddTeacherInfoTypeTwoTableViewCell.m in Sources */,
@@ -1510,8 +1562,10 @@
 				DD48B7DF1D139EA200E012E4 /* RegisterOneTableViewCell.m in Sources */,
 				58F80AB61D0AEF5D0099DCCD /* IQUIView+Hierarchy.m in Sources */,
 				DD48B8541D13AD0800E012E4 /* CourierHomePageViewController.m in Sources */,
+				DD4F150F1D1650A40082B90F /* OutsideSchoolCourierViewController.m in Sources */,
 				DD48B7E31D13A30200E012E4 /* RegisterTwoTableViewCell.m in Sources */,
 				58F80AF21D0AEF870099DCCD /* HttpServer.m in Sources */,
+				DD4F15281D16723D0082B90F /* OutsideSchoolJobListViewController.m in Sources */,
 				DD4F14F71D1591760082B90F /* InformGetCourierViewController.m in Sources */,
 				58BFC0361D152B1C0021BF73 /* SelectedSchollViewController.m in Sources */,
 				58F80AD21D0AEF5D0099DCCD /* NSDictionary+SafeExpectations.m in Sources */,
@@ -1528,6 +1582,7 @@
 				58F80AD31D0AEF5D0099DCCD /* JKPlaceholderTextView.m in Sources */,
 				58F80ACB1D0AEF5D0099DCCD /* MJRefreshGifHeader.m in Sources */,
 				58F80ACA1D0AEF5D0099DCCD /* MJRefreshGifFooter.m in Sources */,
+				DD4F15171D1657F40082B90F /* BindPhoneViewController.m in Sources */,
 				58F80ACF1D0AEF5D0099DCCD /* UIScrollView+MJExtension.m in Sources */,
 				58F80AE11D0AEF690099DCCD /* ResLoader.m in Sources */,
 				58F80C241D0BB4A60099DCCD /* AddTeacherInfoTableViewCell.m in Sources */,
@@ -1535,6 +1590,7 @@
 				58F80AD11D0AEF5D0099DCCD /* UIView+MJExtension.m in Sources */,
 				58F80C211D0BB4A60099DCCD /* RegisterViewController.m in Sources */,
 				58F80AE21D0AEF690099DCCD /* UIFactory.m in Sources */,
+				DD4F151A1D165BC00082B90F /* BindPhoneLastViewController.m in Sources */,
 				58F80AC91D0AEF5D0099DCCD /* MJRefreshFooter.m in Sources */,
 				58F80C271D0BB4A60099DCCD /* SelectedImageView.m in Sources */,
 				DD56C5841D14D7EE0019BF28 /* UndeliveredCourierViewController.m in Sources */,

@@ -9,6 +9,7 @@
 #import "ApplyCourierViewController.h"
 
 #import "ApplyCourierTableViewCell.h"
+#import "ApplyCourierTwoTableViewCell.h"
 
 @interface ApplyCourierViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -20,8 +21,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    //校内快递员
     
-    self.navigationItem.title = @"申请成为快递员";
+    
+    
+    self.navigationItem.title = @"我的认证信息";
     
     [self createLeftBackNavBtn];
     //创建tableView
@@ -47,7 +51,7 @@
     UIView *backGroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, footViewHeight)];
     
     UIButton *submitBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [submitBtn setTitle:@"提交申请" forState:UIControlStateNormal];
+    [submitBtn setTitle:@"保存" forState:UIControlStateNormal];
     [submitBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [submitBtn setBackgroundColor:[CommonUtils colorWithHex:@"00beaf"]];
     [submitBtn setFrame:CGRectMake(space, space, btnWidth,btnHeight)];
@@ -62,13 +66,16 @@
     
     //注册cell
     [tableView registerNib:[UINib nibWithNibName:@"ApplyCourierTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"cell"];
+    
+    
+     [tableView registerNib:[UINib nibWithNibName:@"ApplyCourierTwoTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"twoCell"];
 }
 
 
 #pragma mark - 提交申请按钮
 - (void)SubmitApplication{
     
-    [CommonUtils showToastWithStr:@"提交申请"];
+    [CommonUtils showToastWithStr:@"保存"];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -78,52 +85,76 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    ApplyCourierTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    
-    switch (indexPath.row) {
-        case 0:{
-            
-            cell.titleLabel.text = @"真实姓名";
-        }
-            
-            break;
-        case 1:{
-            
-            cell.titleLabel.text = @"身份证号";
-        }
-            
-            break;
-        case 2:{
-            
-            cell.titleLabel.text = @"学校";
-        }
-            
-            break;
-        case 3:{
-            
-            cell.titleLabel.text = @"年级";
-        }
-            
-            break;
-        case 4:{
-            
-            cell.titleLabel.text = @"专业";
-        }
-            
-            break;
-        case 5:{
-            
-            cell.titleLabel.text = @"学号";
-        }
-            
-            break;
+    if (indexPath.row == 2 || indexPath.row == 3) {
+        
+        ApplyCourierTwoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"twoCell" forIndexPath:indexPath];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
+        if (indexPath.row == 2) {
             
-        default:
-            break;
+            cell.contentLabel.textColor = [UIColor blackColor];
+            cell.contentLabel.text = @"吉林大学";
+            
+        }else{
+            
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            cell.titleLabel.text = @"年级";
+            cell.notChangeLabel.hidden = YES;
+            
+        }
+        
+        return cell;
+        
+        
+        
+    }else{
+        
+        ApplyCourierTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        switch (indexPath.row) {
+            case 0:{
+                
+                cell.titleLabel.text = @"真实姓名";
+            }
+                
+                break;
+            case 1:{
+                
+                cell.titleLabel.text = @"身份证号";
+            }
+                
+                break;
+            case 4:{
+                
+                cell.titleLabel.text = @"专业";
+            }
+                
+                break;
+            case 5:{
+                
+                cell.titleLabel.text = @"学号";
+            }
+                
+                break;
+                
+                
+            default:
+                break;
+        }
+        
+        return cell;
+
+        
     }
     
-    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (indexPath.row == 3) {
+        [CommonUtils showToastWithStr:@"请选择年级"];
+    }
 }
 
 
