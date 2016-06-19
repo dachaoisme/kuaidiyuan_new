@@ -92,7 +92,12 @@
                 CourierIncompleteMessageModel *courierModel = [[CourierIncompleteMessageModel alloc]initWithDic:dic];
                 [dataArray addObject:courierModel];
             }
-            
+            ///处理上拉加载更多逻辑
+            if (pageNum>=[pageModel.responsePageTotalCount integerValue]) {
+                //说明是最后一张
+                self.tableView.footer.state= MJRefreshFooterStateNoMoreData;
+            }
+            [self.tableView reloadData];
         }else{
             [CommonUtils showToastWithStr:responseModel.responseMsg];
         }
