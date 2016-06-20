@@ -82,8 +82,8 @@
      */
     [dic setValue:[UserAccountManager sharedInstance].userCourierId forKey:@"courier_id"];
     [dic setValue:@"0" forKey:@"status"];
-    [dic setValue:[NSString stringWithFormat:@"%d",pageNum] forKey:@"page"];
-    [dic setValue:[NSString stringWithFormat:@"%d",pageSize] forKey:@"size"];
+    [dic setValue:[NSString stringWithFormat:@"%ld",(long)pageNum] forKey:@"page"];
+    [dic setValue:[NSString stringWithFormat:@"%ld",(long)pageSize] forKey:@"size"];
     [[HttpClient sharedInstance]expressHistoryWithParams:dic withSuccessBlock:^(HttpResponseCodeModel *responseModel, HttpResponsePageModel *pageModel, NSDictionary *ListDic) {
         [self.tableView.footer endRefreshing];
         if (responseModel.responseCode==ResponseCodeSuccess) {

@@ -19,5 +19,5 @@ typedef void(^SelectedImageBlock)(UIImage * image);
 //注册的时候，选择的学校
 typedef void(^SelectedSchollBlock)(CollegeModel  *collegeModel);
 //注册的时候，选择公司名字和id
-typedef void(^SelectedCourierCompanyBlock)(NSString *courierCompanyName,NSString *courierCompanyId);
+typedef void(^SelectedCourierCompanyBlock)(NSString *courierCompanyName);
 #endif /* BlockDefine_h */

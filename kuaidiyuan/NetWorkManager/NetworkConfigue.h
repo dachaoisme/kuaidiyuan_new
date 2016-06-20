@@ -38,7 +38,8 @@
 #define METHOD_SEND_COURIER_HISTORY      @"v1/courier/expressrecord?"
 ///快递确认已送达
 #define METHOD_OF_COURIER_ARRIVE       @"v1/courier/finish?"
-
+///快递公司列表
+#define METHOD_OF_COURIER_COMPANY       @"v1/courier/companys?"
 
 
 
