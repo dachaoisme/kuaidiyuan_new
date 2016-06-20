@@ -41,7 +41,6 @@
 }
 -(void)doNavEventBack:(id)sender
 {
-    [timer fire];
     [self.camerView stop];
     [self.camerView removeFromSuperview];
     [self.navigationController popViewControllerAnimated:YES];
