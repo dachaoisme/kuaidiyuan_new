@@ -199,7 +199,7 @@
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
                 cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                 
-                cell.textLabel.text = @"选择快递公司";
+                cell.textLabel.text = courierCompanyName.length>0?courierCompanyName: @"选择快递公司";
                 cell.textLabel.font = [UIFont systemFontOfSize:14];
                 
                 return cell;
@@ -214,7 +214,7 @@
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
                 cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                 
-                cell.textLabel.text = @"选择配送学校";
+                cell.textLabel.text = collegeName.length>0?collegeName:@"选择配送学校";
                 cell.textLabel.font = [UIFont systemFontOfSize:14];
                 
                 return cell;
@@ -255,21 +255,24 @@
 #pragma mark - 选择快递公司
 -(void)selectedCourierCompany
 {
-    SelectedCourierCompanyViewController * schollVC = [[SelectedCourierCompanyViewController alloc]init];
-    schollVC.callBackBlock = ^(NSString *theCourierCompanyName,NSString *theCourierCompanyId) {
+    SelectedCourierCompanyViewController * companyVC = [[SelectedCourierCompanyViewController alloc]init];
+    weakSelf(wSelf);
+    companyVC.callBackBlock = ^(NSString *theCourierCompanyName) {
         courierCompanyName = theCourierCompanyName;
-        courierCompanyId   = theCourierCompanyId;
+        [wSelf.tableView reloadData];
     };
-    [self.navigationController pushViewController:schollVC animated:YES];
+    [self.navigationController pushViewController:companyVC animated:YES];
 }
 
 #pragma mark - 选择学校
 -(void)selectedSchool
 {
     SelectedSchollViewController * schollVC = [[SelectedSchollViewController alloc]init];
+    weakSelf(wSelf);
     schollVC.callBackBlock = ^(CollegeModel *collegeModel) {
         collegeName = collegeModel.collegeName;
         collegeId = collegeModel.collegeID;
+        [wSelf.tableView reloadData];
     };
     [self.navigationController pushViewController:schollVC animated:YES];
 }

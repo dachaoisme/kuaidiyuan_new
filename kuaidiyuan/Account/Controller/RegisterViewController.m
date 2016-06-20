@@ -161,7 +161,8 @@
 ////    //跳转
 //    RegisterDetailViewController *registerDetailVC = [[RegisterDetailViewController alloc] init];
 //    [self.navigationController pushViewController:registerDetailVC animated:YES];
-//    
+    
+    
     if (phoneTextField.text.length<=0) {
         [CommonUtils showToastWithStr:@"请输入有效手机号"];
         return;
