@@ -40,16 +40,39 @@
 }
 -(void)getUserInfo
 {
-  
+    /*
+     "courier_id": 1,
+     "user_id": 11,
+     "realname": "张三", //姓名
+     "IDcard": "320342141",//身份证号
+     "college_name": "山东理工大学",//学校
+     "working": 1 //状态 1正在工作 0 不在工作
+     "expresscompany": "圆通速递",//快递公司
+     
+     "telphone": "15010141545",//
+     "college_id": 1,
+     "grade": "05级",//年级
+     "major": "园林设计",//专业
+     "StudentID": "03121243",//学号
+     
+     */
     NSString * userInfoKey = @"userInfo";
     NSDictionary * userInfoDic = [[NSUserDefaults standardUserDefaults] objectForKey:userInfoKey];
     
     self.userXueYuanPaiId   = [userInfoDic stringForKey:@"user_id"];
-    self.userCourierId      = [userInfoDic stringForKey:@"id"];
-    self.userIcon           = [userInfoDic stringForKey:@"icon"];
+    self.userCourierId      = [userInfoDic stringForKey:@"courier_id"];
     self.userRealName       = [userInfoDic stringForKey:@"realname"];
-    self.userTelephoneNum   = [userInfoDic stringForKey:@"telphone"];
+    self.userIDCard         = [userInfoDic stringForKey:@"IDcard"];
+    self.userCollegeName    = [userInfoDic stringForKey:@"college_name"];
+    self.userExpressCompany = [userInfoDic stringForKey:@"expresscompany"];//校外快递员有，校内快递员没有
+    self.userWorkingStatus  = [userInfoDic stringForKey:@"working"];
+    self.userTelphone       = [userInfoDic stringForKey:@"telphone"];
+    self.userCollegeId      = [userInfoDic stringForKey:@"college_id"];
+    self.userGrade          = [userInfoDic stringForKey:@"grade"];
+    self.userMajor          = [userInfoDic stringForKey:@"major"];
+    self.userStudentID      = [userInfoDic stringForKey:@"StudentID"];
     
+
     if (self.userCourierId && self.userCourierId.length>0) {
         self.isLogin = YES;
     }else{
