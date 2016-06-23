@@ -74,10 +74,6 @@
 		58F80C271D0BB4A60099DCCD /* SelectedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F80C171D0BB4A60099DCCD /* SelectedImageView.m */; };
 		58F80C281D0BB4A60099DCCD /* SelectedPickView.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F80C191D0BB4A60099DCCD /* SelectedPickView.m */; };
 		58F80C291D0BB4A60099DCCD /* SelectedSexView.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F80C1B1D0BB4A60099DCCD /* SelectedSexView.m */; };
-		58F80C2F1D0BB8A70099DCCD /* Default-375w-667h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58F80C2B1D0BB8A70099DCCD /* Default-375w-667h@2x.png */; };
-		58F80C301D0BB8A70099DCCD /* Default-414w-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58F80C2C1D0BB8A70099DCCD /* Default-414w-736h@3x.png */; };
-		58F80C311D0BB8A70099DCCD /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58F80C2D1D0BB8A70099DCCD /* Default-568h@2x.png */; };
-		58F80C321D0BB8A70099DCCD /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58F80C2E1D0BB8A70099DCCD /* Default@2x.png */; };
 		58F80C381D0C41630099DCCD /* AccountUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F80C371D0C41620099DCCD /* AccountUserModel.m */; };
 		C91B084442DAEAF82911F64E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 047CF6A5687BBAC66C616E8D /* libPods.a */; };
 		DD48B7771D117BC600E012E4 /* ApplyCourierTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD48B7751D117BC600E012E4 /* ApplyCourierTableViewCell.m */; };
@@ -345,10 +341,6 @@
 		58F80C191D0BB4A60099DCCD /* SelectedPickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedPickView.m; sourceTree = "<group>"; };
 		58F80C1A1D0BB4A60099DCCD /* SelectedSexView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedSexView.h; sourceTree = "<group>"; };
 		58F80C1B1D0BB4A60099DCCD /* SelectedSexView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedSexView.m; sourceTree = "<group>"; };
-		58F80C2B1D0BB8A70099DCCD /* Default-375w-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-375w-667h@2x.png"; sourceTree = "<group>"; };
-		58F80C2C1D0BB8A70099DCCD /* Default-414w-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-414w-736h@3x.png"; sourceTree = "<group>"; };
-		58F80C2D1D0BB8A70099DCCD /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		58F80C2E1D0BB8A70099DCCD /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		58F80C361D0C41620099DCCD /* AccountUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountUserModel.h; sourceTree = "<group>"; };
 		58F80C371D0C41620099DCCD /* AccountUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountUserModel.m; sourceTree = "<group>"; };
 		9C96E5C62419308E5F1AC4CB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -984,10 +976,6 @@
 				DD48B7A41D1385FC00E012E4 /* switch_off@3x.png */,
 				DD48B7A51D1385FC00E012E4 /* switch_on@2x.png */,
 				DD48B7A61D1385FC00E012E4 /* switch_on@3x.png */,
-				58F80C2B1D0BB8A70099DCCD /* Default-375w-667h@2x.png */,
-				58F80C2C1D0BB8A70099DCCD /* Default-414w-736h@3x.png */,
-				58F80C2D1D0BB8A70099DCCD /* Default-568h@2x.png */,
-				58F80C2E1D0BB8A70099DCCD /* Default@2x.png */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -1358,11 +1346,8 @@
 				DD48B7CA1D1385FC00E012E4 /* switch_on@3x.png in Resources */,
 				DD4F14DA1D1575D30082B90F /* zbar-helpicons.png in Resources */,
 				58F80B331D0AEFDA0099DCCD /* 2.jpg in Resources */,
-				58F80C2F1D0BB8A70099DCCD /* Default-375w-667h@2x.png in Resources */,
 				DD56D6DF1D150B8D0019BF28 /* hire_btn_contact_press@2x.png in Resources */,
 				DD56D6D81D14FDAD0019BF28 /* SendCourierRecordTableViewCell.xib in Resources */,
-				58F80C321D0BB8A70099DCCD /* Default@2x.png in Resources */,
-				58F80C311D0BB8A70099DCCD /* Default-568h@2x.png in Resources */,
 				DD4F14DB1D1575D30082B90F /* zbar-samples.png in Resources */,
 				58F80AC41D0AEF5D0099DCCD /* LTPickerView.xib in Resources */,
 				DD4F153B1D1684CB0082B90F /* arrow@2x.png in Resources */,
@@ -1416,7 +1401,6 @@
 				DD48B7C01D1385FC00E012E4 /* login_logo@3x.png in Resources */,
 				DD48B7C71D1385FC00E012E4 /* switch_off@2x.png in Resources */,
 				DD48B7C41D1385FC00E012E4 /* nav_icon_settings@3x.png in Resources */,
-				58F80C301D0BB8A70099DCCD /* Default-414w-736h@3x.png in Resources */,
 				DD48B7BC1D1385FC00E012E4 /* kuaidiyuan_scanner@3x.png in Resources */,
 				DD48B7A71D1385FC00E012E4 /* hire_company_verify@2x.png in Resources */,
 				DD56D6E21D150BDC0019BF28 /* placeHoder.png in Resources */,
@@ -1711,7 +1695,7 @@
 			baseConfigurationReference = 9C96E5C62419308E5F1AC4CB /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jin Liang (YAU277YZ77)";
 				ENABLE_BITCODE = NO;
@@ -1735,7 +1719,7 @@
 			baseConfigurationReference = C8439E64CB2817B8FC072CBF /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing MFtour International Travel Service Co., Ltd.";
 				ENABLE_BITCODE = NO;
