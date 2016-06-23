@@ -10,4 +10,6 @@
 
 @interface SendMessageViewController : BaseViewController
 
+@property(nonatomic,strong)NSString  *courierSnsStr;
+@property(nonatomic,assign)CourierSendSnsType courierSendSnsType;
 @end

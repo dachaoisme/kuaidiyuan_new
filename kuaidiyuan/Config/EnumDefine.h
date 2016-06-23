@@ -175,4 +175,14 @@ typedef NS_ENUM(NSInteger, CourierRoleType){
 
 };
 
+///是校内快递员还是校外快递员
+typedef NS_ENUM(NSInteger, CourierSendSnsType){
+    
+    ///单条短信
+    CourierSendSnsSingleType         =10001,
+    ///多条
+    CourierSendSnsMassType           =10002,
+    
+};
+
 #endif /* EnumDefine_h */

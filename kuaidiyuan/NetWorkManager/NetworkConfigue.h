@@ -40,11 +40,12 @@
 #define METHOD_OF_COURIER_ARRIVE       @"v1/courier/finish?"
 ///快递公司列表
 #define METHOD_OF_COURIER_COMPANY       @"v1/courier/companys?"
-
-
-
-
-
+///发送单条短信
+#define METHOD_OF_COURIER_SEND_SNS       @"v1/courier/sendsns?"
+///根据快递单号，发送短信，多条短信
+#define METHOD_OF_COURIER_SEND_MASS_SNS       @"v1/courier/sendmultisns?"
+///若之前群发过，重新发送，则使用这个接口，无需写短信，因为服务器已经保存
+#define METHOD_OF_COURIER_SEND_SNS_EXPRESSNO       @"v1/courier/sendsnsByExpressNo?"
 
 #pragma mark - 送快递相关
 

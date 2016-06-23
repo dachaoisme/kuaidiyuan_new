@@ -19,7 +19,7 @@
 #import "InformGetCourierViewController.h"
 
 #import "SettingViewController.h"
-
+#import "SendMessageViewController.h"
 
 @interface CourierHomePageViewController ()<UITableViewDataSource,UITableViewDelegate,CourierHomePageTwoTableViewCellDelegate>
 {
@@ -270,7 +270,21 @@
             cell.phoneLabel.text = model.courierInfoTelephone;
             cell.timeLabel.text = model.courierCreateTime;
             cell.titleLabel.text = [NSString stringWithFormat:@"%@ 订单号：%@",model.courierInfoCompany,model.courierInfoNum];
-            
+            cell.tag = indexPath.row;
+            if ([model.courierInfoStatus integerValue]==1) {
+                [cell.confirmDelivery setBackgroundColor:[UIColor whiteColor]];
+                cell.confirmDelivery.layer.borderColor = [UIColor grayColor].CGColor;
+                cell.confirmDelivery.layer.borderWidth = 0.5;
+                [cell.confirmDelivery setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+                cell.confirmDelivery.userInteractionEnabled = NO;
+            }else{
+                [cell.confirmDelivery setBackgroundColor:[CommonUtils colorWithHex:@"00beaf"]];
+                cell.confirmDelivery.layer.borderColor = [UIColor grayColor].CGColor;
+                cell.confirmDelivery.layer.borderWidth = 0.5;
+                [cell.confirmDelivery setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+                cell.confirmDelivery.userInteractionEnabled = YES;
+
+            }
             return cell;
             
             
@@ -310,8 +324,8 @@
      */
     [dic setValue:[UserAccountManager sharedInstance].userCourierId forKey:@"courier_id"];
     [dic setValue:@"0" forKey:@"status"];
-    [dic setValue:[NSString stringWithFormat:@"%d",(long)pageNum] forKey:@"page"];
-    [dic setValue:[NSString stringWithFormat:@"%d",pageSize] forKey:@"size"];
+    [dic setValue:[NSString stringWithFormat:@"%ld",(long)pageNum] forKey:@"page"];
+    [dic setValue:[NSString stringWithFormat:@"%ld",(long)pageSize] forKey:@"size"];
     [[HttpClient sharedInstance]expressHistoryWithParams:dic withSuccessBlock:^(HttpResponseCodeModel *responseModel, HttpResponsePageModel *pageModel, NSDictionary *ListDic) {
         [self.tableView.footer endRefreshing];
         if (responseModel.responseCode==ResponseCodeSuccess) {
@@ -358,15 +372,39 @@
 ///确认送达
 -(void)sureCourierArriveWithIndex:(NSInteger)index
 {
-    CourierInfoModel *model = [courierInfoModelArr objectAtIndex:index-1];
+    CourierInfoModel *courierInfoModel = [courierInfoModelArr objectAtIndex:index-1];
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
-    [dic setObject:model.courierInfoNum forKey:@"express_no"];
+    [dic setObject:courierInfoModel.courierInfoNum forKey:@"express_no"];
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [[HttpClient sharedInstance]courierArrivedWithParams:dic withSuccessBlock:^(HttpResponseCodeModel *model) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         if (model.responseCode ==ResponseCodeSuccess) {
             [CommonUtils showToastWithStr:@"已确认送达"];
-            [self.navigationController popViewControllerAnimated:YES];
+            courierInfoModel.courierInfoStatus = @"1";
+        }else{
+            [CommonUtils showToastWithStr:model.responseMsg];
+        }
+        [self.tableView reloadData];
+    } withFaileBlock:^(NSError *error) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+    }];
+}
+#pragma mark - 重发短信
+- (void)resendMessageWithIndex:(NSInteger)index
+{
+    CourierInfoModel *model = [courierInfoModelArr objectAtIndex:index-1];
+    [self sendResendSingleSnsWithModel:model];
+}
+-(void)sendResendSingleSnsWithModel:(CourierInfoModel *)model
+{
+   
+    NSMutableDictionary * dic = [NSMutableDictionary dictionary];
+    [dic setValue:model.courierInfoNum forKey:@"express_no"];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [[HttpClient sharedInstance]resendSnsByExpressNoWithParams:dic withSuccessBlock:^(HttpResponseCodeModel *model) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        if (model.responseCode ==ResponseCodeSuccess) {
+            [CommonUtils showToastWithStr:@"发送成功"];
         }else{
             [CommonUtils showToastWithStr:model.responseMsg];
         }
@@ -374,13 +412,6 @@
         [MBProgressHUD hideHUDForView:self.view animated:YES];
     }];
 }
-#pragma mark - 冲发短信 还未实现
-- (void)resendMessageWithIndex:(NSInteger)index
-{
-    CourierInfoModel *model = [courierInfoModelArr objectAtIndex:index-1];
-    [CommonUtils showToastWithStr:@"重发短信"];
-}
-
 - (void)callWithIndex:(NSInteger)index
 {
     CourierInfoModel *model = [courierInfoModelArr objectAtIndex:index-1];

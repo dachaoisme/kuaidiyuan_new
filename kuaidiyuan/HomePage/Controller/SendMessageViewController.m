@@ -9,7 +9,9 @@
 #import "SendMessageViewController.h"
 
 @interface SendMessageViewController ()<UITextFieldDelegate>
-
+{
+    UITextField *locationTextField;
+}
 @end
 
 @implementation SendMessageViewController
@@ -44,7 +46,7 @@
 
 
     //输入代收地址的文本输入框
-    UITextField *locationTextField = [[UITextField alloc] initWithFrame:CGRectMake(CGRectGetMaxX(locationImageView.frame) + 10, 0, SCREEN_WIDTH - 30, 44)];
+    locationTextField = [[UITextField alloc] initWithFrame:CGRectMake(CGRectGetMaxX(locationImageView.frame) + 10, 0, SCREEN_WIDTH - 30, 44)];
     locationTextField.returnKeyType = UIReturnKeyDone;
     locationTextField.borderStyle = UITextBorderStyleNone;
     locationTextField.placeholder = @"请输入代收地点地址";
@@ -76,9 +78,59 @@
 #pragma mark - 确认按钮响应方法
 - (void)makeSureAction{
     
-    [CommonUtils showToastWithStr:@"确认发短信"];
+    if (self.courierSendSnsType == CourierSendSnsSingleType) {
+        [self sendSingleSns];
+    }else{
+        [self sendMassSns];
+    }
+    
 }
-
+-(void)sendSingleSns
+{
+    if (locationTextField.text.length<=0) {
+        [CommonUtils showToastWithStr:@"请输入短信内容"];
+        return;
+    }
+    
+    NSMutableDictionary * dic = [NSMutableDictionary dictionary];
+    [dic setValue:self.courierSnsStr forKey:@"express_no"];
+    [dic setValue:locationTextField.text forKey:@"sns"];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [[HttpClient sharedInstance]sendSingleSnsWithParams:dic withSuccessBlock:^(HttpResponseCodeModel *model) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        if (model.responseCode ==ResponseCodeSuccess) {
+            [CommonUtils showToastWithStr:@"发送成功"];
+            [self.navigationController popViewControllerAnimated:YES];
+        }else{
+            [CommonUtils showToastWithStr:model.responseMsg];
+        }
+    } withFaileBlock:^(NSError *error) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+    }];
+}
+-(void)sendMassSns
+{
+    if (locationTextField.text.length<=0) {
+        [CommonUtils showToastWithStr:@"请输入短信内容"];
+        return;
+    }
+    
+    NSMutableDictionary * dic = [NSMutableDictionary dictionary];
+    [dic setValue:self.courierSnsStr forKey:@"express_nos"];
+    [dic setValue:locationTextField.text forKey:@"sns"];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [[HttpClient sharedInstance]sendMassSnsWithParams:dic withSuccessBlock:^(HttpResponseCodeModel *model) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        if (model.responseCode ==ResponseCodeSuccess) {
+            [CommonUtils showToastWithStr:@"发送成功"];
+            [self.navigationController popViewControllerAnimated:YES];
+        }else{
+            [CommonUtils showToastWithStr:model.responseMsg];
+        }
+    } withFaileBlock:^(NSError *error) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+    }];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
