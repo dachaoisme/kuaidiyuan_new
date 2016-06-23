@@ -49,6 +49,7 @@
     titleTextField.textColor = [CommonUtils colorWithHex:@"c7c7cb"];
     titleTextField.textAlignment = NSTextAlignmentLeft;
     titleTextField.borderStyle   = UITextBorderStyleNone;
+    titleTextField.returnKeyType = UIReturnKeyDone;
     titleTextField.font = [UIFont systemFontOfSize:14];
 
     //myTextField.clearsOnBeginEditing = YES;//设置为YES当用点触文本字段时，字段内容会被清除
@@ -65,13 +66,13 @@
     [self.contentView addSubview:tipsLable];
     
 }
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+-(void)textFieldDidEndEditing:(UITextField *)textField
 {
     if ([self.delegate respondsToSelector:@selector(updateInputInfoWithIndex:withTextFieldText:)]) {
-        [self.delegate updateInputInfoWithIndex:textField.tag withTextFieldText:string];
+        [self.delegate updateInputInfoWithIndex:textField.tag withTextFieldText:textField.text];
     }
-    return YES;
 }
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];

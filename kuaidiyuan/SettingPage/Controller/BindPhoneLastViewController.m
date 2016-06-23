@@ -8,7 +8,7 @@
 
 #import "BindPhoneLastViewController.h"
 
-@interface BindPhoneLastViewController ()
+@interface BindPhoneLastViewController ()<UITextFieldDelegate>
 
 @end
 
@@ -45,6 +45,7 @@
     
     UITextField *phoneTextField = [[UITextField alloc] initWithFrame:CGRectMake(CGRectGetMaxX(bindLabel.frame), 10, 100, 20)];
     phoneTextField.placeholder = @"请输入";
+    phoneTextField.returnKeyType = UIReturnKeyDone;
     phoneTextField.font = [UIFont systemFontOfSize:14];
     [backGroundView addSubview:phoneTextField];
     
@@ -74,6 +75,7 @@
     
     UITextField *coderTextField = [[UITextField alloc] initWithFrame:CGRectMake(CGRectGetMaxX(codeLabel.frame), CGRectGetMaxY(phoneTextField.frame) + 26, 100, 20)];
     coderTextField.placeholder = @"请输入";
+    coderTextField.returnKeyType = UIReturnKeyDone;
     coderTextField.font = [UIFont systemFontOfSize:14];
     [backGroundView addSubview:coderTextField];
     
@@ -92,7 +94,11 @@
     
     
 }
-
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
 #pragma mark - 发送验证码
 - (void)sendMessageAction{
     

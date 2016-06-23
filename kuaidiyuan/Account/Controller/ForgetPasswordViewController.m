@@ -50,6 +50,7 @@
     phoneTextField.borderStyle   = UITextBorderStyleNone;
     phoneTextField.font = [UIFont systemFontOfSize:14];
     phoneTextField.placeholder   = @"请输入手机号";
+    phoneTextField.returnKeyType = UIReturnKeyDone;
     //myTextField.clearsOnBeginEditing = YES;//设置为YES当用点触文本字段时，字段内容会被清除
     phoneTextField.adjustsFontSizeToFitWidth = YES;
     phoneTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
@@ -76,6 +77,7 @@
     checkingMessageTextField.font = [UIFont systemFontOfSize:14];
     checkingMessageTextField.textAlignment = NSTextAlignmentLeft;
     checkingMessageTextField.borderStyle = UITextBorderStyleNone;
+    checkingMessageTextField.returnKeyType = UIReturnKeyDone;
     checkingMessageTextField.placeholder = @"请输入验证码";
     checkingMessageTextField.adjustsFontSizeToFitWidth = YES;
     checkingMessageTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
@@ -96,7 +98,11 @@
     sureBtn.titleLabel.font = [UIFont systemFontOfSize:16];
     [self.view addSubview:sureBtn];
 }
-
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
 -(void)sendmessage:(UIButton *)sender
 {
     

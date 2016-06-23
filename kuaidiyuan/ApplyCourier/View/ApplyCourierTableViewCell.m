@@ -12,8 +12,13 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    self.contentTextField.returnKeyType = UIReturnKeyDone;
 }
-
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 

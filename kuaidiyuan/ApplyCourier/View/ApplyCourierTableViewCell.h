@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ApplyCourierTableViewCell : UITableViewCell
+@interface ApplyCourierTableViewCell : UITableViewCell<UITextFieldDelegate>
 
 ///标题
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;

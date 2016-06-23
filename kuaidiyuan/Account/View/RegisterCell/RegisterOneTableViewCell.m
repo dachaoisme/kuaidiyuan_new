@@ -13,6 +13,12 @@
 - (void)awakeFromNib {
     // Initialization code
     self.contentTextField.delegate = self;
+    self.contentTextField.returnKeyType = UIReturnKeyDone;
+}
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
 }
 -(void)textFieldDidEndEditing:(UITextField *)textField
 {

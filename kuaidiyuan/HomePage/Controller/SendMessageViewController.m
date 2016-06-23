@@ -8,7 +8,7 @@
 
 #import "SendMessageViewController.h"
 
-@interface SendMessageViewController ()
+@interface SendMessageViewController ()<UITextFieldDelegate>
 
 @end
 
@@ -45,7 +45,7 @@
 
     //输入代收地址的文本输入框
     UITextField *locationTextField = [[UITextField alloc] initWithFrame:CGRectMake(CGRectGetMaxX(locationImageView.frame) + 10, 0, SCREEN_WIDTH - 30, 44)];
-    
+    locationTextField.returnKeyType = UIReturnKeyDone;
     locationTextField.borderStyle = UITextBorderStyleNone;
     locationTextField.placeholder = @"请输入代收地点地址";
     [oneView addSubview:locationTextField];
@@ -68,7 +68,11 @@
     [self.view addSubview:submitBtn];
 
 }
-
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
 #pragma mark - 确认按钮响应方法
 - (void)makeSureAction{
     
