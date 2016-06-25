@@ -76,6 +76,13 @@
 		58F80C291D0BB4A60099DCCD /* SelectedSexView.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F80C1B1D0BB4A60099DCCD /* SelectedSexView.m */; };
 		58F80C381D0C41630099DCCD /* AccountUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F80C371D0C41620099DCCD /* AccountUserModel.m */; };
 		C91B084442DAEAF82911F64E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 047CF6A5687BBAC66C616E8D /* libPods.a */; };
+		DD10974D1D1E6AB300A6AACC /* jpush-ios-2.1.7.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD10974B1D1E6AB300A6AACC /* jpush-ios-2.1.7.a */; };
+		DD10974F1D1E6AD300A6AACC /* sound.caf in Resources */ = {isa = PBXBuildFile; fileRef = DD10974E1D1E6AD300A6AACC /* sound.caf */; };
+		DD1097521D1E6B8000A6AACC /* CustomIOS7AlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1097511D1E6B8000A6AACC /* CustomIOS7AlertView.m */; };
+		DD1097541D1E6C9600A6AACC /* PushConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD1097531D1E6C9600A6AACC /* PushConfig.plist */; };
+		DD1097561D1E6EBD00A6AACC /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD1097551D1E6EBD00A6AACC /* CFNetwork.framework */; };
+		DD1097581D1E6EDE00A6AACC /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD1097571D1E6EDE00A6AACC /* CoreFoundation.framework */; };
+		DD10975A1D1E6EEE00A6AACC /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD1097591D1E6EEE00A6AACC /* CoreTelephony.framework */; };
 		DD48B7771D117BC600E012E4 /* ApplyCourierTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD48B7751D117BC600E012E4 /* ApplyCourierTableViewCell.m */; };
 		DD48B7781D117BC600E012E4 /* ApplyCourierTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD48B7761D117BC600E012E4 /* ApplyCourierTableViewCell.xib */; };
 		DD48B77E1D117CDE00E012E4 /* ApplyCourierViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD48B77D1D117CDE00E012E4 /* ApplyCourierViewController.m */; };
@@ -345,6 +352,16 @@
 		58F80C371D0C41620099DCCD /* AccountUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountUserModel.m; sourceTree = "<group>"; };
 		9C96E5C62419308E5F1AC4CB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		C8439E64CB2817B8FC072CBF /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		DD10974B1D1E6AB300A6AACC /* jpush-ios-2.1.7.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-2.1.7.a"; sourceTree = "<group>"; };
+		DD10974C1D1E6AB300A6AACC /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
+		DD10974E1D1E6AD300A6AACC /* sound.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sound.caf; sourceTree = "<group>"; };
+		DD1097501D1E6B8000A6AACC /* CustomIOS7AlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomIOS7AlertView.h; sourceTree = "<group>"; };
+		DD1097511D1E6B8000A6AACC /* CustomIOS7AlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomIOS7AlertView.m; sourceTree = "<group>"; };
+		DD1097531D1E6C9600A6AACC /* PushConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PushConfig.plist; sourceTree = "<group>"; };
+		DD1097551D1E6EBD00A6AACC /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		DD1097571D1E6EDE00A6AACC /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		DD1097591D1E6EEE00A6AACC /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		DD10975B1D1E6F0D00A6AACC /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		DD48B7741D117BC600E012E4 /* ApplyCourierTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplyCourierTableViewCell.h; sourceTree = "<group>"; };
 		DD48B7751D117BC600E012E4 /* ApplyCourierTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplyCourierTableViewCell.m; sourceTree = "<group>"; };
 		DD48B7761D117BC600E012E4 /* ApplyCourierTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ApplyCourierTableViewCell.xib; sourceTree = "<group>"; };
@@ -502,8 +519,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD10975A1D1E6EEE00A6AACC /* CoreTelephony.framework in Frameworks */,
+				DD1097581D1E6EDE00A6AACC /* CoreFoundation.framework in Frameworks */,
+				DD1097561D1E6EBD00A6AACC /* CFNetwork.framework in Frameworks */,
 				DD4F14E51D1579AA0082B90F /* libiconv.tbd in Frameworks */,
 				DD4F14E31D1579740082B90F /* CoreVideo.framework in Frameworks */,
+				DD10974D1D1E6AB300A6AACC /* jpush-ios-2.1.7.a in Frameworks */,
 				DD4F14E11D1579630082B90F /* CoreMedia.framework in Frameworks */,
 				DD4F14DF1D1579500082B90F /* AVFoundation.framework in Frameworks */,
 				DD4F14951D156FC10082B90F /* QuartzCore.framework in Frameworks */,
@@ -566,6 +587,7 @@
 		58F80A221D0AEC160099DCCD /* kuaidiyuan */ = {
 			isa = PBXGroup;
 			children = (
+				DD10974E1D1E6AD300A6AACC /* sound.caf */,
 				58F80B301D0AEFDA0099DCCD /* 1.jpg */,
 				58F80B311D0AEFDA0099DCCD /* 2.jpg */,
 				DD56D6E11D150BDC0019BF28 /* placeHoder.png */,
@@ -583,6 +605,8 @@
 				58F80B2E1D0AEFCC0099DCCD /* BaseViewController.m */,
 				58F80B2A1D0AEFC30099DCCD /* CommonTableViewCell.h */,
 				58F80B2B1D0AEFC30099DCCD /* CommonTableViewCell.m */,
+				DD1097501D1E6B8000A6AACC /* CustomIOS7AlertView.h */,
+				DD1097511D1E6B8000A6AACC /* CustomIOS7AlertView.m */,
 				58F80AD51D0AEF690099DCCD /* Utils */,
 				58F80A601D0AEF5D0099DCCD /* ThirdPart */,
 				58F80C2A1D0BB8940099DCCD /* Resource */,
@@ -598,6 +622,7 @@
 			children = (
 				58F80A241D0AEC160099DCCD /* main.m */,
 				58F80B341D0AF0600099DCCD /* KDY-PrefixHeader.pch */,
+				DD1097531D1E6C9600A6AACC /* PushConfig.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -632,6 +657,7 @@
 		58F80A601D0AEF5D0099DCCD /* ThirdPart */ = {
 			isa = PBXGroup;
 			children = (
+				DD10974A1D1E6AB300A6AACC /* lib */,
 				DD4F14B91D1575D30082B90F /* ZBarSDK */,
 				58F80A611D0AEF5D0099DCCD /* IQKeyboardManager */,
 				58F80A871D0AEF5D0099DCCD /* LDCPullDownMenu */,
@@ -992,6 +1018,10 @@
 		9F517846B552DA313FC232D2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DD10975B1D1E6F0D00A6AACC /* Security.framework */,
+				DD1097591D1E6EEE00A6AACC /* CoreTelephony.framework */,
+				DD1097571D1E6EDE00A6AACC /* CoreFoundation.framework */,
+				DD1097551D1E6EBD00A6AACC /* CFNetwork.framework */,
 				DD4F14E41D1579AA0082B90F /* libiconv.tbd */,
 				DD4F14E21D1579740082B90F /* CoreVideo.framework */,
 				DD4F14E01D1579630082B90F /* CoreMedia.framework */,
@@ -1003,6 +1033,15 @@
 				047CF6A5687BBAC66C616E8D /* libPods.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DD10974A1D1E6AB300A6AACC /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				DD10974B1D1E6AB300A6AACC /* jpush-ios-2.1.7.a */,
+				DD10974C1D1E6AB300A6AACC /* JPUSHService.h */,
+			);
+			path = lib;
 			sourceTree = "<group>";
 		};
 		DD48B76D1D11796100E012E4 /* ApplyCourier */ = {
@@ -1345,6 +1384,7 @@
 				DD48B7781D117BC600E012E4 /* ApplyCourierTableViewCell.xib in Resources */,
 				DD48B7CA1D1385FC00E012E4 /* switch_on@3x.png in Resources */,
 				DD4F14DA1D1575D30082B90F /* zbar-helpicons.png in Resources */,
+				DD1097541D1E6C9600A6AACC /* PushConfig.plist in Resources */,
 				58F80B331D0AEFDA0099DCCD /* 2.jpg in Resources */,
 				DD56D6DF1D150B8D0019BF28 /* hire_btn_contact_press@2x.png in Resources */,
 				DD56D6D81D14FDAD0019BF28 /* SendCourierRecordTableViewCell.xib in Resources */,
@@ -1352,6 +1392,7 @@
 				58F80AC41D0AEF5D0099DCCD /* LTPickerView.xib in Resources */,
 				DD4F153B1D1684CB0082B90F /* arrow@2x.png in Resources */,
 				DD48B7C81D1385FC00E012E4 /* switch_off@3x.png in Resources */,
+				DD10974F1D1E6AD300A6AACC /* sound.caf in Resources */,
 				DD48B7AE1D1385FC00E012E4 /* kuaidiyuan_icon_place@3x.png in Resources */,
 				DD4F14D91D1575D30082B90F /* zbar-help.html in Resources */,
 				DD48B7B21D1385FC00E012E4 /* kuaidiyuan_idcard_back_upload@3x.png in Resources */,
@@ -1562,6 +1603,7 @@
 				DD4F15171D1657F40082B90F /* BindPhoneViewController.m in Sources */,
 				58F80ACF1D0AEF5D0099DCCD /* UIScrollView+MJExtension.m in Sources */,
 				58F80AE11D0AEF690099DCCD /* ResLoader.m in Sources */,
+				DD1097521D1E6B8000A6AACC /* CustomIOS7AlertView.m in Sources */,
 				58F80C241D0BB4A60099DCCD /* AddTeacherInfoTableViewCell.m in Sources */,
 				DD48B8581D13CD4100E012E4 /* CourierHomePageOneTableViewCell.m in Sources */,
 				58F80AD11D0AEF5D0099DCCD /* UIView+MJExtension.m in Sources */,
@@ -1696,7 +1738,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jin Liang (YAU277YZ77)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jin Liang (YAU277YZ77)";
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1707,10 +1749,11 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/kuaidiyuan/ThirdPart/ZBarSDK",
+					"$(PROJECT_DIR)/kuaidiyuan/ThirdPart/lib",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ipiao.bus;
+				PRODUCT_BUNDLE_IDENTIFIER = com.college.courier;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "cde15ac7-b2ed-4ea4-9e41-fcda767163e4";
+				PROVISIONING_PROFILE = "4495c0e1-285e-4735-a2e9-5abf74470b33";
 			};
 			name = Debug;
 		};
@@ -1720,7 +1763,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing MFtour International Travel Service Co., Ltd.";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing MFtour International Travel Service Co., Ltd.";
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1731,10 +1774,11 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/kuaidiyuan/ThirdPart/ZBarSDK",
+					"$(PROJECT_DIR)/kuaidiyuan/ThirdPart/lib",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ipiao.bus;
+				PRODUCT_BUNDLE_IDENTIFIER = com.college.courier;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "439bd43b-8ccd-4dc7-8abf-509ac713f00a";
+				PROVISIONING_PROFILE = "647875e1-f2ba-460c-be48-6e94cf13553f";
 			};
 			name = Release;
 		};
