@@ -20,7 +20,7 @@
 
 @interface SettingViewController ()<UITableViewDataSource,UITableViewDelegate>
 
-
+@property(nonatomic,strong)UITableView *tableView;
 
 @end
 
@@ -33,9 +33,8 @@
     self.title = @"设置";
     
     [self createLeftBackNavBtn];
-    
-    
     [self createTableView];
+    [self requestData];
 }
 
 #pragma mark - 创建滚动视图列表
@@ -45,7 +44,7 @@
     tableView.delegate = self;
     tableView.dataSource = self;
     [self.view addSubview:tableView];
-    
+    self.tableView = tableView;
     
     [tableView registerNib:[UINib nibWithNibName:@"SettingTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"cell"];
 }
@@ -62,18 +61,19 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     if (indexPath.row == 0) {
-        
+        cell.titleLabel.text = @"工作统计";
+        cell.contentLabel.text = [NSString stringWithFormat:@"本月收%@件,送%@件",[UserAccountManager sharedInstance].userReceiveCourierNumber,[UserAccountManager sharedInstance].userSendCourierNumber];//@"陈奕迅";
         
         
     }else if (indexPath.row == 1){
         
         cell.titleLabel.text = @"我的认证信息";
-        cell.contentLabel.text = @"陈奕迅";
+        cell.contentLabel.text = [UserAccountManager sharedInstance].userRealName;//@"陈奕迅";
         
     }else{
         
         cell.titleLabel.text = @"我的手机号";
-        cell.contentLabel.text = @"13782947392";
+        cell.contentLabel.text = [UserAccountManager sharedInstance].userTelphone;//@"13782947392";
         
     }
     
@@ -135,6 +135,25 @@
     
 }
 
+-(void)requestData
+{
+    NSMutableDictionary * dic = [NSMutableDictionary dictionary];
+    [dic setValue:[UserAccountManager sharedInstance].userCollegeId forKey:@"id"];
+    [[HttpClient sharedInstance]statisticsCourierHistoryWithParams:dic withSuccessBlock:^(HttpResponseCodeModel *model) {
+        if (model.responseCode==ResponseCodeSuccess) {
+            NSString * sendCnt = [model.responseCommonDic stringForKey:@"sendCnt"];
+            NSString * receiveCnt = [model.responseCommonDic stringForKey:@"receiveCnt"];
+            [UserAccountManager sharedInstance].userSendCourierNumber = sendCnt;
+            [UserAccountManager sharedInstance].userReceiveCourierNumber =receiveCnt;
+            
+        }else{
+            [CommonUtils showToastWithStr:model.responseMsg];
+        }
+        [self.tableView reloadData];
+    } withFaileBlock:^(NSError *error) {
+        
+    }];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
