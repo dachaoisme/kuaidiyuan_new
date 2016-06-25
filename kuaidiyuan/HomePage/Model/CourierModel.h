@@ -37,15 +37,25 @@
 ///取件消息model
 @interface CourierIncompleteMessageModel : NSObject
 /*
- "id": 2,
- "express_no": "13718360863",
- "status":0,
- "create_at": "2016-06-13 22:48:15"
+ "id": 1,
+ "icon": "http://api.c.com/backend/web/uploads/20160612/14657697061004.jpg",//头像
+ "nickname": "王大山",//姓名
+ "sex": 1,//性别 1男 0女
+ "address": "大法",//收货地址
+ "fetchtime": "打法是否大师傅",//取件时间
+ "telphone": "137183760983",//联系电话
+ "status": 1,//取件状态 -1取消取件 0 等待取件 1已取件
+ "create_at": "2016-06-04 23:21:30"
  
  */
 @property(nonatomic,strong)NSString *courierMessageId;
-@property(nonatomic,strong)NSString *courierMessageExpressNum;
-@property(nonatomic,strong)NSString *courierMessageStatus;
+@property(nonatomic,strong)NSString *courierMessageIcon;
+@property(nonatomic,strong)NSString *courierMessageNickName;
+@property(nonatomic,assign)UserInfoSex courierMessageSex;
+@property(nonatomic,strong)NSString *courierMessageAdress;
+@property(nonatomic,strong)NSString *courierMessageIdFetchTime;
+@property(nonatomic,strong)NSString *courierMessageIdFetchTelephone;
+@property(nonatomic,assign)courierMessageStatus courierMessageStatus;
 @property(nonatomic,strong)NSString *courierMessageCreateTime;
 -(id)initWithDic:(NSDictionary *)dic;
 @end

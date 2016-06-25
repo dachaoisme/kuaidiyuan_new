@@ -45,12 +45,30 @@
 
 -(id)initWithDic:(NSDictionary *)dic
 {
+    /*
+     "id": 1,
+     "icon": "http://api.c.com/backend/web/uploads/20160612/14657697061004.jpg",//头像
+     "nickname": "王大山",//姓名
+     "sex": 1,//性别 1男 0女
+     "address": "大法",//收货地址
+     "fetchtime": "打法是否大师傅",//取件时间
+     "telphone": "137183760983",//联系电话
+     "status": 1,//取件状态 -1取消取件 0 等待取件 1已取件
+     "create_at": "2016-06-04 23:21:30"
+     
+     */
+
     self = [super init];
     if (self) {
-        self.courierMessageId              = [dic stringForKey:@"id"];
-        self.courierMessageExpressNum      = [dic stringForKey:@"express_no"];
-        self.courierMessageStatus          = [dic stringForKey:@"status"];
-        self.courierMessageCreateTime      = [dic stringForKey:@"create_at"];
+        self.courierMessageId                  = [dic stringForKey:@"id"];
+        self.courierMessageIcon                = [dic stringForKey:@"icon"];
+        self.courierMessageNickName            = [dic stringForKey:@"nickname"];
+        self.courierMessageSex                 = [[dic stringForKey:@"sex"] integerValue];
+        self.courierMessageAdress              = [dic stringForKey:@"address"];
+        self.courierMessageIdFetchTime         = [dic stringForKey:@"fetchtime"];
+        self.courierMessageIdFetchTelephone    = [dic stringForKey:@"telphone"];
+        self.courierMessageStatus              = [[dic stringForKey:@"status"] integerValue];
+        self.courierMessageCreateTime          = [dic stringForKey:@"create_at"];
         
     }
     return self;

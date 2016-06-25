@@ -9,7 +9,7 @@
 #import "CourierMessageViewController.h"
 #import "SendCourierRecordTableViewCell.h"
 
-@interface CourierMessageViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface CourierMessageViewController ()<UITableViewDataSource,UITableViewDelegate,SendCourierRecordTableViewCellDelegate>
 {
     NSInteger pageSize;
     NSInteger pageNum;
@@ -37,9 +37,10 @@
 
 - (void)createTableView{
     
-    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStylePlain];
+    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStyleGrouped];
     tableView.delegate = self;
     tableView.dataSource = self;
+    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:tableView];
     self.tableView = tableView;
     
@@ -52,18 +53,21 @@
 #pragma mark - tableView代理方法
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return dataArray.count;
+    return 1;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     
-    return 3;
+    return dataArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     SendCourierRecordTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    CourierIncompleteMessageModel * model = [dataArray objectAtIndex:indexPath.row];
+    cell.delegate = self;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.tag = indexPath.row;
+    CourierIncompleteMessageModel * model = [dataArray objectAtIndex:indexPath.section];
     [cell bindModel:model];
     return cell;
 }
@@ -75,15 +79,18 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     
-    return 10;
+    return 12;
 }
-
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 0.01;
+}
 -(void)requestData
 {
 
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
-    [dic setValue:[NSString stringWithFormat:@"%d",pageNum] forKey:@"page"];
-    [dic setValue:[NSString stringWithFormat:@"%d",pageSize] forKey:@"size"];
+    [dic setValue:[NSString stringWithFormat:@"%ld",(long)pageNum] forKey:@"page"];
+    [dic setValue:[NSString stringWithFormat:@"%ld",(long)pageSize] forKey:@"size"];
     [dic setValue:[UserAccountManager sharedInstance].userCourierId forKey:@"courier_id"];
     [[HttpClient sharedInstance]incompleteCourierWithParams:dic withSuccessBlock:^(HttpResponseCodeModel *responseModel, HttpResponsePageModel *pageModel, NSDictionary *ListDic) {
         [self.tableView.footer endRefreshing];
@@ -115,11 +122,18 @@
 }
 #pragma mark - 打电话
 
-- (void)call{
+- (void)callWithIndex:(NSInteger)index{
     
-    [CommonUtils showToastWithStr:@"打电话"];
+    CourierIncompleteMessageModel * model = [dataArray objectAtIndex:index];
+    if (model.courierMessageIdFetchTelephone.length>0) {
+        [CommonUtils callServiceWithTelephoneNum:model.courierMessageIdFetchTelephone];
+    }
 }
-
+-(void)cancleTakeThingWithIndex:(NSInteger)index
+{
+    CourierIncompleteMessageModel * model = [dataArray objectAtIndex:index];
+    [CommonUtils showToastWithStr:@"该接口还没有"];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
