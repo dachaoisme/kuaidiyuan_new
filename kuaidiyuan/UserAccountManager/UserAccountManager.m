@@ -7,7 +7,7 @@
 //
 
 #import "UserAccountManager.h"
-
+#import "JPUSHService.h"
 @implementation UserAccountManager
 
 + (instancetype)sharedInstance
@@ -84,6 +84,7 @@
     }else{
         self.userCourierRoleType = CourierRoleTypeUnScholl;
     }
+    [self setJpushTags];
 }
 
 -(void)exitLogin
@@ -106,5 +107,18 @@
     } withFaileBlock:^(NSError *error) {
         
     }];
+}
+-(void)setJpushTags
+{
+    //设置tags和别名
+    NSString * tag = [NSString stringWithFormat:@"user%@",self.userCourierId];
+    NSSet  *set = [NSSet setWithObject:tag];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [JPUSHService setTags:set alias:tag fetchCompletionHandle:^(int iResCode, NSSet *iTags, NSString *iAlias) {
+            NSLog(@"%d----%@---",iResCode,iAlias);
+            [CommonUtils showToastWithStr:[NSString stringWithFormat:@"注册别名成功:%@",iAlias]];
+        }];
+    });
+    
 }
 @end
