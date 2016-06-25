@@ -126,7 +126,6 @@
 - (void)callWithIndex:(NSInteger)index
 {
     CourierInfoModel *model = [courierInfoModelArr objectAtIndex:index-1];
-    [CommonUtils showToastWithStr:@"打电话"];
     if (model.courierInfoTelephone.length>0) {
         [CommonUtils callServiceWithTelephoneNum:model.courierInfoTelephone];
     }

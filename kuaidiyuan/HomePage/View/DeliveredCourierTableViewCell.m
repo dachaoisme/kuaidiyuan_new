@@ -19,8 +19,8 @@
 
 #pragma mark - 打电话
 - (IBAction)callAction:(id)sender {
-    if ([_delegate respondsToSelector:@selector(call)]) {
-        [_delegate call];
+    if ([_delegate respondsToSelector:@selector(callWithIndex:)]) {
+        [_delegate callWithIndex:self.tag];
     }
  
     

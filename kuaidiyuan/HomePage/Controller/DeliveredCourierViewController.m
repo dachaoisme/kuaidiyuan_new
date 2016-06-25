@@ -38,7 +38,7 @@
     tableView.delegate = self;
     tableView.dataSource = self;
     [self.view addSubview:tableView];
-    
+    self.tableView = tableView;
     //注册cell
     
     [tableView registerNib:[UINib nibWithNibName:@"DeliveredCourierTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"cell"];
@@ -60,6 +60,7 @@
     
     DeliveredCourierTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     cell.delegate = self;
+    cell.tag = indexPath.row;
     CourierInfoModel  *model = [courierInfoModelArr objectAtIndex:indexPath.row];
     
     cell.phoneLabel.text = model.courierInfoTelephone;
@@ -85,8 +86,8 @@
      */
     [dic setValue:[UserAccountManager sharedInstance].userCourierId forKey:@"courier_id"];
     [dic setValue:@"1" forKey:@"status"];
-    [dic setValue:[NSString stringWithFormat:@"%d",pageNum] forKey:@"page"];
-    [dic setValue:[NSString stringWithFormat:@"%d",pageSize] forKey:@"size"];
+    [dic setValue:[NSString stringWithFormat:@"%ld",(long)pageNum] forKey:@"page"];
+    [dic setValue:[NSString stringWithFormat:@"%ld",(long)pageSize] forKey:@"size"];
     [[HttpClient sharedInstance]expressHistoryWithParams:dic withSuccessBlock:^(HttpResponseCodeModel *responseModel, HttpResponsePageModel *pageModel, NSDictionary *ListDic) {
         [self.tableView.footer endRefreshing];
         if (responseModel.responseCode==ResponseCodeSuccess) {
@@ -114,8 +115,11 @@
     [self requestData];
 }
 #pragma mark - 代理方法
-- (void)call{
-    [CommonUtils showToastWithStr:@"打电话"];
+- (void)callWithIndex:(NSInteger)index{
+    CourierInfoModel  *model = [courierInfoModelArr objectAtIndex:index];
+    if (model.courierInfoTelephone.length>0) {
+        [CommonUtils callServiceWithTelephoneNum:model.courierInfoTelephone];
+    }
 }
 
 
