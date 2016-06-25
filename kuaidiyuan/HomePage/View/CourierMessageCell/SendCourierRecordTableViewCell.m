@@ -40,9 +40,28 @@
  @property (weak, nonatomic) IBOutlet UIButton *cancleButton;
  */
 - (void)bindModel:(CourierIncompleteMessageModel *)model{
-    self.nameLabel.text = [NSString stringWithFormat:@"单号：%@",model.courierMessageExpressNum];
+    [self.headImageView sd_setImageWithURL:[NSURL URLWithString:model.courierMessageIcon] placeholderImage:[UIImage imageNamed:@"placeHoder"]];
+    self.nameLabel.text = model.courierMessageNickName;
+    self.contentLabel.text = model.courierMessageIdFetchTelephone;
     self.timeLabel.text = model.courierMessageCreateTime;
-    
+    self.takeTime.text=model.courierMessageIdFetchTime;;
+    self.takeAdress.text = model.courierMessageAdress;
+    if (model.courierMessageStatus == courierMessageCancelTakeStatus) {
+        //取消发件
+        self.takeStatues.text = @"已取消";
+        self.cancleButton.hidden = YES;
+        self.takeStatues.textColor = [CommonUtils colorWithHex:@"808184"];
+    }else if (model.courierMessageStatus == courierMessageWaitingTakeStatus){
+        ///等待取件
+        self.takeStatues.text = @"等待取件";
+        self.cancleButton.hidden = NO;
+        self.takeStatues.textColor = [CommonUtils colorWithHex:@"00beaf"];
+    }else{
+        //已经取件
+        self.takeStatues.text = [NSString stringWithFormat:@"已于%@ 取件",model.courierMessageIdFetchTime];
+        self.cancleButton.hidden = YES;
+        self.takeStatues.textColor = [CommonUtils colorWithHex:@"808184"];
+    }
 }
 
 //- (void)bindModel:(ExpressCenterExpressInfoModel *)model{
@@ -84,16 +103,16 @@
 #pragma mark - 拨打电话
 - (IBAction)callButtonAction:(id)sender {
     
-    if ([_delegate respondsToSelector:@selector(call)]) {
-        [_delegate call];
+    if ([_delegate respondsToSelector:@selector(callWithIndex:)]) {
+        [_delegate callWithIndex:self.tag];
     }
 }
 
 #pragma mark - 取消取件按钮
 - (IBAction)cancleButtonAction:(id)sender {
     
-    if ([_delegate respondsToSelector:@selector(cancleTakeThing)]) {
-        [_delegate cancleTakeThing];
+    if ([_delegate respondsToSelector:@selector(cancleTakeThingWithIndex:)]) {
+        [_delegate cancleTakeThingWithIndex:self.tag];
     }
     
 }

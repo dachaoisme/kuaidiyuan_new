@@ -53,7 +53,8 @@
 - (void)sendMassSnsWithParams:(NSDictionary *)params withSuccessBlock:(XYPBaseBlock)successBlock withFaileBlock:(XYPHttpErrorBlock)failBlock;
 ///冲发短信
 - (void)resendSnsByExpressNoWithParams:(NSDictionary *)params withSuccessBlock:(XYPBaseBlock)successBlock withFaileBlock:(XYPHttpErrorBlock)failBlock;
-
+///工作统计，收发多少个快件
+- (void)statisticsCourierHistoryWithParams:(NSDictionary *)params withSuccessBlock:(XYPBaseBlock)successBlock withFaileBlock:(XYPHttpErrorBlock)failBlock;
 
 
 #pragma mark - 送快递短信模板相关

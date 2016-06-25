@@ -10,7 +10,7 @@
 
 @protocol DeliveredCourierTableViewCellDelegate <NSObject>
 
-- (void)call;
+- (void)callWithIndex:(NSInteger)index;
 
 @end
 

@@ -195,6 +195,15 @@
     }];
 }
 
+///工作统计，收发多少个快件
+- (void)statisticsCourierHistoryWithParams:(NSDictionary *)params withSuccessBlock:(XYPBaseBlock)successBlock withFaileBlock:(XYPHttpErrorBlock)failBlock
+{
+    [[HttpServer sharedInstance]getWithMethod:METHOD_OF_COURIER_STATISTICS withParams:params withSuccess:^(HttpResponseCodeModel *model) {
+        successBlock(model);
+    } withFailBlock:^(NSError *error) {
+        failBlock(error);
+    }];
+}
 
 
 

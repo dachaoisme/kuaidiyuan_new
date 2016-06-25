@@ -11,10 +11,10 @@
 @protocol SendCourierRecordTableViewCellDelegate <NSObject>
 
 //店电话
-- (void)call;
+- (void)callWithIndex:(NSInteger)index;
 
 //取消取件
-- (void)cancleTakeThing;
+- (void)cancleTakeThingWithIndex:(NSInteger)index;
 
 @end
 

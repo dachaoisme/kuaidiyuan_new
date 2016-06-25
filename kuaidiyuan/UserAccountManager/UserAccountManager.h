@@ -60,6 +60,9 @@
 ///快递公司
 @property (nonatomic, strong) NSString *userStudentID;
 
+///通过工作统计接口，来统计收发多少件快递
+@property (nonatomic, strong) NSString *userSendCourierNumber;
+@property (nonatomic, strong) NSString *userReceiveCourierNumber;
 ////////////////////自定义那个////////////////////
 ///是否是登陆状态
 @property (nonatomic, assign) BOOL isLogin;

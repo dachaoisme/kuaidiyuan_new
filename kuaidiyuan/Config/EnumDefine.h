@@ -184,5 +184,17 @@ typedef NS_ENUM(NSInteger, CourierSendSnsType){
     CourierSendSnsMassType           =10002,
     
 };
+///快递取件消息   //取件状态 -1取消取件 0 等待取件 1已取件
+typedef NS_ENUM(NSInteger, courierMessageStatus){
+    
+    ///取消取件
+    courierMessageCancelTakeStatus          =-1,
+    ///等待取件
+    courierMessageWaitingTakeStatus         =0 ,
+    ///已取件
+    courierMessageAlreadyTakeStatus         =1 ,
+
+};
+
 
 #endif /* EnumDefine_h */
