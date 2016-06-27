@@ -12,6 +12,15 @@
 
 @interface BindPhoneViewController ()<UITextFieldDelegate>
 
+{
+    NSInteger    timerCount;
+    NSTimer     *sendTimer;
+    UIButton    *sendMessageBtn;
+
+}
+
+@property (nonatomic,strong)UITextField *checkingMessageTextField;
+
 @end
 
 @implementation BindPhoneViewController
@@ -47,19 +56,19 @@
     
     
     UILabel *phoneLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(bindLabel.frame), 10, 100, 20)];
-//    phoneLabel.text = [UserAccountManager sharedInstance].userMobile;
+    phoneLabel.text = [UserAccountManager sharedInstance].userTelphone;
     phoneLabel.font = [UIFont systemFontOfSize:14];
     [backGroundView addSubview:phoneLabel];
     
     
     //发送验证码
-    UIButton *sendMessageButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    sendMessageButton.frame = CGRectMake(SCREEN_WIDTH - 100, 10, 100, 20);
-    [sendMessageButton setTitle:@"发送验证码" forState:UIControlStateNormal];
-    sendMessageButton.titleLabel.font = [UIFont systemFontOfSize:14];
-    [sendMessageButton setTitleColor:[CommonUtils colorWithHex:@"00beaf"] forState:UIControlStateNormal];
-    [sendMessageButton addTarget:self action:@selector(sendMessageAction) forControlEvents:UIControlEventTouchUpInside];
-    [backGroundView addSubview:sendMessageButton];
+    sendMessageBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    sendMessageBtn.frame = CGRectMake(SCREEN_WIDTH - 100, 10, 100, 20);
+    [sendMessageBtn setTitle:@"发送验证码" forState:UIControlStateNormal];
+    sendMessageBtn.titleLabel.font = [UIFont systemFontOfSize:14];
+    [sendMessageBtn setTitleColor:[CommonUtils colorWithHex:@"00beaf"] forState:UIControlStateNormal];
+    [sendMessageBtn addTarget:self action:@selector(sendMessageAction) forControlEvents:UIControlEventTouchUpInside];
+    [backGroundView addSubview:sendMessageBtn];
     
     
     
@@ -81,6 +90,7 @@
     coderTextField.font = [UIFont systemFontOfSize:14];
     [backGroundView addSubview:coderTextField];
 
+    self.checkingMessageTextField = coderTextField;
 
     
     //确定按钮
@@ -104,17 +114,98 @@
 #pragma mark - 发送验证码
 - (void)sendMessageAction{
     
-    [CommonUtils showToastWithStr:@"发送短信验证码"];
+//    [CommonUtils showToastWithStr:@"发送短信验证码"];
+    
+    NSString * phoneNum = [UserAccountManager sharedInstance].userTelphone;
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    [params setObject:phoneNum forKey:@"mobile"];
+    [[HttpClient sharedInstance]registerOfSendMessageWithParams:params withSuccessBlock:^(HttpResponseCodeModel *model) {
+        
+        if (model.responseCode == ResponseCodeSuccess) {
+            [CommonUtils showToastWithStr:@"发送成功"];
+            //请求成功了，才改变发送按钮的倒计时
+            [self startTimer];
+        }else{
+            [CommonUtils showToastWithStr:model.responseMsg];
+        }
+        
+    } withFaileBlock:^(NSError *error) {
+        
+        
+        
+    }];
+
 }
+
+-(void)startTimer
+{
+    timerCount = 60;
+    sendTimer = [NSTimer scheduledTimerWithTimeInterval:1.0
+                                                 target:self
+                                               selector:@selector(countTimer:)
+                                               userInfo:nil
+                                                repeats:YES];
+    
+    sendMessageBtn.userInteractionEnabled = NO;
+    [sendMessageBtn setTitle:@"60" forState:UIControlStateNormal];
+}
+-(void)countTimer:(NSTimer*)timer
+{
+    timerCount = timerCount-1;
+    NSString * btnTittle = [NSString stringWithFormat:@"%lds",(long)timerCount];
+    [sendMessageBtn setTitle:btnTittle forState:UIControlStateNormal];
+    if (timerCount <= 0) {
+        [self killTimer];
+    }
+}
+- (void)killTimer{
+    sendMessageBtn.userInteractionEnabled = YES;
+    [sendMessageBtn setTitle:@"发送验证码" forState:UIControlStateNormal];
+    
+    if(sendTimer)
+    {
+        [sendTimer invalidate];
+        sendTimer = nil;
+    }
+}
+
 
 #pragma mark - 确定按钮的响应方法
 - (void)makeSureAction{
     
 //    [CommonUtils showToastWithStr:@"确定"];
     
-    //跳转输入新手机号页面
-    BindPhoneLastViewController *bindPhoneLastVC = [[BindPhoneLastViewController alloc] init];
-    [self.navigationController pushViewController:bindPhoneLastVC animated:YES];
+    
+    NSMutableDictionary * params = [NSMutableDictionary dictionary];
+    NSString * phoneNum = [UserAccountManager sharedInstance].userTelphone;
+
+    [params setObject:phoneNum forKey:@"mobile"];
+    [params setObject:_checkingMessageTextField.text forKey:@"code"];
+    
+    [[HttpClient sharedInstance] checkSendMessageWithParams:params withSuccessBlock:^(HttpResponseCodeModel *model) {
+        
+        if (model.responseCode == ResponseCodeSuccess) {
+            
+
+            //跳转输入新手机号页面
+            BindPhoneLastViewController *bindPhoneLastVC = [[BindPhoneLastViewController alloc] init];
+            [self.navigationController pushViewController:bindPhoneLastVC animated:YES];
+            
+
+            
+            
+        }else{
+            
+            [CommonUtils showToastWithStr:model.responseMsg];
+        }
+
+        
+    } withFaileBlock:^(NSError *error) {
+        
+    }];
+    
+
 }
 
 

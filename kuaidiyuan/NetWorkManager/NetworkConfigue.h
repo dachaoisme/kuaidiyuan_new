@@ -18,8 +18,13 @@
 
 
 #pragma mark - 用户相关
+
 ///发送验证码
-#define METHOD_OF_SEND_MESSAGE           @"v1/user/sendmessage?"
+#define METHOD_OF_SEND_MESSAGE           @"v1/courier/sendsnsbytel?"
+///校验验证码和手机号
+#define CHECK_PHONE_CODE                 @"v1/courier/validatetel?"
+///修改手机号绑定
+#define CHANGE_BIND_PHONE                @"v1/courier/updatetel?"
 ///登录
 #define METHOD_OF_LOGIN                  @"v1/courier/signin?"
 ///注册

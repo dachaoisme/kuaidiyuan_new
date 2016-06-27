@@ -18,6 +18,9 @@
 #import "InSchoolCourierJobListViewController.h"
 #import "OutsideSchoolJobListViewController.h"
 
+#import "LoginViewController.h"
+#import "AppDelegate.h"
+
 @interface SettingViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property(nonatomic,strong)UITableView *tableView;
@@ -47,8 +50,52 @@
     self.tableView = tableView;
     
     [tableView registerNib:[UINib nibWithNibName:@"SettingTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"cell"];
+    
+    
+    
+    //退出登录按钮
+    UIButton *existButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    existButton.frame = CGRectMake(0, 0, SCREEN_WIDTH, 45);
+    existButton.backgroundColor = [UIColor whiteColor];
+    [existButton setTitleColor:[CommonUtils colorWithHex:@"ff6478"] forState:UIControlStateNormal];
+    [existButton setTitle:@"退出登录" forState:UIControlStateNormal];
+    [existButton addTarget:self action:@selector(existAction) forControlEvents:UIControlEventTouchUpInside];
+    tableView.tableFooterView = existButton;
+
 }
 
+#pragma mark - 退出按钮的响应方法
+- (void)existAction{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"确定要退出登录？" message:@"\n" preferredStyle:UIAlertControllerStyleAlert];
+    
+    //这跟 actionSheet有点类似了,因为都是UIAlertController里面的嘛
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        
+        [[UserAccountManager sharedInstance]exitLogin];
+        
+        //触发AppDelegate中的
+    
+        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        [appDelegate setRootViewController];
+        
+        [self.navigationController popToRootViewControllerAnimated:YES];
+        
+        
+    }];
+    
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        
+    }];
+    //添加按钮
+    [alert addAction:ok];
+    [alert addAction:cancel];
+    //以modal的方式来弹出
+    [self presentViewController:alert animated:YES completion:^{ }];
+}
+
+
+
+#pragma mark - UITableView代理方法
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
     return 3;

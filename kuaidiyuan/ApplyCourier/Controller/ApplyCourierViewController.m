@@ -23,8 +23,6 @@
     
     //校内快递员
     
-    
-    
     self.navigationItem.title = @"我的认证信息";
     
     [self createLeftBackNavBtn];

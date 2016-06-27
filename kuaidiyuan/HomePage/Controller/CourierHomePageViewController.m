@@ -215,7 +215,15 @@
         return 1;
     }else{
         
-        return courierInfoModelArr.count+1;
+
+        if (courierInfoModelArr.count == 0) {
+            
+            return 2;
+        }else{
+            return courierInfoModelArr.count+1;
+
+        }
+
     }
     
     
@@ -262,30 +270,70 @@
             
         }else{
             
-            CourierHomePageTwoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"twoCell" forIndexPath:indexPath];
-            cell.delegate = self;
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-
-            CourierInfoModel  *model = [courierInfoModelArr objectAtIndex:indexPath.row-1];
-            cell.phoneLabel.text = model.courierInfoTelephone;
-            cell.timeLabel.text = model.courierCreateTime;
-            cell.titleLabel.text = [NSString stringWithFormat:@"%@ 订单号：%@",model.courierInfoCompany,model.courierInfoNum];
-            cell.tag = indexPath.row;
-            if ([model.courierInfoStatus integerValue]==1) {
-                [cell.confirmDelivery setBackgroundColor:[UIColor whiteColor]];
-                cell.confirmDelivery.layer.borderColor = [UIColor grayColor].CGColor;
-                cell.confirmDelivery.layer.borderWidth = 0.5;
-                [cell.confirmDelivery setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-                cell.confirmDelivery.userInteractionEnabled = NO;
+            if (courierInfoModelArr.count == 0) {
+                
+                UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+                
+                UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH / 2 - 20, 10, 40, 40)];
+                imageView.image = [UIImage imageNamed:@"kuaidiyuan_pacage_empty"];
+                [cell.contentView addSubview:imageView];
+                
+                
+                UILabel *showAlertLabel = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH / 2 - 50, CGRectGetMaxY(imageView.frame), 100, 20)];
+                showAlertLabel.text = @"全部快件已送达";
+                showAlertLabel.textColor = [UIColor lightGrayColor];
+                showAlertLabel.font = [UIFont systemFontOfSize:14];
+                [cell.contentView addSubview:showAlertLabel];
+                
+                
+                self.tableView.footer.hidden = YES;
+                
+                
+                return cell;
+                
             }else{
-                [cell.confirmDelivery setBackgroundColor:[CommonUtils colorWithHex:@"00beaf"]];
-                cell.confirmDelivery.layer.borderColor = [UIColor grayColor].CGColor;
-                cell.confirmDelivery.layer.borderWidth = 0.5;
-                [cell.confirmDelivery setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-                cell.confirmDelivery.userInteractionEnabled = YES;
+                
+                
+                CourierHomePageTwoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"twoCell" forIndexPath:indexPath];
+                cell.delegate = self;
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                
+                CourierInfoModel  *model = [courierInfoModelArr objectAtIndex:indexPath.row-1];
+                cell.phoneLabel.text = model.courierInfoTelephone;
+                cell.timeLabel.text = model.courierCreateTime;
+                cell.titleLabel.text = [NSString stringWithFormat:@"%@ 订单号：%@",model.courierInfoCompany,model.courierInfoNum];
+                cell.tag = indexPath.row;
+                if ([model.courierInfoStatus integerValue]==1) {
+                    
+                    //已送达
+                    [cell.confirmDelivery setBackgroundColor:[UIColor grayColor]];
+                    cell.confirmDelivery.layer.borderWidth = 0.5;
+                    [cell.confirmDelivery setTitle:@"已送达" forState:UIControlStateNormal];
+                    [cell.confirmDelivery setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+                    cell.confirmDelivery.userInteractionEnabled = NO;
+                    cell.resendMessageButton.hidden = YES;
+                }else{
+                    
+                    //未送达
+                    
+                    [cell.confirmDelivery setBackgroundColor:[CommonUtils colorWithHex:@"00beaf"]];
+                    cell.confirmDelivery.layer.borderColor = [UIColor grayColor].CGColor;
+                    cell.confirmDelivery.layer.borderWidth = 0.5;
+                    [cell.confirmDelivery setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+                    cell.confirmDelivery.userInteractionEnabled = YES;
+                    cell.resendMessageButton.hidden = NO;
+                    
+                    
+                }
+                
+                
+                self.tableView.footer.hidden = NO;
 
+                return cell;
+
+                
             }
-            return cell;
+            
             
             
         }
@@ -334,6 +382,7 @@
                 CourierInfoModel *expressInfoModel = [[CourierInfoModel alloc] initWithDic:dic];
                 [courierInfoModelArr addObject:expressInfoModel];
             }
+            
             ///处理上拉加载更多逻辑
             if (pageNum>=[pageModel.responsePageTotalCount integerValue]) {
                 //说明是最后一张
@@ -346,6 +395,9 @@
     } withFaileBlock:^(NSError *error) {
         [self.tableView.footer endRefreshing];
     }];
+    
+    
+    
 }
 -(void)requestMoreData
 {
@@ -430,7 +482,7 @@
      */
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     [dic setValue:[UserAccountManager sharedInstance].userCourierId forKey:@"courier_id"];
-    [dic setValue:[NSString stringWithFormat:@"%d",workingSwitchValue] forKey:@"working"];
+    [dic setValue:[NSString stringWithFormat:@"%ld",(long)workingSwitchValue] forKey:@"working"];
     
     [[HttpClient sharedInstance]configureWorkTimeWithParams:dic withSuccessBlock:^(HttpResponseCodeModel *model) {
         if (model.responseCode==ResponseCodeSuccess) {
