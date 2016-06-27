@@ -30,4 +30,6 @@
 
 @property (assign, nonatomic) int mark;
 @property (nonatomic, strong) UIImageView * line;
+
+
 @end

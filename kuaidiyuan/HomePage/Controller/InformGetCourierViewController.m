@@ -10,6 +10,8 @@
 
 #import "SendMessageViewController.h"
 
+
+
 @interface InformGetCourierViewController ()
 
 @end
@@ -50,7 +52,7 @@
  **/
 - (void) initControl
 {
-    UIImageView* imageViewScan = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+    UIImageView* imageViewScan = [[UIImageView alloc]initWithFrame:CGRectMake(0, 20, SCREEN_WIDTH, SCREEN_HEIGHT)];
     
     //    imageViewScan.image = [UIImage imageNamed:@"kuaidiyuan_scan_view"];
     
@@ -105,11 +107,18 @@
 
 -(void)animation1
 {
+    CGFloat orginX = (SCREEN_WIDTH - 180) / 2;
+    CGFloat orginY = adjustsSizeToFitWithWidth320(130);
+    CGFloat scope = adjustsSizeToFitWithWidth320((SCREEN_HEIGHT == 460?180:140) + 50);
+    if ((NSInteger)scope%2) {
+        scope += 1;
+    }
+    
     if (upOrdown == NO)
     {
         num ++;
-        _line.frame = CGRectMake(70, (SCREEN_HEIGHT == 460?0:20) + 100 + 2*num , 180, 2);
-        if (2*num == (SCREEN_HEIGHT == 460?180:140) +SCREEN_HEIGHT - 460)
+        _line.frame = CGRectMake(orginX, orginY + 2*num , 180, 2);
+        if (2*num == scope)
         {
             upOrdown = YES;
         }
@@ -117,7 +126,7 @@
     else
     {
         num --;
-        _line.frame = CGRectMake(70, (SCREEN_HEIGHT == 460?0:20) + 100 + 2*num, 180, 2);
+        _line.frame = CGRectMake(orginX, orginY + 2*num, 180, 2);
         if (num == 0)
         {
             upOrdown = NO;

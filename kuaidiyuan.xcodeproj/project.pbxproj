@@ -83,6 +83,7 @@
 		DD1097561D1E6EBD00A6AACC /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD1097551D1E6EBD00A6AACC /* CFNetwork.framework */; };
 		DD1097581D1E6EDE00A6AACC /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD1097571D1E6EDE00A6AACC /* CoreFoundation.framework */; };
 		DD10975A1D1E6EEE00A6AACC /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD1097591D1E6EEE00A6AACC /* CoreTelephony.framework */; };
+		DD1B48501D2124FF006A7BB2 /* line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD1B484F1D2124FF006A7BB2 /* line@2x.png */; };
 		DD48B7771D117BC600E012E4 /* ApplyCourierTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD48B7751D117BC600E012E4 /* ApplyCourierTableViewCell.m */; };
 		DD48B7781D117BC600E012E4 /* ApplyCourierTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD48B7761D117BC600E012E4 /* ApplyCourierTableViewCell.xib */; };
 		DD48B77E1D117CDE00E012E4 /* ApplyCourierViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD48B77D1D117CDE00E012E4 /* ApplyCourierViewController.m */; };
@@ -366,6 +367,7 @@
 		DD1097571D1E6EDE00A6AACC /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		DD1097591D1E6EEE00A6AACC /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		DD10975B1D1E6F0D00A6AACC /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		DD1B484F1D2124FF006A7BB2 /* line@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "line@2x.png"; sourceTree = "<group>"; };
 		DD48B7741D117BC600E012E4 /* ApplyCourierTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplyCourierTableViewCell.h; sourceTree = "<group>"; };
 		DD48B7751D117BC600E012E4 /* ApplyCourierTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplyCourierTableViewCell.m; sourceTree = "<group>"; };
 		DD48B7761D117BC600E012E4 /* ApplyCourierTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ApplyCourierTableViewCell.xib; sourceTree = "<group>"; };
@@ -971,6 +973,7 @@
 				DD4F14F11D15819D0082B90F /* scan.png */,
 				DD48B7D01D13949B00E012E4 /* avatar@2x.png */,
 				DD48B7D11D13949B00E012E4 /* avatar@3x.png */,
+				DD1B484F1D2124FF006A7BB2 /* line@2x.png */,
 				DD48B7D21D13949B00E012E4 /* avatar_change@2x.png */,
 				DD48B7D31D13949B00E012E4 /* avatar_change@3x.png */,
 				DD56D6D91D150B8D0019BF28 /* hire_btn_contact@2x.png */,
@@ -1461,6 +1464,7 @@
 				DD48B7BC1D1385FC00E012E4 /* kuaidiyuan_scanner@3x.png in Resources */,
 				DD48B7A71D1385FC00E012E4 /* hire_company_verify@2x.png in Resources */,
 				DD56D6E21D150BDC0019BF28 /* placeHoder.png in Resources */,
+				DD1B48501D2124FF006A7BB2 /* line@2x.png in Resources */,
 				58F80A301D0AEC160099DCCD /* Assets.xcassets in Resources */,
 				DD48B7B01D1385FC00E012E4 /* kuaidiyuan_icon_warning@3x.png in Resources */,
 				DD4F14F81D1591760082B90F /* InformGetCourierViewController.xib in Resources */,

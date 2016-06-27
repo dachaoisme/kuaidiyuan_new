@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10117"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InformGetCourierViewController">
@@ -16,12 +16,18 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iUf-CA-o7z" customClass="ZBarReaderView">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iUf-CA-o7z" customClass="ZBarReaderView">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="iUf-CA-o7z" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Cpf-Eo-5hn"/>
+                <constraint firstItem="iUf-CA-o7z" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Oa8-Oh-5u2"/>
+                <constraint firstAttribute="trailing" secondItem="iUf-CA-o7z" secondAttribute="trailing" id="PUh-M0-RCA"/>
+                <constraint firstAttribute="bottom" secondItem="iUf-CA-o7z" secondAttribute="bottom" id="jnz-Nf-Fbx"/>
+            </constraints>
             <point key="canvasLocation" x="346" y="260"/>
         </view>
     </objects>

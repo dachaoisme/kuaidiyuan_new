@@ -13,6 +13,9 @@
 #import "ZBarSDK.h"
 
 
+FOUNDATION_EXPORT CGFloat adjustsSizeToFitWithWidth320(CGFloat size);
+
+
 @interface InformGetCourierViewController : BaseViewController<ZBarReaderViewDelegate,UIImagePickerControllerDelegate>
 {
     ZBarCameraSimulator *cameraSim;

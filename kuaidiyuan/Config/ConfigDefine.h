@@ -126,4 +126,5 @@
 ///是否是后台调起
 #define APPLICATIONWILLENTERFOREGROUND @"applicationWillEnterForeground"
 
+
 #endif /* ConfigDefine_h */
