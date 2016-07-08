@@ -7,9 +7,10 @@
 //
 
 #import "BaseViewController.h"
-
+#import "CourierModel.h"
 @interface SendMessageViewController : BaseViewController
 
 @property(nonatomic,strong)NSString  *courierSnsStr;
 @property(nonatomic,assign)CourierSendSnsType courierSendSnsType;
+@property(nonatomic,strong)NSMutableArray  *courierScanResultArr;
 @end

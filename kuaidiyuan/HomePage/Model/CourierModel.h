@@ -59,3 +59,15 @@
 @property(nonatomic,strong)NSString *courierMessageCreateTime;
 -(id)initWithDic:(NSDictionary *)dic;
 @end
+
+///扫描发快递的model
+@interface CourierScanResultModel : NSObject
+///快递公司名字
+@property(nonatomic,strong)NSString *courierScanResultCompanyName;
+///快递订单号
+@property(nonatomic,strong)NSString *courierScanResultId;
+///快递手机号
+@property(nonatomic,strong)NSString *courierScanResultTelephone;
+
+-(id)initWithDic:(NSDictionary *)dic;
+@end

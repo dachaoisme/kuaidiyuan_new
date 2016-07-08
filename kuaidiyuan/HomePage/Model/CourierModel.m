@@ -75,3 +75,20 @@
     
 }
 @end
+
+@implementation CourierScanResultModel
+
+-(id)initWithDic:(NSDictionary *)dic
+{
+    self = [super init];
+    if (self) {
+        
+        self.courierScanResultCompanyName       =  @"";
+        self.courierScanResultId                =  @"";
+        self.courierScanResultTelephone         =  @"";
+        
+    }
+    return self;
+    
+}
+@end

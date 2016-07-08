@@ -11,7 +11,7 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import "ZBarSDK.h"
-
+#import "CourierModel.h"
 
 FOUNDATION_EXPORT CGFloat adjustsSizeToFitWithWidth320(CGFloat size);
 

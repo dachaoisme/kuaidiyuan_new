@@ -47,6 +47,8 @@
 #define METHOD_OF_COURIER_COMPANY               @"v1/courier/companys?"
 ///发送单条短信
 #define METHOD_OF_COURIER_SEND_SNS              @"v1/courier/sendsns?"
+///群扫描后，保存手机号,快递单号
+#define METHOD_OF_COURIER_SAVE_INFO_SNS         @"v1/courier/saveexpress?"
 ///根据快递单号，发送短信，多条短信
 #define METHOD_OF_COURIER_SEND_MASS_SNS         @"v1/courier/sendmultisns?"
 ///若之前群发过，重新发送，则使用这个接口，无需写短信，因为服务器已经保存

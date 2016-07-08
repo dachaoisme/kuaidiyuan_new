@@ -114,9 +114,15 @@
         [CommonUtils showToastWithStr:@"请输入短信内容"];
         return;
     }
+    NSMutableArray * tempCourierIDArr = [NSMutableArray array];
     
+    for (int i = 0; i<self.courierScanResultArr.count; i++) {
+        CourierScanResultModel * model = [self.courierScanResultArr objectAtIndex:i];
+        [tempCourierIDArr addObject:model.courierScanResultId];
+    }
+    NSString * courierSnsStr = [tempCourierIDArr componentsJoinedByString:@","];
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
-    [dic setValue:self.courierSnsStr forKey:@"express_nos"];
+    [dic setValue:courierSnsStr forKey:@"express_nos"];
     [dic setValue:locationTextField.text forKey:@"sns"];
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [[HttpClient sharedInstance]sendMassSnsWithParams:dic withSuccessBlock:^(HttpResponseCodeModel *model) {
