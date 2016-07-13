@@ -9,15 +9,16 @@
 #import "InformGetCourierViewController.h"
 
 #import "SendMessageViewController.h"
+#import "LDCPullDownMenuView.h"
 
 
-
-@interface InformGetCourierViewController ()<UITextFieldDelegate>
+@interface InformGetCourierViewController ()<UITextFieldDelegate,LDCPullDownMenuViewDelegate>
 {
     UILabel *showAlertLabel;
     NSMutableArray * dataArr;
     NSMutableArray * companyArr;
     UITextField * telephoneTextField;
+    NSString * companyName;
 }
 @end
 
@@ -128,6 +129,7 @@
         }
     }
 }
+
 /**
  获取扫描完成后的结果
  **/
@@ -152,16 +154,25 @@
 #pragma mark - 处理扫描后的结果，弹出一框，展示出来
 - (void)scanSuccess{
     [self.camerView stop];
+    
     //扫描成功
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"快递信息？" message:@"\n\n" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"快递信息" message:[NSString stringWithFormat:@"单号%@\n\n\n\n\n",codeMessage] preferredStyle:UIAlertControllerStyleAlert];
+    
+    NSArray *testArray;
+    testArray = @[ companyArr];
+    LDCPullDownMenuView *pullDownMenuView = [[LDCPullDownMenuView alloc] initWithArray:testArray selectedColor:[CommonUtils colorWithHex:@"00beaf"] withFrame:CGRectMake(10, 80, 240, 30)];
+    pullDownMenuView.delegate = self;
+    [alert.view addSubview:pullDownMenuView];
+    
     //这里就可以设置子控件的frame,但是alert的frame不可以设置
-    telephoneTextField = [[UITextField alloc] initWithFrame:CGRectMake(15, 64, 240, 30)];//wight = 270;
+    telephoneTextField = [[UITextField alloc] initWithFrame:CGRectMake(CGRectGetMinX(pullDownMenuView.frame), CGRectGetMaxY(pullDownMenuView.frame) + 5, 240, 30)];//wight = 270;
     telephoneTextField.returnKeyType = UIReturnKeyDone;
     telephoneTextField.placeholder = @"请填写收件人手机号";
     telephoneTextField.borderStyle = UITextBorderStyleRoundedRect;//设置边框的样式
     telephoneTextField.delegate = self;
     //添加子控件也是直接add
     [alert.view addSubview:telephoneTextField];
+    
     
     
     __weak typeof(self)weakSelf = self;
@@ -171,7 +182,7 @@
         NSLog(@"%@",telephoneTextField.text);//控制台中打印出输入的内容
         
         CourierScanResultModel * model = [[CourierScanResultModel alloc] initWithDic:nil];
-        model.courierScanResultCompanyName = @"韵达快递";
+        model.courierScanResultCompanyName = companyName;
         model.courierScanResultId =codeMessage;
         model.courierScanResultTelephone = telephoneTextField.text;
         
@@ -192,7 +203,10 @@
     [self presentViewController:alert animated:YES completion:^{ }];
     
 }
-
+- (void)PullDownMenu:(LDCPullDownMenuView *)pullDownMenu didSelectRowAtColumn:(NSInteger)column row:(NSInteger)row
+{
+    companyName = [companyArr objectAtIndex:row];
+}
 //
 /////确认送达
 //-(void)sureCourierArrive
@@ -224,7 +238,7 @@
     [[HttpClient sharedInstance]selectedCourierCompanyWithParams:dic withSuccessBlock:^(HttpResponseCodeModel *model) {
         NSArray * dicArr = (NSArray *)model.responseCommonDic;
         [companyArr addObjectsFromArray:dicArr];
-        
+        companyName = [companyArr firstObject];
     } withFaileBlock:^(NSError *error) {
         
     }];

@@ -49,6 +49,7 @@
     locationTextField = [[UITextField alloc] initWithFrame:CGRectMake(CGRectGetMaxX(locationImageView.frame) + 10, 0, SCREEN_WIDTH - 30, 44)];
     locationTextField.returnKeyType = UIReturnKeyDone;
     locationTextField.borderStyle = UITextBorderStyleNone;
+    locationTextField.delegate = self;
     locationTextField.placeholder = @"请输入代收地点地址";
     [oneView addSubview:locationTextField];
     
@@ -137,6 +138,7 @@
         [MBProgressHUD hideHUDForView:self.view animated:YES];
     }];
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

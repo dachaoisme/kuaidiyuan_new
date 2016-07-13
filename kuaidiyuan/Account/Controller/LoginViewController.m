@@ -83,6 +83,7 @@
     phoneTextField.adjustsFontSizeToFitWidth = YES;
     phoneTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
     phoneTextField.leftViewMode = UITextFieldViewModeAlways;
+    phoneTextField.returnKeyType = UIReturnKeyDone;
     phoneTextField.leftView = phoneImageView;
     [textFieldbackgroundView addSubview:phoneTextField];
     
@@ -93,6 +94,7 @@
     passwordTextField.delegate = self;
     passwordTextField.textAlignment = NSTextAlignmentLeft;
     passwordTextField.borderStyle = UITextBorderStyleNone;
+    passwordTextField.returnKeyType = UIReturnKeyDone;
     passwordTextField.placeholder = @"请输入密码";
     passwordTextField.font = [UIFont systemFontOfSize:14];
 
@@ -154,6 +156,8 @@
     
     
 }
+
+
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {

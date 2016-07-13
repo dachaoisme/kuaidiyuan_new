@@ -13,6 +13,8 @@
 - (void)awakeFromNib {
     // Initialization code
     self.contentTextField.returnKeyType = UIReturnKeyDone;
+    
+    self.contentTextField.delegate = self;
 }
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {

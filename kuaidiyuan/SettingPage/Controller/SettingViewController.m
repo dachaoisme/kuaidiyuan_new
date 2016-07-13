@@ -185,7 +185,7 @@
 -(void)requestData
 {
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
-    [dic setValue:[UserAccountManager sharedInstance].userCollegeId forKey:@"id"];
+    [dic setValue:[UserAccountManager sharedInstance].userCourierId forKey:@"id"];
     [[HttpClient sharedInstance]statisticsCourierHistoryWithParams:dic withSuccessBlock:^(HttpResponseCodeModel *model) {
         if (model.responseCode==ResponseCodeSuccess) {
             NSString * sendCnt = [model.responseCommonDic stringForKey:@"sendCnt"];
