@@ -11,7 +11,7 @@
 
 #pragma mark - 服务器地址相关
 ///api的地址
-#define baseApiUrl        @"http://123.56.27.124/api/web/"
+#define baseApiUrl        @"http://114.215.111.210/api/web/"
 ///后台管理系统图片的地址
 #define baseBackgroundUrlType1 @"http://123.56.27.124"
 #define baseBackgroundUrlType2 @"http://123.56.27.124/backend/web/"
