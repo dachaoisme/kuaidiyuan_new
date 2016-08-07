@@ -61,9 +61,9 @@
 
         
     }else{
-        
+        [self createTwoHeadView];
         //校外快递员隐藏
-        self.tableView.tableHeaderView.hidden = YES;
+        //self.tableView.tableHeaderView.hidden = YES;
     }
     
     
@@ -73,7 +73,7 @@
 #pragma mark - 创建区分校内快递员还是校外快递员的headerView
 - (void)createHeaderView{
     
-    UIView *backGroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 49*2+10)];
+    UIView *backGroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 49+64+10)];
     backGroundView.backgroundColor = [UIColor whiteColor];
     self.tableView.tableHeaderView = backGroundView;
     
@@ -110,28 +110,88 @@
     
     
     //第二行view
-    UIView *lineTwoView = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(grayView.frame), SCREEN_WIDTH, 49)];
+    UIView *lineTwoView = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(grayView.frame), SCREEN_WIDTH, 64)];
     [backGroundView addSubview:lineTwoView];
     
     
-    UILabel *messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 13, 70, 20)];
-    messageLabel.font = [UIFont systemFontOfSize:14];
-    messageLabel.text = @"取件消息";
-    [lineTwoView addSubview:messageLabel];
-
-
-    //右侧箭头
-    UIImageView *arrowImageView = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 25, 15, 10, 17)];
-    arrowImageView.image = [UIImage imageNamed:@"arrow"];
-    [lineTwoView addSubview:arrowImageView];
+    
+    UIView *leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH/2, 64)];
+    [lineTwoView addSubview:leftView];
     
     
+    UIImageView *leftImageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 44, 44)];
+    leftImageView.image = [UIImage imageNamed:@"kuaidiyuan_icon_pickup"];
+    [leftView addSubview:leftImageView];
+    
+    
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(leftImageView.frame)+10, CGRectGetMidY(leftImageView.frame) - 10, 200, 20)];
+    titleLabel.text = @"取件消息";
+    [leftView addSubview:titleLabel];
+    
+    
+    
+
     UITapGestureRecognizer *tapMessageAction = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(messageList)];
-    [lineTwoView addGestureRecognizer:tapMessageAction];
+    [leftView addGestureRecognizer:tapMessageAction];
+
+    
+    
+    UIView *rightView = [[UIView alloc] initWithFrame:CGRectMake( SCREEN_WIDTH/2, 0, SCREEN_WIDTH/2, 64)];
+    [lineTwoView addSubview:rightView];
+    
+    
+
+    UIImageView *rightImageView = [[UIImageView alloc] initWithFrame:CGRectMake(30, 10, 44, 44)];
+    rightImageView.image = [UIImage imageNamed:@"kuaidiyuan_icon_record"];
+    [rightView addSubview:rightImageView];
+    
+    
+    UILabel *rightTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(rightImageView.frame)+10, CGRectGetMidY(rightImageView.frame) - 10, 200, 20)];
+    rightTitleLabel.text = @"发件记录";
+    [rightView addSubview:rightTitleLabel];
+    
+    
+    UITapGestureRecognizer *tapJiluAction = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapActionKuaiDiJiLu)];
+    [rightView addGestureRecognizer:tapJiluAction];
+    
+
+    
+    
+
     
     
 }
 
+-(void)createTwoHeadView{
+    
+    UIView *backGroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 64)];
+    backGroundView.backgroundColor = [UIColor whiteColor];
+    self.tableView.tableHeaderView = backGroundView;
+    
+    
+    
+    UIImageView *leftImageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 44, 44)];
+    leftImageView.image = [UIImage imageNamed:@"kuaidiyuan_icon_record"];
+    [backGroundView addSubview:leftImageView];
+    
+    
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(leftImageView.frame)+10, CGRectGetMidY(leftImageView.frame) - 10, 200, 20)];
+    titleLabel.text = @"发件记录";
+    [backGroundView addSubview:titleLabel];
+    
+    
+    //右侧箭头
+    UIImageView *arrowImageView = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 25, 15, 10, 17)];
+    arrowImageView.image = [UIImage imageNamed:@"arrow"];
+    [backGroundView addSubview:arrowImageView];
+
+    
+    UITapGestureRecognizer *tapMessageAction = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapActionKuaiDiJiLu)];
+    [backGroundView addGestureRecognizer:tapMessageAction];
+
+    
+    
+}
 #pragma mark - 开关打开的响应时间
 - (void)getSwitchValue:(UISwitch *)sender{
     
@@ -150,7 +210,7 @@
 - (void)createFootView{
     
     UIButton *informGetCourierBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [informGetCourierBtn setTitle:@"通知取快递" forState:UIControlStateNormal];
+    [informGetCourierBtn setTitle:@"快递入库" forState:UIControlStateNormal];
     [informGetCourierBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [informGetCourierBtn addTarget:self action:@selector(informGetCourierAction) forControlEvents:UIControlEventTouchUpInside];
     informGetCourierBtn.layer.cornerRadius = 6;
@@ -207,59 +267,32 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     
-    return 2;
+    return 1;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    if (section == 0) {
-        return 1;
-    }else{
+
+    if (courierInfoModelArr.count == 0) {
         
-
-        if (courierInfoModelArr.count == 0) {
-            
-            return 2;
-        }else{
-            return courierInfoModelArr.count+1;
-
-        }
+        return 2;
+    }else{
+        return courierInfoModelArr.count+1;
 
     }
+
     
     
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     
-    if (section == 0) {
-        return 0;
-    }else{
-        return 10;
+    return 10;
 
-    }
     
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-     if(indexPath.section == 0){
-        
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-         
-         
-         UIImageView *arrowImageView = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 30, 15, 10, 17)];
-         arrowImageView.image = [UIImage imageNamed:@"arrow"];
-        cell.accessoryView = arrowImageView;
-        cell.textLabel.font = [UIFont systemFontOfSize:14];
-
-        cell.textLabel.text = @"全部送快递记录";
-
-        return cell;
-
-        
-        
-    }else{
-        
+    
         if (indexPath.row == 0) {
             
             CourierHomePageOneTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"oneCell" forIndexPath:indexPath];
@@ -338,7 +371,6 @@
             
         }
 
-    }
     
     
 }
@@ -352,14 +384,15 @@
     }
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+
+- (void)tapActionKuaiDiJiLu{
     
-    if (indexPath.section == 0 && indexPath.row == 0) {
-        //送快递记录
-        DeliveryRecordViewController *recordVC = [[DeliveryRecordViewController alloc] init];
-        [self.navigationController pushViewController:recordVC animated:YES];
-    }
+    //送快递记录
+    DeliveryRecordViewController *recordVC = [[DeliveryRecordViewController alloc] init];
+    [self.navigationController pushViewController:recordVC animated:YES];
+    
 }
+
 -(void)requestData
 {
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
