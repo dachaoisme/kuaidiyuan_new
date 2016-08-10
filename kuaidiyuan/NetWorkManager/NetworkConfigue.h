@@ -23,6 +23,12 @@
 #define METHOD_OF_SEND_MESSAGE           @"v1/courier/sendsnsbytel?"
 ///校验验证码和手机号
 #define CHECK_PHONE_CODE                 @"v1/courier/validatetel?"
+///修改密码 根据手机号更新密码
+#define METHOD_OF_UPDATE_PASSWORD        @"v1/courier/updatepasswd?"
+
+///个人中心：个人主页 使用的学院派的接口
+#define METHOD_MINE_HOME_PAGE            @"v1/user/userinfo?"
+
 ///修改手机号绑定
 #define CHANGE_BIND_PHONE                @"v1/courier/updatetel?"
 ///登录

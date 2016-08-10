@@ -23,6 +23,9 @@
 }
 
 #pragma mark - 用户相关
+/////////////////使用的学院派的接口/////////////////////
+
+////////////快递员接口////////////////
 ///注册发送验证码
 - (void)registerOfSendMessageWithParams:(NSDictionary *)params withSuccessBlock:(XYPBaseBlock)successBlock withFaileBlock:(XYPHttpErrorBlock)failBlock
 {
@@ -42,7 +45,14 @@
         failBlock(error);
     }];
 }
-
+- (void)changePasswordWithParams:(NSDictionary *)params withSuccessBlock:(XYPBaseBlock)successBlock withFaileBlock:(XYPHttpErrorBlock)failBlock
+{
+    [[HttpServer sharedInstance]getWithMethod:METHOD_OF_UPDATE_PASSWORD withParams:params withSuccess:^(HttpResponseCodeModel *model) {
+        successBlock(model);
+    } withFailBlock:^(NSError *error) {
+        failBlock(error);
+    }];
+}
 ///修改手机号绑定
 - (void)changeBindPhoneNumberWithParams:(NSDictionary *)params withSuccessBlock:(XYPBaseBlock)successBlock withFaileBlock:(XYPHttpErrorBlock)failBlock
 {

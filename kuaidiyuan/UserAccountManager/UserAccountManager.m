@@ -101,6 +101,8 @@
     [[HttpClient sharedInstance]loginWithParams:dic withSuccessBlock:^(HttpResponseCodeModel *model) {
         if (model.responseCode == ResponseCodeSuccess) {
         [[UserAccountManager sharedInstance]saveUserAccountWithUserInfoDic:model.responseCommonDic];
+        AppDelegate * appDelegate=(AppDelegate*)[UIApplication sharedApplication].delegate;
+        [appDelegate setRootViewController];
         }else{
             [CommonUtils showToastWithStr:model.responseMsg];
         }
@@ -121,4 +123,5 @@
     });
     
 }
+
 @end

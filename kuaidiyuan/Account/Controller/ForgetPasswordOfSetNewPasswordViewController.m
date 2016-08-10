@@ -78,20 +78,20 @@
      */
     //校验验证码
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
-    [dic setObject:self.userId forKey:@"user_id"];
+    [dic setObject:self.telephoneNum forKey:@"telphone"];
     [dic setObject:inputPasswordTextField.text forKey:@"passwd"];
-//    [[HttpClient sharedInstance]changePasswordWithParams:dic withSuccessBlock:^(HttpResponseCodeModel *model) {
-//        if (model.responseCode == ResponseCodeSuccess) {
-//            //NSDictionary * userInfoDic = [model.responseCommonDic objectForKey:@"data"];
-//            //若成功，应该是返回主页面，并且是已经登录状态
-//            [[UserAccountManager sharedInstance]loginWithUserPhoneNum:[UserAccountManager sharedInstance].userMobile andPassWord:inputPasswordTextField.text];
-//        }else{
-//            //验证失败
-//            [CommonUtils showToastWithStr:model.responseMsg];
-//        }
-//    } withFaileBlock:^(NSError *error) {
-//        
-//    }];
+    [[HttpClient sharedInstance]changePasswordWithParams:dic withSuccessBlock:^(HttpResponseCodeModel *model) {
+        if (model.responseCode == ResponseCodeSuccess) {
+            //NSDictionary * userInfoDic = [model.responseCommonDic objectForKey:@"data"];
+            //若成功，应该是返回主页面，并且是已经登录状态
+            [[UserAccountManager sharedInstance]loginWithUserPhoneNum:self.telephoneNum andPassWord:inputPasswordTextField.text];
+        }else{
+            //验证失败
+            [CommonUtils showToastWithStr:model.responseMsg];
+        }
+    } withFaileBlock:^(NSError *error) {
+        
+    }];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

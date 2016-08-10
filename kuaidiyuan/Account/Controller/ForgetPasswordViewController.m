@@ -114,20 +114,20 @@
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     [params setObject:phoneNum forKey:@"mobile"];
-//    [[HttpClient sharedInstance]registerOfSendMessageWithParams:params withSuccessBlock:^(HttpResponseCodeModel *model) {
-//        
-//        if (model.responseCode == ResponseCodeSuccess) {
-//            [CommonUtils showToastWithStr:@"发送成功"];
-//            //请求成功了，才改变发送按钮的倒计时
-//            [self startTimer];
-//        }else{
-//            [CommonUtils showToastWithStr:model.responseMsg];
-//        }
-//        
-//    } withFaileBlock:^(NSError *error) {
-//        
-//        
-//    }];
+    [[HttpClient sharedInstance]registerOfSendMessageWithParams:params withSuccessBlock:^(HttpResponseCodeModel *model) {
+        
+        if (model.responseCode == ResponseCodeSuccess) {
+            [CommonUtils showToastWithStr:@"发送成功"];
+            //请求成功了，才改变发送按钮的倒计时
+            [self startTimer];
+        }else{
+            [CommonUtils showToastWithStr:model.responseMsg];
+        }
+        
+    } withFaileBlock:^(NSError *error) {
+        
+        
+    }];
     
     
 }
@@ -151,23 +151,23 @@
     //校验验证码
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     [dic setObject:phoneTextField.text forKey:@"mobile"];
-    [dic setObject:checkingMessageTextField.text forKey:@"captcha"];
-//    [[HttpClient sharedInstance]validateTelephoneAndSecurityCodeWithParams:dic withSuccessBlock:^(HttpResponseCodeModel *model) {
-//        if (model.responseCode == ResponseCodeSuccess) {
-//            NSString * userId = [model.responseCommonDic objectForKey:@"user_id"];
-//            //验证码和手机号验证成功
-//            ForgetPasswordOfSetNewPasswordViewController * forgetPasswordOfSetNewPasswordVC = [[ForgetPasswordOfSetNewPasswordViewController alloc] init];
-//            forgetPasswordOfSetNewPasswordVC.userId = userId;
-//            forgetPasswordOfSetNewPasswordVC.telephoneNum = phoneTextField.text;
-//            [self.navigationController pushViewController:forgetPasswordOfSetNewPasswordVC animated:YES];
-//            
-//        }else{
-//            //验证失败
-//            [CommonUtils showToastWithStr:model.responseMsg];
-//        }
-//    } withFaileBlock:^(NSError *error) {
-//        
-//    }];
+    [dic setObject:checkingMessageTextField.text forKey:@"code"];
+    [[HttpClient sharedInstance]checkSendMessageWithParams:dic withSuccessBlock:^(HttpResponseCodeModel *model) {
+        if (model.responseCode == ResponseCodeSuccess) {
+            NSString * userId = [model.responseCommonDic objectForKey:@"user_id"];
+            //验证码和手机号验证成功
+            ForgetPasswordOfSetNewPasswordViewController * forgetPasswordOfSetNewPasswordVC = [[ForgetPasswordOfSetNewPasswordViewController alloc] init];
+            forgetPasswordOfSetNewPasswordVC.userId = userId;
+            forgetPasswordOfSetNewPasswordVC.telephoneNum = phoneTextField.text;
+            [self.navigationController pushViewController:forgetPasswordOfSetNewPasswordVC animated:YES];
+            
+        }else{
+            //验证失败
+            [CommonUtils showToastWithStr:model.responseMsg];
+        }
+    } withFaileBlock:^(NSError *error) {
+        
+    }];
     
 }
 #pragma mark - 倒计时相关
