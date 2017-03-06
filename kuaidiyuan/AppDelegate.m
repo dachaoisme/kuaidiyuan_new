@@ -14,7 +14,7 @@
 
 
 #import "CustomIOS7AlertView.h"
-
+#import "JMIndexViewController.h"
 
 
 @interface AppDelegate ()
@@ -46,9 +46,9 @@
 }
 -(void)setRootViewController
 {
-    
+    [UserAccountManager sharedInstance].isLogin = YES;
     if ([UserAccountManager sharedInstance].isLogin == YES) {
-        CourierHomePageViewController * homeVC = [[CourierHomePageViewController alloc]init];
+        JMIndexViewController * homeVC = [[JMIndexViewController alloc]init];
         UINavigationController * navigationVC = [[UINavigationController alloc]initWithRootViewController:homeVC];
         [self.window setRootViewController:navigationVC];
         

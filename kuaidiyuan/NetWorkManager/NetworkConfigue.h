@@ -10,8 +10,9 @@
 #define NetworkConfigue_h
 
 #pragma mark - 服务器地址相关
-///api的地址
-#define baseApiUrl        @"http://114.215.111.210/api/web/"
+///api的地址 集梦盒子一期 学院派二期
+#define baseApiUrl @"http://114.215.111.210:999/frontend/web/index.php?r="
+///#define baseApiUrl        @"http://114.215.111.210/api/web/"
 ///后台管理系统图片的地址
 #define baseBackgroundUrlType1 @"http://123.56.27.124"
 #define baseBackgroundUrlType2 @"http://123.56.27.124/backend/web/"
@@ -76,4 +77,9 @@
 ///删除短信模板接口
 #define METHOD_CONFIGURE_TEMPLATES_DELETE        @"v1/templates/delete?"
 
+
+
+
+#pragma mark - 集梦盒子  二期
+#define METHOD_OF_LOGIN_TWICE @"user/signin"
 #endif /* NetworkConfigue_h */

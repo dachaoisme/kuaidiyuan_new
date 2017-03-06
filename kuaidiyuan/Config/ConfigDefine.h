@@ -126,5 +126,9 @@
 ///是否是后台调起
 #define APPLICATIONWILLENTERFOREGROUND @"applicationWillEnterForeground"
 
-
+#pragma mark - 集梦盒子二期
+#define HiddenTarget(targetView) targetView.hidden = YES;
+#define VMScaleOfCurrentDeviceAndModelDeviceWidth (SCREEN_WIDTH < SCREEN_HEIGHT ? (SCREEN_WIDTH / 375) : (SCREEN_HEIGHT / 375))
+#define JMSystemFont(fontSize) [UIFont systemFontOfSize:(fontSize * VMScaleOfCurrentDeviceAndModelDeviceWidth)]
+#define JMUIFont(fontSize) JMSystemFont(fontSize))
 #endif /* ConfigDefine_h */
