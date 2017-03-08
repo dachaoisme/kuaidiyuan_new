@@ -12,5 +12,6 @@
 
 @property(nonatomic,strong)UIImageView *icon;
 @property(nonatomic,strong)UILabel *titelLable;
-
+@property(nonatomic,strong)UIView *leftLineView;
+@property(nonatomic,strong)UIView *bottomLineView;
 @end

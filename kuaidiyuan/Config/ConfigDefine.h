@@ -94,37 +94,12 @@
 #define PX_TO_PT(px) px*SCREEN_WIDTH/1242.0
 #define LLColorBg       LLColorHex(@"f3f3f3")// 页面背景的颜色
 
-///产品团散-->>景区端是1团0散。但是王凯说咱们App的是0团1散。故按照王凯的来
-#define GOLBAL_GROUP_OR_NOT @"0"
 
-///用户角色-->>如果是导游，就设置成0  如果是商户，就设置成 1
-#define GOLBAL_BUSINESS_OR_GUIDE @"0"
-
-//销售端口 4是导游 5是商户 //TOUR_GUIDE_APP(4, "导游APP"), MERCHANT_APP(5,"商户APP"),
-#define GOLBAL_SALES_TYPE @"4"
 
 ///NavigationBar主题颜色
 #define NAVIGATIONBAR_THEMECOLOR [UIColor blackColor]
 #define NAVIGATIONBAR_TITLECOLOR [UIColor whiteColor]
 
-#define RGBCOLOR(r,g,b) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:1.0]
-#define RGBACOLOR(r,g,b,a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
-#define RGBVCOLOR(v) RGBCOLOR(((v&0xFF0000)>>16),((v&0xFF00)>>8),(v&0xFF))
-#define RGBVACOLOR(v,a) RGBACOLOR(((v&0xFF0000)>>16),((v&0xFF00)>>8),(v&0xFF),a)
-
-///存旅行社字典关键字
-#define TRAVELAGENCYID @"travelagencyid"
-#define TRAVELAGENCYNAME @"travelagencyname"
-#define TRAVELSELLEREDID @"travelselleredid"
-#define TRAVELSELLEREDNAME @"travelselleredname"
-
-///本地存储选择的地点
-#define SELECTED_LOCATION @"selectedLocation"
-///本地存储当前定位城市
-#define CURRENT_LOCATION  @"currentLocation"
-
-///是否是后台调起
-#define APPLICATIONWILLENTERFOREGROUND @"applicationWillEnterForeground"
 
 #pragma mark - 集梦盒子二期
 #define HiddenTarget(targetView) targetView.hidden = YES;

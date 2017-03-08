@@ -31,9 +31,9 @@
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     layout.scrollDirection = UICollectionViewScrollDirectionVertical;
     ///竖直间距
-    float horizontalSpaceing = 10 * VMScaleOfCurrentDeviceAndModelDeviceWidth;
+    float horizontalSpaceing = 0 * VMScaleOfCurrentDeviceAndModelDeviceWidth;
     ///行间距
-    float verticalSpaceing = 10 * VMScaleOfCurrentDeviceAndModelDeviceWidth;
+    float verticalSpaceing = 0 * VMScaleOfCurrentDeviceAndModelDeviceWidth;
     ///行间距
     layout.minimumLineSpacing = verticalSpaceing;
     ///竖行间距
@@ -89,12 +89,16 @@
     JMIndexCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([JMIndexCollectionViewCell class]) forIndexPath:indexPath];
     if (indexPath.row==0) {
         cell.titelLable.text =@"快递入库";
+        cell.icon.image = [UIImage imageNamed:@"home_ruku"];
     }else if (indexPath.row==1){
         cell.titelLable.text =@"快递入货架";
+        cell.icon.image = [UIImage imageNamed:@"home_huojia"];
     }else if (indexPath.row==2){
         cell.titelLable.text =@"空柜状态";
+        cell.icon.image = [UIImage imageNamed:@"konggui"];
     }else{
         cell.titelLable.text =@"个人中心";
+        cell.icon.image = [UIImage imageNamed:@"home_user"];
     }
     return cell;
 }

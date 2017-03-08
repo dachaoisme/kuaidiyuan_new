@@ -23,7 +23,7 @@
 
 -(void)setContentView
 {
-    float titleWidth = 54*VMScaleOfCurrentDeviceAndModelDeviceWidth;
+    float titleWidth = 62*VMScaleOfCurrentDeviceAndModelDeviceWidth;
     float titleHeight = 25*VMScaleOfCurrentDeviceAndModelDeviceWidth;
     float horizontalSpace = (SCREEN_WIDTH-titleWidth*3)/4*VMScaleOfCurrentDeviceAndModelDeviceWidth;
     float verticalTopSpace = (CGRectGetHeight(self.frame) -horizontalSpace*2)/3*VMScaleOfCurrentDeviceAndModelDeviceWidth;
@@ -95,12 +95,22 @@
         make.height.equalTo(todayIncomeCupboardTitleLabel.mas_height);
     }];
     
+    UILabel * dateLabel = [self label];
+    dateLabel.text = [CommonUtils getCurrenttime];
+    [dateLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.top.equalTo(self.mas_bottom).offset(-40*VMScaleOfCurrentDeviceAndModelDeviceWidth);
+        make.left.equalTo(self.mas_left);
+        make.right.equalTo(self.mas_right);
+        make.height.equalTo(@(21*VMScaleOfCurrentDeviceAndModelDeviceWidth));
+    }];
 }
 
 - (UILabel *)label
 {
     UILabel *label = [[UILabel alloc] init];
     label.textColor = [UIColor whiteColor];
+    label.textAlignment = NSTextAlignmentCenter;
     label.numberOfLines = 2;
     [self addSubview:label];
 
