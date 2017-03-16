@@ -75,32 +75,32 @@
     //url
     NSMutableString *tempUrl =[NSMutableString stringWithString:baseApiUrl];// baseUrl ;
     [tempUrl appendString:methond];
-    //获取当前时间apptime
-    NSString *appCurrentTimeString = [NSString stringWithFormat:@"%ld", time(NULL)];//转为字符型
-    //加密MD5KEY
-    NSString * md5key = @"8409-4E89-A81A-B7FF-u(#d";
-    NSString *sign = [[CommonUtils md5:[appCurrentTimeString stringByAppendingString:md5key]] uppercaseString];
-    
-    NSMutableDictionary * mutDic = [NSMutableDictionary dictionary];
-    [mutDic addEntriesFromDictionary:dic];
-    [mutDic setObject:appCurrentTimeString forKey:@"apptime"];
-    [mutDic setObject:sign forKey:@"sign"];
-    
-    for (int i = 0; i<[mutDic allKeys].count; i++) {
-        
-        NSString * key = [[mutDic allKeys]objectAtIndex:i];
-        NSString * value = [mutDic objectForKey:key];
-        
-        if (i == [mutDic allKeys].count-1) {
-            NSString * str = [NSString stringWithFormat:@"%@=%@",key,value];
-            [tempUrl appendString:str];
-        }else{
-            NSString * str = [NSString stringWithFormat:@"%@=%@&",key,value];
-            [tempUrl appendString:str];
-        }
-    }
+//    //获取当前时间apptime
+//    NSString *appCurrentTimeString = [NSString stringWithFormat:@"%ld", time(NULL)];//转为字符型
+//    //加密MD5KEY
+//    NSString * md5key = @"8409-4E89-A81A-B7FF-u(#d";
+//    NSString *sign = [[CommonUtils md5:[appCurrentTimeString stringByAppendingString:md5key]] uppercaseString];
+//    
+//    NSMutableDictionary * mutDic = [NSMutableDictionary dictionary];
+//    [mutDic addEntriesFromDictionary:dic];
+//    [mutDic setObject:appCurrentTimeString forKey:@"apptime"];
+//    [mutDic setObject:sign forKey:@"sign"];
+//    
+//    for (int i = 0; i<[mutDic allKeys].count; i++) {
+//        
+//        NSString * key = [[mutDic allKeys]objectAtIndex:i];
+//        NSString * value = [mutDic objectForKey:key];
+//        
+//        if (i == [mutDic allKeys].count-1) {
+//            NSString * str = [NSString stringWithFormat:@"%@=%@",key,value];
+//            [tempUrl appendString:str];
+//        }else{
+//            NSString * str = [NSString stringWithFormat:@"%@=%@&",key,value];
+//            [tempUrl appendString:str];
+//        }
+//    }
     //编码
-    NSString * urlStr = [tempUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString * urlStr = tempUrl;//[tempUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     //2.管理器
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     //替换ContentType类型
@@ -108,7 +108,7 @@
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/html",@"text/plain", nil];
     [manager setSecurityPolicy:[AFSecurityPolicy policyWithPinningMode:AFSSLPinningModePublicKey]];
     //3.请求
-    [manager GET:urlStr parameters:nil success: ^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager GET:urlStr parameters:dic success: ^(AFHTTPRequestOperation *operation, id responseObject) {
         //NSLog(@"GET --> %@, %@", responseObject, [NSThread currentThread]); //自动返回主线程
         HttpResponseCodeModel * model = [[HttpResponseCodeModel alloc]initWithDic:responseObject];
         

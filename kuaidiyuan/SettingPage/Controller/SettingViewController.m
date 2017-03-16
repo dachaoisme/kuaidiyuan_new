@@ -115,7 +115,7 @@
     }else if (indexPath.row == 1){
         
         cell.titleLabel.text = @"我的认证信息";
-        cell.contentLabel.text = [UserAccountManager sharedInstance].userRealName;//@"陈奕迅";
+        cell.contentLabel.text = [UserAccountManager sharedInstance].userName;//@"陈奕迅";
         
     }else{
         
@@ -134,7 +134,7 @@
     if (indexPath.row == 0) {
         //工作统计
         
-        if ([UserAccountManager sharedInstance].userCourierRoleType == CourierRoleTypeOfSchool) {
+        if (1/*[UserAccountManager sharedInstance].userCourierRoleType == CourierRoleTypeOfSchool/*) {
 
             //校内快递员
             InSchoolCourierJobListViewController *inSchoolVC = [[InSchoolCourierJobListViewController alloc] init];
@@ -160,7 +160,7 @@
         
 #warning 需要进行判断跳转是校内快递员还是校外快递员
         
-      if ([UserAccountManager sharedInstance].userCourierRoleType == CourierRoleTypeOfSchool) {
+      if (1/*[UserAccountManager sharedInstance].userCourierRoleType == CourierRoleTypeOfSchool*/) {
           
           //校内快递员
           ApplyCourierViewController *applyCourierVC = [[ApplyCourierViewController alloc] init];
@@ -185,7 +185,7 @@
 -(void)requestData
 {
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
-    [dic setValue:[UserAccountManager sharedInstance].userCourierId forKey:@"id"];
+    [dic setValue:[UserAccountManager sharedInstance].user_id forKey:@"id"];
     [[HttpClient sharedInstance]statisticsCourierHistoryWithParams:dic withSuccessBlock:^(HttpResponseCodeModel *model) {
         if (model.responseCode==ResponseCodeSuccess) {
             NSString * sendCnt = [model.responseCommonDic stringForKey:@"sendCnt"];

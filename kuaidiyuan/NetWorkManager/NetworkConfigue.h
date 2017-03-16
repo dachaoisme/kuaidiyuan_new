@@ -81,5 +81,5 @@
 
 
 #pragma mark - 集梦盒子  二期
-#define METHOD_OF_LOGIN_TWICE @"user/signin"
+#define TWICE_METHOD_OF_LOGIN @"user/signin"
 #endif /* NetworkConfigue_h */

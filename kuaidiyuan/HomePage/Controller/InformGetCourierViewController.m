@@ -254,7 +254,7 @@
      company         string  非必需   快递公司名称
      */
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
-    [dic setObject:[UserAccountManager sharedInstance].userCourierId forKey:@"courier_id"];
+    [dic setObject:[UserAccountManager sharedInstance].user_id forKey:@"courier_id"];
     [dic setObject:scanResultmodel.courierScanResultId forKey:@"express_no"];
     [dic setObject:scanResultmodel.courierScanResultTelephone forKey:@"telphone"];
     [dic setObject:scanResultmodel.courierScanResultCompanyName forKey:@"company"];

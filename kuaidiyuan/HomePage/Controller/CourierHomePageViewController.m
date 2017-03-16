@@ -51,7 +51,7 @@
     
     
     //校内快递员不隐藏
-    if ([UserAccountManager sharedInstance].userCourierRoleType == CourierRoleTypeOfSchool) {
+    if (1/*[UserAccountManager sharedInstance].userCourierRoleType == CourierRoleTypeOfSchool*/) {
         
         //根据判断是否隐藏headerView
         [self createHeaderView];
@@ -403,7 +403,7 @@
      size            int     非必需     每页多少条
      
      */
-    [dic setValue:[UserAccountManager sharedInstance].userCourierId forKey:@"courier_id"];
+    [dic setValue:[UserAccountManager sharedInstance].user_id forKey:@"courier_id"];
     [dic setValue:@"0" forKey:@"status"];
     [dic setValue:[NSString stringWithFormat:@"%ld",(long)pageNum] forKey:@"page"];
     [dic setValue:[NSString stringWithFormat:@"%ld",(long)pageSize] forKey:@"size"];
@@ -514,7 +514,7 @@
      working         int         必需      设置上下班 1上班 0下班
      */
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
-    [dic setValue:[UserAccountManager sharedInstance].userCourierId forKey:@"courier_id"];
+    [dic setValue:[UserAccountManager sharedInstance].user_id forKey:@"courier_id"];
     [dic setValue:[NSString stringWithFormat:@"%ld",(long)workingSwitchValue] forKey:@"working"];
     
     [[HttpClient sharedInstance]configureWorkTimeWithParams:dic withSuccessBlock:^(HttpResponseCodeModel *model) {

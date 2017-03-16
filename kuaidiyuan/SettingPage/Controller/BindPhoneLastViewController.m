@@ -196,7 +196,7 @@
         return;
     }
 
-    [params setObject:[UserAccountManager sharedInstance].userCourierId
+    [params setObject:[UserAccountManager sharedInstance].user_id
                forKey:@"id"];
     [params setObject:phoneNum forKey:@"mobile"];
     [params setObject:_coderTextField.text forKey:@"code"];

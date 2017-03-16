@@ -91,7 +91,7 @@
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     [dic setValue:[NSString stringWithFormat:@"%ld",(long)pageNum] forKey:@"page"];
     [dic setValue:[NSString stringWithFormat:@"%ld",(long)pageSize] forKey:@"size"];
-    [dic setValue:[UserAccountManager sharedInstance].userCourierId forKey:@"courier_id"];
+    [dic setValue:[UserAccountManager sharedInstance].user_id forKey:@"courier_id"];
     [[HttpClient sharedInstance]incompleteCourierWithParams:dic withSuccessBlock:^(HttpResponseCodeModel *responseModel, HttpResponsePageModel *pageModel, NSDictionary *ListDic) {
         [self.tableView.footer endRefreshing];
         if (responseModel.responseCode == ResponseCodeSuccess) {

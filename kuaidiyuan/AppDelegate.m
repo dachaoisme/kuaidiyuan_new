@@ -46,7 +46,7 @@
 }
 -(void)setRootViewController
 {
-    [UserAccountManager sharedInstance].isLogin = YES;
+    //[UserAccountManager sharedInstance].isLogin = YES;
     if ([UserAccountManager sharedInstance].isLogin == YES) {
         JMIndexViewController * homeVC = [[JMIndexViewController alloc]init];
         UINavigationController * navigationVC = [[UINavigationController alloc]initWithRootViewController:homeVC];

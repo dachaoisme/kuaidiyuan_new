@@ -401,7 +401,7 @@
 //        return;
 //    }
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
-    [dic setValue:[UserAccountManager sharedInstance].userCourierId forKey:@"id"];
+    [dic setValue:[UserAccountManager sharedInstance].user_id forKey:@"id"];
     [dic setValue:avatarImageUploaded forKey:@"icon"];
     [dic setValue:realName forKey:@"realname"];
     [dic setValue:IdCard forKey:@"IDcard"];

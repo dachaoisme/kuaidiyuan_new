@@ -19,7 +19,6 @@
 {
     UITextField *phoneTextField;
     UITextField *passwordTextField;
-    UIButton    *personalAccountBtn;
     UIButton    *teacherAccountBtn;
     UIButton    *loginBtn;
     UIButton    *registerBtn;
@@ -81,6 +80,7 @@
     phoneTextField.font = [UIFont systemFontOfSize:14];
     phoneTextField.placeholder = @"快递员编号或手机号";
     phoneTextField.adjustsFontSizeToFitWidth = YES;
+    phoneTextField.text = @"13351540959";
     phoneTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
     phoneTextField.leftViewMode = UITextFieldViewModeAlways;
     phoneTextField.returnKeyType = UIReturnKeyDone;
@@ -96,6 +96,7 @@
     passwordTextField.borderStyle = UITextBorderStyleNone;
     passwordTextField.returnKeyType = UIReturnKeyDone;
     passwordTextField.placeholder = @"密码";
+    passwordTextField.text = @"1";
     passwordTextField.font = [UIFont systemFontOfSize:14];
 
     //myTextField.clearsOnBeginEditing = YES;//设置为YES当用点触文本字段时，字段内容会被清除
@@ -105,18 +106,6 @@
     passwordTextField.leftView = passwordImageView;
     passwordTextField.rightViewMode = UITextFieldViewModeAlways;
     [textFieldbackgroundView addSubview:passwordTextField];
-    
-    ///二期集梦盒子需要隐藏此按钮
-    [UIFactory showLineInView:textFieldbackgroundView color:@"c2c3c4" rect:CGRectMake(0, CGRectGetMaxY(phoneTextField.frame), CGRectGetWidth(textFieldbackgroundView.frame), 0.5)];
-    UIButton * forgetPasswordBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [forgetPasswordBtn setTitleColor:[CommonUtils colorWithHex:@"00beaf"] forState:UIControlStateNormal];
-    [forgetPasswordBtn setFrame:CGRectMake(0, 0, 50, 30)];
-    HiddenTarget(forgetPasswordBtn);
-    [forgetPasswordBtn addTarget:self action:@selector(forgetPasswordAccount:) forControlEvents:UIControlEventTouchUpInside];
-    [forgetPasswordBtn setTitle:@"忘记密码" forState:UIControlStateNormal];
-    forgetPasswordBtn.titleLabel.font = [UIFont systemFontOfSize:12];
-    passwordTextField.rightView = forgetPasswordBtn;
-    
     
     //登陆按钮
     loginBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -128,39 +117,10 @@
     [loginBtn addTarget:self action:@selector(loginAccount:) forControlEvents:UIControlEventTouchUpInside];
     [loginBtn setTitle:@"登陆" forState:UIControlStateNormal];
     loginBtn.layer.masksToBounds = YES;
-
     loginBtn.titleLabel.font = [UIFont systemFontOfSize:16];
     [self.view addSubview:loginBtn];
-    
-    //注册按钮 ///本期集梦盒子需要隐藏此按钮
-    registerBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [registerBtn setBackgroundColor:[CommonUtils colorWithHex:@"ffffff"]];
-    registerBtn.tag = 10002;
-    registerBtn.layer.cornerRadius = 5.0;
-    registerBtn.layer.masksToBounds = YES;
-    [registerBtn setTitleColor:[CommonUtils colorWithHex:@"00beaf"] forState:UIControlStateNormal];
-    [registerBtn setFrame:CGRectMake(leftSpace, SCREEN_HEIGHT - 120, width, height)];
-    [registerBtn addTarget:self action:@selector(registerAccount:) forControlEvents:UIControlEventTouchUpInside];
-    [registerBtn setTitle:@"校外快递员注册" forState:UIControlStateNormal];
-    registerBtn.titleLabel.font = [UIFont systemFontOfSize:16];
-    HiddenTarget(registerBtn);
-    [self.view addSubview:registerBtn];
-    
-    //提示语的label
-    UILabel *alertLabel = [[UILabel alloc] initWithFrame:CGRectMake(leftSpace + 10, CGRectGetMaxY(registerBtn.frame), width, height)];
-    alertLabel.text = @"校内快递员请用学院派账号登陆，校外快递员请先注册";
-    alertLabel.textColor = [CommonUtils colorWithHex:@"ffffff"];
-    alertLabel.numberOfLines = 0;
-    HiddenTarget(alertLabel);
-    alertLabel.textAlignment = NSTextAlignmentCenter;
-    alertLabel.font = [UIFont systemFontOfSize:14];
-    [self.view addSubview:alertLabel];
-    
-    
-    
+
 }
-
-
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
@@ -191,31 +151,7 @@
         [passwordTextField resignFirstResponder];
     }
 }
-#pragma mark - 选择个人账号登录或者企业账号登陆
--(void)selectedLoginMethodWithBtn:(UIButton *)sender
-{
-    if (sender.tag == 10001) {
-        if (personalAccountBtn.selected) {
-        }else{
-            personalAccountBtn.selected = YES;
-            teacherAccountBtn.selected = NO;
-        }
-    }else{
-        if (teacherAccountBtn.selected) {
-        }else{
-            teacherAccountBtn.selected = YES;
-            personalAccountBtn.selected = NO;
-        }
-    }
-}
 
-#pragma mark - 忘记密码
--(void)forgetPasswordAccount:(UIButton *)sender
-{
-    [CommonUtils showToastWithStr:@"忘记密码"];
-    ForgetPasswordViewController * forgetPasswordVC = [[ForgetPasswordViewController alloc]init];
-    [self.navigationController pushViewController:forgetPasswordVC animated:YES];
-}
 #pragma mark - 登陆
 -(void)loginAccount:(UIButton *)sender
 {
@@ -232,8 +168,6 @@
     /*
   mobile  string    必需    手机号码
   passwd   string    必需    密码
-  role     string    必需    角色 1学生 2导师
-  
   */
 
     
@@ -253,17 +187,6 @@
         
     }];
     
-}
-#pragma mark - 申请成为快递员
--(void)registerAccount:(UIButton *)sender
-{
-    
-    RegisterViewController *registerVC = [[RegisterViewController alloc] init];
-    [self.navigationController pushViewController:registerVC animated:YES];
-    
-//    //跳转快递员界面
-//    ApplyCourierViewController *applyCourierVC = [[ApplyCourierViewController alloc] init];
-//    [self.navigationController pushViewController:applyCourierVC animated:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

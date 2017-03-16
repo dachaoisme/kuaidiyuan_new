@@ -21,7 +21,7 @@
     [super viewDidLoad];
     
     self.title  =@"集梦盒子快递员";
-    
+    [self creatRightNavWithTitle:@"退出登录"];
     [self setupContentView];
     
 }
@@ -106,6 +106,15 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     
+}
+-(void)requestHeadView
+{
+    
+}
+#pragma mark - 退出登录按钮
+-(void)rightItemActionWithBtn:(UIButton *)sender
+{
+    [[UserAccountManager sharedInstance]exitLogin];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

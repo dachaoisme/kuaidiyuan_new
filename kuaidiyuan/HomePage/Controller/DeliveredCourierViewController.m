@@ -84,7 +84,7 @@
      size            int     非必需     每页多少条
      
      */
-    [dic setValue:[UserAccountManager sharedInstance].userCourierId forKey:@"courier_id"];
+    [dic setValue:[UserAccountManager sharedInstance].user_id forKey:@"courier_id"];
     [dic setValue:@"1" forKey:@"status"];
     [dic setValue:[NSString stringWithFormat:@"%ld",(long)pageNum] forKey:@"page"];
     [dic setValue:[NSString stringWithFormat:@"%ld",(long)pageSize] forKey:@"size"];
