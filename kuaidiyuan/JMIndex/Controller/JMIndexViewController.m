@@ -10,8 +10,11 @@
 #import "JMIndexCollectionViewCell.h"
 #import "JMIndexHeadView.h"
 #import "JMIndexCollectionReusableView.h"
+#import "JMWorkStautsModel.h"
 @interface JMIndexViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
-
+{
+    JMWorkStautsModel *workStatusModel;
+}
 @property (nonatomic, strong) UICollectionView *collectionView;
 @end
 
@@ -23,6 +26,7 @@
     self.title  =@"集梦盒子快递员";
     [self creatRightNavWithTitle:@"退出登录"];
     [self setupContentView];
+    [self requestHeadView];
     
 }
 #pragma mark - body视图相关
@@ -71,9 +75,9 @@
     if (kind == UICollectionElementKindSectionHeader) {
         JMIndexCollectionReusableView *headReusableView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
         JMIndexHeadView * headView = [[JMIndexHeadView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 148*VMScaleOfCurrentDeviceAndModelDeviceWidth)];
-        headView.todayIncomeStorageCountLabel.text = @"232件";
-        headView.todayIncomeRackCountLabel.text = @"108件";
-        headView.todayIncomeCupboardCountLabel.text = @"20件";
+        headView.todayIncomeStorageCountLabel.text =[NSString stringWithFormat:@"%@件",workStatusModel.workStautsOfRukuCnt] ;
+        headView.todayIncomeRackCountLabel.text = [NSString stringWithFormat:@"%@件",workStatusModel.workStautsOfRuguojiaCnt];
+        headView.todayIncomeCupboardCountLabel.text = [NSString stringWithFormat:@"%@件",workStatusModel.workStautsOfRuguiCnt];;
         [headReusableView addSubview:headView];
         return headReusableView;
     } else {
@@ -109,7 +113,20 @@
 }
 -(void)requestHeadView
 {
-    
+    NSMutableDictionary * dic = [NSMutableDictionary dictionary];
+    [dic setObject:@"day" forKey:@"frequency"];
+    [dic setObject:[CommonUtils getCurrenttime] forKey:@"time"];
+    [dic setObject:[UserAccountManager sharedInstance].user_id forKey:@"user_id"];
+    [[HttpClient sharedInstance]getWorkStatusWithParams:dic withSuccessBlock:^(HttpResponseCodeModel *model) {
+        if (model.responseCode == ResponseCodeSuccess) {
+            workStatusModel =[[JMWorkStautsModel alloc] initWithDic:model.responseCommonDic];
+            [self.collectionView reloadData];
+        }else{
+            [CommonUtils showToastWithStr:model.responseMsg];
+        }
+    } withFaileBlock:^(NSError *error) {
+        
+    }];
 }
 #pragma mark - 退出登录按钮
 -(void)rightItemActionWithBtn:(UIButton *)sender

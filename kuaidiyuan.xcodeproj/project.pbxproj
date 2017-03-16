@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1650ADA31E7AD62C006BEEB3 /* JMWorkStautsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1650ADA21E7AD62C006BEEB3 /* JMWorkStautsModel.m */; };
 		1694D2251E6DA3360054329B /* JMIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1694D2241E6DA3360054329B /* JMIndexViewController.m */; };
 		1694D2281E6DA6D60054329B /* JMIndexCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1694D2271E6DA6D60054329B /* JMIndexCollectionViewCell.m */; };
 		1694D22B1E6DA72A0054329B /* JMIndexHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1694D22A1E6DA72A0054329B /* JMIndexHeadView.m */; };
@@ -227,6 +228,8 @@
 
 /* Begin PBXFileReference section */
 		047CF6A5687BBAC66C616E8D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1650ADA11E7AD62C006BEEB3 /* JMWorkStautsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMWorkStautsModel.h; sourceTree = "<group>"; };
+		1650ADA21E7AD62C006BEEB3 /* JMWorkStautsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMWorkStautsModel.m; sourceTree = "<group>"; };
 		1694D2231E6DA3360054329B /* JMIndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMIndexViewController.h; sourceTree = "<group>"; };
 		1694D2241E6DA3360054329B /* JMIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMIndexViewController.m; sourceTree = "<group>"; };
 		1694D2261E6DA6D60054329B /* JMIndexCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMIndexCollectionViewCell.h; sourceTree = "<group>"; };
@@ -638,6 +641,8 @@
 		1694D2221E6DA31C0054329B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1650ADA11E7AD62C006BEEB3 /* JMWorkStautsModel.h */,
+				1650ADA21E7AD62C006BEEB3 /* JMWorkStautsModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1701,6 +1706,7 @@
 				DD48B7DF1D139EA200E012E4 /* RegisterOneTableViewCell.m in Sources */,
 				58F80AB61D0AEF5D0099DCCD /* IQUIView+Hierarchy.m in Sources */,
 				DD48B8541D13AD0800E012E4 /* CourierHomePageViewController.m in Sources */,
+				1650ADA31E7AD62C006BEEB3 /* JMWorkStautsModel.m in Sources */,
 				DD4F150F1D1650A40082B90F /* OutsideSchoolCourierViewController.m in Sources */,
 				DD48B7E31D13A30200E012E4 /* RegisterTwoTableViewCell.m in Sources */,
 				58F80AF21D0AEF870099DCCD /* HttpServer.m in Sources */,
