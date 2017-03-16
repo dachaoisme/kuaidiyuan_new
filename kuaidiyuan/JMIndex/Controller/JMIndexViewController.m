@@ -11,6 +11,7 @@
 #import "JMIndexHeadView.h"
 #import "JMIndexCollectionReusableView.h"
 #import "JMWorkStautsModel.h"
+#import "JMSelectedExpressCompanyViewController.h"
 @interface JMIndexViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
 {
     JMWorkStautsModel *workStatusModel;
@@ -109,7 +110,11 @@
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    JMSelectedExpressCompanyViewController * controllerVC = [[JMSelectedExpressCompanyViewController alloc]init];
+    [self.navigationController pushViewController:controllerVC animated:YES];
+    controllerVC.callBackBlock = ^(NSString * expressCompany){
+        NSLog(@"%@",expressCompany);
+    };
 }
 -(void)requestHeadView
 {

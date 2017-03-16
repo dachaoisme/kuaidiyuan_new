@@ -1,28 +1,28 @@
 //
-//  SelectedCourierCompanyViewController.m
+//  JMSelectedExpressCompanyViewController.m
 //  kuaidiyuan
 //
-//  Created by lidachao on 16/6/18.
-//  Copyright © 2016年 lidachao. All rights reserved.
+//  Created by dachao li on 2017/3/16.
+//  Copyright © 2017年 lidachao. All rights reserved.
 //
 
-#import "SelectedCourierCompanyViewController.h"
+#import "JMSelectedExpressCompanyViewController.h"
 
-@interface SelectedCourierCompanyViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface JMSelectedExpressCompanyViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
     NSMutableArray * dataArr;
     NSInteger pageNum;
     NSInteger pageSize;
 }
 @property(nonatomic,strong)UITableView    *tableView;
+
 @end
 
-@implementation SelectedCourierCompanyViewController
+@implementation JMSelectedExpressCompanyViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    [self setTitle:@"请选择配送公司"];
+    [self setTitle:@"选择配送公司"];
     [self createLeftBackNavBtn];
     [self initContentView];
     dataArr = [NSMutableArray array];
@@ -51,11 +51,13 @@
 -(void)requestData
 {
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
-    [dic setObject:[NSString stringWithFormat:@"%ld",pageNum] forKey:@"size"];
-    [dic setObject:[NSString stringWithFormat:@"%ld",pageSize] forKey:@"page"];
     [[HttpClient sharedInstance]selectedCourierCompanyWithParams:dic withSuccessBlock:^(HttpResponseCodeModel *model) {
-        NSArray * dicArr = (NSArray *)model.responseCommonDic;
-        [dataArr addObjectsFromArray:dicArr];
+        NSDictionary * tempDic = (NSDictionary *)model.responseCommonDic;
+        NSArray * keyArray = [tempDic.allKeys sortedArrayUsingSelector:@selector(compare:)];;
+        for (NSString * key in keyArray) {
+            [dataArr addObject:[tempDic objectForKey:key]];
+        }
+        
         
         [self.tableView reloadData];
     } withFaileBlock:^(NSError *error) {
@@ -95,6 +97,7 @@
     [self.navigationController popViewControllerAnimated:YES];
     
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

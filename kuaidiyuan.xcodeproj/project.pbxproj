@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1650ADA31E7AD62C006BEEB3 /* JMWorkStautsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1650ADA21E7AD62C006BEEB3 /* JMWorkStautsModel.m */; };
+		1650ADA61E7ADA31006BEEB3 /* JMSelectedExpressCompanyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1650ADA51E7ADA31006BEEB3 /* JMSelectedExpressCompanyViewController.m */; };
 		1694D2251E6DA3360054329B /* JMIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1694D2241E6DA3360054329B /* JMIndexViewController.m */; };
 		1694D2281E6DA6D60054329B /* JMIndexCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1694D2271E6DA6D60054329B /* JMIndexCollectionViewCell.m */; };
 		1694D22B1E6DA72A0054329B /* JMIndexHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1694D22A1E6DA72A0054329B /* JMIndexHeadView.m */; };
@@ -230,6 +231,8 @@
 		047CF6A5687BBAC66C616E8D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		1650ADA11E7AD62C006BEEB3 /* JMWorkStautsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMWorkStautsModel.h; sourceTree = "<group>"; };
 		1650ADA21E7AD62C006BEEB3 /* JMWorkStautsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMWorkStautsModel.m; sourceTree = "<group>"; };
+		1650ADA41E7ADA31006BEEB3 /* JMSelectedExpressCompanyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMSelectedExpressCompanyViewController.h; sourceTree = "<group>"; };
+		1650ADA51E7ADA31006BEEB3 /* JMSelectedExpressCompanyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMSelectedExpressCompanyViewController.m; sourceTree = "<group>"; };
 		1694D2231E6DA3360054329B /* JMIndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMIndexViewController.h; sourceTree = "<group>"; };
 		1694D2241E6DA3360054329B /* JMIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMIndexViewController.m; sourceTree = "<group>"; };
 		1694D2261E6DA6D60054329B /* JMIndexCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMIndexCollectionViewCell.h; sourceTree = "<group>"; };
@@ -621,6 +624,8 @@
 			children = (
 				1694D2231E6DA3360054329B /* JMIndexViewController.h */,
 				1694D2241E6DA3360054329B /* JMIndexViewController.m */,
+				1650ADA41E7ADA31006BEEB3 /* JMSelectedExpressCompanyViewController.h */,
+				1650ADA51E7ADA31006BEEB3 /* JMSelectedExpressCompanyViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1723,6 +1728,7 @@
 				58F80ACD1D0AEF5D0099DCCD /* MJRefreshLegendFooter.m in Sources */,
 				58F80ABB1D0AEF5D0099DCCD /* IQTextView.m in Sources */,
 				DD56C57E1D14D24D0019BF28 /* DeliveryRecordViewController.m in Sources */,
+				1650ADA61E7ADA31006BEEB3 /* JMSelectedExpressCompanyViewController.m in Sources */,
 				58F80AF11D0AEF870099DCCD /* HttpModel.m in Sources */,
 				58F80AD31D0AEF5D0099DCCD /* JKPlaceholderTextView.m in Sources */,
 				58F80ACB1D0AEF5D0099DCCD /* MJRefreshGifHeader.m in Sources */,

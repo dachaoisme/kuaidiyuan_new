@@ -50,8 +50,7 @@
 #define METHOD_SEND_COURIER_HISTORY      @"v1/courier/expressrecord?"
 ///快递确认已送达
 #define METHOD_OF_COURIER_ARRIVE                @"v1/courier/finish?"
-///快递公司列表
-#define METHOD_OF_COURIER_COMPANY               @"v1/courier/companys?"
+
 ///发送单条短信
 #define METHOD_OF_COURIER_SEND_SNS              @"v1/courier/sendsns?"
 ///群扫描后，保存手机号,快递单号
@@ -83,4 +82,6 @@
 #pragma mark - 集梦盒子  二期
 #define TWICE_METHOD_OF_LOGIN @"user/signin"
 #define TWICE_METHOD_OF_WORK_STATUS @"work/status"
+///快递公司列表
+#define TWICE_METHOD_OF_COURIER_COMPANY               @"expresscompany/list"
 #endif /* NetworkConfigue_h */
