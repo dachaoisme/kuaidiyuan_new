@@ -12,5 +12,5 @@
 
 ///选择快递公司的block
 @property(nonatomic,copy)SelectedCourierCompanyBlock callBackBlock;
-
+@property(nonatomic,assign)RuHuoType ruHuoType;
 @end

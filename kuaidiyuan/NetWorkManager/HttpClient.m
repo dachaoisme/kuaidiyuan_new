@@ -299,4 +299,31 @@
         failBlock(error);
     }];
 }
+///去人入库
+- (void)saveScanResultInfoToRuKuWithParams:(NSDictionary *)params withSuccessBlock:(XYPBaseBlock)successBlock withFaileBlock:(XYPHttpErrorBlock)failBlock
+{
+    [[HttpServer sharedInstance]getWithMethod:TWICE_METHOD_OF_RU_KU withParams:params withSuccess:^(HttpResponseCodeModel *model) {
+        successBlock(model);
+    } withFailBlock:^(NSError *error) {
+        failBlock(error);
+    }];
+}
+///去人入货架
+- (void)saveScanResultInfoToRuHuoJiaWithParams:(NSDictionary *)params withSuccessBlock:(XYPBaseBlock)successBlock withFaileBlock:(XYPHttpErrorBlock)failBlock
+{
+    [[HttpServer sharedInstance]getWithMethod:TWICE_METHOD_OF_RU_HUO_JIA withParams:params withSuccess:^(HttpResponseCodeModel *model) {
+        successBlock(model);
+    } withFailBlock:^(NSError *error) {
+        failBlock(error);
+    }];
+}
+///去人入柜
+- (void)saveScanResultInfoToRuGuiWithParams:(NSDictionary *)params withSuccessBlock:(XYPBaseBlock)successBlock withFaileBlock:(XYPHttpErrorBlock)failBlock
+{
+    [[HttpServer sharedInstance]getWithMethod:TWICE_METHOD_OF_RU_HUO_GUI withParams:params withSuccess:^(HttpResponseCodeModel *model) {
+        successBlock(model);
+    } withFailBlock:^(NSError *error) {
+        failBlock(error);
+    }];
+}
 @end

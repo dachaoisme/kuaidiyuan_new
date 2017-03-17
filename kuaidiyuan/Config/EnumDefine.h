@@ -196,5 +196,15 @@ typedef NS_ENUM(NSInteger, courierMessageStatus){
 
 };
 
-
+#pragma mark - 集梦盒子 二期
+typedef NS_ENUM(NSInteger, RuHuoType){
+    
+    ///入库
+    RuHuoTypeOfRuKu             =-1,
+    ///入货架
+    RuHuoTypeOfRuHuoJia         =0 ,
+    ///入柜
+    RuHuoTypeOfRuGui            =1 ,
+    
+};
 #endif /* EnumDefine_h */

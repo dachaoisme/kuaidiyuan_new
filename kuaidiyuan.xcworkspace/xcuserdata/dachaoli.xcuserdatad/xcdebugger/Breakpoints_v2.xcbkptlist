@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "kuaidiyuan/JMIndex/Controller/JMSelectedExpressCompanyViewController.m"
-            timestampString = "511368447.910558"
+            timestampString = "511405246.012458"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
             landmarkName = "-requestData"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "kuaidiyuan/JMIndex/Controller/JMSelectedExpressCompanyViewController.m"
-            timestampString = "511368546.514673"
+            timestampString = "511405246.012458"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
             landmarkName = "-requestData"
             landmarkType = "7">
          </BreakpointContent>

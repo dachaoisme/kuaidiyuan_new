@@ -80,8 +80,16 @@
 
 
 #pragma mark - 集梦盒子  二期
-#define TWICE_METHOD_OF_LOGIN @"user/signin"
-#define TWICE_METHOD_OF_WORK_STATUS @"work/status"
+///用户登录
+#define TWICE_METHOD_OF_LOGIN                       @"user/signin"
+///首页工作统计
+#define TWICE_METHOD_OF_WORK_STATUS                 @"work/status"
 ///快递公司列表
-#define TWICE_METHOD_OF_COURIER_COMPANY               @"expresscompany/list"
+#define TWICE_METHOD_OF_COURIER_COMPANY             @"expresscompany/list"
+///完成入库
+#define TWICE_METHOD_OF_RU_KU                       @"scan/warehouse"
+///完成入货架
+#define TWICE_METHOD_OF_RU_HUO_JIA                  @"scan/shelf"
+///完成入货柜
+#define TWICE_METHOD_OF_RU_HUO_GUI                  @"scan/container"
 #endif /* NetworkConfigue_h */

@@ -7,12 +7,11 @@
 //
 
 #import "JMSelectedExpressCompanyViewController.h"
-
+#import "InformGetCourierViewController.h"
 @interface JMSelectedExpressCompanyViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
     NSMutableArray * dataArr;
-    NSInteger pageNum;
-    NSInteger pageSize;
+    NSMutableArray * expressIdArr;
 }
 @property(nonatomic,strong)UITableView    *tableView;
 
@@ -26,8 +25,7 @@
     [self createLeftBackNavBtn];
     [self initContentView];
     dataArr = [NSMutableArray array];
-    pageNum = 10;
-    pageSize = 1;
+    expressIdArr = [NSMutableArray array];
     [self requestData];
 }
 
@@ -56,6 +54,7 @@
         NSArray * keyArray = [tempDic.allKeys sortedArrayUsingSelector:@selector(compare:)];;
         for (NSString * key in keyArray) {
             [dataArr addObject:[tempDic objectForKey:key]];
+            [expressIdArr addObject:key];
         }
         
         
@@ -94,10 +93,17 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     self.callBackBlock([dataArr objectAtIndex:indexPath.row]);
-    [self.navigationController popViewControllerAnimated:YES];
-    
+    //[self.navigationController popViewControllerAnimated:NO];
+    [self pushToScanPageWithIndex:indexPath];
 }
-
+-(void)pushToScanPageWithIndex:(NSIndexPath *)indexPath
+{
+    InformGetCourierViewController *informVC = [[InformGetCourierViewController alloc] init];
+    informVC.ruHuoType = self.ruHuoType;
+    informVC.expressName = [dataArr objectAtIndex:indexPath.row];
+    informVC.expressId = [expressIdArr objectAtIndex:indexPath.row];
+    [self.navigationController pushViewController:informVC animated:YES];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

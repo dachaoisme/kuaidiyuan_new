@@ -16,9 +16,7 @@
 {
     UILabel *showAlertLabel;
     NSMutableArray * dataArr;
-    NSMutableArray * companyArr;
     UITextField * telephoneTextField;
-    NSString * companyName;
 }
 @end
 
@@ -38,9 +36,8 @@
     
     self.title = @"通知取快递";
     dataArr = [NSMutableArray array];
-    companyArr = [NSMutableArray array];
     [self createLeftBackNavBtn];
-    [self requestCompanyData];
+    [self creatRightNavWithTitle:@"完成入库"];
     self.camerView.readerDelegate = self;
     self.camerView.tracksSymbols = YES;
     [self initControl];
@@ -51,6 +48,10 @@
     [self.camerView stop];
     [self.camerView removeFromSuperview];
     [self.navigationController popViewControllerAnimated:YES];
+}
+-(void)rightItemActionWithBtn:(UIButton *)sender
+{
+    [self popViewController];
 }
 /**
  初始化控件
@@ -86,13 +87,13 @@
     
     
     UIButton *submitBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [submitBtn setTitle:@"快递添加完成，去发送短信" forState:UIControlStateNormal];
+    [submitBtn setTitle:@"快递添加完成" forState:UIControlStateNormal];
     [submitBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [submitBtn setBackgroundColor:[CommonUtils colorWithHex:@"00beaf"]];
     [submitBtn setFrame:CGRectMake(50, CGRectGetMaxY(showAlertLabel.frame)+10, SCREEN_WIDTH - 100,44)];
     submitBtn.layer.cornerRadius = 10.0;
     submitBtn.titleLabel.font = [UIFont systemFontOfSize:14];
-    [submitBtn addTarget:self action:@selector(sendMessageAction) forControlEvents:UIControlEventTouchUpInside];
+    [submitBtn addTarget:self action:@selector(popViewController) forControlEvents:UIControlEventTouchUpInside];
     [imageViewScan addSubview:submitBtn];
 
     
@@ -159,7 +160,7 @@
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"快递信息" message:[NSString stringWithFormat:@"单号%@\n\n\n\n\n",codeMessage] preferredStyle:UIAlertControllerStyleAlert];
     
     NSArray *testArray;
-    testArray = @[ companyArr];
+    testArray = [NSArray arrayWithObject:self.expressName];
     LDCPullDownMenuView *pullDownMenuView = [[LDCPullDownMenuView alloc] initWithArray:testArray selectedColor:[CommonUtils colorWithHex:@"00beaf"] withFrame:CGRectMake(10, 80, 240, 30)];
     pullDownMenuView.delegate = self;
     [alert.view addSubview:pullDownMenuView];
@@ -178,11 +179,11 @@
     __weak typeof(self)weakSelf = self;
     
     //这跟 actionSheet有点类似了,因为都是UIAlertController里面的嘛
-    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"确认入库" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         NSLog(@"%@",telephoneTextField.text);//控制台中打印出输入的内容
         
         CourierScanResultModel * model = [[CourierScanResultModel alloc] initWithDic:nil];
-        model.courierScanResultCompanyName = companyName;
+        model.courierScanResultCompanyName = self.expressName;
         model.courierScanResultId =codeMessage;
         model.courierScanResultTelephone = telephoneTextField.text;
         
@@ -205,7 +206,7 @@
 }
 - (void)PullDownMenu:(LDCPullDownMenuView *)pullDownMenu didSelectRowAtColumn:(NSInteger)column row:(NSInteger)row
 {
-    companyName = [companyArr objectAtIndex:row];
+    //companyName = [companyArr objectAtIndex:row];
 }
 //
 /////确认送达
@@ -229,22 +230,7 @@
 //    }];
 //    
 //}
-#pragma mark - 选择快递公司
--(void)requestCompanyData
-{
-    NSMutableDictionary * dic = [NSMutableDictionary dictionary];
-    [dic setObject:@"1" forKey:@"size"];
-    [dic setObject:@"100" forKey:@"page"];
-    [[HttpClient sharedInstance]selectedCourierCompanyWithParams:dic withSuccessBlock:^(HttpResponseCodeModel *model) {
-        NSArray * dicArr = (NSArray *)model.responseCommonDic;
-        [companyArr addObjectsFromArray:dicArr];
-        companyName = [companyArr firstObject];
-    } withFaileBlock:^(NSError *error) {
-        
-    }];
-    
-    
-}
+
 -(void)saveScanResultWithModel:(CourierScanResultModel *)scanResultmodel
 {
     /*
@@ -254,44 +240,69 @@
      company         string  非必需   快递公司名称
      */
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
-    [dic setObject:[UserAccountManager sharedInstance].user_id forKey:@"courier_id"];
-    [dic setObject:scanResultmodel.courierScanResultId forKey:@"express_no"];
-    [dic setObject:scanResultmodel.courierScanResultTelephone forKey:@"telphone"];
-    [dic setObject:scanResultmodel.courierScanResultCompanyName forKey:@"company"];
+    [dic setObject:[UserAccountManager sharedInstance].user_id forKey:@"user_id"];
+    NSMutableDictionary * dataDic = [NSMutableDictionary dictionary];
+    [dataDic setObject:scanResultmodel.courierScanResultId forKey:@"orderid"];
+    [dataDic setObject:scanResultmodel.courierScanResultTelephone forKey:@"telphone"];
+    [dataDic setObject:scanResultmodel.courierScanResultCompanyName forKey:@"companyid"];
+    [dic setObject:dataDic forKey:@"data[]"];
+    [self sendRequestWithRuKuType:self.ruHuoType withDic:dic WithscanResultmodel:scanResultmodel];
     
-    [[HttpClient sharedInstance]saveScanResultInfoWithParams:dic withSuccessBlock:^(HttpResponseCodeModel *model) {
-        if (model.responseCode==ResponseCodeSuccess) {
-            ///请求成功
-            [dataArr addObject:scanResultmodel];
-            showAlertLabel.text = [NSString stringWithFormat:@"已添加 %d 快递",[dataArr count]];
-        }else{
-            [CommonUtils showToastWithStr:model.responseMsg];
-        }
+}
+-(void)sendRequestWithRuKuType:(RuHuoType)ruHuoType withDic:(NSMutableDictionary *)dic WithscanResultmodel:(CourierScanResultModel *)scanResultmodel
+{
+    if (ruHuoType==RuHuoTypeOfRuKu) {
+        [[HttpClient sharedInstance]saveScanResultInfoToRuKuWithParams:dic withSuccessBlock:^(HttpResponseCodeModel *model) {
+            if (model.responseCode==ResponseCodeSuccess) {
+                ///请求成功
+                [dataArr addObject:scanResultmodel];
+                showAlertLabel.text = [NSString stringWithFormat:@"已添加 %ld 快递",[dataArr count]];
+            }else{
+                [CommonUtils showToastWithStr:model.responseMsg];
+            }
+            
+        } withFaileBlock:^(NSError *error) {
+            
+        }];
+    }else if (ruHuoType==RuHuoTypeOfRuHuoJia){
+        [[HttpClient sharedInstance]saveScanResultInfoToRuHuoJiaWithParams:dic withSuccessBlock:^(HttpResponseCodeModel *model) {
+            if (model.responseCode==ResponseCodeSuccess) {
+                ///请求成功
+                [dataArr addObject:scanResultmodel];
+                showAlertLabel.text = [NSString stringWithFormat:@"已添加 %ld 快递",[dataArr count]];
+            }else{
+                [CommonUtils showToastWithStr:model.responseMsg];
+            }
+            
+        } withFaileBlock:^(NSError *error) {
+            
+        }];
+    }else if (ruHuoType ==RuHuoTypeOfRuGui){
+        [[HttpClient sharedInstance]saveScanResultInfoToRuGuiWithParams:dic withSuccessBlock:^(HttpResponseCodeModel *model) {
+            if (model.responseCode==ResponseCodeSuccess) {
+                ///请求成功
+                [dataArr addObject:scanResultmodel];
+                showAlertLabel.text = [NSString stringWithFormat:@"已添加 %ld 快递",[dataArr count]];
+            }else{
+                [CommonUtils showToastWithStr:model.responseMsg];
+            }
+            
+        } withFaileBlock:^(NSError *error) {
+            
+        }];
+    }else{
         
-    } withFaileBlock:^(NSError *error) {
-        
-    }];
+    }
 }
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
     return YES;
 }
-
-#pragma mark - 跳转到发送短息页面
-- (void)sendMessageAction{
-    if (dataArr.count<=0) {
-        [CommonUtils showToastWithStr:@"请先扫描添加快件哦"];
-        return;
-    }
-    //发送短信页面
-    SendMessageViewController *sendMessageVC = [[SendMessageViewController alloc] init];
-    sendMessageVC.courierScanResultArr = dataArr;
-    sendMessageVC.courierSendSnsType = CourierSendSnsMassType;
-    [self.navigationController pushViewController:sendMessageVC animated:YES];
-    
+-(void)popViewController
+{
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

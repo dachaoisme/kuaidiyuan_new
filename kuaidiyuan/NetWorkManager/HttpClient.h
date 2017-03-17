@@ -91,6 +91,12 @@
 - (void)getWorkStatusWithParams:(NSDictionary *)params withSuccessBlock:(XYPBaseBlock)successBlock withFaileBlock:(XYPHttpErrorBlock)failBlock;
 ///选择快递公司
 - (void)selectedCourierCompanyWithParams:(NSDictionary *)params withSuccessBlock:(XYPBaseBlock)successBlock withFaileBlock:(XYPHttpErrorBlock)failBlock;
+///去人入库
+- (void)saveScanResultInfoToRuKuWithParams:(NSDictionary *)params withSuccessBlock:(XYPBaseBlock)successBlock withFaileBlock:(XYPHttpErrorBlock)failBlock;
+///去人入货架
+- (void)saveScanResultInfoToRuHuoJiaWithParams:(NSDictionary *)params withSuccessBlock:(XYPBaseBlock)successBlock withFaileBlock:(XYPHttpErrorBlock)failBlock;
+///去人入柜
+- (void)saveScanResultInfoToRuGuiWithParams:(NSDictionary *)params withSuccessBlock:(XYPBaseBlock)successBlock withFaileBlock:(XYPHttpErrorBlock)failBlock;
 @end
 
 

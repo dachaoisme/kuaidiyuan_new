@@ -37,5 +37,8 @@ FOUNDATION_EXPORT CGFloat adjustsSizeToFitWithWidth320(CGFloat size);
 @property (assign, nonatomic) int mark;
 @property (nonatomic, strong) UIImageView * line;
 
-
+///集梦盒子而且
+@property(nonatomic,assign)RuHuoType ruHuoType;
+@property(nonatomic,assign)NSString * expressName;
+@property(nonatomic,assign)NSString * expressId;
 @end

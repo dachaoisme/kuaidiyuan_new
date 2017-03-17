@@ -12,6 +12,7 @@
 #import "JMIndexCollectionReusableView.h"
 #import "JMWorkStautsModel.h"
 #import "JMSelectedExpressCompanyViewController.h"
+#import "InformGetCourierViewController.h"
 @interface JMIndexViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
 {
     JMWorkStautsModel *workStatusModel;
@@ -110,12 +111,26 @@
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    RuHuoType ruHuoType ;
+    if (indexPath.row==0) {
+        ruHuoType = RuHuoTypeOfRuKu;
+    }else if (indexPath.row==1){
+        ruHuoType = RuHuoTypeOfRuHuoJia;
+    }else if (indexPath.row==2){
+        ruHuoType = RuHuoTypeOfRuGui;
+    }else{
+        ///个人中心
+        return;
+    }
     JMSelectedExpressCompanyViewController * controllerVC = [[JMSelectedExpressCompanyViewController alloc]init];
+    controllerVC.ruHuoType = ruHuoType;
     [self.navigationController pushViewController:controllerVC animated:YES];
     controllerVC.callBackBlock = ^(NSString * expressCompany){
         NSLog(@"%@",expressCompany);
+        
     };
 }
+
 -(void)requestHeadView
 {
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
