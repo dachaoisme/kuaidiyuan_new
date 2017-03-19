@@ -326,4 +326,13 @@
         failBlock(error);
     }];
 }
+///获取空柜态
+- (void)getKongGuiStatusWithParams:(NSDictionary *)params withSuccessBlock:(XYPBaseBlock)successBlock withFaileBlock:(XYPHttpErrorBlock)failBlock
+{
+    [[HttpServer sharedInstance]getWithMethod:TWICE_METHOD_OF_KONG_GUI_STATE withParams:params withSuccess:^(HttpResponseCodeModel *model) {
+        successBlock(model);
+    } withFailBlock:^(NSError *error) {
+        failBlock(error);
+    }];
+}
 @end

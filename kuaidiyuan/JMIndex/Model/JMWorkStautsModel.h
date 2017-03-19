@@ -28,3 +28,5 @@
 @property(nonatomic,strong)NSString *workStautsOfTime_len;
 -(id)initWithDic:(NSDictionary *)dic;
 @end
+
+

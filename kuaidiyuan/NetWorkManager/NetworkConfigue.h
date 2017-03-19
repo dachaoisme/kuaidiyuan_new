@@ -92,4 +92,6 @@
 #define TWICE_METHOD_OF_RU_HUO_JIA                  @"scan/shelf"
 ///完成入货柜
 #define TWICE_METHOD_OF_RU_HUO_GUI                  @"scan/container"
+///获取空柜状态
+#define TWICE_METHOD_OF_KONG_GUI_STATE              @"container/status"
 #endif /* NetworkConfigue_h */

@@ -13,6 +13,11 @@
 		1694D2281E6DA6D60054329B /* JMIndexCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1694D2271E6DA6D60054329B /* JMIndexCollectionViewCell.m */; };
 		1694D22B1E6DA72A0054329B /* JMIndexHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1694D22A1E6DA72A0054329B /* JMIndexHeadView.m */; };
 		1694D22E1E6DA7A20054329B /* JMIndexCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1694D22D1E6DA7A20054329B /* JMIndexCollectionReusableView.m */; };
+		16B77AB91E7E4CA5006CDFF5 /* JMKongGuiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B77AB81E7E4CA5006CDFF5 /* JMKongGuiViewController.m */; };
+		16B77ABC1E7E64A6006CDFF5 /* JMExpressGuiUseDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B77ABB1E7E64A6006CDFF5 /* JMExpressGuiUseDetailModel.m */; };
+		16B77ABF1E7E6A98006CDFF5 /* JMKongGuiCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B77ABE1E7E6A98006CDFF5 /* JMKongGuiCollectionViewCell.m */; };
+		16B77AC21E7E9773006CDFF5 /* iconfont_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16B77AC01E7E9773006CDFF5 /* iconfont_icon@3x.png */; };
+		16B77AC31E7E9773006CDFF5 /* iconfont_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16B77AC11E7E9773006CDFF5 /* iconfont_icon@2x.png */; };
 		16D85FB01E7052130087CDCA /* home_huojia@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16D85FA81E7052130087CDCA /* home_huojia@2x.png */; };
 		16D85FB11E7052130087CDCA /* home_huojia@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16D85FA91E7052130087CDCA /* home_huojia@3x.png */; };
 		16D85FB21E7052130087CDCA /* home_ruku@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16D85FAA1E7052130087CDCA /* home_ruku@2x.png */; };
@@ -241,6 +246,14 @@
 		1694D22A1E6DA72A0054329B /* JMIndexHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMIndexHeadView.m; sourceTree = "<group>"; };
 		1694D22C1E6DA7A20054329B /* JMIndexCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMIndexCollectionReusableView.h; sourceTree = "<group>"; };
 		1694D22D1E6DA7A20054329B /* JMIndexCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMIndexCollectionReusableView.m; sourceTree = "<group>"; };
+		16B77AB71E7E4CA5006CDFF5 /* JMKongGuiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMKongGuiViewController.h; sourceTree = "<group>"; };
+		16B77AB81E7E4CA5006CDFF5 /* JMKongGuiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMKongGuiViewController.m; sourceTree = "<group>"; };
+		16B77ABA1E7E64A6006CDFF5 /* JMExpressGuiUseDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMExpressGuiUseDetailModel.h; sourceTree = "<group>"; };
+		16B77ABB1E7E64A6006CDFF5 /* JMExpressGuiUseDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMExpressGuiUseDetailModel.m; sourceTree = "<group>"; };
+		16B77ABD1E7E6A98006CDFF5 /* JMKongGuiCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMKongGuiCollectionViewCell.h; sourceTree = "<group>"; };
+		16B77ABE1E7E6A98006CDFF5 /* JMKongGuiCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMKongGuiCollectionViewCell.m; sourceTree = "<group>"; };
+		16B77AC01E7E9773006CDFF5 /* iconfont_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont_icon@3x.png"; sourceTree = "<group>"; };
+		16B77AC11E7E9773006CDFF5 /* iconfont_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont_icon@2x.png"; sourceTree = "<group>"; };
 		16D85FA81E7052130087CDCA /* home_huojia@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "home_huojia@2x.png"; path = "../ThirdPart/home_huojia@2x.png"; sourceTree = "<group>"; };
 		16D85FA91E7052130087CDCA /* home_huojia@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "home_huojia@3x.png"; path = "../ThirdPart/home_huojia@3x.png"; sourceTree = "<group>"; };
 		16D85FAA1E7052130087CDCA /* home_ruku@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "home_ruku@2x.png"; path = "../ThirdPart/home_ruku@2x.png"; sourceTree = "<group>"; };
@@ -626,6 +639,8 @@
 				1694D2241E6DA3360054329B /* JMIndexViewController.m */,
 				1650ADA41E7ADA31006BEEB3 /* JMSelectedExpressCompanyViewController.h */,
 				1650ADA51E7ADA31006BEEB3 /* JMSelectedExpressCompanyViewController.m */,
+				16B77AB71E7E4CA5006CDFF5 /* JMKongGuiViewController.h */,
+				16B77AB81E7E4CA5006CDFF5 /* JMKongGuiViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -639,6 +654,8 @@
 				1694D22A1E6DA72A0054329B /* JMIndexHeadView.m */,
 				1694D22C1E6DA7A20054329B /* JMIndexCollectionReusableView.h */,
 				1694D22D1E6DA7A20054329B /* JMIndexCollectionReusableView.m */,
+				16B77ABD1E7E6A98006CDFF5 /* JMKongGuiCollectionViewCell.h */,
+				16B77ABE1E7E6A98006CDFF5 /* JMKongGuiCollectionViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -648,6 +665,8 @@
 			children = (
 				1650ADA11E7AD62C006BEEB3 /* JMWorkStautsModel.h */,
 				1650ADA21E7AD62C006BEEB3 /* JMWorkStautsModel.m */,
+				16B77ABA1E7E64A6006CDFF5 /* JMExpressGuiUseDetailModel.h */,
+				16B77ABB1E7E64A6006CDFF5 /* JMExpressGuiUseDetailModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1053,6 +1072,8 @@
 		58F80C2A1D0BB8940099DCCD /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				16B77AC01E7E9773006CDFF5 /* iconfont_icon@3x.png */,
+				16B77AC11E7E9773006CDFF5 /* iconfont_icon@2x.png */,
 				16D85FA81E7052130087CDCA /* home_huojia@2x.png */,
 				16D85FA91E7052130087CDCA /* home_huojia@3x.png */,
 				16D85FAA1E7052130087CDCA /* home_ruku@2x.png */,
@@ -1531,6 +1552,7 @@
 				DD48B7D51D13949B00E012E4 /* avatar@3x.png in Resources */,
 				582D37131D577D2500EC509C /* kuaidiyuan_icon_record@2x.png in Resources */,
 				58F80AC61D0AEF5D0099DCCD /* MJRefresh.bundle in Resources */,
+				16B77AC31E7E9773006CDFF5 /* iconfont_icon@2x.png in Resources */,
 				DD48B8591D13CD4100E012E4 /* CourierHomePageOneTableViewCell.xib in Resources */,
 				DD48B7AF1D1385FC00E012E4 /* kuaidiyuan_icon_warning@2x.png in Resources */,
 				16D85FB41E7052130087CDCA /* home_user@2x.png in Resources */,
@@ -1561,6 +1583,7 @@
 				DD48B7C91D1385FC00E012E4 /* switch_on@2x.png in Resources */,
 				16D85FB61E7052130087CDCA /* konggui@2x.png in Resources */,
 				DD48B7B81D1385FC00E012E4 /* kuaidiyuan_pacage_empty@3x.png in Resources */,
+				16B77AC21E7E9773006CDFF5 /* iconfont_icon@3x.png in Resources */,
 				DD4F15071D15A58E0082B90F /* SettingTableViewCell.xib in Resources */,
 				DD4F14D81D1575D30082B90F /* zbar-back.png in Resources */,
 				DD48B7AA1D1385FC00E012E4 /* kuaidiyuan_btn_phone_press@3x.png in Resources */,
@@ -1676,6 +1699,7 @@
 				DD4F14EE1D157D8B0082B90F /* QRScanViewController.m in Sources */,
 				58F80C381D0C41630099DCCD /* AccountUserModel.m in Sources */,
 				DD4F150B1D164CD90082B90F /* ApplyCourierTwoTableViewCell.m in Sources */,
+				16B77ABC1E7E64A6006CDFF5 /* JMExpressGuiUseDetailModel.m in Sources */,
 				58F80AEF1D0AEF870099DCCD /* HttpClient.m in Sources */,
 				58F80AC81D0AEF5D0099DCCD /* MJRefreshConst.m in Sources */,
 				58F80B2F1D0AEFCC0099DCCD /* BaseViewController.m in Sources */,
@@ -1725,6 +1749,7 @@
 				58F80AC31D0AEF5D0099DCCD /* LTPickerView.m in Sources */,
 				58F80AC01D0AEF5D0099DCCD /* IQUIView+IQKeyboardToolbar.m in Sources */,
 				58F80C291D0BB4A60099DCCD /* SelectedSexView.m in Sources */,
+				16B77ABF1E7E6A98006CDFF5 /* JMKongGuiCollectionViewCell.m in Sources */,
 				58F80ACD1D0AEF5D0099DCCD /* MJRefreshLegendFooter.m in Sources */,
 				58F80ABB1D0AEF5D0099DCCD /* IQTextView.m in Sources */,
 				DD56C57E1D14D24D0019BF28 /* DeliveryRecordViewController.m in Sources */,
@@ -1750,6 +1775,7 @@
 				DD56C5841D14D7EE0019BF28 /* UndeliveredCourierViewController.m in Sources */,
 				58F80B381D0BB1490099DCCD /* UserAccountManager.m in Sources */,
 				DD4F15021D15A4B90082B90F /* SettingViewController.m in Sources */,
+				16B77AB91E7E4CA5006CDFF5 /* JMKongGuiViewController.m in Sources */,
 				1694D2281E6DA6D60054329B /* JMIndexCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

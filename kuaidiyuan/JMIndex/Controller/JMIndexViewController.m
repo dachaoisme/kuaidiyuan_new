@@ -13,6 +13,7 @@
 #import "JMWorkStautsModel.h"
 #import "JMSelectedExpressCompanyViewController.h"
 #import "InformGetCourierViewController.h"
+#import "JMKongGuiViewController.h"
 @interface JMIndexViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
 {
     JMWorkStautsModel *workStatusModel;
@@ -114,21 +115,30 @@
     RuHuoType ruHuoType ;
     if (indexPath.row==0) {
         ruHuoType = RuHuoTypeOfRuKu;
+        JMSelectedExpressCompanyViewController * controllerVC = [[JMSelectedExpressCompanyViewController alloc]init];
+        controllerVC.ruHuoType = ruHuoType;
+        [self.navigationController pushViewController:controllerVC animated:YES];
+        controllerVC.callBackBlock = ^(NSString * expressCompany){
+            NSLog(@"%@",expressCompany);
+            
+        };
     }else if (indexPath.row==1){
         ruHuoType = RuHuoTypeOfRuHuoJia;
+        JMSelectedExpressCompanyViewController * controllerVC = [[JMSelectedExpressCompanyViewController alloc]init];
+        controllerVC.ruHuoType = ruHuoType;
+        [self.navigationController pushViewController:controllerVC animated:YES];
+        controllerVC.callBackBlock = ^(NSString * expressCompany){
+            NSLog(@"%@",expressCompany);
+            
+        };
     }else if (indexPath.row==2){
-        ruHuoType = RuHuoTypeOfRuGui;
+        JMKongGuiViewController * kongGuiVC = [[JMKongGuiViewController alloc] init];
+        [self.navigationController pushViewController:kongGuiVC animated:YES];
     }else{
         ///个人中心
         return;
     }
-    JMSelectedExpressCompanyViewController * controllerVC = [[JMSelectedExpressCompanyViewController alloc]init];
-    controllerVC.ruHuoType = ruHuoType;
-    [self.navigationController pushViewController:controllerVC animated:YES];
-    controllerVC.callBackBlock = ^(NSString * expressCompany){
-        NSLog(@"%@",expressCompany);
-        
-    };
+    
 }
 
 -(void)requestHeadView

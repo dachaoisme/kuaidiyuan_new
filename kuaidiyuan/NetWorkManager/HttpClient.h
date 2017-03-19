@@ -97,6 +97,8 @@
 - (void)saveScanResultInfoToRuHuoJiaWithParams:(NSDictionary *)params withSuccessBlock:(XYPBaseBlock)successBlock withFaileBlock:(XYPHttpErrorBlock)failBlock;
 ///去人入柜
 - (void)saveScanResultInfoToRuGuiWithParams:(NSDictionary *)params withSuccessBlock:(XYPBaseBlock)successBlock withFaileBlock:(XYPHttpErrorBlock)failBlock;
+///获取空柜态
+- (void)getKongGuiStatusWithParams:(NSDictionary *)params withSuccessBlock:(XYPBaseBlock)successBlock withFaileBlock:(XYPHttpErrorBlock)failBlock;
 @end
 
 
