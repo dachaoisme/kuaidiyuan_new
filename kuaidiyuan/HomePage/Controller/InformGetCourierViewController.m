@@ -51,7 +51,33 @@
 }
 -(void)rightItemActionWithBtn:(UIButton *)sender
 {
-    [self popViewController];
+    NSString *titel;
+    NSString *message;
+    if (self.ruHuoType==RuHuoTypeOfRuKu) {
+        message=[NSString stringWithFormat:@"已入库%@%ld件,是否完成入库",self.expressName,dataArr.count];
+    }else if (self.ruHuoType==RuHuoTypeOfRuHuoJia){
+        message=[NSString stringWithFormat:@"已入库%@%ld件,是否完成入货架",self.expressName,dataArr.count];
+    }else{
+        message=[NSString stringWithFormat:@"已入库%@%ld件,是否完成入货柜",self.expressName,dataArr.count];
+    }
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:titel  message:message preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"确认入库" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        NSLog(@"%@",telephoneTextField.text);//控制台中打印出输入的内容
+        
+        [self popViewController];
+
+    }];
+    
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        [self.camerView start];
+    }];
+    //添加按钮
+    [alert addAction:ok];
+    [alert addAction:cancel];
+    
+    
+    //以modal的方式来弹出
+    [self presentViewController:alert animated:YES completion:^{ }];
 }
 /**
  初始化控件
@@ -93,6 +119,7 @@
     [submitBtn setFrame:CGRectMake(50, CGRectGetMaxY(showAlertLabel.frame)+10, SCREEN_WIDTH - 100,44)];
     submitBtn.layer.cornerRadius = 10.0;
     submitBtn.titleLabel.font = [UIFont systemFontOfSize:14];
+    submitBtn.hidden = YES;
     [submitBtn addTarget:self action:@selector(popViewController) forControlEvents:UIControlEventTouchUpInside];
     [imageViewScan addSubview:submitBtn];
 
@@ -147,6 +174,7 @@
     if(!symbol)
     {
         UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"系统未发现二维码,请您继续扫描" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        alert.tag = 10001;
         [alert show];
     }
 }

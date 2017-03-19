@@ -15,7 +15,7 @@
 
 FOUNDATION_EXPORT CGFloat adjustsSizeToFitWithWidth320(CGFloat size);
 
-
+///////////////////////////快递员二期///////////////////////////
 @interface InformGetCourierViewController : BaseViewController<ZBarReaderViewDelegate,UIImagePickerControllerDelegate>
 {
     ZBarCameraSimulator *cameraSim;
