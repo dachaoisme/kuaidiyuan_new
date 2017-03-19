@@ -161,7 +161,21 @@
 #pragma mark - 退出登录按钮
 -(void)rightItemActionWithBtn:(UIButton *)sender
 {
-    [[UserAccountManager sharedInstance]exitLogin];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil  message:@"确定退出登录吗？" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        
+    }];
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"退出" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        [[UserAccountManager sharedInstance]exitLogin];
+    }];
+    
+    //添加按钮
+    [alert addAction:cancel];
+    [alert addAction:ok];
+    //以modal的方式来弹出
+    [self presentViewController:alert animated:YES completion:^{ }];
+    
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
