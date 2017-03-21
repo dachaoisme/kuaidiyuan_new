@@ -7,7 +7,8 @@
 //
 
 #import "JMMineViewController.h"
-
+#import "JMWorkStatisticsViewController.h"
+#import "JMChangePasswordViewController.h"
 @interface JMMineViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property(nonatomic,strong)UITableView *tableView;
@@ -77,9 +78,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row==0) {
-        
+        JMWorkStatisticsViewController * staticVC = [[JMWorkStatisticsViewController alloc] init];
+        [self.navigationController pushViewController:staticVC animated:YES];
     }else if (indexPath.row==1){
-        
+        JMChangePasswordViewController * changePasswordVC = [[JMChangePasswordViewController alloc] init];
+        [self.navigationController pushViewController:changePasswordVC animated:YES];
     }else{
         
     }
