@@ -48,6 +48,7 @@
     self.usericon      = [userInfoDic stringForKey:@"icon"];
     self.userName       = [userInfoDic stringForKey:@"name"];
     self.userTelphone         = [userInfoDic stringForKey:@"telphone"];
+    self.colledge_id         = [userInfoDic stringForKey:@"college_id"];
     
     if (self.user_id && self.user_id.length>0) {
         self.isLogin = YES;

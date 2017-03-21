@@ -24,6 +24,8 @@ telphone = 13351540959;
 @property (nonatomic, strong) NSString *userTelphone;
 ///用户id
 @property (nonatomic, strong) NSString *user_id;
+///大学id
+@property (nonatomic, strong) NSString *colledge_id;
 
 
 

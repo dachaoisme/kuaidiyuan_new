@@ -14,6 +14,7 @@
 #import "JMSelectedExpressCompanyViewController.h"
 #import "InformGetCourierViewController.h"
 #import "JMKongGuiViewController.h"
+#import "JMMineViewController.h"
 @interface JMIndexViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
 {
     JMWorkStautsModel *workStatusModel;
@@ -136,6 +137,8 @@
         [self.navigationController pushViewController:kongGuiVC animated:YES];
     }else{
         ///个人中心
+        JMMineViewController * mineVC = [[JMMineViewController alloc] init];
+        [self.navigationController pushViewController:mineVC animated:YES];
         return;
     }
     

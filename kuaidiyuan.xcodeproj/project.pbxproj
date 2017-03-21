@@ -18,6 +18,7 @@
 		16B77ABF1E7E6A98006CDFF5 /* JMKongGuiCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B77ABE1E7E6A98006CDFF5 /* JMKongGuiCollectionViewCell.m */; };
 		16B77AC21E7E9773006CDFF5 /* iconfont_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16B77AC01E7E9773006CDFF5 /* iconfont_icon@3x.png */; };
 		16B77AC31E7E9773006CDFF5 /* iconfont_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16B77AC11E7E9773006CDFF5 /* iconfont_icon@2x.png */; };
+		16B77AC61E7EBEBF006CDFF5 /* JMMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B77AC51E7EBEBF006CDFF5 /* JMMineViewController.m */; };
 		16D85FB01E7052130087CDCA /* home_huojia@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16D85FA81E7052130087CDCA /* home_huojia@2x.png */; };
 		16D85FB11E7052130087CDCA /* home_huojia@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16D85FA91E7052130087CDCA /* home_huojia@3x.png */; };
 		16D85FB21E7052130087CDCA /* home_ruku@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16D85FAA1E7052130087CDCA /* home_ruku@2x.png */; };
@@ -254,6 +255,8 @@
 		16B77ABE1E7E6A98006CDFF5 /* JMKongGuiCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMKongGuiCollectionViewCell.m; sourceTree = "<group>"; };
 		16B77AC01E7E9773006CDFF5 /* iconfont_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont_icon@3x.png"; sourceTree = "<group>"; };
 		16B77AC11E7E9773006CDFF5 /* iconfont_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont_icon@2x.png"; sourceTree = "<group>"; };
+		16B77AC41E7EBEBF006CDFF5 /* JMMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMMineViewController.h; sourceTree = "<group>"; };
+		16B77AC51E7EBEBF006CDFF5 /* JMMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMMineViewController.m; sourceTree = "<group>"; };
 		16D85FA81E7052130087CDCA /* home_huojia@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "home_huojia@2x.png"; path = "../ThirdPart/home_huojia@2x.png"; sourceTree = "<group>"; };
 		16D85FA91E7052130087CDCA /* home_huojia@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "home_huojia@3x.png"; path = "../ThirdPart/home_huojia@3x.png"; sourceTree = "<group>"; };
 		16D85FAA1E7052130087CDCA /* home_ruku@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "home_ruku@2x.png"; path = "../ThirdPart/home_ruku@2x.png"; sourceTree = "<group>"; };
@@ -641,6 +644,8 @@
 				1650ADA51E7ADA31006BEEB3 /* JMSelectedExpressCompanyViewController.m */,
 				16B77AB71E7E4CA5006CDFF5 /* JMKongGuiViewController.h */,
 				16B77AB81E7E4CA5006CDFF5 /* JMKongGuiViewController.m */,
+				16B77AC41E7EBEBF006CDFF5 /* JMMineViewController.h */,
+				16B77AC51E7EBEBF006CDFF5 /* JMMineViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1743,6 +1748,7 @@
 				DD4F14F71D1591760082B90F /* InformGetCourierViewController.m in Sources */,
 				58BFC0361D152B1C0021BF73 /* SelectedSchollViewController.m in Sources */,
 				58F80AD21D0AEF5D0099DCCD /* NSDictionary+SafeExpectations.m in Sources */,
+				16B77AC61E7EBEBF006CDFF5 /* JMMineViewController.m in Sources */,
 				DD56C58F1D14F4540019BF28 /* CourierMessageViewController.m in Sources */,
 				58F80AC21D0AEF5D0099DCCD /* LDCPullDownMenuView.m in Sources */,
 				58F80A251D0AEC160099DCCD /* main.m in Sources */,

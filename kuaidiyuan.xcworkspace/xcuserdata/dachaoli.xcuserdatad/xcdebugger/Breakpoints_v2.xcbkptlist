@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "kuaidiyuan/JMIndex/Controller/JMKongGuiViewController.m"
-            timestampString = "511614898.423514"
+            timestampString = "511746856.496321"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
             landmarkName = "-requestData"
             landmarkType = "7">
          </BreakpointContent>

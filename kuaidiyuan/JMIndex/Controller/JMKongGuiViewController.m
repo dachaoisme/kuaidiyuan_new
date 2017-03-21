@@ -23,7 +23,6 @@
     // Do any additional setup after loading the view.
     
     self.title  =@"空柜状态";
-    self.collegeId = @"2";
     self.dataArray = [NSMutableArray array];
     [self createLeftBackNavBtn];
     [self setupContentView];
@@ -33,7 +32,7 @@
 -(void)requestData
 {
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
-    [dic setObject:self.collegeId forKey:@"collegeid"];
+    [dic setObject:[UserAccountManager sharedInstance].colledge_id forKey:@"collegeid"];
     [[HttpClient sharedInstance]getKongGuiStatusWithParams:dic withSuccessBlock:^(HttpResponseCodeModel *model) {
         NSDictionary * tempDic = (NSDictionary *)model.responseCommonDic;
         NSArray * keyArray = [tempDic.allKeys sortedArrayUsingSelector:@selector(compare:)];
