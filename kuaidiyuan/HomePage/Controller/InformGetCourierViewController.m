@@ -189,12 +189,12 @@
     
     NSArray *testArray;
     testArray = [NSArray arrayWithObject:self.expressName];
-    LDCPullDownMenuView *pullDownMenuView = [[LDCPullDownMenuView alloc] initWithArray:testArray selectedColor:[CommonUtils colorWithHex:@"00beaf"] withFrame:CGRectMake(10, 80, 240, 30)];
-    pullDownMenuView.delegate = self;
-    [alert.view addSubview:pullDownMenuView];
+//    LDCPullDownMenuView *pullDownMenuView = [[LDCPullDownMenuView alloc] initWithArray:testArray selectedColor:[CommonUtils colorWithHex:@"00beaf"] withFrame:CGRectMake(10, 80, 240, 30)];
+//    pullDownMenuView.delegate = self;
+//    [alert.view addSubview:pullDownMenuView];
     
     //这里就可以设置子控件的frame,但是alert的frame不可以设置
-    telephoneTextField = [[UITextField alloc] initWithFrame:CGRectMake(CGRectGetMinX(pullDownMenuView.frame), CGRectGetMaxY(pullDownMenuView.frame) + 5, 240, 30)];//wight = 270;
+    telephoneTextField = [[UITextField alloc] initWithFrame:CGRectMake(10,80 + 5, 240, 30)];//wight = 270;
     telephoneTextField.returnKeyType = UIReturnKeyDone;
     telephoneTextField.placeholder = @"请填写收件人手机号";
     telephoneTextField.borderStyle = UITextBorderStyleRoundedRect;//设置边框的样式
@@ -273,7 +273,8 @@
     [dataDic setObject:scanResultmodel.courierScanResultId forKey:@"orderid"];
     [dataDic setObject:scanResultmodel.courierScanResultTelephone forKey:@"telphone"];
     [dataDic setObject:scanResultmodel.courierScanResultCompanyName forKey:@"companyid"];
-    [dic setObject:dataDic forKey:@"data[]"];
+    NSString * dataStr = [NSString stringWithFormat:@"orderid:%@,telphone:%@,companyid:%@",scanResultmodel.courierScanResultId,scanResultmodel.courierScanResultTelephone,scanResultmodel.courierScanResultCompanyName];
+    [dic setObject:dataStr forKey:@"data[]"];
     [self sendRequestWithRuKuType:self.ruHuoType withDic:dic WithscanResultmodel:scanResultmodel];
     
 }
