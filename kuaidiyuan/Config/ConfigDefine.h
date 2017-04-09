@@ -106,4 +106,9 @@
 #define VMScaleOfCurrentDeviceAndModelDeviceWidth (SCREEN_WIDTH < SCREEN_HEIGHT ? (SCREEN_WIDTH / 375) : (SCREEN_HEIGHT / 375))
 #define JMSystemFont(fontSize) [UIFont systemFontOfSize:(fontSize * VMScaleOfCurrentDeviceAndModelDeviceWidth)]
 #define JMUIFont(fontSize) JMSystemFont(fontSize))
+
+
+#define TitleNormalBlackColor @"5e5e5e"
+#define TitleNormalRedColor @"ff566d"
+#define TitleNormalLightGrayColor @"95969c"
 #endif /* ConfigDefine_h */

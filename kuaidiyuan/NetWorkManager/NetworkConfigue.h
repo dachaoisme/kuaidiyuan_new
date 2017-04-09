@@ -82,7 +82,7 @@
 ///用户登录
 #define TWICE_METHOD_OF_LOGIN                       @"user/signin"
 ///修改密码 根据手机号更新密码
-#define TWICE_METHOD_OF_UPDATE_PASSWORD                   @"user/changepasswd"
+#define TWICE_METHOD_OF_UPDATE_PASSWORD             @"user/changepasswd"
 ///首页工作统计
 #define TWICE_METHOD_OF_WORK_STATUS                 @"work/status"
 ///快递公司列表
@@ -95,4 +95,6 @@
 #define TWICE_METHOD_OF_RU_HUO_GUI                  @"scan/container"
 ///获取空柜状态
 #define TWICE_METHOD_OF_KONG_GUI_STATE              @"container/status"
+///首页工作统计
+#define TWICE_METHOD_OF_WORK_DETAILS                @"work/details"
 #endif /* NetworkConfigue_h */

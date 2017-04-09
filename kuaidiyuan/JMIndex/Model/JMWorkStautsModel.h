@@ -26,6 +26,9 @@
 @property(nonatomic,strong)NSString *workStautsOfRuguojiaCnt;
 ///时间
 @property(nonatomic,strong)NSString *workStautsOfTime_len;
+///手动添加
+///工作统计，哪一天的统计
+@property(nonatomic,strong)NSString *workStautsOfTime;
 -(id)initWithDic:(NSDictionary *)dic;
 @end
 

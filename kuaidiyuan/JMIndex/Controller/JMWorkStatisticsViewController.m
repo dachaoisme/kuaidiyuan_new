@@ -7,9 +7,12 @@
 //
 
 #import "JMWorkStatisticsViewController.h"
-
+#import "RCSegmentView.h"
+#import "JMWorkStatisticDetailViewController.h"
 @interface JMWorkStatisticsViewController ()
-
+{
+    RCSegmentView *segmentView;
+}
 @end
 
 @implementation JMWorkStatisticsViewController
@@ -17,10 +20,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self createLeftBackNavBtn];
     self.title  =@"工作统计";
+    [self setCntentView];
     
 }
-
+-(void)setCntentView
+{
+    NSMutableArray *controllerVCArr = [NSMutableArray array];
+    NSArray *titelArr = [NSArray arrayWithObjects:@"历史",@"本月",@"上月", nil];
+    for (int i=0; i<3; i++) {
+        JMWorkStatisticDetailViewController * workDetailVC = [[JMWorkStatisticDetailViewController alloc] init];
+        workDetailVC.timeType = i;
+        [controllerVCArr addObject:workDetailVC];
+    }
+    segmentView = [[RCSegmentView alloc]initWithFrame:CGRectMake(0, NAV_TOP_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT-NAV_TOP_HEIGHT) controllers:controllerVCArr titleArray:titelArr ParentController:self];
+    [self.view addSubview:segmentView];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

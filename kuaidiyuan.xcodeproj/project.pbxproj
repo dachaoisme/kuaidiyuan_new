@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		1650ADA31E7AD62C006BEEB3 /* JMWorkStautsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1650ADA21E7AD62C006BEEB3 /* JMWorkStautsModel.m */; };
 		1650ADA61E7ADA31006BEEB3 /* JMSelectedExpressCompanyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1650ADA51E7ADA31006BEEB3 /* JMSelectedExpressCompanyViewController.m */; };
+		166DD06E1E99C5A100B2B002 /* JMWorkStatisticDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 166DD06D1E99C5A100B2B002 /* JMWorkStatisticDetailViewController.m */; };
+		166DD0721E99C92F00B2B002 /* RCSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 166DD0711E99C92F00B2B002 /* RCSegmentView.m */; };
+		166DD0751E99E5ED00B2B002 /* JMWorkStatisticTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 166DD0741E99E5ED00B2B002 /* JMWorkStatisticTableViewCell.m */; };
 		1694D2251E6DA3360054329B /* JMIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1694D2241E6DA3360054329B /* JMIndexViewController.m */; };
 		1694D2281E6DA6D60054329B /* JMIndexCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1694D2271E6DA6D60054329B /* JMIndexCollectionViewCell.m */; };
 		1694D22B1E6DA72A0054329B /* JMIndexHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1694D22A1E6DA72A0054329B /* JMIndexHeadView.m */; };
@@ -241,6 +244,12 @@
 		1650ADA21E7AD62C006BEEB3 /* JMWorkStautsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMWorkStautsModel.m; sourceTree = "<group>"; };
 		1650ADA41E7ADA31006BEEB3 /* JMSelectedExpressCompanyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMSelectedExpressCompanyViewController.h; sourceTree = "<group>"; };
 		1650ADA51E7ADA31006BEEB3 /* JMSelectedExpressCompanyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMSelectedExpressCompanyViewController.m; sourceTree = "<group>"; };
+		166DD06C1E99C5A100B2B002 /* JMWorkStatisticDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMWorkStatisticDetailViewController.h; sourceTree = "<group>"; };
+		166DD06D1E99C5A100B2B002 /* JMWorkStatisticDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMWorkStatisticDetailViewController.m; sourceTree = "<group>"; };
+		166DD0701E99C92F00B2B002 /* RCSegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCSegmentView.h; sourceTree = "<group>"; };
+		166DD0711E99C92F00B2B002 /* RCSegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCSegmentView.m; sourceTree = "<group>"; };
+		166DD0731E99E5ED00B2B002 /* JMWorkStatisticTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMWorkStatisticTableViewCell.h; sourceTree = "<group>"; };
+		166DD0741E99E5ED00B2B002 /* JMWorkStatisticTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMWorkStatisticTableViewCell.m; sourceTree = "<group>"; };
 		1694D2231E6DA3360054329B /* JMIndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMIndexViewController.h; sourceTree = "<group>"; };
 		1694D2241E6DA3360054329B /* JMIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMIndexViewController.m; sourceTree = "<group>"; };
 		1694D2261E6DA6D60054329B /* JMIndexCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMIndexCollectionViewCell.h; sourceTree = "<group>"; };
@@ -631,6 +640,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		166DD06F1E99C92F00B2B002 /* RCSegmentView */ = {
+			isa = PBXGroup;
+			children = (
+				166DD0701E99C92F00B2B002 /* RCSegmentView.h */,
+				166DD0711E99C92F00B2B002 /* RCSegmentView.m */,
+			);
+			path = RCSegmentView;
+			sourceTree = "<group>";
+		};
 		1694D21F1E6DA2DC0054329B /* JMIndex */ = {
 			isa = PBXGroup;
 			children = (
@@ -654,6 +672,8 @@
 				16B77AC51E7EBEBF006CDFF5 /* JMMineViewController.m */,
 				16B77AC71E80A6DA006CDFF5 /* JMWorkStatisticsViewController.h */,
 				16B77AC81E80A6DA006CDFF5 /* JMWorkStatisticsViewController.m */,
+				166DD06C1E99C5A100B2B002 /* JMWorkStatisticDetailViewController.h */,
+				166DD06D1E99C5A100B2B002 /* JMWorkStatisticDetailViewController.m */,
 				16B77ACA1E80AAB2006CDFF5 /* JMChangePasswordViewController.h */,
 				16B77ACB1E80AAB2006CDFF5 /* JMChangePasswordViewController.m */,
 			);
@@ -671,6 +691,8 @@
 				1694D22D1E6DA7A20054329B /* JMIndexCollectionReusableView.m */,
 				16B77ABD1E7E6A98006CDFF5 /* JMKongGuiCollectionViewCell.h */,
 				16B77ABE1E7E6A98006CDFF5 /* JMKongGuiCollectionViewCell.m */,
+				166DD0731E99E5ED00B2B002 /* JMWorkStatisticTableViewCell.h */,
+				166DD0741E99E5ED00B2B002 /* JMWorkStatisticTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -791,6 +813,7 @@
 		58F80A601D0AEF5D0099DCCD /* ThirdPart */ = {
 			isa = PBXGroup;
 			children = (
+				166DD06F1E99C92F00B2B002 /* RCSegmentView */,
 				DD10974A1D1E6AB300A6AACC /* lib */,
 				DD4F14B91D1575D30082B90F /* ZBarSDK */,
 				58F80A611D0AEF5D0099DCCD /* IQKeyboardManager */,
@@ -1497,8 +1520,8 @@
 				TargetAttributes = {
 					58F80A1F1D0AEC160099DCCD = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = SBXP28TEHB;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = YNPUN7RMLF;
+						ProvisioningStyle = Manual;
 					};
 					58F80A381D0AEC160099DCCD = {
 						CreatedOnToolsVersion = 7.2;
@@ -1754,6 +1777,7 @@
 				58F80AB61D0AEF5D0099DCCD /* IQUIView+Hierarchy.m in Sources */,
 				DD48B8541D13AD0800E012E4 /* CourierHomePageViewController.m in Sources */,
 				1650ADA31E7AD62C006BEEB3 /* JMWorkStautsModel.m in Sources */,
+				166DD0721E99C92F00B2B002 /* RCSegmentView.m in Sources */,
 				DD4F150F1D1650A40082B90F /* OutsideSchoolCourierViewController.m in Sources */,
 				DD48B7E31D13A30200E012E4 /* RegisterTwoTableViewCell.m in Sources */,
 				58F80AF21D0AEF870099DCCD /* HttpServer.m in Sources */,
@@ -1775,10 +1799,12 @@
 				1650ADA61E7ADA31006BEEB3 /* JMSelectedExpressCompanyViewController.m in Sources */,
 				58F80AF11D0AEF870099DCCD /* HttpModel.m in Sources */,
 				58F80AD31D0AEF5D0099DCCD /* JKPlaceholderTextView.m in Sources */,
+				166DD06E1E99C5A100B2B002 /* JMWorkStatisticDetailViewController.m in Sources */,
 				58F80ACB1D0AEF5D0099DCCD /* MJRefreshGifHeader.m in Sources */,
 				58F80ACA1D0AEF5D0099DCCD /* MJRefreshGifFooter.m in Sources */,
 				DD4F15171D1657F40082B90F /* BindPhoneViewController.m in Sources */,
 				58F80ACF1D0AEF5D0099DCCD /* UIScrollView+MJExtension.m in Sources */,
+				166DD0751E99E5ED00B2B002 /* JMWorkStatisticTableViewCell.m in Sources */,
 				58F80AE11D0AEF690099DCCD /* ResLoader.m in Sources */,
 				DD1097521D1E6B8000A6AACC /* CustomIOS7AlertView.m in Sources */,
 				58F80C241D0BB4A60099DCCD /* AddTeacherInfoTableViewCell.m in Sources */,
@@ -1919,9 +1945,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = SBXP28TEHB;
+				CODE_SIGN_IDENTITY = "iPhone Developer: LingYun Hao (3SKA4LX7BP)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: LingYun Hao (3SKA4LX7BP)";
+				DEVELOPMENT_TEAM = YNPUN7RMLF;
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/kuaidiyuan/KDY-PrefixHeader.pch";
@@ -1933,9 +1959,10 @@
 					"$(PROJECT_DIR)/kuaidiyuan/ThirdPart/ZBarSDK",
 					"$(PROJECT_DIR)/kuaidiyuan/ThirdPart/lib",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.college.courier;
+				PRODUCT_BUNDLE_IDENTIFIER = kuaidiyuan.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "154e1fc5-9689-4cae-9620-cdc5fa634861";
+				PROVISIONING_PROFILE_SPECIFIER = kuaidiyuan_develop;
 			};
 			name = Debug;
 		};
@@ -1945,9 +1972,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = SBXP28TEHB;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Campus Express Innovation &Technology Co., Ltd (YNPUN7RMLF)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Campus Express Innovation &Technology Co., Ltd (YNPUN7RMLF)";
+				DEVELOPMENT_TEAM = YNPUN7RMLF;
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/kuaidiyuan/KDY-PrefixHeader.pch";
@@ -1959,9 +1986,10 @@
 					"$(PROJECT_DIR)/kuaidiyuan/ThirdPart/ZBarSDK",
 					"$(PROJECT_DIR)/kuaidiyuan/ThirdPart/lib",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.college.courier;
+				PRODUCT_BUNDLE_IDENTIFIER = kuaidiyuan.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "a8aa186e-4e7b-40ef-86a7-08e4098a7943";
+				PROVISIONING_PROFILE_SPECIFIER = kuaidiyuan_distribution;
 			};
 			name = Release;
 		};
