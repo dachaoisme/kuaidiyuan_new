@@ -9,9 +9,13 @@
 #import "JMWorkStatisticDetailViewController.h"
 #import "JMWorkStautsModel.h"
 #import "JMWorkStatisticTableViewCell.h"
+#import "JMWorkStatisticHeadView.h"
 @interface JMWorkStatisticDetailViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
     NSMutableArray * dataArr;
+    JMWorkStatisticHeadView  * headView;
+    ///上面的header部分
+    JMWorkStautsModel *headerWorkStatusModel;
 }
 @property(nonatomic,strong)UITableView    *tableView;
 @end
@@ -26,6 +30,7 @@
     [self initContentView];
     
     [self requestData];
+    [self requestHeadView];
     
 }
 -(void)initContentView
@@ -40,21 +45,40 @@
     //tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     tableView.dataSource       = self;
     tableView.delegate         = self;
-    tableView.backgroundColor = [UIColor yellowColor];
+    tableView.backgroundColor = [UIColor whiteColor];
     tableView.separatorColor = [CommonUtils colorWithHex:@"f4f4f4"];
     [self.view addSubview:tableView];
     self.tableView = tableView;
     
+    headView = [[JMWorkStatisticHeadView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 148)];
+    tableView.tableHeaderView = headView;
 }
-
+-(void)refreshHeadView
+{
+    
+    headView.todayIncomeStorageCountLabel.text =[NSString stringWithFormat:@"%@件",headerWorkStatusModel.workStautsOfRukuCnt] ;
+    headView.todayIncomeRackCountLabel.text = [NSString stringWithFormat:@"%@件",headerWorkStatusModel.workStautsOfRuguojiaCnt];
+    headView.todayIncomeCupboardCountLabel.text = [NSString stringWithFormat:@"%@件",headerWorkStatusModel.workStautsOfRuguiCnt];
+    headView.todayClockTimeLabel.text =[NSString stringWithFormat:@"%@",headerWorkStatusModel.workStautsOfTime_len];
+}
 -(void)requestData
 {
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
-    [dic setObject:@"month" forKey:@"frequency"];
-    [dic setObject:@"2017-03"/*[CommonUtils getCurrenttime]*/ forKey:@"time"];
+    if (self.timeType==0) {
+        //[dic setObject:@"month" forKey:@"frequency"];
+        //[dic setObject:[CommonUtils getCurrenttime] forKey:@"time"];
+    }else if (self.timeType==1){
+        [dic setObject:@"month" forKey:@"frequency"];
+        [dic setObject:[CommonUtils getYearAndMonthSinceNowWithLaterDays:@"0"] forKey:@"time"];
+    }else{
+        [dic setObject:@"month" forKey:@"frequency"];
+        [dic setObject:[CommonUtils getYearAndMonthSinceNowWithLaterDays:@"30"] forKey:@"time"];
+    }
+    
+    
     [dic setObject:[UserAccountManager sharedInstance].user_id forKey:@"user_id"];
     [[HttpClient sharedInstance]getWorkDetailStaticWithParams:dic withSuccessBlock:^(HttpResponseCodeModel *model) {
-        if (model.responseCode == ResponseCodeSuccess) {
+        if (model.responseCode == ResponseCodeSuccess &&[model.responseCommonDic isKindOfClass:[NSDictionary class]]) {
             NSArray *modelKeyArray = [model.responseCommonDic allKeys];
             for (NSString *key in modelKeyArray ) {
                 NSDictionary * dic = [model.responseCommonDic objectForKey:key];
@@ -73,7 +97,32 @@
     
     
 }
-
+-(void)requestHeadView
+{
+    NSMutableDictionary * dic = [NSMutableDictionary dictionary];
+    if (self.timeType==0) {
+        //[dic setObject:@"month" forKey:@"frequency"];
+        //[dic setObject:[CommonUtils getCurrenttime] forKey:@"time"];
+    }else if (self.timeType==1){
+        [dic setObject:@"month" forKey:@"frequency"];
+        [dic setObject:[CommonUtils getYearAndMonthSinceNowWithLaterDays:@"0"] forKey:@"time"];
+    }else{
+        [dic setObject:@"month" forKey:@"frequency"];
+        [dic setObject:[CommonUtils getYearAndMonthSinceNowWithLaterDays:@"30"] forKey:@"time"];
+    }
+    
+    [dic setObject:[UserAccountManager sharedInstance].user_id forKey:@"user_id"];
+    [[HttpClient sharedInstance]getWorkStatusWithParams:dic withSuccessBlock:^(HttpResponseCodeModel *model) {
+        if (model.responseCode == ResponseCodeSuccess) {
+            headerWorkStatusModel =[[JMWorkStautsModel alloc] initWithDic:model.responseCommonDic];
+            [self refreshHeadView];
+        }else{
+            [CommonUtils showToastWithStr:model.responseMsg];
+        }
+    } withFaileBlock:^(NSError *error) {
+        
+    }];
+}
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 73;

@@ -639,6 +639,16 @@
     return time;
 }
 
++(NSString *)getYearAndMonthSinceNowWithLaterDays:(NSString *)days
+{
+    
+    NSDate *date  =[[NSDate alloc] initWithTimeIntervalSinceNow:-60*60*24*[days integerValue]];
+    NSDateFormatter *dateformatter=[[NSDateFormatter alloc] init];
+    [dateformatter setDateFormat:@"yyyy-MM"];
+    NSString *time   =[dateformatter stringFromDate:date];
+    
+    return time;
+}
 /**
  BALANCE("BALANCE","余额"),
 	KQ("KQ","块钱"),

@@ -12,6 +12,7 @@
 		166DD06E1E99C5A100B2B002 /* JMWorkStatisticDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 166DD06D1E99C5A100B2B002 /* JMWorkStatisticDetailViewController.m */; };
 		166DD0721E99C92F00B2B002 /* RCSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 166DD0711E99C92F00B2B002 /* RCSegmentView.m */; };
 		166DD0751E99E5ED00B2B002 /* JMWorkStatisticTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 166DD0741E99E5ED00B2B002 /* JMWorkStatisticTableViewCell.m */; };
+		166DD07B1E99EE7700B2B002 /* JMWorkStatisticHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 166DD07A1E99EE7700B2B002 /* JMWorkStatisticHeadView.m */; };
 		1694D2251E6DA3360054329B /* JMIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1694D2241E6DA3360054329B /* JMIndexViewController.m */; };
 		1694D2281E6DA6D60054329B /* JMIndexCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1694D2271E6DA6D60054329B /* JMIndexCollectionViewCell.m */; };
 		1694D22B1E6DA72A0054329B /* JMIndexHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1694D22A1E6DA72A0054329B /* JMIndexHeadView.m */; };
@@ -250,6 +251,8 @@
 		166DD0711E99C92F00B2B002 /* RCSegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCSegmentView.m; sourceTree = "<group>"; };
 		166DD0731E99E5ED00B2B002 /* JMWorkStatisticTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMWorkStatisticTableViewCell.h; sourceTree = "<group>"; };
 		166DD0741E99E5ED00B2B002 /* JMWorkStatisticTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMWorkStatisticTableViewCell.m; sourceTree = "<group>"; };
+		166DD0791E99EE7700B2B002 /* JMWorkStatisticHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMWorkStatisticHeadView.h; sourceTree = "<group>"; };
+		166DD07A1E99EE7700B2B002 /* JMWorkStatisticHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMWorkStatisticHeadView.m; sourceTree = "<group>"; };
 		1694D2231E6DA3360054329B /* JMIndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMIndexViewController.h; sourceTree = "<group>"; };
 		1694D2241E6DA3360054329B /* JMIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMIndexViewController.m; sourceTree = "<group>"; };
 		1694D2261E6DA6D60054329B /* JMIndexCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMIndexCollectionViewCell.h; sourceTree = "<group>"; };
@@ -693,6 +696,8 @@
 				16B77ABE1E7E6A98006CDFF5 /* JMKongGuiCollectionViewCell.m */,
 				166DD0731E99E5ED00B2B002 /* JMWorkStatisticTableViewCell.h */,
 				166DD0741E99E5ED00B2B002 /* JMWorkStatisticTableViewCell.m */,
+				166DD0791E99EE7700B2B002 /* JMWorkStatisticHeadView.h */,
+				166DD07A1E99EE7700B2B002 /* JMWorkStatisticHeadView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1781,6 +1786,7 @@
 				DD4F150F1D1650A40082B90F /* OutsideSchoolCourierViewController.m in Sources */,
 				DD48B7E31D13A30200E012E4 /* RegisterTwoTableViewCell.m in Sources */,
 				58F80AF21D0AEF870099DCCD /* HttpServer.m in Sources */,
+				166DD07B1E99EE7700B2B002 /* JMWorkStatisticHeadView.m in Sources */,
 				DD4F15281D16723D0082B90F /* OutsideSchoolJobListViewController.m in Sources */,
 				DD4F14F71D1591760082B90F /* InformGetCourierViewController.m in Sources */,
 				58BFC0361D152B1C0021BF73 /* SelectedSchollViewController.m in Sources */,

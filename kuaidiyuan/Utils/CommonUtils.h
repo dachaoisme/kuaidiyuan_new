@@ -391,5 +391,6 @@
  *  @return   添加上基本的url
  */
 +(NSString *)getEffectiveUrlWithUrl:(NSString *)url withType:(NSInteger)type;
-
+///返回年月
++(NSString *)getYearAndMonthSinceNowWithLaterDays:(NSString *)days;
 @end

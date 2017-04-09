@@ -138,12 +138,12 @@
                   moduleName = "kuaidiyuan"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/dachaoli/Desktop/xueyuanpai_next/kuaidiyuan_next/kuaidiyuan/JMIndex/Controller/JMChangePasswordViewController.m"
-                  timestampString = "513396698.458519"
+                  timestampString = "513407207.281831"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "109"
                   endingLineNumber = "109"
-                  offsetFromSymbolStart = "844">
+                  offsetFromSymbolStart = "721">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -153,12 +153,12 @@
                   moduleName = "kuaidiyuan"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/dachaoli/Desktop/xueyuanpai_next/kuaidiyuan_next/kuaidiyuan/JMIndex/Controller/JMChangePasswordViewController.m"
-                  timestampString = "513396698.461202"
+                  timestampString = "513407207.285113"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "110"
                   endingLineNumber = "110"
-                  offsetFromSymbolStart = "56">
+                  offsetFromSymbolStart = "44">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -202,11 +202,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "kuaidiyuan/JMIndex/Controller/JMWorkStatisticDetailViewController.m"
-            timestampString = "513404078.208615"
+            timestampString = "513406924.644117"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
             landmarkName = "-requestData"
             landmarkType = "7">
          </BreakpointContent>
@@ -218,11 +218,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "kuaidiyuan/JMIndex/Controller/JMWorkStatisticDetailViewController.m"
-            timestampString = "513404078.208615"
+            timestampString = "513406924.644117"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
             landmarkName = "-requestData"
             landmarkType = "7">
          </BreakpointContent>
@@ -234,11 +234,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "kuaidiyuan/JMIndex/Controller/JMWorkStatisticDetailViewController.m"
-            timestampString = "513404078.208615"
+            timestampString = "513406924.644117"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
             landmarkName = "-requestData"
             landmarkType = "7">
          </BreakpointContent>
@@ -249,13 +249,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "kuaidiyuan/JMIndex/Controller/JMWorkStatisticsViewController.m"
-            timestampString = "513397647.056164"
+            filePath = "kuaidiyuan/JMIndex/Controller/JMWorkStatisticDetailViewController.m"
+            timestampString = "513407092.395383"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "-setCntentView"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "-requestData"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
