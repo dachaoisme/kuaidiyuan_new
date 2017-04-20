@@ -37,7 +37,7 @@
     [[UserAccountManager sharedInstance]getUserInfo];
     
     //极光推送方法
-    [self jpushAction:launchOptions];
+//    [self jpushAction:launchOptions];
 
     
     [self setRootViewController];
@@ -65,6 +65,7 @@
 }
 
 
+/*
 - (void)jpushAction:(NSDictionary *)launchOptions{
     
     
@@ -129,6 +130,7 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     
 }
 
+ */
 #pragma mark - 提交小票成功提醒框的内容
 - (UIView* )createView
 {

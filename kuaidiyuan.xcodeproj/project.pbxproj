@@ -109,7 +109,6 @@
 		DD10974D1D1E6AB300A6AACC /* jpush-ios-2.1.7.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD10974B1D1E6AB300A6AACC /* jpush-ios-2.1.7.a */; };
 		DD10974F1D1E6AD300A6AACC /* sound.caf in Resources */ = {isa = PBXBuildFile; fileRef = DD10974E1D1E6AD300A6AACC /* sound.caf */; };
 		DD1097521D1E6B8000A6AACC /* CustomIOS7AlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1097511D1E6B8000A6AACC /* CustomIOS7AlertView.m */; };
-		DD1097541D1E6C9600A6AACC /* PushConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD1097531D1E6C9600A6AACC /* PushConfig.plist */; };
 		DD1097561D1E6EBD00A6AACC /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD1097551D1E6EBD00A6AACC /* CFNetwork.framework */; };
 		DD1097581D1E6EDE00A6AACC /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD1097571D1E6EDE00A6AACC /* CoreFoundation.framework */; };
 		DD10975A1D1E6EEE00A6AACC /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD1097591D1E6EEE00A6AACC /* CoreTelephony.framework */; };
@@ -438,7 +437,6 @@
 		DD10974E1D1E6AD300A6AACC /* sound.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sound.caf; sourceTree = "<group>"; };
 		DD1097501D1E6B8000A6AACC /* CustomIOS7AlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomIOS7AlertView.h; sourceTree = "<group>"; };
 		DD1097511D1E6B8000A6AACC /* CustomIOS7AlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomIOS7AlertView.m; sourceTree = "<group>"; };
-		DD1097531D1E6C9600A6AACC /* PushConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PushConfig.plist; sourceTree = "<group>"; };
 		DD1097551D1E6EBD00A6AACC /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		DD1097571D1E6EDE00A6AACC /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		DD1097591D1E6EEE00A6AACC /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
@@ -783,7 +781,6 @@
 			children = (
 				58F80A241D0AEC160099DCCD /* main.m */,
 				58F80B341D0AF0600099DCCD /* KDY-PrefixHeader.pch */,
-				DD1097531D1E6C9600A6AACC /* PushConfig.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1566,7 +1563,6 @@
 				DD48B7781D117BC600E012E4 /* ApplyCourierTableViewCell.xib in Resources */,
 				DD48B7CA1D1385FC00E012E4 /* switch_on@3x.png in Resources */,
 				DD4F14DA1D1575D30082B90F /* zbar-helpicons.png in Resources */,
-				DD1097541D1E6C9600A6AACC /* PushConfig.plist in Resources */,
 				58F80B331D0AEFDA0099DCCD /* 2.jpg in Resources */,
 				DD56D6DF1D150B8D0019BF28 /* hire_btn_contact_press@2x.png in Resources */,
 				16D85FB71E7052130087CDCA /* konggui@3x.png in Resources */,
