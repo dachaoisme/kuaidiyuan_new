@@ -203,18 +203,17 @@
 //    LDCPullDownMenuView *pullDownMenuView = [[LDCPullDownMenuView alloc] initWithArray:testArray selectedColor:[CommonUtils colorWithHex:@"00beaf"] withFrame:CGRectMake(10, 80, 240, 30)];
 //    pullDownMenuView.delegate = self;
 //    [alert.view addSubview:pullDownMenuView];
-    
-    //这里就可以设置子控件的frame,但是alert的frame不可以设置
-    telephoneTextField = [[UITextField alloc] initWithFrame:CGRectMake(10,80 + 5, 240, 30)];//wight = 270;
-    telephoneTextField.returnKeyType = UIReturnKeyDone;
-    telephoneTextField.placeholder = @"请填写收件人手机号";
-    telephoneTextField.borderStyle = UITextBorderStyleRoundedRect;//设置边框的样式
-    telephoneTextField.delegate = self;
-    //添加子控件也是直接add
-    [alert.view addSubview:telephoneTextField];
-    
-    
-    
+    if (self.ruHuoType==RuHuoTypeOfRuKu) {
+        //这里就可以设置子控件的frame,但是alert的frame不可以设置
+        telephoneTextField = [[UITextField alloc] initWithFrame:CGRectMake(10,80 + 5, 240, 30)];//wight = 270;
+        telephoneTextField.returnKeyType = UIReturnKeyDone;
+        telephoneTextField.placeholder = @"请填写收件人手机号";
+        telephoneTextField.borderStyle = UITextBorderStyleRoundedRect;//设置边框的样式
+        telephoneTextField.delegate = self;
+        //添加子控件也是直接add
+        [alert.view addSubview:telephoneTextField];
+    }
+
     __weak typeof(self)weakSelf = self;
     NSString *okAction;
     if (self.ruHuoType==RuHuoTypeOfRuKu) {
@@ -227,25 +226,22 @@
     
     //这跟 actionSheet有点类似了,因为都是UIAlertController里面的嘛
     UIAlertAction *ok = [UIAlertAction actionWithTitle:okAction style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        NSLog(@"%@",telephoneTextField.text);//控制台中打印出输入的内容
         
         CourierScanResultModel * model = [[CourierScanResultModel alloc] initWithDic:nil];
         model.courierScanResultCompanyName = self.expressName;
         model.courierScanResultId =codeMessage;
-        model.courierScanResultTelephone = telephoneTextField.text;
-        
+        if (telephoneTextField) {
+            model.courierScanResultTelephone = telephoneTextField.text;
+        }
         [self saveScanResultWithModel:model];
         [self.camerView start];
-        
     }];
-    
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         [self.camerView start];
     }];
     //添加按钮
     [alert addAction:ok];
     [alert addAction:cancel];
-    
     
     //以modal的方式来弹出
     [self presentViewController:alert animated:YES completion:^{ }];
@@ -286,15 +282,26 @@
      telphone        string  必需     手机号码
      company         string  非必需   快递公司名称
      */
-    NSMutableDictionary * dic = [NSMutableDictionary dictionary];
-    [dic setObject:[UserAccountManager sharedInstance].user_id forKey:@"user_id"];
-    NSMutableDictionary * dataDic = [NSMutableDictionary dictionary];
-    [dataDic setObject:scanResultmodel.courierScanResultId forKey:@"orderid"];
-    [dataDic setObject:scanResultmodel.courierScanResultTelephone forKey:@"telphone"];
-    [dataDic setObject:scanResultmodel.courierScanResultCompanyName forKey:@"companyid"];
-    NSString * dataStr = [NSString stringWithFormat:@"orderid:%@,telphone:%@,companyid:%@",scanResultmodel.courierScanResultId,scanResultmodel.courierScanResultTelephone,scanResultmodel.courierScanResultCompanyName];
-    [dic setObject:dataStr forKey:@"data[]"];
-    [self sendRequestWithRuKuType:self.ruHuoType withDic:dic WithscanResultmodel:scanResultmodel];
+    if (self.ruHuoType==RuHuoTypeOfRuKu) {
+        NSMutableDictionary * dic = [NSMutableDictionary dictionary];
+        [dic setObject:[UserAccountManager sharedInstance].user_id forKey:@"user_id"];
+        NSMutableDictionary * dataDic = [NSMutableDictionary dictionary];
+        [dataDic setObject:scanResultmodel.courierScanResultId forKey:@"orderid"];
+        [dataDic setObject:scanResultmodel.courierScanResultTelephone forKey:@"telphone"];
+        [dataDic setObject:scanResultmodel.courierScanResultCompanyName forKey:@"companyid"];
+        NSString * dataStr = [NSString stringWithFormat:@"orderid:%@,telphone:%@,companyid:%@",scanResultmodel.courierScanResultId,scanResultmodel.courierScanResultTelephone,scanResultmodel.courierScanResultCompanyName];
+        [dic setObject:dataStr forKey:@"data[]"];
+        [self sendRequestWithRuKuType:self.ruHuoType withDic:dic WithscanResultmodel:scanResultmodel];
+    }else if (self.ruHuoType==RuHuoTypeOfRuHuoJia){
+        NSMutableDictionary * dic = [NSMutableDictionary dictionary];
+        [dic setObject:scanResultmodel.courierScanResultId forKey:@"orderid"];
+        [self sendRequestWithRuKuType:self.ruHuoType withDic:dic WithscanResultmodel:scanResultmodel];
+    }else{
+        NSMutableDictionary * dic = [NSMutableDictionary dictionary];
+        [dic setObject:scanResultmodel.courierScanResultId forKey:@"orderid"];
+        [self sendRequestWithRuKuType:self.ruHuoType withDic:dic WithscanResultmodel:scanResultmodel];
+    }
+    
     
 }
 -(void)sendRequestWithRuKuType:(RuHuoType)ruHuoType withDic:(NSMutableDictionary *)dic WithscanResultmodel:(CourierScanResultModel *)scanResultmodel
