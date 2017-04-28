@@ -37,7 +37,14 @@
     self.title = @"通知取快递";
     dataArr = [NSMutableArray array];
     [self createLeftBackNavBtn];
-    [self creatRightNavWithTitle:@"完成入库"];
+    if (self.ruHuoType==RuHuoTypeOfRuKu) {
+        [self creatRightNavWithTitle:@"完成入库"];
+    }else if (self.ruHuoType==RuHuoTypeOfRuHuoJia){
+        [self creatRightNavWithTitle:@"完成入货架"];
+    }else{
+        
+    }
+    
     self.camerView.readerDelegate = self;
     self.camerView.tracksSymbols = YES;
     [self initControl];
@@ -53,15 +60,19 @@
 {
     NSString *titel;
     NSString *message;
+    NSString *okAction;
     if (self.ruHuoType==RuHuoTypeOfRuKu) {
         message=[NSString stringWithFormat:@"已入库%@%ld件,是否完成入库",self.expressName,dataArr.count];
+        okAction =  @"完成入库";
     }else if (self.ruHuoType==RuHuoTypeOfRuHuoJia){
         message=[NSString stringWithFormat:@"已入库%@%ld件,是否完成入货架",self.expressName,dataArr.count];
+        okAction =  @"完成入货架";
     }else{
         message=[NSString stringWithFormat:@"已入库%@%ld件,是否完成入货柜",self.expressName,dataArr.count];
+        okAction =  @"完成入货柜";
     }
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:titel  message:message preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"确认入库" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:okAction style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         NSLog(@"%@",telephoneTextField.text);//控制台中打印出输入的内容
         
         [self popViewController];
@@ -205,9 +216,17 @@
     
     
     __weak typeof(self)weakSelf = self;
+    NSString *okAction;
+    if (self.ruHuoType==RuHuoTypeOfRuKu) {
+        okAction =  @"完成入库";
+    }else if (self.ruHuoType==RuHuoTypeOfRuHuoJia){
+        okAction =  @"完成入货架";
+    }else{
+        okAction =  @"完成入货柜";
+    }
     
     //这跟 actionSheet有点类似了,因为都是UIAlertController里面的嘛
-    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"确认入库" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:okAction style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         NSLog(@"%@",telephoneTextField.text);//控制台中打印出输入的内容
         
         CourierScanResultModel * model = [[CourierScanResultModel alloc] initWithDic:nil];
