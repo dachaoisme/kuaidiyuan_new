@@ -66,8 +66,10 @@
     float boardHeight = 0.5;
     
     UIView *textFieldbackgroundView = [[UIView alloc]initWithFrame:CGRectMake(leftSpace, CGRectGetMaxY(logoImageView.frame)+60 , width, height *2)];
-    textFieldbackgroundView.layer.borderColor = [CommonUtils colorWithHex:@"c2c3c4"].CGColor;
+    textFieldbackgroundView.layer.borderColor = [CommonUtils colorWithHex:@"e5e5e5"].CGColor;
     textFieldbackgroundView.layer.borderWidth = boardHeight;
+    textFieldbackgroundView.backgroundColor =[UIColor whiteColor];
+    textFieldbackgroundView.layer.cornerRadius =5;
     [self.view addSubview:textFieldbackgroundView];
     
     //手机号输入框
@@ -80,7 +82,7 @@
     phoneTextField.font = [UIFont systemFontOfSize:14];
     phoneTextField.placeholder = @"快递员编号或手机号";
     phoneTextField.adjustsFontSizeToFitWidth = YES;
-    phoneTextField.text = @"13351540959";
+    //phoneTextField.text = @"13351540959";
     phoneTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
     phoneTextField.leftViewMode = UITextFieldViewModeAlways;
     phoneTextField.returnKeyType = UIReturnKeyDone;
@@ -96,7 +98,7 @@
     passwordTextField.borderStyle = UITextBorderStyleNone;
     passwordTextField.returnKeyType = UIReturnKeyDone;
     passwordTextField.placeholder = @"密码";
-    passwordTextField.text = @"1";
+    //passwordTextField.text = @"1";
     passwordTextField.font = [UIFont systemFontOfSize:14];
 
     //myTextField.clearsOnBeginEditing = YES;//设置为YES当用点触文本字段时，字段内容会被清除
@@ -106,10 +108,10 @@
     passwordTextField.leftView = passwordImageView;
     passwordTextField.rightViewMode = UITextFieldViewModeAlways;
     [textFieldbackgroundView addSubview:passwordTextField];
-    
+    [UIFactory showLineInView:textFieldbackgroundView color:@"e5e5e5" rect:CGRectMake(0, CGRectGetMaxY(phoneTextField.frame), CGRectGetWidth(textFieldbackgroundView.frame), 0.5)];
     //登陆按钮
     loginBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [loginBtn setBackgroundColor:[CommonUtils colorWithHex:@"00beaf"]];
+    [loginBtn setBackgroundColor:[CommonUtils colorWithHex:NORMAL_HEIGHTLIGHT_COLOR]];
     loginBtn.tag = 10002;
     loginBtn.layer.cornerRadius = 5.0;
     [loginBtn setTitleColor:[CommonUtils colorWithHex:@"ffffff"] forState:UIControlStateNormal];
