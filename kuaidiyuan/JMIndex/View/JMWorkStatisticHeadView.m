@@ -15,7 +15,7 @@
 {
     self =[super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = [CommonUtils colorWithHex:@"3ed0a7"];
+        self.backgroundColor = [UIColor whiteColor];
         [self setContentView];
     }
     return self;
@@ -123,7 +123,7 @@
 - (UILabel *)label
 {
     UILabel *label = [[UILabel alloc] init];
-    label.textColor = [UIColor whiteColor];
+    label.textColor = [CommonUtils colorWithHex:NORMAL_TITLE_BLACK_COLOR];
     label.textAlignment = NSTextAlignmentCenter;
     label.numberOfLines = 2;
     [self addSubview:label];

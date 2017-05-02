@@ -25,7 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [CommonUtils colorWithHex:NORMAL_BACKGROUND_COLOR];
     dataArr = [NSMutableArray array];
     [self initContentView];
     
@@ -40,7 +40,7 @@
     rc.origin.y = 0;
     rc.size.height = SCREEN_HEIGHT-NAV_TOP_HEIGHT;
     
-    UITableView * tableView    = [[UITableView alloc]initWithFrame:rc style:UITableViewStylePlain];
+    UITableView * tableView    = [[UITableView alloc]initWithFrame:rc style:UITableViewStyleGrouped];
     tableView.separatorColor  = [CommonUtils colorWithHex:@"eeeeee"];
     //tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     tableView.dataSource       = self;
@@ -127,7 +127,16 @@
 {
     return 73;
 }
-
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 15;
+}
+- (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *view =[[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 15)];
+    view.backgroundColor = [CommonUtils colorWithHex:NORMAL_BACKGROUND_COLOR];
+    return view;
+}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return dataArr.count;

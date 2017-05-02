@@ -69,7 +69,7 @@
     if (_timeTitleLabel == nil) {
         _timeTitleLabel = [[UILabel alloc] init];
         _timeTitleLabel.font = JMSystemFont(13);
-        _timeTitleLabel.textColor = [CommonUtils colorWithHex:TitleNormalBlackColor];
+        _timeTitleLabel.textColor = [CommonUtils colorWithHex:NORMAL_SUBTITLE_BLACK_COLOR];
         _timeTitleLabel.numberOfLines = 1;
         _timeTitleLabel.textAlignment = NSTextAlignmentLeft;
         [self.contentView addSubview:_timeTitleLabel];
@@ -83,7 +83,7 @@
     if (_contentTitleLabel == nil) {
         _contentTitleLabel = [[UILabel alloc] init];
         _contentTitleLabel.font = JMSystemFont(13);
-        _contentTitleLabel.textColor = [CommonUtils colorWithHex:TitleNormalBlackColor];
+        _contentTitleLabel.textColor = [CommonUtils colorWithHex:NORMAL_SUBTITLE_BLACK_COLOR];
         _contentTitleLabel.numberOfLines = 1;
         _contentTitleLabel.textAlignment = NSTextAlignmentLeft;
         [self.contentView addSubview:_contentTitleLabel];
@@ -97,7 +97,7 @@
     if (_clockTimeLabel == nil) {
         _clockTimeLabel = [[UILabel alloc] init];
         _clockTimeLabel.font = JMSystemFont(13);
-        _clockTimeLabel.textColor = [CommonUtils colorWithHex:TitleNormalBlackColor];
+        _clockTimeLabel.textColor = [CommonUtils colorWithHex:NORMAL_SUBTITLE_BLACK_COLOR];
         _clockTimeLabel.numberOfLines = 1;
         _clockTimeLabel.textAlignment = NSTextAlignmentLeft;
         [self.contentView addSubview:_clockTimeLabel];

@@ -8,8 +8,8 @@
 
 #import "RCSegmentView.h"
 #define lineWidth 20
-#define selectedFontSize 17
-#define normalFontSize 17
+#define selectedFontSize 15
+#define normalFontSize 15
 
 
 @implementation RCSegmentView
@@ -55,8 +55,8 @@
 
             btn.tag = i;
             [btn setTitle:self.nameArray[i] forState:(UIControlStateNormal)];
-            [btn setTitleColor:[CommonUtils colorWithHex:TitleNormalBlackColor] forState:(UIControlStateNormal)];
-            [btn setTitleColor:[CommonUtils colorWithHex:@"00c0cc"] forState:(UIControlStateSelected)];
+            [btn setTitleColor:[CommonUtils colorWithHex:NORMAL_SUBTITLE_BLACK_COLOR] forState:(UIControlStateNormal)];
+            [btn setTitleColor:[CommonUtils colorWithHex:NORMAL_HEIGHTLIGHT_COLOR] forState:(UIControlStateSelected)];
             [btn addTarget:self action:@selector(Click:) forControlEvents:(UIControlEventTouchUpInside)];
             btn.titleLabel.font = JMSystemFont(normalFontSize);
             if (i == 0) {
@@ -78,7 +78,7 @@
         //self.line=[[UILabel alloc]initWithFrame:CGRectMake(0,37, frame.size.width/self.controllers.count, 3)];
         //也可以把线的宽度写死
         self.line = [[UILabel alloc] initWithFrame:CGRectMake(0, 36, lineWidth, 3)];
-        self.line.backgroundColor = [CommonUtils colorWithHex:@"00c0cc"];
+        self.line.backgroundColor = [CommonUtils colorWithHex:NORMAL_HEIGHTLIGHT_COLOR];
         self.line.tag = 100;
         [self.segmentView addSubview:self.line];
         [self updateLineCenter];
