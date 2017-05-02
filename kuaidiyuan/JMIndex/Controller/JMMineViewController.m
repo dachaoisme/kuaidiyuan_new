@@ -28,9 +28,11 @@
 }
 - (void)createTableView{
     
-    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 70) style:UITableViewStylePlain];
+    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStylePlain];
     tableView.delegate = self;
     tableView.dataSource = self;
+    tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    tableView.backgroundColor=[CommonUtils colorWithHex:NORMAL_BACKGROUND_COLOR];
     [self.view addSubview:tableView];
     self.tableView = tableView;
     self.tableView.tableHeaderView = [self headView];
@@ -90,6 +92,7 @@
 -(UIView *)headView
 {
     UIView *tabelHeadView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 190)];
+    tabelHeadView.backgroundColor =[UIColor whiteColor];
     ///头像
     UIImageView *headIcon = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-31, 30, 62, 62)];
     headIcon.image = [UIImage imageNamed:@"avatar"];

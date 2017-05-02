@@ -27,7 +27,7 @@
     // Do any additional setup after loading the view.
     self.title  =@"修改密码";
     [self createLeftBackNavBtn];
-    self.view.backgroundColor = [CommonUtils colorWithHex:@"e5e5e5"];
+    self.view.backgroundColor = [CommonUtils colorWithHex:NORMAL_BACKGROUND_COLOR];
     [self setContentView];
     
     
@@ -73,12 +73,12 @@
     sureBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     sureBtn.layer.cornerRadius = 3.0;
     [sureBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [sureBtn setBackgroundColor:[CommonUtils colorWithHex:@"00beaf"]];
+    [sureBtn setBackgroundColor:[CommonUtils colorWithHex:NORMAL_HEIGHTLIGHT_COLOR]];
     [sureBtn setFrame:CGRectMake(space, CGRectGetMaxY(backgroundView.frame)+space, width, height)];
     [sureBtn setContentMode:UIViewContentModeCenter];
     [sureBtn addTarget:self action:@selector(sure:) forControlEvents:UIControlEventTouchUpInside];
     [sureBtn setTitle:@"确定" forState:UIControlStateNormal];
-    sureBtn.titleLabel.font = [UIFont systemFontOfSize:10];
+    sureBtn.titleLabel.font = [UIFont systemFontOfSize:17];
     [self.view addSubview:sureBtn];
 }
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
