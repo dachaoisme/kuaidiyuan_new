@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		16410AC11EB82D360015E831 /* kuaidiyuan_login_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16410ABF1EB82D360015E831 /* kuaidiyuan_login_bg@2x.png */; };
+		16410AC21EB82D360015E831 /* kuaidiyuan_login_bg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16410AC01EB82D360015E831 /* kuaidiyuan_login_bg@3x.png */; };
 		1650ADA31E7AD62C006BEEB3 /* JMWorkStautsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1650ADA21E7AD62C006BEEB3 /* JMWorkStautsModel.m */; };
 		1650ADA61E7ADA31006BEEB3 /* JMSelectedExpressCompanyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1650ADA51E7ADA31006BEEB3 /* JMSelectedExpressCompanyViewController.m */; };
 		166DD06E1E99C5A100B2B002 /* JMWorkStatisticDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 166DD06D1E99C5A100B2B002 /* JMWorkStatisticDetailViewController.m */; };
@@ -240,6 +242,8 @@
 
 /* Begin PBXFileReference section */
 		047CF6A5687BBAC66C616E8D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		16410ABF1EB82D360015E831 /* kuaidiyuan_login_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kuaidiyuan_login_bg@2x.png"; sourceTree = "<group>"; };
+		16410AC01EB82D360015E831 /* kuaidiyuan_login_bg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kuaidiyuan_login_bg@3x.png"; sourceTree = "<group>"; };
 		1650ADA11E7AD62C006BEEB3 /* JMWorkStautsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMWorkStautsModel.h; sourceTree = "<group>"; };
 		1650ADA21E7AD62C006BEEB3 /* JMWorkStautsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMWorkStautsModel.m; sourceTree = "<group>"; };
 		1650ADA41E7ADA31006BEEB3 /* JMSelectedExpressCompanyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMSelectedExpressCompanyViewController.h; sourceTree = "<group>"; };
@@ -1112,6 +1116,8 @@
 		58F80C2A1D0BB8940099DCCD /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				16410ABF1EB82D360015E831 /* kuaidiyuan_login_bg@2x.png */,
+				16410AC01EB82D360015E831 /* kuaidiyuan_login_bg@3x.png */,
 				16B77AC01E7E9773006CDFF5 /* iconfont_icon@3x.png */,
 				16B77AC11E7E9773006CDFF5 /* iconfont_icon@2x.png */,
 				16D85FA81E7052130087CDCA /* home_huojia@2x.png */,
@@ -1641,8 +1647,10 @@
 				DD48B7B01D1385FC00E012E4 /* kuaidiyuan_icon_warning@3x.png in Resources */,
 				16D85FB11E7052130087CDCA /* home_huojia@3x.png in Resources */,
 				DD4F14F81D1591760082B90F /* InformGetCourierViewController.xib in Resources */,
+				16410AC21EB82D360015E831 /* kuaidiyuan_login_bg@3x.png in Resources */,
 				DD56D6DE1D150B8D0019BF28 /* hire_btn_contact@3x.png in Resources */,
 				DD48B7B61D1385FC00E012E4 /* kuaidiyuan_not_sent@3x.png in Resources */,
+				16410AC11EB82D360015E831 /* kuaidiyuan_login_bg@2x.png in Resources */,
 				DD4F14F31D15819D0082B90F /* scan.png in Resources */,
 				DD48B7C11D1385FC00E012E4 /* nav_icon_back@2x.png in Resources */,
 				58F80B321D0AEFDA0099DCCD /* 1.jpg in Resources */,

@@ -36,6 +36,7 @@
     UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-50-NAV_TOP_HEIGHT)];
     tableView.delegate = self;
     tableView.dataSource = self;
+    tableView.backgroundColor = [CommonUtils colorWithHex:NORMAL_BACKGROUND_COLOR];
     [self.view addSubview:tableView];
     self.tableView = tableView;
     //注册cell

@@ -55,7 +55,7 @@
     
     //创建大背景视图
     //大的背景图
-    UIImageView * backgroundImageView = [UIFactory imageView:self.view.frame viewMode:UIViewContentModeScaleToFill image:@"kuaidiyuan_login_bg@2x.jpg"];
+    UIImageView * backgroundImageView = [UIFactory imageView:self.view.frame viewMode:UIViewContentModeScaleToFill image:@"kuaidiyuan_login_bg"];
     [self.view addSubview:backgroundImageView];
     
     //logo
