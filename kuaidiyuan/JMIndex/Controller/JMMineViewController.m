@@ -31,7 +31,8 @@
     UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStylePlain];
     tableView.delegate = self;
     tableView.dataSource = self;
-    tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    //tableView.separatorColor = [CommonUtils colorWithHex:NORMAL_SUBTITLE_BLACK_COLOR];
     tableView.backgroundColor=[CommonUtils colorWithHex:NORMAL_BACKGROUND_COLOR];
     [self.view addSubview:tableView];
     self.tableView = tableView;
@@ -73,7 +74,7 @@
     imageView.center =CGPointMake(imageView.center.x, titleLabel.center.y);
     [cell.contentView addSubview:imageView];
 
-    [UIFactory showLineInView:cell color:@"f4f4f4" rect:CGRectMake(0, 0, SCREEN_WIDTH, 0.5)];
+    [UIFactory showLineInView:cell color:NORMAL_SUBTITLE_BLACK_COLOR rect:CGRectMake(0, 0, SCREEN_WIDTH, 0.5)];
     
     return cell;
 }
@@ -101,15 +102,19 @@
     [tabelHeadView addSubview:headIcon];
     
     ///姓名
-    UILabel *nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(headIcon.frame)+10, SCREEN_WIDTH, 44)];
+    UILabel *nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(headIcon.frame)+10, SCREEN_WIDTH, 20)];
     nameLabel.textAlignment = NSTextAlignmentCenter;
+    nameLabel.font = [UIFont systemFontOfSize:13];
     nameLabel.text = [UserAccountManager sharedInstance].userName;
+    nameLabel.textColor = [CommonUtils colorWithHex:NORMAL_SUBTITLE_BLACK_COLOR];
     [tabelHeadView addSubview:nameLabel];
     
     ///快递员id
-    UILabel *expressIdLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(nameLabel.frame)+10, SCREEN_WIDTH, 44)];
+    UILabel *expressIdLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(nameLabel.frame)+10, SCREEN_WIDTH, 20)];
     expressIdLabel.textAlignment = NSTextAlignmentCenter;
+    expressIdLabel.textColor = [CommonUtils colorWithHex:NORMAL_SUBTITLE_BLACK_COLOR];
     expressIdLabel.text = [NSString stringWithFormat:@"快递员编号：%@",[UserAccountManager sharedInstance].userName];
+    expressIdLabel.font = [UIFont systemFontOfSize:13];
     [tabelHeadView addSubview:expressIdLabel];
     
     return tabelHeadView;
