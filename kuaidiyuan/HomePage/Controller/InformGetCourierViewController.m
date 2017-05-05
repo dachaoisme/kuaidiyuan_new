@@ -25,8 +25,14 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [self.camerView start];
+}
+
+
+- (void)viewWillDisappear:(BOOL)animated{
     
-    isOn = NO;
+    [super viewWillDisappear:animated];
+    
+    [self offLight];
 }
 
 
@@ -143,7 +149,7 @@
     [turnOnLightBtn setBackgroundColor:[UIColor clearColor]];
     [turnOnLightBtn setFrame:CGRectMake(50, SCREEN_HEIGHT - 100, 100,44)];
     turnOnLightBtn.titleLabel.font = [UIFont systemFontOfSize:14];
-    [turnOnLightBtn addTarget:self action:@selector(openLight:) forControlEvents:UIControlEventTouchUpInside];
+    [turnOnLightBtn addTarget:self action:@selector(openLight) forControlEvents:UIControlEventTouchUpInside];
     [imageViewScan addSubview:turnOnLightBtn];
     
     
@@ -154,7 +160,7 @@
     [turnOffLightBtn setBackgroundColor:[UIColor clearColor]];
     [turnOffLightBtn setFrame:CGRectMake(CGRectGetMaxX(turnOnLightBtn.frame) + 20, SCREEN_HEIGHT - 100, 100,44)];
     turnOffLightBtn.titleLabel.font = [UIFont systemFontOfSize:14];
-    [turnOffLightBtn addTarget:self action:@selector(offLight:) forControlEvents:UIControlEventTouchUpInside];
+    [turnOffLightBtn addTarget:self action:@selector(offLight) forControlEvents:UIControlEventTouchUpInside];
     [imageViewScan addSubview:turnOffLightBtn];
 
 
@@ -165,7 +171,7 @@
 }
 
 #pragma mark - 开灯事件
-- (void)openLight:(UIButton *)sender
+- (void)openLight
 {
     AVCaptureDevice *captureDevice = self.camerView.device;
     NSError *error = nil;
@@ -183,7 +189,7 @@
 }
 
 #pragma mark - 关灯事件
-- (void)offLight:(UIButton *)sender
+- (void)offLight
 {
     AVCaptureDevice *captureDevice = self.camerView.device;
     NSError *error = nil;
