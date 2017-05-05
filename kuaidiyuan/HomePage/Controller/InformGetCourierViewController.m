@@ -47,6 +47,7 @@
     
     self.camerView.readerDelegate = self;
     self.camerView.tracksSymbols = YES;
+    self.camerView.torchMode = NO; //自动打开灯光
     [self initControl];
     [self.camerView start];
 }
@@ -133,11 +134,72 @@
     submitBtn.hidden = YES;
     [submitBtn addTarget:self action:@selector(popViewController) forControlEvents:UIControlEventTouchUpInside];
     [imageViewScan addSubview:submitBtn];
+    
+    
+    //创建开灯关灯按钮
+    UIButton *turnOnLightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [turnOnLightBtn setTitle:@"打开灯光" forState:UIControlStateNormal];
+    [turnOnLightBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [turnOnLightBtn setBackgroundColor:[UIColor clearColor]];
+    [turnOnLightBtn setFrame:CGRectMake(50, SCREEN_HEIGHT - 100, 100,44)];
+    turnOnLightBtn.titleLabel.font = [UIFont systemFontOfSize:14];
+    [turnOnLightBtn addTarget:self action:@selector(openLight:) forControlEvents:UIControlEventTouchUpInside];
+    [imageViewScan addSubview:turnOnLightBtn];
+    
+    
+    //创建关灯按钮
+    UIButton *turnOffLightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [turnOffLightBtn setTitle:@"关闭灯光" forState:UIControlStateNormal];
+    [turnOffLightBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [turnOffLightBtn setBackgroundColor:[UIColor clearColor]];
+    [turnOffLightBtn setFrame:CGRectMake(CGRectGetMaxX(turnOnLightBtn.frame) + 20, SCREEN_HEIGHT - 100, 100,44)];
+    turnOffLightBtn.titleLabel.font = [UIFont systemFontOfSize:14];
+    [turnOffLightBtn addTarget:self action:@selector(offLight:) forControlEvents:UIControlEventTouchUpInside];
+    [imageViewScan addSubview:turnOffLightBtn];
+
+
 
     
     //定时器，设定时间过1.5秒，
     timer = [NSTimer scheduledTimerWithTimeInterval:.02 target:self selector:@selector(animation1) userInfo:nil repeats:YES];
 }
+
+#pragma mark - 开灯事件
+- (void)openLight:(UIButton *)sender
+{
+    AVCaptureDevice *captureDevice = self.camerView.device;
+    NSError *error = nil;
+    if ([captureDevice hasTorch])
+    {
+        BOOL locked = [captureDevice lockForConfiguration:&error];
+        if (locked)
+        {
+            self.camerView.torchMode = 1;
+            [captureDevice setTorchMode:AVCaptureTorchModeOn];
+
+            [captureDevice unlockForConfiguration];
+        }
+    }
+}
+
+#pragma mark - 关灯事件
+- (void)offLight:(UIButton *)sender
+{
+    AVCaptureDevice *captureDevice = self.camerView.device;
+    NSError *error = nil;
+    if ([captureDevice hasTorch])
+    {
+        BOOL locked = [captureDevice lockForConfiguration:&error];
+        if (locked)
+        {
+            self.camerView.torchMode = 0;
+            [captureDevice setTorchMode:AVCaptureTorchModeOff];
+            
+            [captureDevice unlockForConfiguration];
+        }
+    }
+}
+
 
 
 -(void)animation1
@@ -233,8 +295,8 @@
         if (telephoneTextField) {
             model.courierScanResultTelephone = telephoneTextField.text;
         }
-        [self saveScanResultWithModel:model];
-        [self.camerView start];
+        [weakSelf saveScanResultWithModel:model];
+        [weakSelf.camerView start];
     }];
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         [self.camerView start];
