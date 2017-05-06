@@ -61,7 +61,7 @@
                 
                 NSData *imageData = uploadDic.allValues[i];
                 NSString *imageKey = uploadDic.allKeys[i];
-                if ([imageKey isEqualToString:@"JmStudent[user_id]"]) {
+                if ([imageKey isEqualToString:@"JmCourier[user_id]"]) {
                     [formData appendPartWithFormData:imageData name:imageKey];
                 }else{
                     [formData appendPartWithFileData:imageData name:imageKey fileName:fileName mimeType:@"file"];

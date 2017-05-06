@@ -35,6 +35,11 @@
     [dic setObject:[UserAccountManager sharedInstance].colledge_id forKey:@"collegeid"];
     [[HttpClient sharedInstance]getKongGuiStatusWithParams:dic withSuccessBlock:^(HttpResponseCodeModel *model) {
         NSDictionary * tempDic = (NSDictionary *)model.responseCommonDic;
+        if (tempDic.count == 0) {
+            
+            [CommonUtils showToastWithStr:@"暂无内容哦"];
+            return ;
+        }
         NSArray * keyArray = [tempDic.allKeys sortedArrayUsingSelector:@selector(compare:)];
         for (NSString * key in keyArray) {
             JMExpressGuiUseBigModel * bigModel = [[JMExpressGuiUseBigModel alloc]initWithDic:nil];

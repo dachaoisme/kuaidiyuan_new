@@ -109,8 +109,8 @@
     UIView *tabelHeadView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 190)];
     tabelHeadView.backgroundColor =[UIColor whiteColor];
     ///头像
-    UIImageView *headIcon = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-31, 30, 62, 62)];
-    headIcon.image = [UIImage imageNamed:@"avatar"];
+    UIImageView *headIcon = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-31, 30, 62, 62)];    
+    [headIcon sd_setImageWithURL:[NSURL URLWithString:[[NSUserDefaults standardUserDefaults] valueForKey:@"CurrentUserLogo"]] placeholderImage:[UIImage imageNamed:@"avatar"]];
     headIcon.layer.cornerRadius = 31;
     headIcon.layer.masksToBounds = YES;
     headIcon.userInteractionEnabled = YES;
@@ -161,15 +161,14 @@
         NSMutableDictionary * dic = [NSMutableDictionary dictionary];
         NSMutableDictionary * imageDic = [NSMutableDictionary dictionary];
         NSData * imageData = UIImagePNGRepresentation(scaleImg);
-        [imageDic setValue:imageData forKey:@"JmStudent[file]"];
-        [imageDic setValue:[[UserAccountManager sharedInstance].user_id dataUsingEncoding:NSUTF8StringEncoding] forKey:@"JmStudent[user_id]"];
+        [imageDic setValue:imageData forKey:@"JmCourier[file]"];
+        [imageDic setValue:[[UserAccountManager sharedInstance].user_id dataUsingEncoding:NSUTF8StringEncoding] forKey:@"JmCourier[user_id]"];
         [[HttpClient sharedInstance]uploadIconWithParams:dic withUploadDic:imageDic withSuccessBlock:^(HttpResponseCodeModel *model) {
             
-            
-            avatarImageUploaded = [model.responseCommonDic objectForKey:@"picUrl"];
-                        
             [CommonUtils showToastWithStr:@"图片上传成功"];
 
+            //并保存当前图片Url
+            [[NSUserDefaults standardUserDefaults] setValue:[model.responseCommonDic objectForKey:@"picUrl"] forKey:@"CurrentUserLogo"];
             
         } withFaileBlock:^(NSError *error) {
             [CommonUtils showToastWithStr:@"图片上传失败"];
