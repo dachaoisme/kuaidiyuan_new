@@ -26,12 +26,16 @@
 {
     NSMutableString *tempUrl =[NSMutableString stringWithString:baseApiUrl];// baseUrl ;
     [tempUrl appendString:methond];
-    //获取当前时间apptime
-    NSString *appCurrentTimeString = [NSString stringWithFormat:@"%ld", time(NULL)];//转为字符型
-    //加密MD5KEY
-    NSString * md5key = @"8409-4E89-A81A-B7FF-u(#d";
-    NSString *sign = [[CommonUtils md5:[appCurrentTimeString stringByAppendingString:md5key]] uppercaseString];
-    [tempUrl appendString:[NSString stringWithFormat:@"?apptime=%@&sign=%@",appCurrentTimeString,sign]];
+    /*
+     //获取当前时间apptime
+     NSString *appCurrentTimeString = [NSString stringWithFormat:@"%ld", time(NULL)];//转为字符型
+     //加密MD5KEY
+     NSString * md5key = @"8409-4E89-A81A-B7FF-u(#d";
+     NSString *sign = [[CommonUtils md5:[appCurrentTimeString stringByAppendingString:md5key]] uppercaseString];
+     [tempUrl appendString:[NSString stringWithFormat:@"?apptime=%@&sign=%@",appCurrentTimeString,sign]];
+     
+     */
+    NSString * urlStr = tempUrl;
     // 1.创建AFN管理者
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
@@ -46,7 +50,7 @@
     [manager setSecurityPolicy:[AFSecurityPolicy policyWithPinningMode:AFSSLPinningModePublicKey]];
     
     // 2.利用AFN管理者发送请求
-    [manager POST:tempUrl parameters:dic constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+    [manager POST:urlStr parameters:dic constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         if (uploadDic.allKeys.count>0) {
             NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
             // 设置时间格式
@@ -57,7 +61,12 @@
                 
                 NSData *imageData = uploadDic.allValues[i];
                 NSString *imageKey = uploadDic.allKeys[i];
-                [formData appendPartWithFileData:imageData name:imageKey fileName:fileName mimeType:@"file"];
+                if ([imageKey isEqualToString:@"JmStudent[user_id]"]) {
+                    [formData appendPartWithFormData:imageData name:imageKey];
+                }else{
+                    [formData appendPartWithFileData:imageData name:imageKey fileName:fileName mimeType:@"file"];
+                }
+                
             }
         }
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
@@ -65,7 +74,7 @@
         
         successBlock(model);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        [CommonUtils showToastWithStr:@"请求数据失败，请您耐心等待"];
+        [CommonUtils showToastWithStr:@"请求数据失败"];
         failBlock(error);
     }];
    

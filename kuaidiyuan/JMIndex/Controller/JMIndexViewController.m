@@ -24,13 +24,20 @@
 
 @implementation JMIndexViewController
 
+- (void)viewWillAppear:(BOOL)animated{
+    
+    [super viewWillAppear:animated];
+    
+    [self requestHeadView];
+
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.title  =@"集梦盒子快递员";
     [self creatRightNavWithTitle:@"退出登录"];
     [self setupContentView];
-    [self requestHeadView];
     
 }
 #pragma mark - body视图相关

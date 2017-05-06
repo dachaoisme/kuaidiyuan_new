@@ -296,7 +296,7 @@
     UIAlertAction *ok = [UIAlertAction actionWithTitle:okAction style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         
         CourierScanResultModel * model = [[CourierScanResultModel alloc] initWithDic:nil];
-        model.courierScanResultCompanyName = self.expressName;
+        model.courierScanResultCompanyName = self.expressId;
         model.courierScanResultId =codeMessage;
         if (telephoneTextField) {
             model.courierScanResultTelephone = telephoneTextField.text;
@@ -352,12 +352,12 @@
      */
     if (self.ruHuoType==RuHuoTypeOfRuKu) {
         NSMutableDictionary * dic = [NSMutableDictionary dictionary];
-        [dic setObject:[UserAccountManager sharedInstance].user_id forKey:@"user_id"];
-        NSMutableDictionary * dataDic = [NSMutableDictionary dictionary];
-        [dataDic setObject:scanResultmodel.courierScanResultId forKey:@"orderid"];
-        [dataDic setObject:scanResultmodel.courierScanResultTelephone forKey:@"telphone"];
-        [dataDic setObject:scanResultmodel.courierScanResultCompanyName forKey:@"companyid"];
-        NSString * dataStr = [NSString stringWithFormat:@"orderid:%@,telphone:%@,companyid:%@",scanResultmodel.courierScanResultId,scanResultmodel.courierScanResultTelephone,scanResultmodel.courierScanResultCompanyName];
+        [dic setValue:[UserAccountManager sharedInstance].user_id forKey:@"user_id"];
+//        NSMutableDictionary * dataDic = [NSMutableDictionary dictionary];
+//        [dataDic setValue:scanResultmodel.courierScanResultId forKey:@"orderid"];
+//        [dataDic setValue:scanResultmodel.courierScanResultTelephone forKey:@"telphone"];
+//        [dataDic setObject:scanResultmodel.courierScanResultCompanyName forKey:@"companyid"];
+        NSString * dataStr = [NSString stringWithFormat:@"{\"telphone\":%@,\"orderid\":%@,\"companyid\":%@}",scanResultmodel.courierScanResultTelephone,scanResultmodel.courierScanResultId,scanResultmodel.courierScanResultCompanyName];
         [dic setObject:dataStr forKey:@"data[]"];
         [self sendRequestWithRuKuType:self.ruHuoType withDic:dic WithscanResultmodel:scanResultmodel];
     }else if (self.ruHuoType==RuHuoTypeOfRuHuoJia){

@@ -97,4 +97,6 @@
 #define TWICE_METHOD_OF_KONG_GUI_STATE              @"container/status"
 ///首页工作统计
 #define TWICE_METHOD_OF_WORK_DETAILS                @"work/details"
+
+#define METHOD_OF_ADD_ICON_UPLOAD                   @"user/upload"
 #endif /* NetworkConfigue_h */

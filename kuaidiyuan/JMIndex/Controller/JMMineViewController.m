@@ -9,9 +9,23 @@
 #import "JMMineViewController.h"
 #import "JMWorkStatisticsViewController.h"
 #import "JMChangePasswordViewController.h"
+
+#import "SelectedImageView.h"
+
 @interface JMMineViewController ()<UITableViewDelegate,UITableViewDataSource>
+{
+    
+    SelectedImageView *selectedImageView;
+    
+    NSString          *avatarImageUploaded;
+
+
+}
 
 @property(nonatomic,strong)UITableView *tableView;
+
+///头像
+@property (nonatomic,strong)UIImageView *headIcon;
 
 @end
 
@@ -99,7 +113,9 @@
     headIcon.image = [UIImage imageNamed:@"avatar"];
     headIcon.layer.cornerRadius = 31;
     headIcon.layer.masksToBounds = YES;
+    headIcon.userInteractionEnabled = YES;
     [tabelHeadView addSubview:headIcon];
+    self.headIcon = headIcon;
     
     ///姓名
     UILabel *nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(headIcon.frame)+10, SCREEN_WIDTH, 20)];
@@ -117,8 +133,53 @@
     expressIdLabel.font = [UIFont systemFontOfSize:13];
     [tabelHeadView addSubview:expressIdLabel];
     
+    
+    
+    //添加点击头像修改头像的事件
+    UITapGestureRecognizer *tapHeadImage = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectedImageFromPhotoAlbum:)];
+    [headIcon addGestureRecognizer:tapHeadImage];
+    
     return tabelHeadView;
 }
+
+#pragma mark - 从相册中选择图片
+
+-(void)selectedImageFromPhotoAlbum:(UIButton *)sender
+{
+    
+    float height = 200;
+    
+    selectedImageView = [[SelectedImageView alloc]initWithFrame:CGRectMake(0, SCREEN_HEIGHT-height, SCREEN_WIDTH, height) withSuperController:self];
+    weakSelf(wSelf)
+    selectedImageView.callBackBlock = ^(UIImage * selectedImage){
+        
+        [wSelf.headIcon setImage:selectedImage];
+        
+        //需要把图片上传到服务器
+        UIImage * scaleImg = [CommonUtils imageByScalingAndCroppingForSize:CGSizeMake(400, 400) withImage:selectedImage];
+        //需要把图片上传到服务器
+        NSMutableDictionary * dic = [NSMutableDictionary dictionary];
+        NSMutableDictionary * imageDic = [NSMutableDictionary dictionary];
+        NSData * imageData = UIImagePNGRepresentation(scaleImg);
+        [imageDic setValue:imageData forKey:@"JmStudent[file]"];
+        [imageDic setValue:[[UserAccountManager sharedInstance].user_id dataUsingEncoding:NSUTF8StringEncoding] forKey:@"JmStudent[user_id]"];
+        [[HttpClient sharedInstance]uploadIconWithParams:dic withUploadDic:imageDic withSuccessBlock:^(HttpResponseCodeModel *model) {
+            
+            
+            avatarImageUploaded = [model.responseCommonDic objectForKey:@"picUrl"];
+                        
+            [CommonUtils showToastWithStr:@"图片上传成功"];
+
+            
+        } withFaileBlock:^(NSError *error) {
+            [CommonUtils showToastWithStr:@"图片上传失败"];
+        }];
+        
+    };
+    [[UIApplication sharedApplication].delegate.window addSubview:selectedImageView];
+    
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

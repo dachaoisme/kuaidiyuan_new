@@ -41,9 +41,9 @@
 		</dict>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>是否允许家乐活访问您的相机</string>
+	<string>是否允许集梦盒子快递员访问您的相机</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>是否允许家乐活访问您的相册</string>
+	<string>是否允许集梦盒子快递员访问您的相册</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

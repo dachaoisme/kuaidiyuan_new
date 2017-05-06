@@ -345,4 +345,21 @@
     }];
 }
 
+
+///发布需求照片上传
+- (void)uploadIconWithParams:(NSDictionary *)params withUploadDic:(NSDictionary *)uploadDic withSuccessBlock:(XYPBaseBlock)successBlock withFaileBlock:(XYPHttpErrorBlock)failBlock
+{
+    [[HttpServer sharedInstance]postWithMethod:METHOD_OF_ADD_ICON_UPLOAD withParams:params withUploadDic:uploadDic withSuccess:^(HttpResponseCodeModel *model) {
+        
+        successBlock(model);
+        
+    } withFailBlock:^(NSError *error) {
+        
+        failBlock(error);
+        
+    }];
+    
+}
+
+
 @end
