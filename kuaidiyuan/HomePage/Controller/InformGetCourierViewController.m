@@ -12,11 +12,19 @@
 #import "LDCPullDownMenuView.h"
 
 
+#import "CourierBtnView.h"
+
 @interface InformGetCourierViewController ()<UITextFieldDelegate,LDCPullDownMenuViewDelegate>
 {
     UILabel *showAlertLabel;
     NSMutableArray * dataArr;
     UITextField * telephoneTextField;
+    
+    
+    ///打开手电筒的视图
+    CourierBtnView *lightView;
+    ///输入条形码的输入框
+    UITextField *inputBarcodeTextField;
 }
 @end
 
@@ -53,6 +61,7 @@
     
     self.camerView.readerDelegate = self;
     self.camerView.tracksSymbols = YES;
+    [self.camerView.session setSessionPreset:AVCaptureSessionPresetHigh];
     self.camerView.torchMode = NO; //自动打开灯光
     [self initControl];
     [self.camerView start];
@@ -69,13 +78,13 @@
     NSString *message;
     NSString *okAction;
     if (self.ruHuoType==RuHuoTypeOfRuKu) {
-        message=[NSString stringWithFormat:@"已入库%@%ld件,是否完成入库",self.expressName,dataArr.count];
+        message=[NSString stringWithFormat:@"已入库%@%lu件,是否完成入库",self.expressName,(unsigned long)dataArr.count];
         okAction =  @"完成入库";
     }else if (self.ruHuoType==RuHuoTypeOfRuHuoJia){
-        message=[NSString stringWithFormat:@"已入库%@%ld件,是否完成入货架",self.expressName,dataArr.count];
+        message=[NSString stringWithFormat:@"已入库%@%ld件,是否完成入货架",self.expressName,(unsigned long)dataArr.count];
         okAction =  @"完成入货架";
     }else{
-        message=[NSString stringWithFormat:@"已入库%@%ld件,是否完成入货柜",self.expressName,dataArr.count];
+        message=[NSString stringWithFormat:@"已入库%@%ld件,是否完成入货柜",self.expressName,(unsigned long)dataArr.count];
         okAction =  @"完成入货柜";
     }
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:titel  message:message preferredStyle:UIAlertControllerStyleAlert];
@@ -142,6 +151,25 @@
     [imageViewScan addSubview:submitBtn];
     
     
+    //创建手动输入条形码的按钮
+    CourierBtnView *barCodeView = [[CourierBtnView alloc] initWithFrame:CGRectMake(50, SCREEN_HEIGHT - 130, 120, 86)];
+    [barCodeView.columnImageViewBtn setImage:[UIImage imageNamed:@"scan_icon_hand"] forState:UIControlStateNormal];
+    barCodeView.columnTitileLable.text = @"手动输入编号";
+    [barCodeView.columnImageViewBtn addTarget:self action:@selector(inputBarCode) forControlEvents:UIControlEventTouchUpInside];
+    [imageViewScan addSubview:barCodeView];
+
+    
+    //创建打开手电筒的按钮
+    lightView = [[CourierBtnView alloc] initWithFrame:CGRectMake((SCREEN_WIDTH - 100 - 120 * 2) + CGRectGetMaxX(barCodeView.frame), SCREEN_HEIGHT - 130, 120, 86)];
+    [lightView.columnImageViewBtn setBackgroundImage:[UIImage imageNamed:@"scan_icon_flashlight_off"] forState:UIControlStateNormal];
+    [lightView.columnImageViewBtn setBackgroundImage:[UIImage imageNamed:@"scan_icon_flashlight_on"] forState:UIControlStateSelected];
+    lightView.columnTitileLable.text = @"打开手电筒";
+    [lightView.columnImageViewBtn addTarget:self action:@selector(openLight:) forControlEvents:UIControlEventTouchUpInside];
+    [imageViewScan addSubview:lightView];
+    
+    
+    
+    /*
     //创建开灯关灯按钮
     UIButton *turnOnLightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [turnOnLightBtn setTitle:@"打开灯光" forState:UIControlStateNormal];
@@ -162,7 +190,7 @@
     turnOffLightBtn.titleLabel.font = [UIFont systemFontOfSize:14];
     [turnOffLightBtn addTarget:self action:@selector(offLight) forControlEvents:UIControlEventTouchUpInside];
     [imageViewScan addSubview:turnOffLightBtn];
-
+     */
 
 
     
@@ -170,9 +198,74 @@
     timer = [NSTimer scheduledTimerWithTimeInterval:.02 target:self selector:@selector(animation1) userInfo:nil repeats:YES];
 }
 
+#pragma mark - 输入条形码的事件
+- (void)inputBarCode{
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:@"\n\n\n\n\n" preferredStyle:UIAlertControllerStyleAlert];
+    
+    NSArray *testArray;
+    testArray = [NSArray arrayWithObject:self.expressName];
+    
+    
+    inputBarcodeTextField = [[UITextField alloc] initWithFrame:CGRectMake(10,20, 240, 30)];//wight = 270;
+    inputBarcodeTextField.returnKeyType = UIReturnKeyDone;
+    inputBarcodeTextField.placeholder = @"请输入快递单号";
+    inputBarcodeTextField.borderStyle = UITextBorderStyleRoundedRect;//设置边框的样式
+    inputBarcodeTextField.delegate = self;
+    //添加子控件也是直接add
+    [alert.view addSubview:inputBarcodeTextField];
+    
+    
+    if (self.ruHuoType==RuHuoTypeOfRuKu) {
+        //这里就可以设置子控件的frame,但是alert的frame不可以设置
+        telephoneTextField = [[UITextField alloc] initWithFrame:CGRectMake(10,60, 240, 30)];//wight = 270;
+        telephoneTextField.returnKeyType = UIReturnKeyDone;
+        telephoneTextField.placeholder = @"请填写收件人手机号";
+        telephoneTextField.borderStyle = UITextBorderStyleRoundedRect;//设置边框的样式
+        telephoneTextField.delegate = self;
+        //添加子控件也是直接add
+        [alert.view addSubview:telephoneTextField];
+    }
+    
+    __weak typeof(self)weakSelf = self;
+    NSString *okAction;
+    if (self.ruHuoType==RuHuoTypeOfRuKu) {
+        okAction =  @"确认入库";
+    }else if (self.ruHuoType==RuHuoTypeOfRuHuoJia){
+        okAction =  @"确认入货架";
+    }else{
+        okAction =  @"确认入货柜";
+    }
+    
+    //这跟 actionSheet有点类似了,因为都是UIAlertController里面的嘛
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:okAction style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        
+        CourierScanResultModel * model = [[CourierScanResultModel alloc] initWithDic:nil];
+        model.courierScanResultCompanyName = self.expressId;
+        model.courierScanResultId =inputBarcodeTextField.text;
+        if (telephoneTextField) {
+            model.courierScanResultTelephone = telephoneTextField.text;
+        }
+        [weakSelf saveScanResultWithModel:model];
+        [weakSelf.camerView start];
+    }];
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        [self.camerView start];
+    }];
+    //添加按钮
+    [alert addAction:cancel];
+    [alert addAction:ok];
+    
+    //以modal的方式来弹出
+    [self presentViewController:alert animated:YES completion:^{ }];
+    
+}
+
 #pragma mark - 开灯事件
-- (void)openLight
+- (void)openLight:(UIButton *)sender
 {
+    sender.selected = !sender.selected;
+
     AVCaptureDevice *captureDevice = self.camerView.device;
     NSError *error = nil;
     if ([captureDevice hasTorch])
@@ -180,10 +273,25 @@
         BOOL locked = [captureDevice lockForConfiguration:&error];
         if (locked)
         {
-            self.camerView.torchMode = 1;
-            [captureDevice setTorchMode:AVCaptureTorchModeOn];
+            if (sender.selected) {
+                lightView.columnTitileLable.text = @"关闭手电筒";
 
-            [captureDevice unlockForConfiguration];
+                self.camerView.torchMode = 1;
+                [captureDevice setTorchMode:AVCaptureTorchModeOn];
+                
+                [captureDevice unlockForConfiguration];
+
+            }else{
+                
+                lightView.columnTitileLable.text = @"打开手电筒";
+
+                
+                self.camerView.torchMode = 0;
+                [captureDevice setTorchMode:AVCaptureTorchModeOff];
+                
+                [captureDevice unlockForConfiguration];
+
+            }
         }
     }
 }
@@ -198,10 +306,6 @@
         BOOL locked = [captureDevice lockForConfiguration:&error];
         if (locked)
         {
-            self.camerView.torchMode = 0;
-            [captureDevice setTorchMode:AVCaptureTorchModeOff];
-            
-            [captureDevice unlockForConfiguration];
         }
     }
 }
@@ -285,11 +389,11 @@
     __weak typeof(self)weakSelf = self;
     NSString *okAction;
     if (self.ruHuoType==RuHuoTypeOfRuKu) {
-        okAction =  @"完成入库";
+        okAction =  @"确认入库";
     }else if (self.ruHuoType==RuHuoTypeOfRuHuoJia){
-        okAction =  @"完成入货架";
+        okAction =  @"确认入货架";
     }else{
-        okAction =  @"完成入货柜";
+        okAction =  @"确认入货柜";
     }
     
     //这跟 actionSheet有点类似了,因为都是UIAlertController里面的嘛
@@ -308,8 +412,8 @@
         [self.camerView start];
     }];
     //添加按钮
-    [alert addAction:ok];
     [alert addAction:cancel];
+    [alert addAction:ok];
     
     //以modal的方式来弹出
     [self presentViewController:alert animated:YES completion:^{ }];
@@ -379,7 +483,7 @@
             if (model.responseCode==ResponseCodeSuccess) {
                 ///请求成功
                 [dataArr addObject:scanResultmodel];
-                showAlertLabel.text = [NSString stringWithFormat:@"已添加 %ld 快递",[dataArr count]];
+                showAlertLabel.text = [NSString stringWithFormat:@"已添加 %ld 快递",(unsigned long)[dataArr count]];
             }else{
                 [CommonUtils showToastWithStr:model.responseMsg];
             }
@@ -392,7 +496,7 @@
             if (model.responseCode==ResponseCodeSuccess) {
                 ///请求成功
                 [dataArr addObject:scanResultmodel];
-                showAlertLabel.text = [NSString stringWithFormat:@"已添加 %ld 快递",[dataArr count]];
+                showAlertLabel.text = [NSString stringWithFormat:@"已添加 %ld 快递",(unsigned long)[dataArr count]];
             }else{
                 [CommonUtils showToastWithStr:model.responseMsg];
             }
@@ -405,7 +509,7 @@
             if (model.responseCode==ResponseCodeSuccess) {
                 ///请求成功
                 [dataArr addObject:scanResultmodel];
-                showAlertLabel.text = [NSString stringWithFormat:@"已添加 %ld 快递",[dataArr count]];
+                showAlertLabel.text = [NSString stringWithFormat:@"已添加 %ld 快递",(unsigned long)[dataArr count]];
             }else{
                 [CommonUtils showToastWithStr:model.responseMsg];
             }

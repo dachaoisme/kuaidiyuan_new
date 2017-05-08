@@ -221,6 +221,13 @@
 		DD8E6AED1D20D2EA00FE4195 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DD8E6AEC1D20D2EA00FE4195 /* libc++.tbd */; };
 		DD8E6AEF1D20D32300FE4195 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DD8E6AEE1D20D32300FE4195 /* libstdc++.6.0.9.tbd */; };
 		DD8E6AF11D20D33900FE4195 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DD8E6AF01D20D33900FE4195 /* libsqlite3.tbd */; };
+		DDB425521EBEB79D009C8A8A /* CourierBtnView.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB425511EBEB79D009C8A8A /* CourierBtnView.m */; };
+		DDB425561EBEBAFD009C8A8A /* scan_icon_hand@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDB425541EBEBAFD009C8A8A /* scan_icon_hand@2x.png */; };
+		DDB4255A1EBEBB1C009C8A8A /* scan_icon_hand@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDB425581EBEBB1C009C8A8A /* scan_icon_hand@3x.png */; };
+		DDB4255D1EBED2DD009C8A8A /* scan_icon_flashlight_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDB4255B1EBED2DD009C8A8A /* scan_icon_flashlight_off@2x.png */; };
+		DDB4255E1EBED2DD009C8A8A /* scan_icon_flashlight_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDB4255C1EBED2DD009C8A8A /* scan_icon_flashlight_on@2x.png */; };
+		DDB425601EBED372009C8A8A /* scan_icon_flashlight_on@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDB4255F1EBED372009C8A8A /* scan_icon_flashlight_on@3x.png */; };
+		DDB425621EBED39B009C8A8A /* scan_icon_flashlight_off@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDB425611EBED39B009C8A8A /* scan_icon_flashlight_off@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -600,6 +607,14 @@
 		DD8E6AEC1D20D2EA00FE4195 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		DD8E6AEE1D20D32300FE4195 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
 		DD8E6AF01D20D33900FE4195 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		DDB425501EBEB79D009C8A8A /* CourierBtnView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourierBtnView.h; sourceTree = "<group>"; };
+		DDB425511EBEB79D009C8A8A /* CourierBtnView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourierBtnView.m; sourceTree = "<group>"; };
+		DDB425541EBEBAFD009C8A8A /* scan_icon_hand@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scan_icon_hand@2x.png"; sourceTree = "<group>"; };
+		DDB425581EBEBB1C009C8A8A /* scan_icon_hand@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scan_icon_hand@3x.png"; sourceTree = "<group>"; };
+		DDB4255B1EBED2DD009C8A8A /* scan_icon_flashlight_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scan_icon_flashlight_off@2x.png"; sourceTree = "<group>"; };
+		DDB4255C1EBED2DD009C8A8A /* scan_icon_flashlight_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scan_icon_flashlight_on@2x.png"; sourceTree = "<group>"; };
+		DDB4255F1EBED372009C8A8A /* scan_icon_flashlight_on@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scan_icon_flashlight_on@3x.png"; sourceTree = "<group>"; };
+		DDB425611EBED39B009C8A8A /* scan_icon_flashlight_off@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scan_icon_flashlight_off@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1119,6 +1134,12 @@
 				16410ABF1EB82D360015E831 /* kuaidiyuan_login_bg@2x.png */,
 				16410AC01EB82D360015E831 /* kuaidiyuan_login_bg@3x.png */,
 				16B77AC01E7E9773006CDFF5 /* iconfont_icon@3x.png */,
+				DDB425581EBEBB1C009C8A8A /* scan_icon_hand@3x.png */,
+				DDB425541EBEBAFD009C8A8A /* scan_icon_hand@2x.png */,
+				DDB425611EBED39B009C8A8A /* scan_icon_flashlight_off@3x.png */,
+				DDB4255B1EBED2DD009C8A8A /* scan_icon_flashlight_off@2x.png */,
+				DDB4255F1EBED372009C8A8A /* scan_icon_flashlight_on@3x.png */,
+				DDB4255C1EBED2DD009C8A8A /* scan_icon_flashlight_on@2x.png */,
 				16B77AC11E7E9773006CDFF5 /* iconfont_icon@2x.png */,
 				16D85FA81E7052130087CDCA /* home_huojia@2x.png */,
 				16D85FA91E7052130087CDCA /* home_huojia@3x.png */,
@@ -1334,6 +1355,8 @@
 				DD56C5891D14D9DD0019BF28 /* DeliveredCourierTableViewCell.m */,
 				DD56C58A1D14D9DD0019BF28 /* DeliveredCourierTableViewCell.xib */,
 				DD56D6D31D14FD720019BF28 /* CourierMessageCell */,
+				DDB425501EBEB79D009C8A8A /* CourierBtnView.h */,
+				DDB425511EBEB79D009C8A8A /* CourierBtnView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1578,6 +1601,7 @@
 				DD4F153B1D1684CB0082B90F /* arrow@2x.png in Resources */,
 				DD48B7C81D1385FC00E012E4 /* switch_off@3x.png in Resources */,
 				DD10974F1D1E6AD300A6AACC /* sound.caf in Resources */,
+				DDB4255E1EBED2DD009C8A8A /* scan_icon_flashlight_on@2x.png in Resources */,
 				DD48B7AE1D1385FC00E012E4 /* kuaidiyuan_icon_place@3x.png in Resources */,
 				16D85FB51E7052130087CDCA /* home_user@3x.png in Resources */,
 				DD4F14D91D1575D30082B90F /* zbar-help.html in Resources */,
@@ -1585,7 +1609,9 @@
 				DD48B7A91D1385FC00E012E4 /* kuaidiyuan_btn_phone_press@2x.png in Resources */,
 				DD48B7B71D1385FC00E012E4 /* kuaidiyuan_pacage_empty@2x.png in Resources */,
 				58F80AC11D0AEF5D0099DCCD /* IQKeyboardManager.bundle in Resources */,
+				DDB425601EBED372009C8A8A /* scan_icon_flashlight_on@3x.png in Resources */,
 				DD48B7BF1D1385FC00E012E4 /* login_logo@2x.png in Resources */,
+				DDB425561EBEBAFD009C8A8A /* scan_icon_hand@2x.png in Resources */,
 				582D37141D577D2500EC509C /* kuaidiyuan_icon_record@3x.png in Resources */,
 				16D85FB01E7052130087CDCA /* home_huojia@2x.png in Resources */,
 				16D85FB31E7052130087CDCA /* home_ruku@3x.png in Resources */,
@@ -1625,6 +1651,7 @@
 				582D37111D577D2500EC509C /* kuaidiyuan_icon_pickup@2x.png in Resources */,
 				DD4F14EF1D157D8B0082B90F /* QRScanViewController.xib in Resources */,
 				DD48B7D41D13949B00E012E4 /* avatar@2x.png in Resources */,
+				DDB4255A1EBEBB1C009C8A8A /* scan_icon_hand@3x.png in Resources */,
 				DD48B7AC1D1385FC00E012E4 /* kuaidiyuan_couch_mark@3x.png in Resources */,
 				DD48B7C91D1385FC00E012E4 /* switch_on@2x.png in Resources */,
 				16D85FB61E7052130087CDCA /* konggui@2x.png in Resources */,
@@ -1634,8 +1661,10 @@
 				DD4F14D81D1575D30082B90F /* zbar-back.png in Resources */,
 				DD48B7AA1D1385FC00E012E4 /* kuaidiyuan_btn_phone_press@3x.png in Resources */,
 				DD56C58C1D14D9DD0019BF28 /* DeliveredCourierTableViewCell.xib in Resources */,
+				DDB425621EBED39B009C8A8A /* scan_icon_flashlight_off@3x.png in Resources */,
 				DD4F150C1D164CD90082B90F /* ApplyCourierTwoTableViewCell.xib in Resources */,
 				DD48B7BE1D1385FC00E012E4 /* loading_white@3x.png in Resources */,
+				DDB4255D1EBED2DD009C8A8A /* scan_icon_flashlight_off@2x.png in Resources */,
 				DD48B7C01D1385FC00E012E4 /* login_logo@3x.png in Resources */,
 				DD48B7C71D1385FC00E012E4 /* switch_off@2x.png in Resources */,
 				DD48B7C41D1385FC00E012E4 /* nav_icon_settings@3x.png in Resources */,
@@ -1772,6 +1801,7 @@
 				58F80ACE1D0AEF5D0099DCCD /* MJRefreshLegendHeader.m in Sources */,
 				DD4F15061D15A58E0082B90F /* SettingTableViewCell.m in Sources */,
 				58F80C251D0BB4A60099DCCD /* AddTeacherInfoTypeTwoTableViewCell.m in Sources */,
+				DDB425521EBEB79D009C8A8A /* CourierBtnView.m in Sources */,
 				58F80AB51D0AEF5D0099DCCD /* IQUITextFieldView+Additions.m in Sources */,
 				DD48B7CF1D138ED300E012E4 /* RegisterDetailViewController.m in Sources */,
 				58F80AF01D0AEF870099DCCD /* HttpCommonModel.m in Sources */,

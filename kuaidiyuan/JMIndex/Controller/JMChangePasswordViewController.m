@@ -14,6 +14,9 @@
     UITextField *inputOldPasswordTextField;
     UITextField *inputPassNewTextField;
     
+    ///确认新密码
+    UITextField *makeSureNewTextField;
+    
     UIButton    *sureBtn;
 }
 
@@ -36,7 +39,7 @@
 {
     float space = 16;
     float width = SCREEN_WIDTH -2*space;
-    float backgroundViewHeight = 48*2;
+    float backgroundViewHeight = 48*3;
     float height = 48;
     
     UIView * backgroundView = [[UIView alloc]initWithFrame:CGRectMake(0, space+NAV_TOP_HEIGHT, SCREEN_WIDTH, backgroundViewHeight)];
@@ -52,6 +55,7 @@
     inputOldPasswordTextField.placeholder = @"请输入旧密码";
     inputOldPasswordTextField.adjustsFontSizeToFitWidth = YES;
     inputOldPasswordTextField.returnKeyType = UIReturnKeyDone;
+    inputOldPasswordTextField.secureTextEntry = YES;
     inputOldPasswordTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
     [backgroundView addSubview:inputOldPasswordTextField];
     
@@ -60,6 +64,7 @@
     inputPassNewTextField.tag = 2;
     inputPassNewTextField.delegate = self;
     [inputPassNewTextField setBackgroundColor:[CommonUtils colorWithHex:@"ffffff"]];
+    inputPassNewTextField.secureTextEntry = YES;
     inputPassNewTextField.textAlignment = NSTextAlignmentLeft;
     inputPassNewTextField.borderStyle = UITextBorderStyleNone;
     inputPassNewTextField.placeholder = @"请设置新密码";
@@ -68,7 +73,25 @@
     inputPassNewTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
     [backgroundView addSubview:inputPassNewTextField];
     
+    //确认输入密码
+    makeSureNewTextField = [[UITextField alloc]initWithFrame:CGRectMake(space, CGRectGetMaxY(inputPassNewTextField.frame), width, height)];
+    makeSureNewTextField.tag = 3;
+    makeSureNewTextField.delegate = self;
+    [makeSureNewTextField setBackgroundColor:[CommonUtils colorWithHex:@"ffffff"]];
+    makeSureNewTextField.secureTextEntry = YES;
+    makeSureNewTextField.textAlignment = NSTextAlignmentLeft;
+    makeSureNewTextField.borderStyle = UITextBorderStyleNone;
+    makeSureNewTextField.placeholder = @"请再次输入新密码";
+    makeSureNewTextField.adjustsFontSizeToFitWidth = YES;
+    makeSureNewTextField.returnKeyType = UIReturnKeyDone;
+    makeSureNewTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
+    [backgroundView addSubview:makeSureNewTextField];
+
+    
     [UIFactory showLineInView:backgroundView color:@"e5e5e5" rect:CGRectMake(0, CGRectGetMaxY(inputOldPasswordTextField.frame)-0.5, SCREEN_WIDTH, 1)];
+    
+    [UIFactory showLineInView:backgroundView color:@"e5e5e5" rect:CGRectMake(0, CGRectGetMaxY(inputPassNewTextField.frame)-0.5, SCREEN_WIDTH, 1)];
+
     
     sureBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     sureBtn.layer.cornerRadius = 3.0;
@@ -97,6 +120,13 @@
         [CommonUtils showToastWithStr:@"新密码不能为空"];
         return;
     }
+    
+    if (![inputPassNewTextField.text isEqualToString:makeSureNewTextField.text]) {
+        
+        [CommonUtils showToastWithStr:@"两次输入的密码不一致"];
+        return;
+        
+    }
     /*
      user_id int    必需    用户序号
      passwd   string    必需    新密码
@@ -109,8 +139,12 @@
     [[HttpClient sharedInstance]changePasswordWithParams:dic withSuccessBlock:^(HttpResponseCodeModel *model) {
         if (model.responseCode == ResponseCodeSuccess) {
             //NSDictionary * userInfoDic = [model.responseCommonDic objectForKey:@"data"];
-            //若成功，应该是返回主页面，并且是已经登录状态
-            [[UserAccountManager sharedInstance]loginWithUserPhoneNum:[UserAccountManager sharedInstance].userTelphone andPassWord:inputPassNewTextField.text];
+            
+            [CommonUtils showToastWithStr:@"密码修改成功"];
+            
+            
+            [self performSelector:@selector(comeBackHomePage) withObject:self afterDelay:2.0f];
+            
         }else{
             //验证失败
             [CommonUtils showToastWithStr:model.responseMsg];
@@ -118,6 +152,13 @@
     } withFaileBlock:^(NSError *error) {
         
     }];
+}
+
+- (void)comeBackHomePage{
+    
+    //若成功，应该是返回主页面，并且是已经登录状态
+    [[UserAccountManager sharedInstance]loginWithUserPhoneNum:[UserAccountManager sharedInstance].userTelphone andPassWord:inputPassNewTextField.text];
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
