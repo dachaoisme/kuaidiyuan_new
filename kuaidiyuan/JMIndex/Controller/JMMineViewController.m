@@ -129,7 +129,7 @@
     UILabel *expressIdLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(nameLabel.frame)+10, SCREEN_WIDTH, 20)];
     expressIdLabel.textAlignment = NSTextAlignmentCenter;
     expressIdLabel.textColor = [CommonUtils colorWithHex:NORMAL_SUBTITLE_BLACK_COLOR];
-    expressIdLabel.text = [NSString stringWithFormat:@"快递员编号：%@",[UserAccountManager sharedInstance].userName];
+    expressIdLabel.text = [NSString stringWithFormat:@"快递员编号：%@",[UserAccountManager sharedInstance].userTelphone];
     expressIdLabel.font = [UIFont systemFontOfSize:13];
     [tabelHeadView addSubview:expressIdLabel];
     

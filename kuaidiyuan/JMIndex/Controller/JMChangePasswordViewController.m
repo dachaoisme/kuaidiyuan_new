@@ -67,7 +67,7 @@
     inputPassNewTextField.secureTextEntry = YES;
     inputPassNewTextField.textAlignment = NSTextAlignmentLeft;
     inputPassNewTextField.borderStyle = UITextBorderStyleNone;
-    inputPassNewTextField.placeholder = @"请设置新密码";
+    inputPassNewTextField.placeholder = @"请输入不少于8位的数字+字母组合的新密码";
     inputPassNewTextField.adjustsFontSizeToFitWidth = YES;
     inputPassNewTextField.returnKeyType = UIReturnKeyDone;
     inputPassNewTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
@@ -121,6 +121,28 @@
         return;
     }
     
+    if (inputPassNewTextField.text.length < 8) {
+        
+        [CommonUtils showToastWithStr:@"密码不可少于8位"];
+        
+        return;
+    }
+    
+    if ([self checkIsHaveNumAndLetter:inputPassNewTextField.text] == 1) {
+        //全部符合数字，表示沒有英文
+
+        [CommonUtils showToastWithStr:@"密码不可以是纯数字"];
+        
+        return;
+    }
+    if ([self checkIsHaveNumAndLetter:inputPassNewTextField.text] == 2) {
+        //全部符合英文，表示沒有数字
+
+        [CommonUtils showToastWithStr:@"密码不可以是纯字母"];
+
+        return;
+    }
+    
     if (![inputPassNewTextField.text isEqualToString:makeSureNewTextField.text]) {
         
         [CommonUtils showToastWithStr:@"两次输入的密码不一致"];
@@ -158,6 +180,38 @@
     
     //若成功，应该是返回主页面，并且是已经登录状态
     [[UserAccountManager sharedInstance]loginWithUserPhoneNum:[UserAccountManager sharedInstance].userTelphone andPassWord:inputPassNewTextField.text];
+    
+}
+
+//直接调用这个方法就行
+-(int)checkIsHaveNumAndLetter:(NSString*)password{
+    //数字条件
+    NSRegularExpression *tNumRegularExpression = [NSRegularExpression regularExpressionWithPattern:@"[0-9]" options:NSRegularExpressionCaseInsensitive error:nil];
+    
+    //符合数字条件的有几个字节
+    NSUInteger tNumMatchCount = [tNumRegularExpression numberOfMatchesInString:password
+                                                                       options:NSMatchingReportProgress
+                                                                         range:NSMakeRange(0, password.length)];
+    
+    //英文字条件
+    NSRegularExpression *tLetterRegularExpression = [NSRegularExpression regularExpressionWithPattern:@"[A-Za-z]" options:NSRegularExpressionCaseInsensitive error:nil];
+    
+    //符合英文字条件的有几个字节
+    NSUInteger tLetterMatchCount = [tLetterRegularExpression numberOfMatchesInString:password options:NSMatchingReportProgress range:NSMakeRange(0, password.length)];
+    
+    if (tNumMatchCount == password.length) {
+        //全部符合数字，表示沒有英文
+        return 1;
+    } else if (tLetterMatchCount == password.length) {
+        //全部符合英文，表示沒有数字
+        return 2;
+    } else if (tNumMatchCount + tLetterMatchCount == password.length) {
+        //符合英文和符合数字条件的相加等于密码长度
+        return 3;
+    } else {
+        //可能包含标点符号的情況，或是包含非英文的文字，这里再依照需求详细判断想呈现的错误
+        return 4;
+    }
     
 }
 - (void)didReceiveMemoryWarning {

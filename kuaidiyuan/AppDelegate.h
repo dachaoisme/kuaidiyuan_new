@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 
 //极光推送
-static NSString *appKey = @"60a6f51d360a7060c47408b6";
+static NSString *appKey = @"a07cc19303cef9804a468983";
 static NSString *channel = @"Publish channel";
-static BOOL isProduction = FALSE;
+static BOOL isProduction = YES;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
